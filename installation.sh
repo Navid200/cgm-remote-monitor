@@ -47,8 +47,8 @@ cd /srv
 
 echo "Installing Nightscout"
 
-sudo git clone https://github.com/jamorham/nightscout-vps.git
-cd nightscout-vps
+sudo git clone https://github.com/Navid200/cgm-remote-monitor.git
+cd cgm-remote-monitor
 sudo git checkout vps-1
 sudo git pull
 
@@ -63,7 +63,7 @@ done
 if [ ! -s /usr/local/etc/no-ip2.conf ]
 then
 cd /usr/src
-sudo tar -xzf /srv/nightscout-vps/helper/noip-duc-linux.tar.gz
+sudo tar -xzf /srv/cgm-remote-monitor/helper/noip-duc-linux.tar.gz
 cd /usr/src/noip-2.1.9-1
 sudo make install
 else
@@ -139,7 +139,7 @@ export INSECURE_USE_HTTP=true
 export HOSTNAME="127.0.0.1"
 export PORT="1337"
 
-cd /srv/nightscout-vps
+cd /srv/cgm-remote-monitor
 
 
 while [ "`netstat -lnt | grep 27017 | grep -v grep`" = "" ]
@@ -235,7 +235,7 @@ sudo sed -i -e 'sX//Unattended-Upgrade::Automatic-Reboot "false";XUnattended-Upg
 sudo systemctl daemon-reload
 sudo systemctl enable rc-local
 
-/srv/nightscout-vps/clone_nightscout.sh
+/srv/cgm-remote-monitor/clone_nightscout.sh
 
 echo
 echo "Starting everything up - if works also check okay after a reboot"
