@@ -26,3 +26,9 @@ sudo apt-get update
 sudo apt-get -y install wget gnupg libcurl4 openssl liblzma5
 sudo apt-get -y install dirmngr apt-transport-https lsb-release ca-certificates
 sudo apt-get -y install vis
+sudo apt-get -y install nano
+sudo apt-get -y install screen
+sudo apt-get -y install net-tools
+sudo apt-get -y install build-essential
+sudo apt-get -y install mongodb-server
+sudo apt-get -y install jq
