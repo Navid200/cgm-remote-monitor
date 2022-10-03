@@ -33,3 +33,15 @@ sudo apt-get -y install build-essential
 sudo apt-get -y install mongodb-server
 sudo apt-get -y install jq
 sudo apt-get -y install dialog
+
+echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", roles:[\"readWrite\"]})\nquit()" | mongo
+
+
+sudo apt-get install -y  git python gcc g++ make
+
+echo "Installing Node js"
+
+sudo apt-get install -y nodejs npm
+sudo apt -y autoremove
+cd /tmp
+cd /srv
