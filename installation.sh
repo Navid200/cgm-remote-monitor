@@ -41,7 +41,6 @@ sudo apt-get -y install dialog
 sudo apt-get install -y  git python gcc g++ make
 
 echo "Installing Node js"
-
 sudo apt-get install -y nodejs npm
 sudo apt -y autoremove
 
@@ -53,22 +52,52 @@ echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", r
 cd /tmp
 cd /srv
 dialog --clear --yesno "Do you want to install Nightscout?\n\n
-You need to if you have never installed Nightscout, or if you want to install a different version than the one
-you have." 10 50
+You need to if you have never installed Nightscout, or if you want to install a different version than the one you have." 10 50
 if [ $? = 0 ] # Let's install Nightscout
 then
 echo "Installing Nightscout"
 
 dialog --title "Official Nightscout?\n\nChoose No to install from a fork instead of from the official repository (advanced)." 9 50
-if [ $? = 0 ] # Let's install official Nightscout
-then
-sudo git clone https://github.com/nightscout/cgm-remote-monitor.git
-fi
+
+user="nightscout"
+repo="cgm-remote-monitor"
+brnch="master"
+#sudo git clone https://github.com/nightscout/cgm-remote-monitor.git  # By default, we will install from the official repository.
+
 if [ $? = 1 ] # We need Github details
+then
+user=""
+repo=""
+brnch=""
+combined=""
 
+# open fd
+exec 3>&1
 
-cd cgm-remote-monitor
-sudo git checkout master
+# Store data to $VALUES variable
+VALUES=$(dialog --ok-label "Submit" \
+          --form "Enter the GitHub details for the Nightscout version you want to install.\n" \
+12 50 0 \
+        "User ID:" 1 1  "$user"         1 14 25 0 \
+        "Repository:"    2 1    "$repo"         2 14 25 0 \
+        "Branch:"    3 1        "$brnch"        3 14 25 0 \
+2>&1 1>&3)
+
+# close fd
+exec 3>&-
+
+# display values just entered
+echo "$VALUES"
+user=$(echo "$VALUES" | sed -n 1p)
+repo=$(echo "$VALUES" | sed -n 2p)
+
+combined="https://github.com/$user/$repo.git"
+sudo git clone $combined
+fi
+
+cd $repo
+#sudo git checkout master
+sudo git checkout $brnch
 sudo git pull
 
 sudo npm install
