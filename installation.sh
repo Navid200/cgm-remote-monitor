@@ -21,6 +21,10 @@ mkswap /var/SWAP
 fi
 swapon 2>/dev/null /var/SWAP
 
+dialog --clear --yesno "Do you want to install Linux services?\n\n
+You need to if you have never installed them or if you want to update them." 9 50
+if [ $? 0 ]  # Let's install system basics
+
 echo "Installing system basics"
 sudo apt-get update
 sudo apt-get -y install wget gnupg libcurl4 openssl liblzma5
@@ -34,27 +38,33 @@ sudo apt-get -y install mongodb-server
 sudo apt-get -y install jq
 sudo apt-get -y install dialog
 
-echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", roles:[\"readWrite\"]})\nquit()" | mongo
-
-
 sudo apt-get install -y  git python gcc g++ make
 
 echo "Installing Node js"
 
 sudo apt-get install -y nodejs npm
 sudo apt -y autoremove
+
+fi
+
+
+echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", roles:[\"readWrite\"]})\nquit()" | mongo
+
 cd /tmp
 cd /srv
-
-echo "Installing Nightscout"
-dialog --clear --yesno "Do you want to install Nightscout?" 6 30
+dialog --clear --yesno "Do you want to install Nightscout?\n\n
+You need to if you have never installed Nightscout, or if you want to install a different version than the one
+you have." 10 50
 if [ $? = 0 ] # Let's install Nightscout
 then
-dialog --title "Official Nightscout?" --clear --yesno "\nChoose No to install from a fork instead (advanced)." 7 30
+echo "Installing Nightscout"
+
+dialog --title "Official Nightscout?\n\nChoose No to install from a fork instead of from the official repository (advanced)." 9 50
 if [ $? = 0 ] # Let's install official Nightscout
 then
 sudo git clone https://github.com/nightscout/cgm-remote-monitor.git
-else
+fi
+if [ $? = 1 ] # We need Github details
 
 
 cd cgm-remote-monitor
