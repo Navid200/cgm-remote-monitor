@@ -14,7 +14,7 @@ fi
 
 if [ ! -s /var/SWAP ]
 then
-echo "Creating swap partition"
+echo "Creating swap file"
 dd if=/dev/zero of=/var/SWAP bs=1M count=2000
 chmod 600 /var/SWAP
 mkswap /var/SWAP
@@ -47,8 +47,16 @@ cd /tmp
 cd /srv
 
 echo "Installing Nightscout"
-
+dialog --clear --yesno "Do you want to install Nightscout?" 6 30
+if [ $? = 0 ] # Let's install Nightscout
+then
+dialog --title "Official Nightscout?" --clear --yesno "\nChoose No to install from a fork instead (advanced)." 7 30
+if [ $? = 0 ] # Let's install official Nightscout
+then
 sudo git clone https://github.com/nightscout/cgm-remote-monitor.git
+else
+
+
 cd cgm-remote-monitor
 sudo git checkout master
 sudo git pull
@@ -170,8 +178,7 @@ sleep 3
 fi
 fi
 
-
-
+fi
 
 
 cat > /etc/rc.local << "EOF"
@@ -187,8 +194,6 @@ service nginx start
 EOF
 
 chmod a+x /etc/rc.local
-
-
 
 cat > /etc/systemd/system/rc-local.service << "EOF"
 [Unit]
@@ -206,8 +211,6 @@ EOF
 sudo sed -i -e 'sX//Unattended-Upgrade::Automatic-Reboot "false";XUnattended-Upgrade::Automatic-Reboot "true";Xg' /etc/apt/apt.conf.d/50unattended-upgrades 
 sudo systemctl daemon-reload
 sudo systemctl enable rc-local
-
-/srv/nightscout-vps/clone_nightscout.sh
 
 echo
 echo "Starting everything up - if works also check okay after a reboot"
