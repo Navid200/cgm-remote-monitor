@@ -177,7 +177,7 @@ export MONGO_CONNECTION="mongodb://username:password@localhost:27017/Nightscout"
 export INSECURE_USE_HTTP=true
 export HOSTNAME="127.0.0.1"
 export PORT="1337"
-cd /srv/nightscout-vps
+cd /srv/$repo
 while [ "`netstat -lnt | grep 27017 | grep -v grep`" = "" ]
 do
 echo "Waiting for mongo to start"
