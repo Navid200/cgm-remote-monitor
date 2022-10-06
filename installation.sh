@@ -21,7 +21,7 @@ mkswap /var/SWAP
 fi
 swapon 2>/dev/null /var/SWAP
 
-dialog --clear --yesno "Do you want to install Linux services?\n\n
+dialog --yesno "Do you want to install Linux services?\n\n
 You need to if you have never installed them or if you want to update them." 9 50
 if [ $? 0 ]  # Let's install system basics
 then
@@ -52,7 +52,7 @@ echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", r
 
 cd /tmp
 cd /srv
-dialog --clear --yesno "Do you want to install Nightscout?\n\n
+dialog --yesno "Do you want to install Nightscout?\n\n
 You need to if you have never installed Nightscout, or if you want to install a different version than the one you have." 10 50
 if [ $? = 0 ] # Let's install Nightscout
 then
