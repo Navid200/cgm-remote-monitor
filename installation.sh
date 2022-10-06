@@ -57,10 +57,40 @@ if [ $? = 0 ] # Let's install Nightscout
 then
 echo "Installing Nightscout"
 
+sudo git clone https://github.com/jamorham/nightscout-vps.git
+cd nightscout-vps
+sudo git checkout vps-1
+sudo git pull
+
+sudo npm install
+sudo npm run generate-keys
+
+for loop in 1 2 3 4 5 6 7 8 9
+do
+read -t 0.1 dummy
+done
+
+if [ ! -s /usr/local/etc/no-ip2.conf ]
+then
+cd /usr/src
+sudo tar -xzf /srv/nightscout-vps/helper/noip-duc-linux.tar.gz
+cd /usr/src/noip-2.1.9-1
+sudo make install
+else
+echo "Noip client already installed - delete /usr/local/etc/no-ip2.conf if you want to change config"
+fi
+noip2 -S
+
+hostname=`noip2 -S 2>&1 | grep host | tr -s ' ' | tr -d '\t' | cut -f2 -d' ' | head -1`
+
+if [ "$hostname" = "" ]
+then
+echo "Could not determine host name - did no ip dynamic dns install fail?"
+echo "Cannot continue!"
+exit 5
+fi
+
 # Setting the defaults
-user="nightscout"
-repo="cgm-remote-monitor"
-brnch="master"
 combined="https://github.com/nightscout/cgm-remote-monitor.git"
 
 dialog --yesno "Official Nightscout?\n\nChoose No to install from a fork instead of from the official repository (advanced)." 9 50
@@ -97,7 +127,6 @@ combined="https://github.com/$user/$repo.git" # This is the path to the reposito
 sudo git clone $combined
 
 cd $repo
-#sudo git checkout master
 sudo git checkout $brnch
 sudo git pull
 
@@ -109,26 +138,6 @@ for loop in 1 2 3 4 5 6 7 8 9
 do
 read -t 0.1 dummy
 done
-
-if [ ! -s /usr/local/etc/no-ip2.conf ]
-then
-cd /usr/src
-sudo tar -xzf /srv/nightscout-vps/helper/noip-duc-linux.tar.gz
-cd /usr/src/noip-2.1.9-1
-sudo make install
-else
-echo "Noip client already installed - delete /usr/local/etc/no-ip2.conf if you want to change config"
-fi
-noip2 -S
-
-hostname=`noip2 -S 2>&1 | grep host | tr -s ' ' | tr -d '\t' | cut -f2 -d' ' | head -1`
-
-if [ "$hostname" = "" ]
-then
-echo "Could not determine host name - did no ip dynamic dns install fail?"
-echo "Cannot continue!"
-exit 5
-fi
 
 # execute installer
 noip2
