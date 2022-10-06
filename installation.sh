@@ -96,6 +96,11 @@ repo=$(echo "$VALUES" | sed -n 2p)
 brnch=$(echo "$VALUES" | sed -n 3p)
 fi
 
+if [ -s ./$repo ] # Delete the repository directory if it exists.
+then
+sudo rm -r $repo
+fi
+
 combined="https://github.com/$user/$repo.git" # This is the path to the repository we are installing from
 sudo git clone $combined
 
