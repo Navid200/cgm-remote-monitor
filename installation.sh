@@ -91,10 +91,10 @@ exec 3>&-
 echo "$VALUES"
 user=$(echo "$VALUES" | sed -n 1p)
 repo=$(echo "$VALUES" | sed -n 2p)
-
-combined="https://github.com/$user/$repo.git"
-sudo git clone $combined
 fi
+
+combined="https://github.com/$user/$repo.git" # This is the path to the repository we are installing from
+sudo git clone $combined
 
 cd $repo
 #sudo git checkout master
