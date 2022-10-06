@@ -47,7 +47,6 @@ sudo apt -y autoremove
 
 fi
 
-
 echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", roles:[\"readWrite\"]})\nquit()" | mongo
 
 cd /tmp
@@ -58,14 +57,13 @@ if [ $? = 0 ] # Let's install Nightscout
 then
 echo "Installing Nightscout"
 
-dialog --yesno "Official Nightscout?\n\nChoose No to install from a fork instead of from the official repository (advanced)." 9 50
-
-combined=""
+# Setting the defaults
 user="nightscout"
 repo="cgm-remote-monitor"
 brnch="master"
-#sudo git clone https://github.com/nightscout/cgm-remote-monitor.git  # By default, we will install from the official repository.
+combined="https://github.com/nightscout/cgm-remote-monitor.git"
 
+dialog --yesno "Official Nightscout?\n\nChoose No to install from a fork instead of from the official repository (advanced)." 9 50
 if [ $? = 1 ] # We need Github details
 then
 # So, let's clear these first.
