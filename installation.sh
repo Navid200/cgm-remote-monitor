@@ -21,11 +21,6 @@ mkswap /var/SWAP
 fi
 swapon 2>/dev/null /var/SWAP
 
-dialog --yesno "Do you want to install Linux services?\n\n
-You need to if you have never installed them or if you want to update them." 9 50
-if [ $? = 0 ]  # Let's install system basics
-then
-
 echo "Installing system basics"
 sudo apt-get update
 sudo apt-get -y install wget gnupg libcurl4 openssl liblzma5
@@ -44,8 +39,6 @@ sudo apt-get install -y  git python gcc g++ make
 echo "Installing Node js"
 sudo apt-get install -y nodejs npm
 sudo apt -y autoremove
-
-fi
 
 echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", roles:[\"readWrite\"]})\nquit()" | mongo
 
