@@ -60,6 +60,7 @@ echo "Installing Nightscout"
 
 dialog --clear --yesno "Official Nightscout?\n\nChoose No to install from a fork instead of from the official repository (advanced)." 9 50
 
+combined=""
 user="nightscout"
 repo="cgm-remote-monitor"
 brnch="master"
@@ -70,7 +71,6 @@ then
 user=""
 repo=""
 brnch=""
-combined=""
 
 # open fd
 exec 3>&1
@@ -91,6 +91,7 @@ exec 3>&-
 echo "$VALUES"
 user=$(echo "$VALUES" | sed -n 1p)
 repo=$(echo "$VALUES" | sed -n 2p)
+brnch=$(echo "$VALUES" | sed -n 3p)
 fi
 
 combined="https://github.com/$user/$repo.git" # This is the path to the repository we are installing from
