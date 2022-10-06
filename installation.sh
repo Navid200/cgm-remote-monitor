@@ -58,7 +58,7 @@ if [ $? = 0 ] # Let's install Nightscout
 then
 echo "Installing Nightscout"
 
-dialog --title "Official Nightscout?\n\nChoose No to install from a fork instead of from the official repository (advanced)." 9 50
+dialog --clear --yesno "Official Nightscout?\n\nChoose No to install from a fork instead of from the official repository (advanced)." 9 50
 
 user="nightscout"
 repo="cgm-remote-monitor"
