@@ -5,8 +5,10 @@ echo
 echo "Bootstrapping Nightscout installer - Modified"
 echo
 cd /tmp
-if [ ! -s installation.sh ]
+if [ -s installation.sh ]
 then
+sudo rm installation.sh
+fi
 sudo apt-get update
 sudo apt-get -y install wget bash
 wget https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/vps-1/installation.sh
@@ -14,7 +16,6 @@ if [ ! -s installation.sh ]
 then
 echo "UNABLE TO DOWNLOAD INSTALLATION SCRIPT! - cannot continue - please try again!"
 exit 5
-fi
 fi
 
 
