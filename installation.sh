@@ -68,6 +68,7 @@ brnch="master"
 
 if [ $? = 1 ] # We need Github details
 then
+# So, let's clear these first.
 user=""
 repo=""
 brnch=""
@@ -75,6 +76,7 @@ brnch=""
 # open fd
 exec 3>&1
 
+# Now, let's ask for the details of the alternative repository
 # Store data to $VALUES variable
 VALUES=$(dialog --ok-label "Submit" \
           --form "Enter the GitHub details for the Nightscout version you want to install.\n" \
