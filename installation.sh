@@ -69,6 +69,7 @@ brnch="master"
 if [ $? = 1 ] # We need Github details
 then
 # So, let's clear these first.
+echo "Running the form"
 user=""
 repo=""
 brnch=""
@@ -78,7 +79,7 @@ exec 3>&1
 
 # Now, let's ask for the details of the alternative repository
 # Store data to $VALUES variable
-VALUES=$(dialog --ok-label "Submit" --form "Enter the GitHub details for the Nightscout version you want to install.\n" 12 50 0 \
+VALUES=$(dialog --clear --ok-label "Submit" --form "Enter the GitHub details for the Nightscout version you want to install.\n" 12 50 0 \
 "User ID:" 1 1  "$user"  1 14 25 0 \
 "Repository:"   2 1 "$repo" 2 14 25 0 \
 "Branch:"    3 1  "$brnch" 3 14 25 0 \
