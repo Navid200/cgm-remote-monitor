@@ -113,7 +113,7 @@ done
 if [ ! -s /usr/local/etc/no-ip2.conf ]
 then
 cd /usr/src
-sudo tar -xzf /srv/cgm-remote-monitor/helper/noip-duc-linux.tar.gz
+sudo tar -xzf /srv/nightscout-vps/helper/noip-duc-linux.tar.gz
 cd /usr/src/noip-2.1.9-1
 sudo make install
 else
