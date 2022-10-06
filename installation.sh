@@ -56,24 +56,25 @@ You need to if you have never installed Nightscout, or if you want to install a 
 if [ $? = 0 ] # Let's install Nightscout
 then
 echo "Installing Nightscout"
+#sudo git clone https://github.com/jamorham/nightscout-vps.git
+#cd nightscout-vps
+#sudo git checkout vps-1
+#sudo git pull
 
-sudo git clone https://github.com/jamorham/nightscout-vps.git
-cd nightscout-vps
-sudo git checkout vps-1
-sudo git pull
+#sudo npm install
+#sudo npm run generate-keys
 
-sudo npm install
-sudo npm run generate-keys
-
-for loop in 1 2 3 4 5 6 7 8 9
-do
-read -t 0.1 dummy
-done
+#for loop in 1 2 3 4 5 6 7 8 9
+#do
+#read -t 0.1 dummy
+#done
 
 if [ ! -s /usr/local/etc/no-ip2.conf ]
 then
+cd /tmp
+wget https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/vps-1/noip-duc-linux.tar.gz
 cd /usr/src
-sudo tar -xzf /srv/nightscout-vps/helper/noip-duc-linux.tar.gz
+sudo tar -xzf /tmp/noip-duc-linux.tar.gz
 cd /usr/src/noip-2.1.9-1
 sudo make install
 else
