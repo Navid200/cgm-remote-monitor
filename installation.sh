@@ -23,9 +23,6 @@ swapon 2>/dev/null /var/SWAP
 
 echo "Installing system basics"
 sudo apt-get update
-sudo apt-get -y install dialog
-dialog --yesno "Do you want to install Nightscout?\n\n
-
 sudo apt-get -y install wget gnupg libcurl4 openssl liblzma5
 sudo apt-get -y install dirmngr apt-transport-https lsb-release ca-certificates
 sudo apt-get -y install vis
@@ -35,6 +32,7 @@ sudo apt-get -y install net-tools
 sudo apt-get -y install build-essential
 sudo apt-get -y install mongodb-server
 sudo apt-get -y install jq
+sudo apt-get -y install dialog
 
 sudo apt-get install -y  git python gcc g++ make
 
