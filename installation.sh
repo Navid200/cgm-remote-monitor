@@ -23,7 +23,7 @@ swapon 2>/dev/null /var/SWAP
 
 dialog --yesno "Do you want to install Linux services?\n\n
 You need to if you have never installed them or if you want to update them." 9 50
-if [ $? 0 ]  # Let's install system basics
+if [ $? = 0 ]  # Let's install system basics
 then
 
 echo "Installing system basics"
