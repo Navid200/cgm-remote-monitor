@@ -58,7 +58,7 @@ if [ $? = 0 ] # Let's install Nightscout
 then
 echo "Installing Nightscout"
 
-dialog --clear --yesno "Official Nightscout?\n\nChoose No to install from a fork instead of from the official repository (advanced)." 9 50
+dialog --yesno "Official Nightscout?\n\nChoose No to install from a fork instead of from the official repository (advanced)." 9 50
 
 combined=""
 user="nightscout"
@@ -79,7 +79,7 @@ exec 3>&1
 
 # Now, let's ask for the details of the alternative repository
 # Store data to $VALUES variable
-VALUES=$(dialog --clear --ok-label "Submit" --form "Enter the GitHub details for the Nightscout version you want to install.\n" 12 50 0 \
+VALUES=$(dialog --ok-label "Submit" --form "Enter the GitHub details for the Nightscout version you want to install.\n" 12 50 0 \
 "User ID:" 1 1  "$user"  1 14 25 0 \
 "Repository:"   2 1 "$repo" 2 14 25 0 \
 "Branch:"    3 1  "$brnch" 3 14 25 0 \
