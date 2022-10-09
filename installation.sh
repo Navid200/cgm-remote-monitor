@@ -21,8 +21,22 @@ mkswap /var/SWAP
 fi
 swapon 2>/dev/null /var/SWAP
 
-echo "Installing system basics"
+echo "Installing dialog"
 sudo apt-get update
+sudo apt-get -y install dialog
+
+clear #  Clear the screen before placing the next dialog on.
+dialog --yesno "Install system basics?\n\n
+Choose Yes to install Linux executables.  You need to if you have never done it on this virtual machine.\n\n
+Choose No to skip if you have done this already on this virtual machine.\n\n
+Or, press escape to cancel." 14 50
+ans=$?
+if [ $ans = 255 ] # Exit if escape is pressed.
+then
+clear # Clear the screen before exiting.
+exit 5
+elif [ $ans = 0 ] # Install
+then
 sudo apt-get -y install wget gnupg libcurl4 openssl liblzma5
 sudo apt-get -y install dirmngr apt-transport-https lsb-release ca-certificates
 sudo apt-get -y install vis
@@ -32,42 +46,94 @@ sudo apt-get -y install net-tools
 sudo apt-get -y install build-essential
 sudo apt-get -y install mongodb-server
 sudo apt-get -y install jq
-sudo apt-get -y install dialog
+fi
+clear  # Clear the last dialog
+
+echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", roles:[\"readWrite\"]})\nquit()" | mongo
 
 sudo apt-get install -y  git python gcc g++ make
 
 echo "Installing Node js"
+
 sudo apt-get install -y nodejs npm
 sudo apt -y autoremove
 
-echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", roles:[\"readWrite\"]})\nquit()" | mongo
-
-cd /tmp
 cd /srv
-dialog --yesno "Do you want to install Nightscout?\n\n
-You need to if you have never installed Nightscout, or if you want to install a different version than the one you have." 10 50
-if [ $? = 0 ] # Let's install Nightscout
-then
 echo "Installing Nightscout"
-#sudo git clone https://github.com/jamorham/nightscout-vps.git
-#cd nightscout-vps
-#sudo git checkout vps-1
-#sudo git pull
+# Setting the defaults
+user="nightscout"
+repo="cgm-remote-monitor"
+brnch="master"
 
-#sudo npm install
-#sudo npm run generate-keys
+clear #  Clear the screen before placing the next dialog on.
+dialog --yesno "You can reeinstall Nightscout.\n\n
+Choose Yes to install the latest version of official Nightscout.\n\n
+Choose No to install from a fork you can specify (advanced).\n\n
+Or, press escape to cancel." 14 50
+ans=$?
+if [ $ans = 255 ] # Exit if escape is pressed.
+then
+clear # Clear the screen before exiting.
+exit 5
+elif [ $ans = 1 ] # We need Github details
+then
+# So, let's clear these first.
+user=""
+repo=""
+brnch=""
 
-#for loop in 1 2 3 4 5 6 7 8 9
-#do
-#read -t 0.1 dummy
-#done
+# open fd
+exec 3>&1
+
+# Now, let's ask for the details of the fork
+# Store data to $VALUES variable
+clear # Clear the screen before placing the next dialog on.
+VALUES=$(dialog --ok-label "Submit" --form "Enter the GitHub details for the Nightscout version you want to install.\n" 12 50 0 "User ID:" 1 1 "$user" 1 14 25 0 "Repository:" 2 1 "$repo" 2 14 25 0 "Branch:" 3 1 "$brnch" 3 14 25 0 2>&1 1>&3)
+ans2=$?
+if [ $ans2 = 255 ] || [ $ans2 = 1 ] # Exit if escaped or cancelled
+then
+clear # Clear the screen before existing.
+exit 5
+fi
+
+# close fd
+exec 3>&-
+
+# display values just entered
+#echo "$VALUES"
+user=$(echo "$VALUES" | sed -n 1p)
+repo=$(echo "$VALUES" | sed -n 2p)
+brnch=$(echo "$VALUES" | sed -n 3p)
+fi
+clear  # Clear the last dialog
+
+if [ -s ./$repo ] # Delete the repository directory if it exists.
+then
+sudo rm -r $repo
+fi
+
+combined="https://github.com/$user/$repo.git" # This is the path to the repository we are installing from
+sudo git clone $combined
+
+# Kill Nightscout
+sudo pkill -f SCREEN
+cd $repo
+sudo git checkout $brnch
+sudo git pull
+
+sudo npm install
+sudo npm run postinstall
+sudo npm run generate-keys
+
+for loop in 1 2 3 4 5 6 7 8 9
+do
+read -t 0.1 dummy
+done
 
 if [ ! -s /usr/local/etc/no-ip2.conf ]
 then
-cd /tmp
-wget https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/vps-1/noip-duc-linux.tar.gz
 cd /usr/src
-sudo tar -xzf /tmp/noip-duc-linux.tar.gz
+sudo tar -xzf /srv/nightscout-vps/helper/noip-duc-linux.tar.gz
 cd /usr/src/noip-2.1.9-1
 sudo make install
 else
@@ -84,61 +150,10 @@ echo "Cannot continue!"
 exit 5
 fi
 
-# Setting the defaults
-combined="https://github.com/nightscout/cgm-remote-monitor.git"
-
-dialog --yesno "Official Nightscout?\n\nChoose No to install from a fork instead of from the official repository (advanced)." 9 50
-if [ $? = 1 ] # We need Github details
-then
-# So, let's clear these first.
-user=""
-repo=""
-brnch=""
-
-# open fd
-exec 3>&1
-
-# Now, let's ask for the details of the alternative repository
-# Store data to $VALUES variable
-VALUES=$(dialog --ok-label "Submit" --form "Enter the GitHub details for the Nightscout version you want to install.\n" 12 50 0 "User ID:" 1 1 "$user" 1 14 25 0 "Repository:" 2 1 "$repo" 2 14 25 0 "Branch:" 3 1 "$brnch" 3 14 25 0 2>&1 1>&3)
-
-# close fd
-exec 3>&-
-
-# display values just entered
-echo "$VALUES"
-user=$(echo "$VALUES" | sed -n 1p)
-repo=$(echo "$VALUES" | sed -n 2p)
-brnch=$(echo "$VALUES" | sed -n 3p)
-fi
-
-if [ -s ./$repo ] # Delete the repository directory if it exists.
-then
-sudo rm -r $repo
-fi
-
-combined="https://github.com/$user/$repo.git" # This is the path to the repository we are installing from
-sudo git clone $combined
-
-cd $repo
-sudo git checkout $brnch
-sudo git pull
-
-sudo npm install
-sudo npm run postinstall
-sudo npm run generate-keys
-
-for loop in 1 2 3 4 5 6 7 8 9
-do
-read -t 0.1 dummy
-done
-
 # execute installer
 noip2
 
-
 sudo apt-get install -y nginx python3-certbot-nginx inetutils-ping
-
 
 if [ "`grep '.well-known' /etc/nginx/sites-enabled/default`" = "" ]
 then
@@ -159,6 +174,18 @@ sudo certbot --nginx -d "$hostname"
 sudo systemctl daemon-reload
 sudo systemctl start mongodb
 
+clear #  Clear the screen before placing the next dialog on.
+dialog --yesno "Reset Nightscout variables?\n\n
+Choose Yes to set Nightscout variables to default.  You need to if you have never done it on this virtual machine.\n\n
+Choose No to skip if you have done this already on this virtual machine.\n\n
+Or, press escape to cancel." 14 50
+ans=$?
+if [ $ans = 255 ] # Exit if escape is pressed.
+then
+clear # Clear the screen before exiting.
+exit 5
+elif [ $ans = 0 ] # Reset
+then
 cat > /etc/nsconfig << EOF
 export API_SECRET="YOUR_API_SECRET_HERE"
 export ENABLE="careportal food boluscalc bwp cob bgi pump openaps rawbg iob upbat cage sage basal"
@@ -167,39 +194,8 @@ export PUMP_FIELDS="reservoir battery clock"
 export DEVICESTATUS_ADVANCED="true"
 EOF
 
-
-cat > /etc/nightscout-start.sh << "EOF"
-#!/bin/sh
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-. /etc/nsconfig
-export MONGO_COLLECTION="entries"
-export MONGO_CONNECTION="mongodb://username:password@localhost:27017/Nightscout"
-export INSECURE_USE_HTTP=true
-export HOSTNAME="127.0.0.1"
-export PORT="1337"
-cd /srv/$repo
-while [ "`netstat -lnt | grep 27017 | grep -v grep`" = "" ]
-do
-echo "Waiting for mongo to start"
-sleep 5
-done
-sleep 5
-while [ 1 ]
-do
-node server.js
-sleep 30
-done
-EOF
-
-
-echo
-echo "You can edit the full configuration with: sudo nano /etc/nsconfig"
-echo
-
 cs=`grep 'API_SECRET=' /etc/nsconfig | head -1 | cut -f2 -d'"'`
-
 echo "Current API secret is: $cs"
-
 echo
 echo "If you would like to change it please enter the new secret now or hit enter to leave the same"
 
@@ -222,8 +218,41 @@ fi
 fi
 
 fi
+clear  # Clear the last dialog
 
+echo
+echo "Setting up startup service"
+echo
 
+cat> /etc/nightscout-start.sh<<EOF
+
+#!/bin/sh
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+. /etc/nsconfig
+export MONGO_COLLECTION="entries"
+export MONGO_CONNECTION="mongodb://username:password@localhost:27017/Nightscout"
+export INSECURE_USE_HTTP=true
+export HOSTNAME="127.0.0.1"
+export PORT="1337"
+cd /srv/$repo
+EOF
+
+cat>> /etc/nightscout-start.sh<< "EOF"
+
+while [ "`netstat -lnt | grep 27017 | grep -v grep`" = "" ]
+do
+echo "Waiting for mongo to start"
+sleep 5
+done
+sleep 5
+while [ 1 ]
+do
+node server.js
+sleep 30
+done
+EOF
+
+# rc.local
 cat > /etc/rc.local << "EOF"
 #!/bin/bash
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
@@ -255,9 +284,6 @@ sudo sed -i -e 'sX//Unattended-Upgrade::Automatic-Reboot "false";XUnattended-Upg
 sudo systemctl daemon-reload
 sudo systemctl enable rc-local
 
-echo
-echo "Starting everything up - if works also check okay after a reboot"
-echo
 
-sudo systemctl start rc-local.service
-sudo systemctl status rc-local.service
+
+
