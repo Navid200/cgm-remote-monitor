@@ -11,30 +11,38 @@ script.
 
 clear #  Clear the screen before placing the next dialog on.
 
-Choice=$(dialog --menu "Choose one of the following options.\n\n" 15 50 7\
+Choice=$(dialog --nocancel --menu "Choose one of the following options.\n\n" 15 50 9\
  "1" "Backup Mongo database"\
  "2" "Restore a Mongo backup"\
  "3" "Transfer database from another server"\
  "4" "Update executables"\
  "5" "Reboot server"\
  "6" "Install Nightscout"\
- "7" "Update/Customize Nightscout" 3>&1 1>&2 2>&3)
+ "7" "Update/Customize Nightscout"\
+ "8" "Terminal" 3>&1 1>&2 2>&3)
 
 response=$?
 if [ $response = 255 ] #  Escape was chosen
 then
 clear # Clear the screen before exiting.
-echo "Escape"
-echo "Cannot continue."
-exit 5
-fi
-if [ $response = 1 ] #  Cancelled
-then
-clear # Clear the screen before exiting.
-echo "Cancel"
-echo "Cannot continue."
-exit 5
+#echo "Escape"
+#echo "Cannot continue."
+#exit 5
+sudo /home/mymark14/menu.sh # restart the menu script.
 fi
 
+# Clear before exit.
+clear
 echo "$Choice"
 
+case $Choice in
+
+7)
+sudo /srv/nightscout-vps/update_nightscout.sh;;
+
+8)
+# Clear before exiting. 
+clear
+exit;;
+
+esac
