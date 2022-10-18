@@ -35,8 +35,13 @@ fi
 sudo chmod 755 update_scripts.sh
 sudo mv -f update_scripts.sh /xDrip/scripts
 
-echo "Updating the scripts"
+# Updating the scripts
 sudo /xDrip/scripts/update_scripts.sh
 
-echo "Bringing up the menu"
+# So that the menu comes up as soon as the user logs in (opens a terminal)
+cat > /etc/profile.d/start_menu.sh << EOF
+/xDrip/scripts/menu.sh
+EOF
+
+# Bringing up the menu
 /xDrip/scripts/menu.sh
