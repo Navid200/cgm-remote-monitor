@@ -45,7 +45,8 @@ cat > start_menu.sh << EOF
 /xDrip/scripts/menu.sh
 
 EOF
-sudo mv start_menu.sh /etc/profile.d
+chmod 755 start_menu.sh
+sudo mv -f start_menu.sh /etc/profile.d
 
 # Bringing up the menu
 /xDrip/scripts/menu.sh
