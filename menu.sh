@@ -17,14 +17,17 @@ Choice=$(dialog --nocancel --menu "Choose one of the following options.\n\n" 15 
 
 case $Choice in
 1)
+clear
 sudo /xDrip/scripts/installation.sh
 ;;
 
 2)
+clear
 sudo /xDrip/scripts/clone_nightscout.sh
 ;;
 
 3)
+clear
 sudo /xDrip/scripts/update_nightscout.sh
 ;;
 
