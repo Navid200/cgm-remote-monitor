@@ -237,8 +237,6 @@ sudo sed -i -e 'sX//Unattended-Upgrade::Automatic-Reboot "false";XUnattended-Upg
 sudo systemctl daemon-reload
 sudo systemctl enable rc-local
 
-/srv/nightscout-vps/clone_nightscout.sh
-
 echo
 echo "Starting everything up - if works also check okay after a reboot"
 echo
