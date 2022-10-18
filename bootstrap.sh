@@ -42,6 +42,7 @@ sudo /xDrip/scripts/update_scripts.sh
 cd /tmp
 cat > start_menu.sh << EOF
 
+clear
 /xDrip/scripts/menu.sh
 
 EOF
