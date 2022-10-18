@@ -8,6 +8,7 @@ echo
 sudo apt-get update
 sudo apt-get -y install wget bash
 sudo apt-get -y install dialog
+sudo apt-get install -y  git python gcc g++ make
 
 cd /
 if [ ! -s xDrip ]
