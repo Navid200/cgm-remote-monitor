@@ -41,9 +41,7 @@ sudo /xDrip/scripts/update_scripts.sh
 # So that the menu comes up as soon as the user logs in (opens a terminal)
 cd /tmp
 cat > start_menu.sh << EOF
-
 #!/bin/sh
-clear
 /xDrip/scripts/menu.sh
 
 EOF
