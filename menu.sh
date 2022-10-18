@@ -4,11 +4,6 @@ echo
 echo "Bringing up the menu"
 echo
 
-# We need dialog for this.  This will be removed after installation of dialog is added to the main installation
-script.
-#sudo apt-get update
-#sudo apt-get -y install dialog
-
 while [ true ]
 do
 clear #  Clear the screen before placing the next dialog on.
@@ -22,15 +17,15 @@ Choice=$(dialog --nocancel --menu "Choose one of the following options.\n\n" 15 
 
 case $Choice in
 1)
-sudo /srv/nightscout-vps/installation.sh
+sudo /xDrip/scripts/installation.sh
 ;;
 
 2)
-sudo /srv/nightscout-vps/clone_nightscout.sh
+sudo /xDrip/scripts/clone_nightscout.sh
 ;;
 
 3)
-sudo /srv/nightscout-vps/update_nightscout.sh
+sudo /xDrip/scripts/update_nightscout.sh
 ;;
 
 4)
