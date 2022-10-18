@@ -34,7 +34,7 @@ fi
 sudo chmod 755 update_scripts.sh
 sudo mv -f update_scripts.sh /xDrip/scripts
 
-/xDrip/scripts/update_scripts.sh
+sudo /xDrip/scripts/update_scripts.sh
 
 #if [ "$SSH_TTY" = "" ]
 #then
