@@ -37,14 +37,4 @@ sudo mv -f update_scripts.sh /xDrip/scripts
 
 sudo /xDrip/scripts/update_scripts.sh
 
-#if [ "$SSH_TTY" = "" ]
-#then
-#echo "Must be run from ssh session"
-#exit 5
-#fi
-
-#echo
-#echo "Running installer"
-#echo
-#sudo < $SSH_TTY bash installation.sh
-#echo
+/xDrip/scripts/menu.sh
