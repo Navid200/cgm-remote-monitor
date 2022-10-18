@@ -35,6 +35,8 @@ fi
 sudo chmod 755 update_scripts.sh
 sudo mv -f update_scripts.sh /xDrip/scripts
 
+echo "Updating the scripts"
 sudo /xDrip/scripts/update_scripts.sh
 
+echo "Bringing up the menu"
 /xDrip/scripts/menu.sh
