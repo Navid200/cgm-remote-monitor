@@ -10,38 +10,29 @@ sudo apt-get -y install wget bash
 sudo apt-get -y install dialog
 
 cd /
+if [ ! -s xDrip ]
+then
 sudo mkdir xDrip
+fi
 cd xDrip
+if [ ! -s scripts ]
+then
 sudo mkdir scripts
+fi
 cd /tmp
-if [ ! -s menu.sh ]
+if [ ! -s update_scripts.sh ]
 then
-wget https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/Navid_2022_10_14c/menu.sh
+wget https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/Navid_2022_10_14c/update_scripts.sh
 # wget https://raw.githubusercontent.com/jamorham/nightscout-vps/vps-1/menu.sh
-if [ ! -s menu.sh ]
+if [ ! -s update_scripts.sh ]
 then
-echo "UNABLE TO DOWNLOAD MENU SCRIPT! - cannot continue - please try again!"
+echo "UNABLE TO DOWNLOAD update_scripts SCRIPT! - cannot continue - please try again!"
 exit 5
 fi
 fi
 
-sudo chmod 755 menu.sh
-sudo mv menu.sh /xDrip/scripts/.
-
-cd /tmp
-if [ ! -s installation.sh ]
-then
-wget https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/Navid_2022_10_14c/installation.sh
-# wget https://raw.githubusercontent.com/jamorham/nightscout-vps/vps-1/installation.sh
-if [ ! -s installation.sh ]
-then
-echo "UNABLE TO DOWNLOAD INSTALLATION SCRIPT! - cannot continue - please try again!"
-exit 5
-fi
-fi
-
-sudo chmod 755 installation.sh
-sudo mv installation.sh /xDrip/scripts/.
+sudo chmod 755 update_scripts.sh
+sudo mv -f update_scripts.sh /xDrip/scripts
 
 /xDrip/scripts/menu.sh
 
