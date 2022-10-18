@@ -13,9 +13,11 @@ exit 5
 fi
 
 cd /tmp
-if [ -s ./nightscout-vps ]
+#if [ -s ./nightscout-vps ]
+if [ -s ./cgm-remote-monitor ]
 then
-sudo rm -r nightscout-vps # If the directory already exists in the tmp directory, delete it.
+#sudo rm -r nightscout-vps # If the directory already exists in the tmp directory, delete it.
+sudo rm -r cgm-remote-monitor # If the directory already exists in the tmp directory, delete it.
 fi
 #sudo git clone https://github.com/jamorham/nightscout-vps.git # Clone the install repository.
 sudo git clone https://github.com/Navid200/cgm-remote-monitor.git # Clone the install repository.
@@ -27,4 +29,5 @@ sudo git pull
 sudo chmod 755 *.sh # Change premissions to allow execution by all.
 sudo mv -f *.sh /xDrip/scripts # Overwrite the scripts in the scripts directory with the new ones.
 cd ..
-sudo rm -r nightscout-vps # Delete the temporary pull directory.
+# sudo rm -r nightscout-vps # Delete the temporary pull directory.
+sudo rm -r cgm-remote-monitor # Delete the temporary pull directory.
