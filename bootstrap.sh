@@ -49,5 +49,10 @@ sudo chown root:root start_menu.sh
 sudo chmod 755 start_menu.sh
 sudo mv -f start_menu.sh /etc/profile.d
 
+cat > ~/.bash_aliases << EOF
+alias menu="/xDrip/scripts/menu.sh"
+
+EOF
+
 # Bringing up the menu
 /xDrip/scripts/menu.sh
