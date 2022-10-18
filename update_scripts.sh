@@ -22,7 +22,7 @@ sudo git clone https://github.com/Navid200/cgm-remote-monitor.git # Clone the in
 #cd nightscout-vps
 cd cgm-remote-monitor
 #sudo git checkout vps-1
-sudo git checkout cgm-remote-monitor
+sudo git checkout Navid_2022_10_14c
 sudo git pull
 sudo chmod 755 *.sh # Change premissions to allow execution by all.
 sudo mv -f *.sh /xDrip/scripts # Overwrite the scripts in the scripts directory with the new ones.
