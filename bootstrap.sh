@@ -54,5 +54,5 @@ alias menu="/xDrip/scripts/menu.sh"
 
 EOF
 
-# Bringing up the menu
-/xDrip/scripts/menu.sh
+# Reboot
+sudo reboot
