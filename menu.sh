@@ -11,7 +11,7 @@ clear #  Clear the screen before placing the next dialog on.
 Choice=$(dialog --nocancel --menu "Use the arrow keys to move the cursor.\n\
 Press Enter to execute the highlighted option.\n\n" 15 50 9\
  "1" "Initial Nightscout install"\
- "2"
+ "2" "noip.com association"\
  "3" "Transfer database from another server"\
  "4" "Update/Customize Nightscout"\
  "5" "Reboot server"\
