@@ -9,13 +9,14 @@ do
 clear #  Clear the screen before placing the next dialog on.
 
 Choice=$(dialog --nocancel --menu "Use the arrow keys to move the cursor.\n\
-Press Enter to execute the highlighted option.\n\n" 15 50 9\
+Press Enter to execute the highlighted option.\n\n" 16 50 9\
  "1" "Initial Nightscout install"\
  "2" "noip.com association"\
  "3" "Transfer database from another server"\
  "4" "Update/Customize Nightscout"\
- "5" "Reboot server"\
- "6" "Terminal" 3>&1 1>&2 2>&3)
+ "5" "Status"\
+ "6" "Reboot server"\
+ "7" "Terminal" 3>&1 1>&2 2>&3)
 
 case $Choice in
 1)
@@ -39,6 +40,11 @@ sudo /xDrip/scripts/update_nightscout.sh
 ;;
 
 5)
+clear
+/xDrip/Status.sh
+;;
+
+6)
 dialog --yesno "Are you sure you want to reboot the server?\n
 If you do, all unsaved open files will close without saving.\n"  8 50
 response=$?
@@ -50,7 +56,7 @@ sudo reboot
 fi
 ;;
 
-6)
+7)
 # Clear before exiting. 
 clear
 exit
