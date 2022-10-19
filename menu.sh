@@ -8,7 +8,8 @@ while [ true ]
 do
 clear #  Clear the screen before placing the next dialog on.
 
-Choice=$(dialog --nocancel --menu "Choose one of the following options.\n\n" 15 50 9\
+Choice=$(dialog --nocancel --menu "Use the arrow keys to move the cursor.\n\
+Press Enter to execute the highlighted option.\n\n" 13 50 9\
  "1" "Initial Nightscout install"\
  "2" "Transfer database from another server"\
  "3" "Update/Customize Nightscout"\
