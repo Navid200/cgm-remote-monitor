@@ -41,7 +41,7 @@ sudo /xDrip/scripts/update_nightscout.sh
 
 5)
 clear
-/xDrip/Status.sh
+/xDrip/scripts/Status.sh
 ;;
 
 6)
