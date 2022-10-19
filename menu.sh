@@ -25,7 +25,7 @@ sudo /xDrip/scripts/NS_Install.sh
 
 2)
 clear
-sudo /xDrip/scriptes/NS_Install2.sh
+sudo /xDrip/scripts/NS_Install2.sh
 ;;
 
 3)
