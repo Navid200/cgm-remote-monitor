@@ -14,7 +14,7 @@ sudo apt-get install -y  git python gcc g++ make
 
 cat > /tmp/bootstrap_note << EOF
 A menu is being set up so that the next time 
-you opena terminal, you will see the menu, which
+you open a terminal, you will see the menu, which
 offers you all the options available to you.
 
 In a few moments, the server will automatically 
