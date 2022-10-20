@@ -4,6 +4,16 @@ echo
 echo "Log into noip.com"
 echo
 
+if [ ! -s /srv/nightscout-vps ]
+then
+cat > /tmp/install2_note << EOF
+Complete Initial Nightscout installation first.
+
+EOF
+cd /tmp
+dialog --textbox install2_note 6 50
+fi
+
 if [ ! -s /usr/local/etc/no-ip2.conf ]
 then
 cd /usr/src
@@ -38,7 +48,6 @@ cat /tmp/nginx.conf | sed -z -e 'sZlocation / {[^}]*}Zlocation /.well-known {\n 
 
 sudo service nginx stop
 
-
 else
 echo "Nginx config already patched"
 fi
@@ -46,11 +55,8 @@ fi
 sudo service nginx start
 sudo certbot --nginx -d "$hostname" --redirect
 
-
 sudo systemctl daemon-reload
 sudo systemctl start mongodb
-
-
 
 echo
 echo "Setting up startup service"
@@ -66,9 +72,7 @@ export DEVICESTATUS_ADVANCED="true"
 
 EOF
 
-
 cat > /etc/nightscout-start.sh << "EOF"
-
 
 #!/bin/sh
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
@@ -82,7 +86,6 @@ export HOSTNAME="127.0.0.1"
 export PORT="1337"
 
 cd /srv/nightscout-vps
-
 
 while [ "`netstat -lnt | grep 27017 | grep -v grep`" = "" ]
 do
@@ -99,7 +102,6 @@ done
 
 EOF
 
-
 echo
 echo "You can edit the full configuration with: sudo nano /etc/nsconfig"
 echo
@@ -110,7 +112,6 @@ echo "Current API secret is: $cs"
 
 echo
 echo "If you would like to change it please enter the new secret now or hit enter to leave the same"
-
 
 read -p "New secret 12 character minimum length (blank to skip change) : " ns
 
@@ -128,10 +129,6 @@ echo "Secret changed to: ${ns}"
 sleep 3
 fi
 fi
-
-
-
-
 
 cat > /etc/rc.local << "EOF"
 #!/bin/bash
@@ -154,8 +151,6 @@ service nginx start
 EOF
 
 chmod a+x /etc/rc.local
-
-
 
 cat > /etc/systemd/system/rc-local.service << "EOF"
 [Unit]
