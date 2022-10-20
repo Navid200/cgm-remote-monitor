@@ -11,7 +11,8 @@ Complete Initial Nightscout installation first.
 
 EOF
 cd /tmp
-dialog --textbox install2_note 6 50
+dialog --textbox install2_note 6 51
+exit
 fi
 
 if [ ! -s /usr/local/etc/no-ip2.conf ]
