@@ -23,7 +23,9 @@ Please wait 20 seconds and then, click on "Retry" to reconnect.
 EOF
 
 cd /tmp
---dialog --textbox bootstrap_note 16 50
+clear
+dialog --textbox bootstrap_note 16 50
+clear
 
 cd /
 if [ ! -s xDrip ]
