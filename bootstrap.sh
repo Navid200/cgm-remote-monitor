@@ -1,6 +1,8 @@
 #!/bin/sh
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
+# curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/Navid_2022_10_14c_Test/bootstrap.sh | bash
+
 echo 
 echo "Bootstrapping the menu - JamOrHam"
 echo
