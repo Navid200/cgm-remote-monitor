@@ -4,14 +4,6 @@ echo
 echo "Fetch the latest scripts from GitHub"
 echo
 
-
-if [ "`id -u`" != "0" ]
-then
-echo "Script needs root - use sudo bash update_scripts.sh"
-echo "Cannot continue.."
-exit 5
-fi
-
 cd /tmp
 
 if [ -s ./nightscout-vps ] # Main
