@@ -29,27 +29,27 @@ clear
 dialog --textbox bootstrap_note 16 55
 clear
 
-cd /
-if [ ! -s xDrip ]
-then
-sudo mkdir xDrip
-fi
-cd xDrip
-if [ ! -s scripts ]
-then
-sudo mkdir scripts
-fi
-cd /tmp
-if [ ! -s update_scripts.sh ]
-then
+##cd /
+##if [ ! -s xDrip ]
+##then
+##sudo mkdir xDrip
+##fi
+##cd xDrip
+##if [ ! -s scripts ]
+##then
+##sudo mkdir scripts
+##fi
+##cd /tmp
+##if [ ! -s update_scripts.sh ]
+##then
 ##wget https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/Navid_2022_10_14c_Test/update_scripts.sh # Navid's
 #wget https://raw.githubusercontent.com/jamorham/nightscout-vps/vps-1/update_scripts.sh # Main
-if [ ! -s update_scripts.sh ]
-then
+##if [ ! -s update_scripts.sh ]
+##then
 ##echo "UNABLE TO DOWNLOAD update_scripts SCRIPT! - cannot continue - please try again!"
-exit 5
-fi
-fi
+##exit 5
+##fi
+##fi
 
 ##sudo chmod 755 update_scripts.sh
 ##sudo mv -f update_scripts.sh /xDrip/scripts
