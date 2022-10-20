@@ -14,8 +14,8 @@ sudo apt-get install -y  git python gcc g++ make
 
 cat > /tmp/bootstrap_note << EOF
 A menu is being set up so that the next time 
-you click on SSH, you will see the menu instead
-of the terminal.
+you opena terminal, you will see the menu, which
+offers you all the options available to you.
 
 In a few moments, the server will automatically 
 reboot and an error message will appear.
@@ -26,7 +26,7 @@ EOF
 
 cd /tmp
 clear
-dialog --textbox bootstrap_note 12 52
+dialog --textbox bootstrap_note 13 53
 clear
 
 ##cd /
