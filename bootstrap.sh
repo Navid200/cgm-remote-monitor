@@ -13,21 +13,22 @@ sudo apt-get -y install dialog
 sudo apt-get install -y  git python gcc g++ make
 
 cat > /tmp/bootstrap_note << EOF
-A menu is being set up so that the next time 
-you open a terminal, you will see the menu, which
-offers you all the options available to you.
+The next time you open a terminal, a menu will 
+offer all the available options.
 
-To proceed, press Enter.
-In a few moments, the server will automatically 
-reboot and an error message will appear.
+In a few moments after you proceed, the server 
+will automatically reboot and an expected error
+message will appear.
 Please wait 20 seconds and then, click on "Retry"
 to reconnect.
+
+To proceed, press Enter.
 
 EOF
 
 cd /tmp
 clear
-dialog --textbox bootstrap_note 14 53
+dialog --textbox bootstrap_note 16 53
 clear
 
 cd /
