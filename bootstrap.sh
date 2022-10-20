@@ -16,7 +16,7 @@ cat > /tmp/bootstrap_note << EOF
 Shortly after you proceed, the server  will
 automatically reboot and an expected error
 message will appear.
-Please wait 20 seconds before clicking on
+Please wait 30 seconds before clicking on
 "Retry" to reconnect.
 
 After this, every time you open a terminal,
