@@ -17,6 +17,7 @@ A menu is being set up so that the next time
 you open a terminal, you will see the menu, which
 offers you all the options available to you.
 
+To proceed, press Enter.
 In a few moments, the server will automatically 
 reboot and an error message will appear.
 Please wait 20 seconds and then, click on "Retry"
