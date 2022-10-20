@@ -10,6 +10,19 @@ sudo apt-get -y install wget bash
 sudo apt-get -y install dialog
 sudo apt-get install -y  git python gcc g++ make
 
+cat> /tmp/bootstrap_note <<EOF
+The menu is being set up so that the next time you click on SSH,
+you will see the menu instead of the terminal.
+
+In a few moments, the server will automatically reboot and an
+error message will appear.
+Please wait 20 seconds and then, click on "Retry" to reconnect.
+
+EOF
+
+cd /tmp
+--dialog --textbox bootstrap_note 16 50
+
 cd /
 if [ ! -s xDrip ]
 then
@@ -40,7 +53,7 @@ sudo /xDrip/scripts/update_scripts.sh
 
 # So that the menu comes up as soon as the user logs in (opens a terminal)
 cd /tmp
-cat > start_menu.sh << EOF
+cat > /tmp/start_menu.sh << EOF
 #!/bin/sh
 /xDrip/scripts/menu.sh
 
