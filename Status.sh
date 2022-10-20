@@ -8,7 +8,7 @@ free -h | sed -n 3p >> tmp
 echo "--------------------------------------------------" >> tmp
 df -m . >> tmp
 echo "--------------------------------------------------" >> tmp
-echo "Mongo" >> tmp
+echo "MongoDB" >> tmp
 mongod --version | sed -n 1p >> tmp
 echo "--------------------------------------------------" >> tmp
 
