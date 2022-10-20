@@ -74,4 +74,4 @@ alias menu="/xDrip/scripts/menu.sh"
 EOF
 
 # Reboot
-#sudo reboot
+sudo reboot
