@@ -12,7 +12,7 @@ sudo apt-get -y install wget bash
 sudo apt-get -y install dialog
 sudo apt-get install -y  git python gcc g++ make
 
-cat> /tmp/bootstrap_note <<EOF
+cat > /tmp/bootstrap_note << EOF
 The menu is being set up so that the next time you click on SSH,
 you will see the menu instead of the terminal.
 
