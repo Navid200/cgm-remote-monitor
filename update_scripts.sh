@@ -6,8 +6,8 @@ echo
 
 cd /tmp
 
-if [ -s ./nightscout-vps ] # Main
-# if [ -s ./cgm-remote-monitor ] # Navid's
+#if [ -s ./nightscout-vps ] # Main
+if [ -s ./cgm-remote-monitor ] # Navid's
 
 then
 
