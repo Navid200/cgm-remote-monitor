@@ -15,4 +15,4 @@ echo "Nightscout process" >> tmp
 ps -ef | grep SCREEN | grep root | fold --width=40 | sed -n 1p >> tmp
 echo "--------------------------------------------------" >> tmp
 
-dialog --textbox tmp 15 50
+dialog --textbox tmp 18 50
