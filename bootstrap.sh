@@ -14,7 +14,7 @@ sudo apt-get install -y  git python gcc g++ make
 
 cat > /tmp/bootstrap_note << EOF
 The next time you open a terminal, a menu will 
-offer all the available options.
+offer you all the available options.
 
 In a few moments after you proceed, the server 
 will automatically reboot and an expected error
