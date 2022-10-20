@@ -23,7 +23,7 @@ sudo git clone https://github.com/Navid200/cgm-remote-monitor.git # Clone the in
 cd cgm-remote-monitor # Navid's
 
 #sudo git checkout vps-1 # Main
-sudo git checkout Navid_2022_10_14c # Navid's
+sudo git checkout Navid_2022_10_14c_Test # Navid's
 
 sudo git pull
 sudo chmod 755 *.sh # Change premissions to allow execution by all.
