@@ -12,7 +12,7 @@ echo "MongoDB" >> tmp
 mongod --version | sed -n 1p >> tmp
 echo "--------------------------------------------------" >> tmp
 echo "Nightscout process" >> tmp
-ps -ef | grep SCREEN | grep root | fold --width=40 | sed -n 1p >> tmp
+ps -ef | grep SCREEN | grep root | fold --width=40 >> tmp
 echo "--------------------------------------------------" >> tmp
 
 dialog --textbox tmp 18 50
