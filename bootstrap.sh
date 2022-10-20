@@ -26,7 +26,7 @@ EOF
 
 cd /tmp
 clear
-dialog --textbox bootstrap_note 13 55
+dialog --textbox bootstrap_note 12 52
 clear
 
 ##cd /
