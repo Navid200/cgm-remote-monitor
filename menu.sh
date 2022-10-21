@@ -6,7 +6,6 @@ echo
 
 while :
 do
-clear #  Clear the screen before placing the next dialog on.
 
 Choice=$(dialog --nocancel --nook --menu "Use the arrow keys to move the cursor.\n\
 Press Enter to execute the highlighted option.\n\n" 20 50 11\
@@ -25,27 +24,22 @@ Press Enter to execute the highlighted option.\n\n" 20 50 11\
 case $Choice in
 
 1)
-clear
 sudo /xDrip/scripts/NS_Install.sh
 ;;
 
 2)
-clear
 sudo /xDrip/scripts/NS_Install2.sh
 ;;
 
 3)
-clear
 /xDrip/scripts/variables.sh
 ;;
 
 4)
-clear
 sudo /xDrip/scripts/clone_nightscout.sh
 ;;
 
 5)
-clear
 sudo /xDrip/scripts/update_nightscout.sh
 ;;
 
@@ -54,17 +48,14 @@ sudo /xDrip/scripts/update_nightscout.sh
 ;;
 
 7)
-clear
 /xDrip/scripts/backupmongo.sh
 ;;
 
 8)
-clear
 /xDrip/scripts/restoremongo.sh
 ;;
 
 9)
-clear
 /xDrip/scripts/Status.sh
 ;;
 
