@@ -25,6 +25,7 @@ case $Choice in
 1)
 clear
 /xDrip/scripts/backupmongo.sh
+;;
 
 2)
 clear
