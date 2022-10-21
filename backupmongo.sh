@@ -19,11 +19,12 @@ clear
 else
 mongodump --gzip --archive=$Filename
 exec 3>&-
-dialog --msgbox "Backup is complete.\n\  
+dialog --msgbox "Backup is complete.\n\
 However, it is on the same virtual machine as\n\
 your MongoDB.\n\
 It's best to download the file to your computer\n\
-for safekeeping." 10 54
+for safekeeping.\n\
+See the guide for how to download." 10 54
 clear
 exit
 fi
