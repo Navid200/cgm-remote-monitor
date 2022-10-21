@@ -9,53 +9,58 @@ do
 clear #  Clear the screen before placing the next dialog on.
 
 Choice=$(dialog --nocancel --nook --menu "Use the arrow keys to move the cursor.\n\
-Press Enter to execute the highlighted option.\n\n" 18 50 11\
- "1" "Initial Nightscout install"\
- "2" "noip.com association"\
- "3" "Edit Nightscout Variables"\
- "4" "Transfer database from another server"\
- "5" "Update/Customize Nightscout"\
- "6" "Update scripts"\
- "7" "Status"\
- "8" "Reboot server"\
- "9" "Exit" 3>&1 1>&2 2>&3)
+Press Enter to execute the highlighted option.\n\n" 19 50 11\
+ "1" "Backup MongoDB"\
+ "2" "Initial Nightscout install"\
+ "3" "noip.com association"\
+ "4" "Edit Nightscout Variables"\
+ "5" "Transfer database from another server"\
+ "6" "Update/Customize Nightscout"\
+ "7" "Update scripts"\
+ "8" "Status"\
+ "9" "Reboot server"\
+ "10" "Exit" 3>&1 1>&2 2>&3)
 
 case $Choice in
 1)
 clear
-sudo /xDrip/scripts/NS_Install.sh
-;;
+/xDrip/scripts/backupmongo.sh
 
 2)
 clear
-sudo /xDrip/scripts/NS_Install2.sh
+sudo /xDrip/scripts/NS_Install.sh
 ;;
 
 3)
 clear
-/xDrip/scripts/variables.sh
+sudo /xDrip/scripts/NS_Install2.sh
 ;;
 
 4)
 clear
-sudo /xDrip/scripts/clone_nightscout.sh
+/xDrip/scripts/variables.sh
 ;;
 
 5)
 clear
-sudo /xDrip/scripts/update_nightscout.sh
+sudo /xDrip/scripts/clone_nightscout.sh
 ;;
 
 6)
-/xDrip/scripts/update_scripts.sh
+clear
+sudo /xDrip/scripts/update_nightscout.sh
 ;;
 
 7)
+/xDrip/scripts/update_scripts.sh
+;;
+
+8)
 clear
 /xDrip/scripts/Status.sh
 ;;
 
-8)
+9)
 dialog --yesno "Are you sure you want to reboot the server?\n
 If you do, all unsaved open files will close without saving.\n"  8 50
 response=$?
@@ -67,7 +72,7 @@ sudo reboot
 fi
 ;;
 
-9)
+10)
 cat > /tmp/menu_exit_note << EOF
 You will now exit to the shell (terminal).
 To return to the menu, enter menu in the terminal.
