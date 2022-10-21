@@ -69,7 +69,7 @@ fi
 
 9)
 cat > /tmp/menu_exit_note << EOF
-You will now go to the shell (terminal).
+You will now exit to the shell (terminal).
 To return to the menu, enter menu in the terminal.
 
 EOF
