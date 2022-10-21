@@ -75,7 +75,7 @@ To return to the menu, enter menu in the terminal.
 EOF
 cd /tmp
 clear
-dialog --textbox menu_exit_note 7 50
+dialog --textbox menu_exit_note 7 54
 exit
 ;;
 
