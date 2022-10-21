@@ -1,20 +1,5 @@
 #!/bin/bash
 
-cat > /tmp/samefilename << EOF
-A file with the same name exists.
-Choose a different filename.
-
-EOF
-
-cat > /tmp/download_note << EOF
-The backup is complete.  
-However, it is on the same virtual machine as
-your MongoDB.
-It's best to download the file to your computer
-for safekeeping.
-
-EOF
-
 while :
 do
 exec 3>&1
@@ -28,12 +13,17 @@ fi
 
 if [ -s $Filename ]
 then
-dialog --exit-label "Try again" --textbox /tmp/samefilename 7 50
+dialog --exit-label "Try again" --msgbox "A file with the same name exists.\n\
+Choose a different filename." 7 50
 clear
 else
 mongodump --gzip --archive=$Filename
 exec 3>&-
-dialog --textbox /tmp/download_note 10 54
+dialog --msgbox "Backup is complete.\n\  
+However, it is on the same virtual machine as\n\
+your MongoDB.\n\
+It's best to download the file to your computer\n\
+for safekeeping." 10 54
 clear
 exit
 fi
