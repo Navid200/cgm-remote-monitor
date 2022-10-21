@@ -4,7 +4,7 @@ echo
 echo "Bringing up the menu"
 echo
 
-while [ true ]
+while :
 do
 clear #  Clear the screen before placing the next dialog on.
 
