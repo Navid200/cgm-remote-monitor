@@ -1,19 +1,15 @@
 #!/bin/bash
 
-cat > /tmp/samefilename << EOF
-A file with the same name exists.
-Choose a different filename.
+File=$(dialog --title "Select the backup file to restore" --fselect ~/ 10 50 3>&1 1>&2 2>&3)
 
-EOF
+key=$?
 
-
-
-File=$(dialog --title "Select the backup file to restore" --fselect /home 14 50)
-
-if [ $response = 255 ] || [ $response = 1 ]
+if [ $key = 255 ] || [ $key = 1 ]
 then
 clear
 exit
 fi
 
+echo "$File"
+mongorestore --gzip --archive=$File
  
