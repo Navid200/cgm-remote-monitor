@@ -29,6 +29,7 @@ fi
 if [ -s $Filename ]
 then
 dialog --exit-label "Try again" --textbox /tmp/samefilename 7 50
+clear
 else
 mongodump --gzip --archive=$Filename
 exec 3>&-
