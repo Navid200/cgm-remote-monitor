@@ -24,7 +24,7 @@ However, it is on the same virtual machine as\n\
 your MongoDB.\n\
 It's best to download the file to your computer\n\
 for safekeeping.\n\
-See the guide for how to download." 10 54
+See the guide for how to download." 10 51
 clear
 exit
 fi
