@@ -61,6 +61,7 @@ clear
 8)
 clear
 /xDrip/scripts/restoremongo.sh
+;;
 
 9)
 clear
