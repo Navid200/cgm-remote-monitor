@@ -9,7 +9,7 @@ do
 clear #  Clear the screen before placing the next dialog on.
 
 Choice=$(dialog --nocancel --nook --menu "Use the arrow keys to move the cursor.\n\
-Press Enter to execute the highlighted option.\n\n" 19 50 9\
+Press Enter to execute the highlighted option.\n\n" 19 50 11\
  "1" "Initial Nightscout install"\
  "2" "noip.com association"\
  "3" "Edit Nightscout Variables"\
@@ -76,6 +76,7 @@ EOF
 cd /tmp
 clear
 dialog --textbox menu_exit_note 7 54
+clear
 exit
 ;;
 
