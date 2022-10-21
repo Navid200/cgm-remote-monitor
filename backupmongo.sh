@@ -6,6 +6,15 @@ Choose a different filename.
 
 EOF
 
+cat > /tmp/download_note << EOF
+The backup is complete.  
+However, it is on the same virtual machine as
+your MongoDB.
+It's best to download the file to your computer
+for safekeeping.
+
+EOF
+
 while :
 do
 exec 3>&1
@@ -23,6 +32,7 @@ dialog --exit-label "Try again" --textbox /tmp/samefilename 7 50
 else
 mongodump --gzip --archive=$Filename
 exec 3>&-
+dialog --textbox /tmp/download_note 8 50
 clear
 exit
 fi
