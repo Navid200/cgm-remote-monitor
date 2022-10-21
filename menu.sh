@@ -72,14 +72,10 @@ fi
 ;;
 
 11)
-cat > /tmp/menu_exit_note << EOF
-You will now exit to the shell (terminal).
-To return to the menu, enter menu in the terminal.
-
-EOF
 cd /tmp
 clear
-dialog --textbox menu_exit_note 7 54
+dialog --msgbox "You will now exit to the shell (terminal).\n\
+To return to the menu, enter menu in the terminal." 7 54
 clear
 exit
 ;;
