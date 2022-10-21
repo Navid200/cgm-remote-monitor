@@ -14,7 +14,7 @@ fi
 if [ -s $Filename ]
 then
 dialog --exit-label "Try again" --msgbox "A file with the same name exists.\n\
-Choose a different filename." 7 50
+Choose a different filename." 7 35
 clear
 else
 mongodump --gzip --archive=$Filename
