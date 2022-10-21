@@ -7,7 +7,7 @@ echo
 cd /tmp
 
 cat> /tmp/variablesNote<<EOF
-You will next be editing the textfile containing the variables.
+You will be editing the textfile containing the variables.
 The key combinations for each text editor function will be shown
 at the bottom of the screen.
 ^ represents the control key.  Therefore, ^X means pressing
@@ -23,7 +23,7 @@ Press Enter now to proceed to the text editor.
 EOF
 
 clear
-dialog --textbox variablesNote 18 70
+dialog --textbox variablesNote 18 67
 clear
 
 sudo nano /etc/nsconfig
