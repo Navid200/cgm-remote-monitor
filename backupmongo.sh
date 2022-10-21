@@ -32,7 +32,7 @@ dialog --exit-label "Try again" --textbox /tmp/samefilename 7 50
 else
 mongodump --gzip --archive=$Filename
 exec 3>&-
-dialog --textbox /tmp/download_note 8 50
+dialog --textbox /tmp/download_note 10 54
 clear
 exit
 fi
