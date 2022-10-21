@@ -29,4 +29,5 @@ sudo rm -r cgm-remote-monitor # Delete the temporary pull directory. # Navid's
 dialog --msgbox "Close this terminal.\n\
 In a new terminal, the updated scripts\n\
 will be in effect." 8 45
+clear
  
