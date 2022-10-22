@@ -21,7 +21,7 @@ Please wait 30 seconds before clicking on\n\
 "Retry" to reconnect.\n\n\
 After this, every time you open a terminal,\n\
 a menu will offer all the available options.\n\n\
-To proceed, press Enter." 15 45
+To proceed, press Enter." 15 47
 clear
 
 cd /
