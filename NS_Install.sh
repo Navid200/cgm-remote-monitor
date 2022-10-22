@@ -37,11 +37,12 @@ sudo apt-get -y install jq
 echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", roles:[\"readWrite\"]})\nquit()" | mongo
 echo -e "use admin\ndb.createUser({ user: \"mongoadmin\" , pwd: \"mongoadmin\", roles: [\"userAdminAnyDatabase\", \"dbAdminAnyDatabase\", \"readWriteAnyDatabase\"]})\nquit()" | mongo
 
+sudo apt-get install -y  git python gcc g++ make
+
 echo "Installing Node js"
 
 sudo apt-get install -y nodejs npm
 sudo apt -y autoremove
-cd /tmp
 cd /srv
 
 echo "Installing Nightscout"
