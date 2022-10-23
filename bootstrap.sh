@@ -62,11 +62,10 @@ sudo chown root:root start_menu.sh
 sudo chmod 755 start_menu.sh
 sudo mv -f start_menu.sh /etc/profile.d
 
-if ! alias menu >/dev/null 2>&1  # If there is no alias for menu
+if [ ! alias menu >/dev/null 2>&1 ] # If there is no alias for menu
 then
 cat >> ~/.bash_aliases << EOF
 alias menu="/xDrip/scripts/menu.sh"
-
 EOF
 fi
 
