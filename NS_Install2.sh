@@ -179,3 +179,6 @@ echo
 
 sudo systemctl start rc-local.service
 sudo systemctl status rc-local.service
+
+sudo reboot
+ 
