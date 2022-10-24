@@ -70,4 +70,4 @@ EOF
 fi
 
 # Reboot
-sudo reboot
+#sudo reboot
