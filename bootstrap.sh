@@ -68,6 +68,7 @@ cat >> ~/.bash_aliases << EOF
 alias menu="/xDrip/scripts/menu.sh"
 EOF
 fi
+echo "$(grep /xDrip/scripts/menu.sh ~/.bash_aliases)"
 
 # Reboot
 #sudo reboot
