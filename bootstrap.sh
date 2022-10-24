@@ -62,13 +62,12 @@ sudo chown root:root start_menu.sh
 sudo chmod 755 start_menu.sh
 sudo mv -f start_menu.sh /etc/profile.d
 
-if [ "$(grep /xDrip/scripts/menu.sh ~/.bash_aliases)" = "" ] # If there is no alias to menu.sh not event commented out
+if [ "$(grep /xDrip/scripts/menu.sh ~/.bash_aliases)" = "" ] # If there is no alias to menu.sh not even commented out
 then
 cat >> ~/.bash_aliases << EOF
 alias menu="/xDrip/scripts/menu.sh"
 EOF
 fi
-echo "$(grep /xDrip/scripts/menu.sh ~/.bash_aliases)"
 
 # Reboot
-#sudo reboot
+sudo reboot
