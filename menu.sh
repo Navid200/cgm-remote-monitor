@@ -12,7 +12,7 @@ Choice=$(dialog --nocancel --nook --menu "     .\n\
    ,'|p.\n\
   /  |MW\\n\ 
   L  |WW9   xDrip\n\
-   `~JWP\n\\n\
+   `~JWP\n\n\
 Use the arrow keys to move the cursor.\n\
 Press Enter to execute the highlighted option.\n\n" 27 50 11\
  "1" "Initial Nightscout install"\
