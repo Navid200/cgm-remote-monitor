@@ -7,7 +7,13 @@ echo
 while :
 do
 
-Choice=$(dialog --nocancel --nook --menu "Use the arrow keys to move the cursor.\n\
+Choice=$(dialog --nocancel --nook --menu "     .\n\
+     '\n\
+   ,'|p.\n\
+  /  |MW\\n\ 
+  L  |WW9   xDrip\n\
+   `~JWP\n\\n\
+Use the arrow keys to move the cursor.\n\
 Press Enter to execute the highlighted option.\n\n" 20 50 11\
  "1" "Initial Nightscout install"\
  "2" "noip.com association"\
