@@ -38,7 +38,7 @@ echo "Nginx config already patched"
 fi
 
 sudo service nginx start
-sudo certbot --nginx -d "$hostname" --redirect
+# sudo certbot --nginx -d "$hostname" --redirect  # We are doing this in ConfigureFreedns.sh
 
 sudo systemctl daemon-reload
 sudo systemctl start mongodb
