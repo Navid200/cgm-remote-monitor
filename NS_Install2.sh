@@ -37,6 +37,9 @@ fi
 sudo service nginx start
 sudo certbot --nginx -d "$hostname" --redirect
 
+sudo systemctl daemon-reload
+sudo systemctl start mongodb
+
 echo
 echo "Setting up startup service"
 echo
