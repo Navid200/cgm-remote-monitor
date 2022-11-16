@@ -176,4 +176,9 @@ done
 
 #Fix the certificate using the new host name.
 sudo certbot --nginx -d "$hostname" --redirect --agree-tos --no-eff-email
+
+if [ ! -s /etc/letsencrypt/live/"$hostname"/cert.pem ] || [ ! -s /etc/letsencrypt/live/"$hostname"/privkey.pem ]
+then
+  dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\nInternal error.  Press enter to exit.  Then, run FreeDNS Setup again" 9 50
+fi  
  
