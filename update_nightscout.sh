@@ -14,7 +14,7 @@ You need to complete installation phase 1 first." 9 50
 exit
 fi
 
-while [ got_them=0 ]
+while [ $got_them=0 ]
 do
 # open fd
 exec 3>&1
