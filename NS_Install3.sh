@@ -111,4 +111,8 @@ sudo systemctl enable rc-local
 sudo systemctl start rc-local.service
  
 sudo /xDrip/scripts/ConfigureFreedns.sh
+
+dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
+Press enter to restart the server.  This will result in an expected error message.  Wait 30 seconds before clicking on retry to reconnect or using a browser to access your nightscout." 10 50
+sudo reboot
  
