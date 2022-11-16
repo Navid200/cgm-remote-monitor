@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo
-echo "Install Nightscout again, from the official repository or from a fork - Navid200"
+echo "Install Nightscout from a fork - Navid200"
 echo
 
 # Only if phase 1 has been completed.
@@ -14,42 +14,8 @@ You need to complete installation phase 1 first." 9 50
 exit
 fi
 
-# Setting the defaults to correspond to the official Nightscout repository. 
-user="nightscout"
-repo="cgm-remote-monitor"
-brnch="master"
-
-clear #  Clear the screen before placing the next dialog on.
-
-got_them=0
-while [ $got_them -lt 1 ]
+while [ got_them=0 ]
 do
-go_back=0
-Choice=$(dialog --colors --nocancel --nook --menu "\
-      \Zr Developed by the xDrip team \Zn\
-  \n\n
-Use the arrow keys to move the cursor.\n\
-Press Enter to choose the highlighted option.\n\n" 13 50 3\
- "1" "Install latest official Nightscout"\
- "2" "Install from a fork (Advanced)"\
- "3" "Return to main menu"\
- 3>&1 1>&2 2>&3)
-
-case $Choice in
-
-1)
-# Select the official Nightscout repository. 
-user="nightscout"
-repo="cgm-remote-monitor"
-brnch="master"
-got_them=1
-;;
-
-2)
-user=""
-repo=""
-brnch=""
-
 # open fd
 exec 3>&1
 
@@ -60,36 +26,27 @@ response=$?
 if [ $response = 255 ] || [ $response = 1 ] # Exit if escaped or cancelled
 then
   clear
-  exit 5
+  go_back=1
 fi
 
 # close fd
 exec 3>&-
 
-if [ $go_back -lt 1 ]
-then 
-  # Assign the entered values to corresponding parameters 
-  user=$(echo "$VALUES" | sed -n 1p)
-  repo=$(echo "$VALUES" | sed -n 2p)
-  brnch=$(echo "$VALUES" | sed -n 3p)
-  if [ "$user" = "" ] || [ "$repo" = "" ] || [ "$brnch" = "" ] # Abort if either paramter was left blank. 
-  then
-    go_back=1
-    clear
-    dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\nYou need to enter all three parameters.  Try again."  8 50
-  fi
+# Assign the entered values to corresponding parameters 
+user=$(echo "$VALUES" | sed -n 1p)
+repo=$(echo "$VALUES" | sed -n 2p)
+brnch=$(echo "$VALUES" | sed -n 3p)
+if [ "$user" = "" ] || [ "$repo" = "" ] || [ "$brnch" = "" ] # Abort if either paramter was left blank. 
+then
+  go_back=1
+  clear
+  dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\nYou need to enter all three parameters.  Try again."  8 50
 fi
 if [ $go_back -lt 1 ]
 then
   got_them=1
 fi
-;;
 
-3)
-exit
-;;
-
-esac
 done
 
 clear  # Clear the last dialog
@@ -128,8 +85,7 @@ sudo git pull
 clear
 
 sudo npm install
-sudo npm run generate-keys
-#sudo npm run postinstall # Complete the install.
+sudo npm run postinstall # Complete the install.
 
 for loop in 1 2 3 4 5 6 7 8 9
 do
@@ -171,13 +127,5 @@ sleep 10
 done
 EOF
 
-if [ -s /tmp/reboot_after_NSupdate ] # Only reboot if reboot_after_NSupdate file exists.  This is when updating.
-then
-  sudo reboot # Reboot so that Nightscout starts.
-else # Show a dialog and wait for approval before rebooting.  This is when installing.
-  clear
-  dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\nInstallation phase 2 is complete.  Press enter to reboot.  Wait 30 seconds and click on retry to reconnect." 10 50
-  clear
-  sudo reboot
-fi  
+sudo reboot # Reboot so that Nightscout starts.
  
