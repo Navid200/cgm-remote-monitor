@@ -93,6 +93,6 @@ Please take a note, delete the virtual machine, and create a new one.   For more
 # Bring up the status page
 /xDrip/scripts/Status.sh
 clear
-source ~/.bashrc
+source ~/.bash_aliases
 /xDrip/scripts/menu.sh
  
