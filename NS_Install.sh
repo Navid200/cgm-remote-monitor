@@ -62,7 +62,7 @@ cd /srv
 
 echo "Installing Nightscout"
 
-if [ Test -lt 1 ] # We are not testing.
+if [ $Test -lt 1 ] # We are not testing.
 then
 
 sudo git clone https://github.com/jamorham/nightscout-vps.git
