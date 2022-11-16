@@ -147,8 +147,9 @@ if ! grep -q "DIRECTURL" /etc/rc.local; then
     echo wget -O /tmp/freedns.txt --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 \$DIRECTURL >>  /etc/rc.local
 fi
 
+dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
+Press enter to proceed.  Please be patient as it may take up to 10 minutes to complete." 8 50
 # wait for the ip to be updated. This might take up to 10 minutes.
-
 cnt=0
 while : ; do
     sleep 30
