@@ -51,6 +51,7 @@ sudo /xDrip/scripts/NS_Install2.sh
 ;;
 
 6)
+clear
 sudo /xDrip/scripts/clone_nightscout.sh
 ;;
 
