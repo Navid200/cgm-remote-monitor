@@ -23,7 +23,7 @@ Press Enter to execute the highlighted option.\n\n" 24 50 14\
  "8" "Backup MongoDB"\
  "9" "Restore MongoDB backup"\
  "10" "FreeDNS Setup"\
- "11" "Update/Customize Nightscout"\
+ "11" "Customize Nightscout"\
  "12" "Reboot server (Nightscout)"\
  "13" "Exit to shell (terminal)"\
  3>&1 1>&2 2>&3)
@@ -73,9 +73,6 @@ sudo /xDrip/scripts/ConfigureFreedns.sh
 ;;
 
 11)
-cat > /tmp/reboot_after_NSupdate << EOF
-Reboot after update is complete.
-EOF
 sudo /xDrip/scripts/update_nightscout.sh
 ;;
 
