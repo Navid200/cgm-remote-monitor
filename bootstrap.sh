@@ -92,7 +92,4 @@ Please take a note, delete the virtual machine, and create a new one.   For more
 
 # Bring up the status page
 /xDrip/scripts/Status.sh
-dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
-Press enter to restart the server.  This will result in an expected error message.  Wait 30 seconds before clicking on retry to reconnect." 10 50
-sudo reboot
  
