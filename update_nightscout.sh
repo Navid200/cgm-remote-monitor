@@ -26,7 +26,7 @@ response=$?
 if [ $response = 255 ] || [ $response = 1 ] # Exit if escaped or cancelled
 then
   clear
-  go_back=1
+  exit
 fi
 
 # close fd
