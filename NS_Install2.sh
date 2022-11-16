@@ -60,7 +60,7 @@ export DEVICESTATUS_ADVANCED="true"
 EOF
 fi
 
-if [ Test -lt 1 ] # If we are not testing.
+if [ $Test -lt 1 ] # If we are not testing.
 then
 cat > /etc/nightscout-start.sh << "EOF"
 #!/bin/sh
