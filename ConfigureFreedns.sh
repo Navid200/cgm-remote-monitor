@@ -175,6 +175,5 @@ while : ; do
 done
 
 #Fix the certificate using the new host name.
-sudo certbot --nginx -d "$hostname" --redirect 
 sudo certbot --nginx -d "$hostname" --redirect --agree-tos --no-eff-email
  
