@@ -46,7 +46,6 @@ sudo apt-get -y install net-tools
 sudo apt-get -y install build-essential
 sudo apt-get -y install mongodb-server
 sudo apt-get -y install jq
-sudo apt-get -y install qrencode
 
 # Create mongo user and admin.
 echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", roles:[\"readWrite\"]})\nquit()" | mongo
@@ -66,56 +65,10 @@ echo "Installing Nightscout"
 if [ Test -lt 1 ] # We are not testing.
 then
 
-cat > /etc/nightscout-start.sh << "EOF"
-#!/bin/sh
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-. /etc/nsconfig
-export MONGO_COLLECTION="entries"
-export MONGO_CONNECTION="mongodb://username:password@localhost:27017/Nightscout"
-export INSECURE_USE_HTTP=true
-export HOSTNAME="127.0.0.1"
-export PORT="1337"
-cd /srv/nightscout-vps
-while [ "`netstat -lnt | grep 27017 | grep -v grep`" = "" ]
-do
-echo "Waiting for mongo to start"
-sleep 5
-done
-sleep 5
-while [ 1 ]
-do
-node server.js
-sleep 30
-done
-EOF
-
 sudo git clone https://github.com/jamorham/nightscout-vps.git
 cd nightscout-vps
 sudo git checkout vps-1
 else # We are testing.
-
-cat > /etc/nightscout-start.sh << "EOF"
-#!/bin/sh
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-. /etc/nsconfig
-export MONGO_COLLECTION="entries"
-export MONGO_CONNECTION="mongodb://username:password@localhost:27017/Nightscout"
-export INSECURE_USE_HTTP=true
-export HOSTNAME="127.0.0.1"
-export PORT="1337"
-cd /srv/cgm-remote-monitor
-while [ "`netstat -lnt | grep 27017 | grep -v grep`" = "" ]
-do
-echo "Waiting for mongo to start"
-sleep 5
-done
-sleep 5
-while [ 1 ]
-do
-node server.js
-sleep 30
-done
-EOF
 
 sudo git clone https://github.com/Navid200/cgm-remote-monitor.git
 cd cgm-remote-monitor
