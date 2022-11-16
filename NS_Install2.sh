@@ -117,6 +117,10 @@ echo "Current API secret is: $cs"
 echo
 echo "If you would like to change it please enter the new secret now or hit enter to leave the same"
 
+for loop in 1 2 3 4 5 6 7 8 9
+do
+read -t 0.1 dummy
+done
 read -p "New secret 12 character minimum length (blank to skip change) : " ns
 
 if [ "$ns" != "" ]
