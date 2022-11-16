@@ -17,6 +17,7 @@ fi
 got_them=0
 while [ $got_them -lt 1 ]
 do
+go_back=0
 # open fd
 exec 3>&1
 
