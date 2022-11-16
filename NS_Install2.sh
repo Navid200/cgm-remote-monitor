@@ -4,7 +4,7 @@ echo
 echo "Finalizing Nightscout installation"
 echo
 
-if [ ! -s /srv/nightscout-vps ] && [ ! -s /nightscout_start ]
+if [ "$(node -v)" = "" ] # If Node.js is not installed
 then
 clear
 dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
