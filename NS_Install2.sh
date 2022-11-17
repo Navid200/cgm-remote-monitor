@@ -49,6 +49,7 @@ echo
 
 if [ ! -s /etc/nsconfig ] # Only if nsconfig does not exist already
 then
+
 cat > /etc/nsconfig << EOF
 
 export API_SECRET="YOUR_API_SECRET_HERE"
@@ -58,10 +59,12 @@ export PUMP_FIELDS="reservoir battery clock"
 export DEVICESTATUS_ADVANCED="true"
 
 EOF
+
 fi
 
 if [ $Test -lt 1 ] # If we are not testing.
 then
+
 cat > /etc/nightscout-start.sh << "EOF"
 #!/bin/sh
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
@@ -84,6 +87,7 @@ node server.js
 sleep 30
 done
 EOF
+
 else # We are testing.
 cat > /etc/nightscout-start.sh << "EOF"
 #!/bin/sh
@@ -109,7 +113,6 @@ done
 EOF
 
 fi
-
 
 cs=`grep 'API_SECRET=' /etc/nsconfig | head -1 | cut -f2 -d'"'`
 
