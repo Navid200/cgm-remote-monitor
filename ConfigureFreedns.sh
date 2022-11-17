@@ -181,9 +181,10 @@ sudo certbot --nginx -d "$hostname" --redirect --agree-tos --no-eff-email
 
 if [ ! -s /etc/letsencrypt/live/"$hostname"/cert.pem ] || [ ! -s /etc/letsencrypt/live/"$hostname"/privkey.pem ]
 then
-  cat > /tmp/FreeDNS_Failed << EOF
-  Internal error.  Must run FreeDNS again.
-  EOF
-  dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\nInternal error.  Press enter to exit.  Then, run FreeDNS Setup again" 9 50
+cat > /tmp/FreeDNS_Failed << EOF
+Internal error.  Must run FreeDNS again.
+EOF
+
+dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\nInternal error.  Press enter to exit.  Then, run FreeDNS Setup again" 9 50
 fi  
  
