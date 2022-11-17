@@ -17,8 +17,8 @@ Test=1 ################ This line must be commented out before submitting a PR. 
 
 clear
 dialog --colors --msgbox "      \Zr Developed by the xDrip team \Zn\n\n\
-Some required packages will be installed now.  It will take about 15 minutes.  This terminal needs to be kept open.\n\n\
-If this is not a good time, you can press escape to cancel." 12 50
+Some required packages will be installed now.  It will take about 15 minutes.  This terminal needs to be kept open.  Press enter tp proceed.\n\n\
+If this is not a good time, you can press escape now to cancel." 12 50
 if [ $? = 255 ]
 then
 clear
