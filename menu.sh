@@ -52,7 +52,7 @@ sudo /xDrip/scripts/NS_Install2.sh
 ;;
 
 6)
-/xDrip/scripte/GetHerokuVars.sh
+/xDrip/scripts/GetHerokuVars.sh
 ;;
 
 7)
