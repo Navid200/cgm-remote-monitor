@@ -18,7 +18,7 @@ Press Enter to execute the highlighted option.\n\n" 24 50 14\
  "3" "Installation phase 2 - 5 minutes"\
  "4" "Edit variables"\
  "5" "Edit variables in a browser"\
- "6" "Copy variables from Heroku"\
+ "6" "Copy variables from Heroku (beta)"\
  "7" "Copy data from another Nightscout"\
  "8" "Update scripts"\
  "9" "Backup MongoDB"\
