@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Navid200
+# Never execute this script before first fetching it from the source repository. 
+# Otherwise, any recent changes you may have made to it may not be executed.
+
 echo
 echo "Fetch the latest scripts from GitHub - Navid200"
 echo
