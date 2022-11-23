@@ -56,6 +56,15 @@ sudo /xDrip/scripts/clone_nightscout.sh
 ;;
 
 7)
+cd /tmp
+wget https://raw.githubusercontent.com/jamorham/nightscout-vps/vps-1/update_scripts.sh
+if [ ! -s update_scripts.sh ]
+then
+echo "UNABLE TO DOWNLOAD update_scripts SCRIPT! - cannot continue - please try again!"
+exit 5
+fi
+sudo chmod 755 update_scripts.sh
+sudo mv -f update_scripts.sh /xDrip/scripts
 clear
 sudo /xDrip/scripts/update_scripts.sh
 ;;
