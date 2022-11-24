@@ -64,9 +64,12 @@ then
 http="\Zb\Z1Closed\Zn"
 fi
 
-
 mongo="$(mongod --version | sed -n 1p)"
 ns="$(ps -ef | grep SCREEN | grep root | fold --width=40 | sed -n 1p)"
+
+
+repo="$(< /srv/repo)"
+
 
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
                 \Zb Status \Zn\n\n\
@@ -76,7 +79,8 @@ RAM: $Ramsize \n\
 Disk type: "$disk" \n\
 Disk size: $disksz        $DiskUsedPercent used \n\
 Ubuntu: $ubuntu \n\
-HTTP & HTTPS:  $http \n\n\
+HTTP & HTTPS:  $http \n\
+Installed from: $repo
 ------------------------------------------ \n\
 Swap: $swap \n\
 Mongo: $mongo \n\
