@@ -38,15 +38,12 @@ sudo mkdir xDrip
 cd xDrip
 sudo mkdir scripts
 
-# Let's create a directory for cloning from the fork we are installing from.
-sudo mkdir clone
-cd clone
-
+cd /srv
 sudo git clone https://github.com/jamorham/nightscout-vps.git  # MAINMAINMAINMAINMAINMAINMAINMAINMAINMAIN # Uncomment before PR.
 #sudo git clone https://    # TESTTESTTESTTESTTESTTESTTESTTESTTESTTEST # Comment out before PR.
 
 ls > /tmp/repo
-sudo mv -f /tmp/repo .    # The repository name is now in /xDrip/clone/repo
+sudo mv -f /tmp/repo .    # The repository name is now in /srv/repo
 cd "$(< repo)"
 
 sudo git checkout vps-1  # MAINMAINMAINMAINMAINMAINMAINMAINMAINMAIN # Uncomment before PR.
@@ -54,7 +51,7 @@ sudo git checkout vps-1  # MAINMAINMAINMAINMAINMAINMAINMAINMAINMAIN # Uncomment 
 
 sudo git branch > /tmp/branch
 grep "*" /tmp/branch | awk '{print $2}' > /tmp/brnch
-sudo mv -f /tmp/brnch ../.  # The branch name is now in /xDrip/clone/brnch
+sudo mv -f /tmp/brnch ../.  # The branch name is now in /srv/brnch
 cd ..
 
 if [ ! -s update_scripts.sh ]
