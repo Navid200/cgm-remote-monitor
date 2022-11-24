@@ -10,10 +10,8 @@ if [ ! -z "$(ls /srv)" ]
 then
 clear
 dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
-The script you are running, \"bootstrap\", is meant to initiate an installtion.  \
-However, the file system does not seem to be empty.\n\n\
-If you already have an installtion on this machine and \
-proceed by pressing enter, you will be modifying it.  If that's not your intention, please press escape to abort." 15 50
+The script you are running, \"bootstrap\", is meant to initiate an installtion.  However, the file system does not seem to be empty.\n\n\
+If you already have an installtion on this machine and proceed by pressing enter, you will be modifying it.  If that's not your intention, please press escape to abort." 15 50
 if [ $? -eq 255 ]
 then
 clear
