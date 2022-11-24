@@ -10,7 +10,7 @@ then
 dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
 The script you are running \"bootstrap\", is meant to initiate an installtion.  \
 However, the file system does not seem to be empty.  If you already have an installtion on this machine and \
-proceed bypressing enter, you will be modifying it.  If that's not your intention, please press escape to interrupt." 13 50
+proceed by pressing enter, you will be modifying it.  If that's not your intention, please press escape to abort." 13 50
 if [ $? eq 255 ]
 then
 exit
@@ -33,18 +33,12 @@ sudo apt-get install -y  git python gcc g++ make
 sudo apt-get -y install netcat
 
 cd /
-if [ ! -s xDrip ] # Create the xDrip directory if it does not exist.
-then
+sudo rm -rf xDrip
 sudo mkdir xDrip
-fi
 cd xDrip
-if [ ! -s scripts ]
-then
 sudo mkdir scripts
-fi
 
 # Let's create a directory for cloning from the fork we are installing from.
-sudo -rf rm clone # Delete a previous directory if one exists. 
 sudo mkdir clone
 cd clone
 
