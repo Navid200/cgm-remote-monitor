@@ -90,7 +90,7 @@ Disk size: $disksz        $DiskUsedPercent used \n\
 Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
-/$repo/$branch
+/$repo/$branch\n\
 Swap: $swap \n\
 Mongo: $mongo \n\
 NS proc: $ns \n\
