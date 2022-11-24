@@ -72,6 +72,7 @@ repo="$(< /srv/repo)"
 if [ ! "$repo" = "nightscout-vps" ]
 then
 repo="\Zb\Z5$(< /srv/repo)\Zn"
+fi
 
 branch="$(< /srv/brnch)"
 
