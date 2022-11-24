@@ -41,6 +41,7 @@ cd xDrip
 sudo mkdir scripts
 
 cd /srv
+sudo rm -rf *
 #sudo git clone https://github.com/jamorham/nightscout-vps.git  # MAINMAINMAINMAINMAINMAINMAINMAINMAINMAIN # Uncomment before PR.
 sudo git clone https://github.com/Navid200/cgm-remote-monitor.git    # TESTTESTTESTTESTTESTTESTTESTTESTTESTTEST # Comment out before PR.
 
