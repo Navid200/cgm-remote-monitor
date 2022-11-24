@@ -53,7 +53,6 @@ sudo git checkout TestMethod  # TESTTESTTESTTESTTESTTESTTESTTESTTESTTEST # Comme
 sudo git branch > /tmp/branch
 grep "*" /tmp/branch | awk '{print $2}' > /tmp/brnch
 sudo mv -f /tmp/brnch ../.  # The branch name is now in /srv/brnch
-cd ..
 
 if [ ! -s update_scripts.sh ]
 then
