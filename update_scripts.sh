@@ -6,6 +6,7 @@ echo
 
 cd /srv
 cd "$(< repo)" 
+sudo git reset --hard
 sudo git pull
 
 sudo chmod 755 *.sh # Change premissions to allow execution by all.
