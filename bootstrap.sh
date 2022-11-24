@@ -57,6 +57,14 @@ sudo git branch > /tmp/branch
 grep "*" /tmp/branch | awk '{print $2}' > /tmp/brnch
 sudo mv -f /tmp/brnch ../.  # The branch name is now in /srv/brnch
 
+sudo git remote -v > /tmp/username
+grep "fetch" /tmp/username | awk '{print $2}' >/tmp/username2
+FLine=$(</tmp/username2)
+IFS='/'
+read -a split <<< $FLine
+echo ${split[3]} > /tmp/username 
+sudo mv -f /tmp/username ../.
+
 if [ ! -s update_scripts.sh ]
 then
 echo "UNABLE TO DOWNLOAD update_scripts SCRIPT! - cannot continue - please try again!"
