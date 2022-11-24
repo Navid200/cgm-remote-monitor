@@ -8,6 +8,7 @@ echo
 
 if [ ! -z "$(ls /srv)" ]
 then
+clear
 dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
 The script you are running \"bootstrap\", is meant to initiate an installtion.  \
 However, the file system does not seem to be empty.  If you already have an installtion on this machine and \
