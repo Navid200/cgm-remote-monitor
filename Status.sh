@@ -69,6 +69,11 @@ ns="$(ps -ef | grep SCREEN | grep root | fold --width=40 | sed -n 1p)"
 
 
 repo="$(< /srv/repo)"
+if [ ! "$repo" = "nightscout-vps" ]
+then
+repo="\Zb\Z5$(< /srv/repo)\Zn"
+
+branch="$(< /srv/brnch)"
 
 
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
@@ -80,10 +85,10 @@ Disk type: "$disk" \n\
 Disk size: $disksz        $DiskUsedPercent used \n\
 Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
-Installed from: $repo
+R: $repo  F: $branch
 ------------------------------------------ \n\
 Swap: $swap \n\
 Mongo: $mongo \n\
 NS proc: $ns \n\
- " 21 50
+ " 22 50
  
