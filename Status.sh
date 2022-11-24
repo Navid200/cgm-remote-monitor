@@ -78,6 +78,7 @@ branch="$(< /srv/brnch)"
 if [ ! "$branch" = "vps-1" ]
 then
 branch="\Zb\Z1$(< /srv/brnch)\Zn"
+fi
 
 
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
