@@ -40,15 +40,15 @@ cd xDrip
 sudo mkdir scripts
 
 cd /srv
-sudo git clone https://github.com/jamorham/nightscout-vps.git  # MAINMAINMAINMAINMAINMAINMAINMAINMAINMAIN # Uncomment before PR.
-#sudo git clone https://    # TESTTESTTESTTESTTESTTESTTESTTESTTESTTEST # Comment out before PR.
+#sudo git clone https://github.com/jamorham/nightscout-vps.git  # MAINMAINMAINMAINMAINMAINMAINMAINMAINMAIN # Uncomment before PR.
+sudo git clone https://github.com/Navid200/cgm-remote-monitor.git    # TESTTESTTESTTESTTESTTESTTESTTESTTESTTEST # Comment out before PR.
 
 ls > /tmp/repo
 sudo mv -f /tmp/repo .    # The repository name is now in /srv/repo
 cd "$(< repo)"
 
-sudo git checkout vps-1  # MAINMAINMAINMAINMAINMAINMAINMAINMAINMAIN # Uncomment before PR.
-#sudo git checkout     # TESTTESTTESTTESTTESTTESTTESTTESTTESTTEST # Comment out before PR.
+#sudo git checkout vps-1  # MAINMAINMAINMAINMAINMAINMAINMAINMAINMAIN # Uncomment before PR.
+sudo git checkout TestMethod  # TESTTESTTESTTESTTESTTESTTESTTESTTESTTEST # Comment out before PR.
 
 sudo git branch > /tmp/branch
 grep "*" /tmp/branch | awk '{print $2}' > /tmp/brnch
