@@ -18,6 +18,7 @@ clear
 exit
 fi
 fi
+clear
 
 sudo apt-get update
 sudo apt-get install dialog
