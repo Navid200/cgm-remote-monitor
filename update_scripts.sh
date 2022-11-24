@@ -4,8 +4,8 @@ echo
 echo "Fetch the latest scripts from GitHub - Navid200"
 echo
 
-cd /xDrip/clone
-cd "$(< repo)"  # Go to the 
+cd /srv
+cd "$(< repo)" 
 sudo git pull
 
 sudo chmod 755 *.sh # Change premissions to allow execution by all.
