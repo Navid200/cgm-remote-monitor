@@ -67,6 +67,11 @@ fi
 mongo="$(mongod --version | sed -n 1p)"
 ns="$(ps -ef | grep SCREEN | grep root | fold --width=40 | sed -n 1p)"
 
+uname="$(< /srv/username)"
+if [ ! "$uname" = "jamorham" ]
+then
+uname="\Zb\Z1$(< /srv/username)\Zn"
+fi
 
 repo="$(< /srv/repo)"
 if [ ! "$repo" = "nightscout-vps" ]
@@ -90,7 +95,7 @@ Disk size: $disksz        $DiskUsedPercent used \n\
 Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
-/$repo/$branch\n\
+/$uname/$repo/$branch\n\
 Swap: $swap \n\
 Mongo: $mongo \n\
 NS proc: $ns \n\
