@@ -1,14 +1,21 @@
 #!/bin/bash
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 
-Test=0
-# Uncomment the following line for testing.
-#Test=1 ###################################### This line must be commented out before submitting a PR.  ##########################################
-# curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/Navid_2022_11_16_Test/bootstrap.sh | bash  <---  Only tested this way
-
 echo 
-echo "Bootstrapping the menu - Navid200"
+echo "Bootstrapping the installation files - Navid200"
 echo
+
+if [ ! -z "$(ls /srv)" ]
+then
+dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
+The script you are running \"bootstrap\", is meant to initiate an installtion.  \
+However, the file system does not seem to be empty.  If you already have an installtion on this machine and \
+proceed bypressing enter, you will be modifying it.  If that's not your intention, please press escape to interrupt." 13 50
+if [ $? eq 255 ]
+then
+exit
+fi
+fi
 
 sudo apt-get update
 sudo apt-get install dialog
@@ -36,22 +43,25 @@ then
 sudo mkdir scripts
 fi
 
-cd /tmp
-if [ ./update_scripts.sh ]
-then
-sudo rm update_scripts.sh
-fi
-rm -fr nightscout-vps
+# Let's create a directory for cloning from the fork we are installing from.
+sudo -rf rm clone # Delete a previous directory if one exists. 
+sudo mkdir clone
+cd clone
 
-if [ $Test -gt 0 ]
-then
-wget https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/Navid_2022_11_16_Test/update_scripts.sh # Test
-else
-git clone https://github.com/jamorham/nightscout-vps.git nightscout-vps
-cd nightscout-vps
-git checkout vps-1
+sudo git clone https://github.com/jamorham/nightscout-vps.git  # MAINMAINMAINMAINMAINMAINMAINMAINMAINMAIN # Uncomment before PR.
+#sudo git clone https://    # TESTTESTTESTTESTTESTTESTTESTTESTTESTTEST # Comment out before PR.
 
-fi
+ls > /tmp/repo
+sudo mv -f /tmp/repo .    # The repository name is now in /xDrip/clone/repo
+cd "$(< repo)"
+
+sudo git checkout vps-1  # MAINMAINMAINMAINMAINMAINMAINMAINMAINMAIN # Uncomment before PR.
+#sudo git checkout     # TESTTESTTESTTESTTESTTESTTESTTESTTESTTEST # Comment out before PR.
+
+sudo git branch > /tmp/branch
+grep "*" /tmp/branch | awk '{print $2}' > /tmp/brnch
+sudo mv -f /tmp/brnch ../.  # The branch name is now in /xDrip/clone/brnch
+cd ..
 
 if [ ! -s update_scripts.sh ]
 then
@@ -59,8 +69,8 @@ echo "UNABLE TO DOWNLOAD update_scripts SCRIPT! - cannot continue - please try a
 exit 5
 fi
 
-sudo chmod 755 update_scripts.sh
-sudo mv -f update_scripts.sh /xDrip/scripts
+sudo chmod 755 *.sh
+sudo cp -f update_scripts.sh /xDrip/scripts
 
 # Updating the scripts
 cat > /tmp/nodialog_update_scripts << EOF
