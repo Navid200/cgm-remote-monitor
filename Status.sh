@@ -71,10 +71,13 @@ ns="$(ps -ef | grep SCREEN | grep root | fold --width=40 | sed -n 1p)"
 repo="$(< /srv/repo)"
 if [ ! "$repo" = "nightscout-vps" ]
 then
-repo="\Zb\Z5$(< /srv/repo)\Zn"
+repo="\Zb\Z1$(< /srv/repo)\Zn"
 fi
 
 branch="$(< /srv/brnch)"
+if [ ! "$branch" = "vps-1" ]
+then
+branch="\Zb\Z1$(< /srv/brnch)\Zn"
 
 
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
