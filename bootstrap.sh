@@ -1,34 +1,112 @@
-#!/bin/sh
+#!/bin/bash
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+# curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/TestMethod/bootstrap.sh | bash
 
 echo 
-echo "Bootstrapping Nightscout installer - Modified"
+echo "Bootstrapping the installation files - Navid200"
 echo
-cd /tmp
-if [ -s installation.sh ]
+
+if [ ! -z "$(ls /srv)" ]
 then
-sudo rm installation.sh
+clear
+dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
+The script you are running, \"bootstrap\", is meant to initiate an installtion.  However, the file system does not seem to be empty.\n\n\
+If you already have an installtion on this machine and proceed by pressing enter, it will be modified.  If that's not your intention, please press escape to abort." 15 50
+if [ $? -eq 255 ]
+then
+clear
+exit
 fi
+fi
+clear
+
 sudo apt-get update
+sudo apt-get install dialog
+ubversion="$(cat /etc/issue | awk '{print $2}')"
+if [[ ! "$ubversion" = "20.04"* ]]
+then
+clear
+dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+The Ubuntu version on the virtual machine is incorrect.  You need to delete the virtual machine and create a new one.  Please refer to the guide for the details." 10 50
+exit
+fi
+
 sudo apt-get -y install wget bash
-wget https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/vps-1/installation.sh
-if [ ! -s installation.sh ]
+sudo apt-get install -y  git python gcc g++ make
+sudo apt-get -y install netcat
+
+cd /
+sudo rm -rf xDrip
+sudo mkdir xDrip
+cd xDrip
+sudo mkdir scripts
+
+cd /srv
+sudo rm -rf *
+#sudo git clone https://github.com/jamorham/nightscout-vps.git  # ✅✅✅✅✅ Main - Uncomment before PR.
+sudo git clone https://github.com/Navid200/cgm-remote-monitor.git  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
+
+ls > /tmp/repo
+sudo mv -f /tmp/repo .    # The repository name is now in /srv/repo
+cd "$(< repo)"
+#sudo git checkout vps-1  # ✅✅✅✅✅ Main - Uncomment before PR.
+sudo git checkout TestMethod  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
+
+sudo git branch > /tmp/branch
+grep "*" /tmp/branch | awk '{print $2}' > /tmp/brnch
+sudo mv -f /tmp/brnch ../.  # The branch name is now in /srv/brnch
+
+sudo git remote -v > /tmp/username
+grep "fetch" /tmp/username | awk '{print $2}' >/tmp/username2
+FLine=$(</tmp/username2)
+IFS='/'
+read -a split <<< $FLine
+echo ${split[3]} > /tmp/username 
+sudo mv -f /tmp/username ../.
+
+if [ ! -s update_scripts.sh ]
 then
-echo "UNABLE TO DOWNLOAD INSTALLATION SCRIPT! - cannot continue - please try again!"
+echo "UNABLE TO DOWNLOAD update_scripts SCRIPT! - cannot continue - please try again!"
 exit 5
 fi
 
+sudo chmod 755 *.sh
+sudo cp -f update_scripts.sh /xDrip/scripts
 
-if [ "$SSH_TTY" = "" ]
+# Updating the scripts
+cat > /tmp/nodialog_update_scripts << EOF
+Don't show dialog
+
+EOF
+
+/xDrip/scripts/update_scripts.sh
+
+# So that the menu comes up as soon as the user logs in (opens a terminal)
+cd /tmp
+cat > /tmp/start_menu.sh << EOF
+#!/bin/sh
+sleep 1
+/xDrip/scripts/menu.sh
+
+EOF
+sudo chown root:root start_menu.sh
+sudo chmod 755 start_menu.sh
+sudo mv -f start_menu.sh /etc/profile.d
+
+if [ "$(grep /xDrip/scripts/menu.sh ~/.bash_aliases)" = "" ] # If there is no alias to menu.sh not even commented out
 then
-echo "Must be run from ssh session"
-exit 5
+cat >> ~/.bash_aliases << EOF
+alias menu="/xDrip/scripts/menu.sh"
+EOF
 fi
 
-echo
-echo "Running installer"
-echo
-sudo < $SSH_TTY bash installation.sh
-echo
-echo "Finished running installer"
-echo
+clear
+dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
+If any item is shown in red on the status page (shown next), it represents an incorrect parameter that could result in malfunction or cost.  \
+Please take a note, delete the virtual machine, and create a new one.   For more detail, please refer to the guide." 12 50
+
+# Bring up the status page
+/xDrip/scripts/Status.sh
+clear
+/xDrip/scripts/menu.sh < /dev/tty
+ 
