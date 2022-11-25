@@ -68,19 +68,19 @@ mongo="$(mongod --version | sed -n 1p)"
 ns="$(ps -ef | grep SCREEN | grep root | fold --width=40 | sed -n 1p)"
 
 uname="\Zb\Z2$(< /srv/username)\Zn"
-if [ ! "$uname" = "jamorham" ]
+if [ ! "$(< /srv/username)" = "jamorham" ]
 then
 uname="\Zb\Z1$(< /srv/username)\Zn"
 fi
 
 repo="\Zb\Z2$(< /srv/repo)\Zn"
-if [ ! "$repo" = "nightscout-vps" ]
+if [ ! "$(< /srv/repo)" = "nightscout-vps" ]
 then
 repo="\Zb\Z1$(< /srv/repo)\Zn"
 fi
 
 branch="\Zb\Z2$(< /srv/brnch)\Zn"
-if [ ! "$branch" = "vps-1" ]
+if [ ! "$(< /srv/brnch)" = "vps-1" ]
 then
 branch="\Zb\Z1$(< /srv/brnch)\Zn"
 fi
