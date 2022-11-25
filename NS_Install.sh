@@ -59,7 +59,8 @@ cd /srv
 
 echo "Installing Nightscout"
 cd "$(< repo)" 
-sudo git pull
+sudo git reset --hard  # delete any local edits.
+sudo git pull  # Update database from remote.
 
 sudo npm install
 sudo npm run generate-keys
