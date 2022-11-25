@@ -56,6 +56,10 @@ sudo /xDrip/scripts/clone_nightscout.sh
 ;;
 
 7)
+cd /srv
+cd "$(< repo)"  # Go to the local database
+sudo git reset --hard  # delete any local edits.
+sudo git pull  # Update database from remote.
 clear
 sudo /xDrip/scripts/update_scripts.sh
 ;;
