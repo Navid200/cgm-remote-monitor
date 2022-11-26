@@ -129,6 +129,12 @@ clear
 IFS='|'
 read -a split <<< $FLine
 hostname=${split[0]}
+if [[ "$hostname" =~ [A-Z] ]]
+then
+dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
+The subdomain should not contain uppercase letters.  Press enter to return to the main menu.  You can rerun FreeDNS Setup when you have a subdomain with no uppercase letters." 10 50
+exit
+fi
 directurl=${split[2]}
 
 #create a file to store the data for the startup script.
@@ -203,3 +209,4 @@ Internal error.  Must run FreeDNS again.
 EOF
 
 dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\nInternal error.  Press enter to exit.  Then, run FreeDNS Setup again" 9 50
+ 
