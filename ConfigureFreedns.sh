@@ -36,7 +36,7 @@ if [[ "$user" =~ [A-Z] ]]
 then
 dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
 The FreeDNS user ID does not contain uppercase letters.  Even though FreeDNS does not inform you, it converts all uppercase letters to lowercase in your user ID.  \
-If you log into FreeDNS and go to the main menu, you can see your user ID at the top in the right pane.  Please try again." 10 50
+If you log into FreeDNS and go to the main menu, you can see your user ID at the top in the right pane.  Please try again." 10 52
 go_back=1
 fi
 
