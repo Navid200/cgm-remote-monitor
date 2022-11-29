@@ -20,7 +20,7 @@ cat > /srv/brnch << EOF
 vps-1
 EOF
 fi
-if [ ! -s /srv/repo ]  # Create the file containing the user name if nonexistent.
+if [ ! -s /srv/username ]  # Create the file containing the user name if nonexistent.
 then
 cat > /srv/username << EOF
 jamorham
