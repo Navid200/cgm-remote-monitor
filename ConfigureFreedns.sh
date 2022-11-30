@@ -216,3 +216,4 @@ Internal error.  Must run FreeDNS again.
 EOF
 
 dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\nInternal error.  Press enter to exit.  Then, run FreeDNS Setup again" 9 50
+ 
