@@ -61,8 +61,7 @@ then
   wget -O /tmp/hosts "$arg"
 if [ ! "`grep 'Could not authenticate' /tmp/hosts`" = "" ] # Failed to log in
 then
-  dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\n\
-  Failed to authenticate.  Try again."  8 50
+  dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\nFailed to authenticate.  Try again."  8 50
   go_back=1
 fi
 
@@ -71,17 +70,14 @@ then
   Lines=$(awk 'END{print NR}' /tmp/hosts)
   if [ $Lines -eq 0 ] # No hostnames # if 5
   then
-    dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
-    No subdomains found.  Ensure you have one in your Free DNS account, and try again."  9 50
+    dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\nNo subdomains found.  Ensure you have one in your Free DNS account, and try again."  9 50
     go_back=1
 
   elif [ $Lines -gt 1 ] # More than one hostname
   then
     clear
     exec 3>&1
-    subvalue=$(dialog --colors --ok-label "Submit" --form "     \Zr Developed by the xDrip team \Zn\n\n\n\
-    You have more than one subdomain.  Enter the subdomain you want to use. \n\
-    It should look like mine.strangled.net"  12 50 0 "Subdomain:" 1 1 "$subd" 1 14 25 0 2>&1 1>&3)
+    subvalue=$(dialog --colors --ok-label "Submit" --form "     \Zr Developed by the xDrip team \Zn\n\n\nYou have more than one subdomain.  Enter the subdomain you want to use. \nIt should look like mine.strangled.net"  12 50 0 "Subdomain:" 1 1 "$subd" 1 14 25 0 2>&1 1>&3)
     response2=$?
     if [ $response2 = 255 ] || [ $response2 = 1 ] # canceled or escaped
     then
@@ -96,8 +92,7 @@ then
       then
         go_back=1
         clear
-        dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\n\
-        You need to enter a subdomain.  Try again."  8 50
+        dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\nYou need to enter a subdomain.  Try again."  8 50
       fi
 
       if [ $go_back -lt 1 ] # if 3
@@ -106,8 +101,7 @@ then
         if [ ! -s /tmp/FullLine ] # Not found
         then
           go_back=1
-          dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\n\
-          The subdomain you entered is not one of the ones we found.  Try again." 9 50
+          dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\nThe subdomain you entered is not one of the ones we found.  Try again." 9 50
         fi
         if [ $go_back -lt 1 ]  # if 2
         then
@@ -115,8 +109,7 @@ then
         if [ $Lines2 -gt 1 ] # More than one found  if 1
         then
           go_back=1
-          dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\n\
-          The value you entered matches more than one of your subdomains.  Try again and enter a unique value." 11 50
+          dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\nThe value you entered matches more than one of your subdomains.  Try again and enter a unique value." 11 50
         else
           FLine=$(</tmp/FullLine)
           got_them=1 # We have the hostname and direct URL
