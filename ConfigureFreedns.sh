@@ -37,7 +37,7 @@ then
 dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
 Your FreeDNS user ID does not contain uppercase letters.  Even though FreeDNS does not inform you, it converts all uppercase letters to lowercase in your user ID.\n\n\
 If you log into FreeDNS and go to the main menu, you can see your approved user ID at the top in the right pane.\n\n\
-Please try again." 15 50
+Please try again." 16 50
 go_back=1
 fi
 
