@@ -16,13 +16,13 @@ Press Enter to execute the highlighted option.\n\n" 24 50 14\
  "1" "Status"\
  "2" "Installation phase 1 - 15 minutes"\
  "3" "Installation phase 2 - 5 minutes"\
- "4" "Edit variables"\
- "5" "Edit variables in a browser"\
- "6" "Copy data from another Nightscout"\
- "7" "Update scripts"\
- "8" "Backup MongoDB"\
- "9" "Restore MongoDB backup"\
- "10" "FreeDNS Setup"\
+ "4" "Edit variables in a browser"\
+ "5" "Copy Variables from Heroku"\
+ "6" "Update scripts"\
+ "7" "Backup MongoDB"\
+ "8" "Restore MongoDB backup"\
+ "9" "FreeDNS Setup"\
+ "10" "Copy data from another Nightscout"\
  "11" "Customize Nightscout"\
  "12" "Reboot server (Nightscout)"\
  "13" "Exit to shell (terminal)"\
@@ -43,19 +43,14 @@ sudo /xDrip/scripts/NS_Install2.sh
 ;;
 
 4)
-/xDrip/scripts/variables.sh
-;;
-
-5)
 /xDrip/scripts/varserver.sh
 ;;
 
-6)
-clear
-sudo /xDrip/scripts/clone_nightscout.sh
+5)
+/xDrip/scripts/GetHerokuVars.sh
 ;;
 
-7)
+6)
 cd /srv
 cd "$(< repo)"  # Go to the local database
 sudo git reset --hard  # delete any local edits.
@@ -66,17 +61,22 @@ clear
 sudo /xDrip/scripts/update_scripts.sh
 ;;
 
-8)
+7)
 /xDrip/scripts/backupmongo.sh
 ;;
 
-9)
+8)
 /xDrip/scripts/restoremongo.sh
+;;
+
+9)
+clear
+sudo /xDrip/scripts/ConfigureFreedns.sh
 ;;
 
 10)
 clear
-sudo /xDrip/scripts/ConfigureFreedns.sh
+sudo /xDrip/scripts/clone_nightscout.sh
 ;;
 
 11)
