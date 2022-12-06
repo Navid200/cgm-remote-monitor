@@ -85,9 +85,10 @@ then
 branch="\Zb\Z1$(< /srv/brnch)\Zn"
 fi
 
-
-dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-                \Zb Status \Zn\n\n\
+clear
+Choice=$(dialog --colors --nocancel --nook --menu "\
+       \Zr Developed by the xDrip team \Zn\n\n\
+          \Zb Status   2022.12.05 \Zn\n\n\
 Zone: "$Zone" \n\
 RAM: $Ramsize \n\
 Disk type: "$disk" \n\
@@ -99,5 +100,21 @@ HTTP & HTTPS:  $http \n\
 Swap: $swap \n\
 Mongo: $mongo \n\
 NS proc: $ns \n\
- " 22 50
+FreeDNS: 
+ " 24 50 2\
+ "1" "Return"\
+ "2" "Hostname"\
+ 3>&1 1>&2 2>&3)
+ 
+ case $Choice in
+ 
+ 1)
+exit
+;;
+
+2)
+exit
+;;
+
+esac
  
