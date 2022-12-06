@@ -109,7 +109,7 @@ apisec=${split[1]}
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
        \Zr Developed by the xDrip team \Zn\n\n\
-          \Zb Status         2022.12.05 \Zn\n\n\
+                \Zb Status       2022.12.05 \Zn\n\n\
 Zone: $Zone \n\
 RAM: $Ramsize \n\
 Disk type: "$disk" \n\
