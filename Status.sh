@@ -117,7 +117,7 @@ exit
 echo "your host name" $HOSTNAME
 dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
 Don't disclose.\n\
-       FreeDNS hostname:  $HOSTNAME" 8 50
+FreeDNS hostname:  $HOSTNAME" 8 50
 ;;
 
 esac
