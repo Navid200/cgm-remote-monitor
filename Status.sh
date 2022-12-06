@@ -124,7 +124,7 @@ NS proc: $ns \n\
 FreeDNS: $FD
  " 24 50 2\
  "1" "Return"\
- "2" "Hostname"\
+ "2" "Hostname & API_SECRET"\
  3>&1 1>&2 2>&3)
  
  case $Choice in
