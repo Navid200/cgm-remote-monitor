@@ -94,9 +94,9 @@ registered=$(nslookup $HOSTNAME|tail -n2|grep A|sed s/[^0-9.]//g)
 current=$(wget -q -O - http://checkip.dyndns.org|sed s/[^0-9.]//g)
 if [ ! "$registered" = "$current" ]
 then
-FD="\Zb\Z1mismatch\Zn"
+FD="\Zb\Z1Mismatch\Zn"
 else
-FD="match"
+FD="Match"
 fi
 fi
 
