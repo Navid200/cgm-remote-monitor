@@ -118,7 +118,7 @@ echo "your host name" $HOSTNAME
 dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
 Don't disclose.
 
-$HOSTNAME" 8 50
+Hostname:  $HOSTNAME" 8 50
 ;;
 
 esac
