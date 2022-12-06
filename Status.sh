@@ -127,7 +127,7 @@ Swap: $swap \n\
 Mongo: $mongo \n\
 NS proc: $ns \n\
 FreeDNS: $FD \n\
-Certificate: $cert \n\
+Certificate: $cert \
  " 25 50 2\
  "1" "Return"\
  "2" "Hostname and password"\
