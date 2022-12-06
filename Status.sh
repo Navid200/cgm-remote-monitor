@@ -94,9 +94,9 @@ registered=$(nslookup $HOSTNAME|tail -n2|grep A|sed s/[^0-9.]//g)
 current=$(wget -q -O - http://checkip.dyndns.org|sed s/[^0-9.]//g)
 if [ ! "$registered" = "$current" ]
 then
-FD="DNS name and IP mismatch"
+FD="\Zb\Z1mismatch\Zn"
 else
-FD="DNS name and IP match"
+FD="match"
 fi
 fi
 
@@ -106,7 +106,7 @@ apisec=$API_SECRET
 curl https://$HOSTNAME > /tmp/$HOSTNAME.txt
 curl_ret=$?
 if (( curl_ret != 0 )); then
-cert="Invalid"
+cert="\Zb\Z1Invalid\Zn"
 else
 cert="Valid"
 fi
@@ -126,7 +126,7 @@ HTTP & HTTPS:  $http \n\
 Swap: $swap \n\
 Mongo: $mongo \n\
 NS proc: $ns \n\
-FreeDNS: $FD \n\
+FreeDNS name and IP: $FD \n\
 Certificate: $cert \
  " 25 50 2\
  "1" "Return"\
