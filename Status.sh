@@ -94,17 +94,20 @@ registered=$(nslookup $HOSTNAME|tail -n2|grep A|sed s/[^0-9.]//g)
 current=$(wget -q -O - http://checkip.dyndns.org|sed s/[^0-9.]//g)
 if [ ! "$registered" = "$current" ]
 then
-FD="Mismatch"
+FD="DNS name and IP mismatch"
 else
-FD="Match"
+FD="DNS name and IP match"
 fi
 fi
 
-grep API_SECRET /etc/nsconfig | awk '{print $2}' > /tmp/apisecret
-FLine=$(</tmp/apisecret)
-IFS='"'
-read -a split <<< $FLine
-apisec=${split[1]}
+. /etc/nsconfig
+
+#grep API_SECRET /etc/nsconfig | awk '{print $2}' > /tmp/apisecret
+#FLine=$(</tmp/apisecret)
+#IFS='"'
+#read -a split <<< $FLine
+#apisec=${split[1]}
+apisec=$API_SECRET
 
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
@@ -137,7 +140,7 @@ exit
 dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
         Do not disclose.\n\n\
 FreeDNS hostname:  $HOSTNAME\n\
-API-SECRET: $apisec" 10 50
+API_SECRET: $apisec" 10 50
 ;;
 
 esac
