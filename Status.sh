@@ -140,7 +140,7 @@ exit
 ;;
 
 2)
-dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
+dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
            \Zb\Z1Do not disclose.\Zn\n\n\
 FreeDNS hostname:  $HOSTNAME\n\
 API_SECRET: $apisec" 10 50
