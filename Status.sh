@@ -85,11 +85,17 @@ then
 branch="\Zb\Z1$(< /srv/brnch)\Zn"
 fi
 
+. /etc/free-dns.sh
+if [ "$HOSTNAME" = "" ]
+then
+FD="No hostname"
+fi
+
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
        \Zr Developed by the xDrip team \Zn\n\n\
           \Zb Status         2022.12.05 \Zn\n\n\
-Zone: "$Zone" \n\
+Zone: $Zone \n\
 RAM: $Ramsize \n\
 Disk type: "$disk" \n\
 Disk size: $disksz        $DiskUsedPercent used \n\
@@ -100,7 +106,7 @@ HTTP & HTTPS:  $http \n\
 Swap: $swap \n\
 Mongo: $mongo \n\
 NS proc: $ns \n\
-FreeDNS: 
+FreeDNS: $FD
  " 24 50 2\
  "1" "Return"\
  "2" "Hostname"\
@@ -113,8 +119,6 @@ exit
 ;;
 
 2)
-. /etc/free-dns.sh
-echo "your host name" $HOSTNAME
 dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
 Do not disclose.\n\
 FreeDNS hostname:  $HOSTNAME" 8 50
