@@ -90,6 +90,12 @@ if [ "$HOSTNAME" = "" ]
 then
 FD="No hostname"
 fi
+registered=$(nslookup $HOSTNAME|tail -n2|grep A|sed s/[^0-9.]//g)
+current=$(wget -q -O - http://checkip.dyndns.org|sed s/[^0-9.]//g)
+if [ ! "$registered" = "$current" ]
+then
+FD="Mismatch"
+fi
 
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
