@@ -115,7 +115,8 @@ exit
 2)
 . /etc/free-dns.sh
 echo "your host name" $hostname
-
+dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
+$hostname" 10 50
 ;;
 
 esac
