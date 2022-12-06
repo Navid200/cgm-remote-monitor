@@ -100,6 +100,12 @@ FD="Match"
 fi
 fi
 
+grep API_SECRET /etc/nsconfig | awk '{print $2}' > /tmp/apisecret
+FLine=$(</tmp/apisecret)
+IFS='"'
+read -a split <<< $FLine
+apisec=${split[1]}
+
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
        \Zr Developed by the xDrip team \Zn\n\n\
@@ -130,7 +136,8 @@ exit
 2)
 dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
 Do not disclose.\n\
-FreeDNS hostname:  $HOSTNAME" 8 50
+FreeDNS hostname:  $HOSTNAME\n\
+API-SECRET: $apisec" 9 50
 ;;
 
 esac
