@@ -113,7 +113,9 @@ exit
 ;;
 
 2)
-exit
+. /etc/free-dns.sh
+echo "your host name" $hostname
+
 ;;
 
 esac
