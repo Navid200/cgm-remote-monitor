@@ -135,9 +135,9 @@ exit
 
 2)
 dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
-Do not disclose.\n\
+        Do not disclose.\n\n\
 FreeDNS hostname:  $HOSTNAME\n\
-API-SECRET: $apisec" 9 50
+API-SECRET: $apisec" 10 50
 ;;
 
 esac
