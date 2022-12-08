@@ -110,7 +110,7 @@ Please take a note, delete the virtual machine, and create a new one.   For more
 
 # Add log followed by an empty line
 echo -e "Bootstrap completed     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
-sudo cp -f /tmp/Logs /xDrip/Logs
+sudo /bin/cp -f /tmp/Logs /xDrip/Logs
 
 # Bring up the status page
 /xDrip/scripts/Status.sh
