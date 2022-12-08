@@ -70,7 +70,7 @@ do
 read -t 0.1 dummy
 done
 
-# Add log followed by an empty line
+# Add log
 echo -e "Installation phase 1 completed     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
 sudo /bin/cp -f /tmp/Logs /xDrip/Logs
   
