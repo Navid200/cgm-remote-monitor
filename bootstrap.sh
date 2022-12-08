@@ -35,10 +35,13 @@ sudo apt-get -y install wget bash
 sudo apt-get install -y  git python gcc g++ make
 sudo apt-get -y install netcat
 
-cd /
-sudo rm -rf xDrip
-sudo mkdir xDrip
-cd xDrip
+if [ ! -s /xDrip ]
+then
+sudo mkdir /xDrip
+fi
+cd /xDrip
+sudo rm -rf scripts
+sudo -rf ConfigServer
 sudo mkdir scripts
 
 cd /srv
@@ -62,7 +65,7 @@ FLine=$(</tmp/username2)
 IFS='/'
 read -a split <<< $FLine
 echo ${split[3]} > /tmp/username 
-sudo mv -f /tmp/username ../.
+sudo mv -f /tmp/username ../. # The username is now in /srv/username
 
 if [ ! -s update_scripts.sh ]
 then
@@ -106,7 +109,7 @@ If any item is shown in red on the status page (shown next), it represents an in
 Please take a note, delete the virtual machine, and create a new one.   For more detail, please refer to the guide." 12 50
 
 # Add log followed by an empty line
-sudo bash -c 'cat >> /srv/Logs << EOF
+sudo bash -c 'cat >> /xDrip/Logs << EOF
 Bootstrap completed     "$(date)"
 
 EOF'
