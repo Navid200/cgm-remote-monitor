@@ -71,8 +71,7 @@ read -t 0.1 dummy
 done
 
 # Add log followed by an empty line
-sudo bash -c 'cat >> /xDrip/Logs << EOF
-Installation phase 1 completed     "$(date)"
-EOF'
+echo -e "Installation phase 1 completed     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
+sudo /bin/cp -f /tmp/Logs /xDrip/Logs
   
  
