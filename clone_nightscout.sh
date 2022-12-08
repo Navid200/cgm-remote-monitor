@@ -75,8 +75,11 @@ do
         continue;
      fi
 
-     echo Startint to copy $rest_endpoint
+     echo Starting to copy $rest_endpoint
      clone_collections $rest_endpoint $read_token
+     # Add log
+     echo -e "Data copied from another Nightscout     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
+     sudo /bin/cp -f /tmp/Logs /xDrip/Logs
      exit 0
    
 done
