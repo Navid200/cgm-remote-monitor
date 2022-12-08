@@ -69,4 +69,10 @@ for loop in 1 2 3 4 5 6 7 8 9
 do
 read -t 0.1 dummy
 done
+
+# Add log followed by an empty line
+sudo bash -c 'cat >> /xDrip/Logs << EOF
+Installation phase 1 completed     "$(date)"
+EOF'
+  
  
