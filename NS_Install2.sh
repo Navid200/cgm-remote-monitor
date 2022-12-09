@@ -148,6 +148,7 @@ then
 clear
 
 # Add log
+rm -rf /tmp/Logs
 echo -e "Installation phase 2 completed     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
 sudo /bin/cp -f /tmp/Logs /xDrip/Logs
 
