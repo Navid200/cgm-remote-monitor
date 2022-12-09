@@ -40,6 +40,7 @@ sudo cp -r ConfigServer /xDrip/.
 cd ..
 
 # Add log
+rm -rf /tmp/Logs
 echo -e "The platform has been updated     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
 sudo /bin/cp -f /tmp/Logs /xDrip/Logs
 
