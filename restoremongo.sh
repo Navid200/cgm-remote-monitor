@@ -25,6 +25,7 @@ Then, move the cursor over OK and press enter." 10 50
 else
 clear
 # Add log
+rm -rf /tmp/Logs
 echo -e "Mongo restore     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
 sudo /bin/cp -f /tmp/Logs /xDrip/Logs
 exit
