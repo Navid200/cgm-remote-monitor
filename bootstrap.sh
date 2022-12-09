@@ -109,6 +109,7 @@ If any item is shown in red on the status page (shown next), it represents an in
 Please take a note, delete the virtual machine, and create a new one.   For more detail, please refer to the guide." 12 50
 
 # Add log 
+rm -rf /tmp/Log
 echo -e "Bootstrap completed     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
 sudo /bin/cp -f /tmp/Logs /xDrip/Logs
 
