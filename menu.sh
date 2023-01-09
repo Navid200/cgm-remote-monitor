@@ -35,7 +35,7 @@ case $Choice in
 ;;
 
 3)
-/xDrip/qrCodeMaster.sh
+/xDrip/scripts/qrCodeMaster.sh
 ;;
 
 4)
