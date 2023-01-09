@@ -18,6 +18,6 @@ You need to complete Nightscout installation and have a hostname and API_SECRET.
 exit
 fi
 
-baseurl="$apisec@https://$HOSTNAME/api/v1/"
+baseurl="https://$apisec@h$HOSTNAME/api/v1/"
 clear
 echo "$baseurl"
