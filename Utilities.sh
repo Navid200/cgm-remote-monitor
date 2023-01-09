@@ -4,15 +4,12 @@ echo
 echo "Bringing up the utilities menu" - Navid200
 echo
 
-while :
-do
-
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
       \Zr Developed by the xDrip team \Zn\
   \n\n
 Use the arrow keys to move the cursor.\n\
-Press Enter to execute the highlighted option.\n\n" 20 50 6\
+Press Enter to execute the highlighted option.\n\n" 18 50 8\
  "1" "Logs"\
  "2" "Installation phase 1 - 15 minutes"\
  "3" "Installation phase 2 - 5 minutes"\
@@ -61,6 +58,4 @@ curl https://raw.githubusercontent.com/jamorham/nightscout-vps/vps-1/bootstrap.s
 ;;
 
 esac
-
-done
  
