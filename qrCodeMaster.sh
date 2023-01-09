@@ -29,7 +29,6 @@ then
   sudo apt-get install qrencode
 fi  
 
-clear
 qrencode -s 6 -t UTF8 "$baseurl"
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
 The following line is the base URL.  An app that needs to upload to Nightscout requires it.  Please don't post in a public forum.\n\n
