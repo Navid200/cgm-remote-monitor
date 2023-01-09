@@ -19,8 +19,6 @@ exit
 fi
 
 baseurl="https://$apisec@$HOSTNAME/api/v1/"
-clear
-echo "$baseurl"
 
 qrencodev=$(qrencode --version | sed -n 1p)
 if [ "$qrencodev" = "" ]
