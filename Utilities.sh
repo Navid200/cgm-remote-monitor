@@ -24,7 +24,7 @@ case $Choice in
 
 1)
 clear
-dialog --colors --textbox /xDrip/Logs 26 60
+dialog --colors --textbox /xDrip/Logs 26 70
 
 # "     \Zr Developed by the xDrip team \Zn\n\n\
 
