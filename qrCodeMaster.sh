@@ -27,9 +27,10 @@ then
   sudo apt-get install qrencode
 fi  
 
+clear
 dialog --colors --msgbox "            \Zr Developed by the xDrip team \Zn\n\n\
-The following line is the base URL, which an app that needs in order to upload to Nightscout.  Don't disclose.\n\n\Zu $baseurl \Zn\n\n\
-Press enter to see a QR code that you can scan with xDrip to set it up as master." 14 60
+The following line is the base URL, which an app that needs in order to upload to Nightscout.  Don't disclose.\n\n\Zr $baseurl \Zn\n\n\
+Press enter to see a QR code that you can scan with xDrip to set it up as master." 13 60
 
 qrencode -s 6 -t UTF8 "$baseurl"
   
