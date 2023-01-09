@@ -15,7 +15,7 @@ Use the arrow keys to move the cursor.\n\
 Press Enter to execute the highlighted option.\n\n" 19 50 9\
  "1" "Status"\
  "2" "Edit variables"\
- "3" "Set up xDrip as master"\
+ "3" "Master URL"\
  "4" "Backup MongoDB"\
  "5" "Restore MongoDB"\
  "6" "Update platform"\
