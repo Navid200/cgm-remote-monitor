@@ -30,8 +30,8 @@ then
 fi  
 
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-The following line is the base URL.  An app that needs to upload to Nightscout can use this.  Please don't post in a forum.\
-$baseurl" 24 50
+The following line is the base URL.  An app that needs to upload to Nightscout requires it.  Please don't post in a public forum.\n\n
+$baseurl" 21 50
 
 # qrencode -s 6 -t UTF8 "$baseurl"
   
