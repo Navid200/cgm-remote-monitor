@@ -29,4 +29,4 @@ then
   sudo apt-get install qrencode
 fi  
 
-qrencode "$baseurl"
+qrencode -s 6 -t UTF8 "$baseurl"
