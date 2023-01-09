@@ -12,7 +12,7 @@ Choice=$(dialog --colors --nocancel --nook --menu "\
       \Zr Developed by the xDrip team \Zn\
   \n\n
 Use the arrow keys to move the cursor.\n\
-Press Enter to execute the highlighted option.\n\n" 20 50 9\
+Press Enter to execute the highlighted option.\n\n" 19 50 9\
  "1" "Status"\
  "2" "Edit variables"\
  "3" "Set up xDrip as master"\
