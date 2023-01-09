@@ -22,12 +22,6 @@ Press Enter to execute the highlighted option.\n\n" 20 50 6\
  "7" "Customize Nightscout"\
  "8" "Bootstrap"\
  3>&1 1>&2 2>&3)
- response=$?
- if [ $response = 255 ] # escaped
- then
-   clear
-   exit 5
- fi
 
 case $Choice in
 
