@@ -13,11 +13,12 @@ Press Enter to execute the highlighted option.\n\n" 18 50 8\
  "1" "Logs"\
  "2" "Installation phase 1 - 15 minutes"\
  "3" "Installation phase 2 - 5 minutes"\
- "4" "Edit variables using a text editor"\
- "5" "Copy data from another Nightscout"\
- "6" "FreeDNS Setup"\
- "7" "Customize Nightscout"\
- "8" "Bootstrap"\
+ "4" "QR code to make xDrip master"\
+ "5" "Edit variables using a text editor"\
+ "6" "Copy data from another Nightscout"\
+ "7" "FreeDNS Setup"\
+ "8" "Customize Nightscout"\
+ "9" "Bootstrap"\
  3>&1 1>&2 2>&3)
 
 case $Choice in
@@ -39,24 +40,28 @@ sudo /xDrip/scripts/NS_Install2.sh
 ;;
 
 4)
-/xDrip/scripts/variables.sh
+/xDrip/scripts/qrCodeMaster.sh
 ;;
 
 5)
-clear
-sudo /xDrip/scripts/clone_nightscout.sh
+/xDrip/scripts/variables.sh
 ;;
 
 6)
 clear
-sudo /xDrip/scripts/ConfigureFreedns.sh
+sudo /xDrip/scripts/clone_nightscout.sh
 ;;
 
 7)
-sudo /xDrip/scripts/update_nightscout.sh
+clear
+sudo /xDrip/scripts/ConfigureFreedns.sh
 ;;
 
 8)
+sudo /xDrip/scripts/update_nightscout.sh
+;;
+
+9)
 curl https://raw.githubusercontent.com/jamorham/nightscout-vps/vps-1/bootstrap.sh | bash
 ;;
 
