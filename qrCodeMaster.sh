@@ -18,14 +18,7 @@ You need to complete Nightscout installation and have a hostname and API_SECRET 
 exit
 fi
 
-baseurl="https://$apisec@$HOSTNAME/api/v1/"
-
-qrencodev=$(qrencode --version | sed -n 1p)
-if [ "$qrencodev" = "" ]
-then
-  sudo apt-get update
-  sudo apt-get install qrencode
-fi  
+baseurl="https://$apisec@$HOSTNAME/api/v1/" 
 
 clear
 echo "Developed by the xDrip team"
