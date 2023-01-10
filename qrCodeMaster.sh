@@ -14,7 +14,7 @@ if [ "$(node -v)" = "" ] || [ "$HOSTNAME" = "" ] || [ "$apisec" = "" ] # If Node
 then
 clear
 dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
-You need to complete Nightscout installation and have a hostname and API_SECRET." 9 50
+You need to complete Nightscout installation and have a hostname and API_SECRET to show a QR code for setting up xDrip as an uploader." 9 50
 exit
 fi
 
