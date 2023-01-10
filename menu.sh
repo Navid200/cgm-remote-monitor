@@ -31,7 +31,7 @@ case $Choice in
 
 2)
 clear
-dialog --colors --title "\Zr Developed by the xDrip team \Zn\n"   --textbox /xDrip/Logs 26 74 
+dialog --colors --title "\Zr Developed by the xDrip team \Zn"   --textbox /xDrip/Logs 26 74 
 ;;
 
 3)
