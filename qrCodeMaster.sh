@@ -32,13 +32,10 @@ dialog --colors --msgbox "            \Zr Developed by the xDrip team \Zn\n\n\
 The following line is the base URL, which an app would need in order to upload to Nightscout.  Don't disclose.\n\n\Zr\Z5 $baseurl \Zn\n\n\
 Press enter for a QR code that with xDrip can scan to set it up as master." 13 60
 
-arg=["$baseurl"]
-
 clear
 echo "Developed by the xDrip team"
 echo ""
 echo "Use auto configure in xDrip to scan this QR code to set it up as master."
-#qrencode -s 6 -t UTF8 "$baseurl"
 qrencode -s 6 -t UTF8 {"rest":{"endpoint":[\"$baseurl\"]}}
 read -p "Press enter to return to the menu."
   
