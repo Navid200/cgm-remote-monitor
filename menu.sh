@@ -14,8 +14,8 @@ Choice=$(dialog --colors --nocancel --nook --menu "\
 Use the arrow keys to move the cursor.\n\
 Press Enter to execute the highlighted option.\n\n" 19 50 9\
  "1" "Status"\
- "2" "Edit variables"\
- "3" "Master URL"\
+ "2" "Logs"\
+ "3" "Edit variables"\
  "4" "Backup MongoDB"\
  "5" "Restore MongoDB"\
  "6" "Update platform"\
@@ -31,11 +31,11 @@ case $Choice in
 ;;
 
 2)
-/xDrip/scripts/varserver.sh
-;;
+clear
+dialog --colors --title "\Zr Developed by the xDrip team \Zn"   --textbox /xDrip/Logs 26 74 
 
 3)
-/xDrip/scripts/qrCodeMaster.sh
+/xDrip/scripts/varserver.sh
 ;;
 
 4)
