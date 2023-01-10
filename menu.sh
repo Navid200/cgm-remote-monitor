@@ -9,8 +9,7 @@ do
 
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
-      \Zr Developed by the xDrip team \Zn\
-  \n\n
+      \Zr Developed by the xDrip team \Zn\n\n
 Use the arrow keys to move the cursor.\n\
 Press Enter to execute the highlighted option.\n\n" 19 50 9\
  "1" "Status"\
@@ -33,6 +32,7 @@ case $Choice in
 2)
 clear
 dialog --colors --title "\Zr Developed by the xDrip team \Zn"   --textbox /xDrip/Logs 26 74 
+;;
 
 3)
 /xDrip/scripts/varserver.sh
