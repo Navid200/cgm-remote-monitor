@@ -23,7 +23,8 @@ baseurl="https://$apisec@$HOSTNAME/api/v1/"
 clear
 echo "Developed by the xDrip team"
 echo ""
-echo "Use auto configure in xDrip to scan this QR code to set it up as master."
+echo "Use auto configure in xDrip to scan this QR code to set up xDrip as your uploader."
+echo "This QR code image contains your hostname and password.  Keep it private."
 qrencode -s 6 -t UTF8 {"rest":{"endpoint":[\"$baseurl\"]}}
 read -p "Press enter to return to the menu."
   
