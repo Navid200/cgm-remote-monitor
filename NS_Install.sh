@@ -4,7 +4,6 @@ echo
 echo "JamOrHam Nightscout Installer - Designed for Google Compute Minimal Ubuntu 20 micro instance"
 echo
 
-
 if [ "`id -u`" != "0" ]
 then
 echo "Script needs root - use sudo bash NS_Install.sh"
@@ -39,6 +38,7 @@ sudo apt-get -y install dirmngr apt-transport-https lsb-release ca-certificates
 sudo apt-get -y install net-tools
 sudo apt-get -y install build-essential
 sudo apt-get -y install mongodb-server
+# Please don't add any more utilities here.  Please instead, add them to update_packages.sh.
 
 /xDrip/scripts/update_packages.sh
 
