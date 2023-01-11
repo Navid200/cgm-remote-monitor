@@ -8,13 +8,6 @@ echo
 
 sudo apt-get update
 
-# npm
-whichpack=$(npm version | awk /npm/)
-if [ ! "$whichpack" = "npm: '9.2.0'," ]
-then
-  sudo npm install -g npm
-fi
-
 # vis
 whichpack=$(which vis)
 if [ "$whichpack" = "" ]
@@ -69,8 +62,15 @@ whichpack=$(node -v)
 if [ ! "$whichpack" = "v16.19.0" ]
 then
   curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash - &&\
-  sudo apt-get install -y nodejs npm
+  sudo apt-get install -y nodejs
 fi 
+
+# npm
+whichpack=$(npm version | awk /npm/)
+if [ ! "$whichpack" = "npm: '9.2.0'," ]
+then
+  sudo npm install -g npm
+fi
 
 # Add log
 rm -rf /tmp/Logs
