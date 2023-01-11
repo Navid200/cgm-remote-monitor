@@ -61,9 +61,8 @@ fi
 whichpack=$(node -v)
 if [ ! "$whichpack" = "v16.19.0" ]
 then
-  curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
-  sudo bash /tmp/nodesource_setup.sh
-  sudo apt install -y nodejs
+  curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash - &&\
+  sudo apt-get install -y nodejs
 fi 
 
 # Add log
