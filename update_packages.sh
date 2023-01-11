@@ -37,7 +37,13 @@ if [ "$whichpack" = "" ]
 then
   sudo apt-get -y install qrencode
 fi
- 
+
+whichpack=$(node -v)
+if [ ! "$whichpack" = "v16.19.0" ]
+then
+  curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash - &&\
+  sudo apt-get install -y nodejs
+fi 
 
 # Add log
 rm -rf /tmp/Logs
