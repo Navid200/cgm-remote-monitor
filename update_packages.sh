@@ -8,36 +8,56 @@ echo
 
 sudo apt-get update
 
+# vis
 whichpack=$(which vis)
 if [ "$whichpack" = "" ]
 then
   sudo apt-get -y install vis
 fi
 
+# nano
 whichpack=$(which nano)
 if [ "$whichpack" = "" ]
 then
   sudo apt-get -y install nano
 fi
 
+# screen
 whichpack=$(which screen)
 if [ "$whichpack" = "" ]
 then
   sudo apt-get -y install screen
 fi
 
+# jq
 whichpack=$(which jq)
 if [ "$whichpack" = "" ]
 then
   sudo apt-get -y install jq
 fi
 
+# qrencode
 whichpack=$(which qrencode)
 if [ "$whichpack" = "" ]
 then
   sudo apt-get -y install qrencode
 fi
 
+# mongo
+whichpack="$(mongod --version | sed -n 1p)"
+if [ ! "$whichpack" = "db version v3.6.8" ]
+then
+  sudo apt-get -y install mongodb-server
+fi
+
+# git
+whichpack="$(git version)"
+if [ ! "$whichpack" = "git version 2.25.1" ]
+then
+  sudo apt-get install -y  git python gcc g++ make
+fi
+
+# node
 whichpack=$(node -v)
 if [ ! "$whichpack" = "v16.19.0" ]
 then
