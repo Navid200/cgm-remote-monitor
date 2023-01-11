@@ -50,9 +50,6 @@ sudo apt-get install -y  git python gcc g++ make
 
 echo "Installing Node js"
 
-sudo apt-get install -y nodejs npm
-sudo apt -y autoremove
-
 cd /srv
 
 echo "Installing Nightscout"
