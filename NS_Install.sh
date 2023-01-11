@@ -48,8 +48,6 @@ echo -e "use admin\ndb.createUser({ user: \"mongoadmin\" , pwd: \"mongoadmin\", 
 
 sudo apt-get install -y  git python gcc g++ make
 
-echo "Installing Node js"
-
 cd /srv
 
 echo "Installing Nightscout"
