@@ -8,6 +8,13 @@ echo
 
 sudo apt-get update
 
+# npm
+whichpack=$(npm version | awk /npm/)
+if [ ! "$whichpack" = "npm: '9.2.0'," ]
+then
+  sudo npm install -g npm
+fi
+
 # vis
 whichpack=$(which vis)
 if [ "$whichpack" = "" ]
