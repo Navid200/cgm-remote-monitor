@@ -8,25 +8,6 @@ echo
 echo "Fetch the latest scripts from GitHub - Navid200"
 echo
 
-if [ ! -s /srv/repo ]  # Create the file containing the repository name if nonexistent.
-then
-cat > /srv/repo << EOF
-nightscout-vps
-EOF
-fi
-if [ ! -s /srv/brnch ]  # Create the file containing the branch name if nonexistent.
-then
-cat > /srv/brnch << EOF
-vps-1
-EOF
-fi
-if [ ! -s /srv/username ]  # Create the file containing the user name if nonexistent.
-then
-cat > /srv/username << EOF
-jamorham
-EOF
-fi
-
 cd /srv
 cd "$(< repo)" 
 sudo git reset --hard  # delete any local edits.
@@ -38,14 +19,6 @@ sudo cp *.sh /xDrip/scripts # Overwrite the scripts in the scripts directory wit
 sudo rm -rf /xDrip/ConfigServer # Remove the existing ConfigServer directory
 sudo cp -r ConfigServer /xDrip/.
 cd ..
-
-# Let's install the new packages for those who already have an installation.
-qrencodev=$(qrencode --version | sed -n 1p)
-if [ "$qrencodev" = "" ] # If qrencode is not installed already
-then
-  sudo apt-get update
-  sudo apt-get -y install qrencode
-fi 
 
 # Add log
 rm -rf /tmp/Logs
