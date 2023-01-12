@@ -55,6 +55,8 @@ sudo git pull  # Update database from remote.
 sudo npm install
 sudo npm run generate-keys
 
+/xDrip/scripts/update_postNS_packages.sh
+
 for loop in 1 2 3 4 5 6 7 8 9
 do
 read -t 0.1 dummy
