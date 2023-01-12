@@ -65,12 +65,6 @@ then
   sudo apt-get install -y nodejs
 fi 
 
-# npm
-whichpack=$(npm version | awk /npm/)
-if [ ! "$whichpack" = "npm: '9.*'," ]
-then
-  sudo npm install -g npm
-fi
 
 # Add log
 rm -rf /tmp/Logs
