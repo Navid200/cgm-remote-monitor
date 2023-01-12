@@ -19,7 +19,7 @@ Press Enter to execute the highlighted option.\n\n" 24 50 14\
  "4" "Edit variables"\
  "5" "Edit variables in a browser"\
  "6" "Copy data from another Nightscout"\
- "7" "Update scripts"\
+ "7" "Update platform"\
  "8" "Backup MongoDB"\
  "9" "Restore MongoDB backup"\
  "10" "FreeDNS Setup"\
@@ -64,6 +64,8 @@ sudo chmod 755 update_scripts.sh
 sudo cp -f update_scripts.sh /xDrip/scripts/.
 clear
 sudo /xDrip/scripts/update_scripts.sh
+sudo /xDrip/scripts/update_packages.sh
+sudo /xDrip/scripts/update_postNS_packages.sh
 ;;
 
 8)
