@@ -57,13 +57,26 @@ then
   sudo apt-get install -y  git python gcc g++ make
 fi
 
-# node
-whichpack=$(node -v)
-if [ ! "$whichpack" = "v16.*" ]
+# nvm
+whichpack=$(nvme --version)
+if [ ! "$whichpack" = "0.35.3" ]
 then
-  curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash - &&\
-  sudo apt-get install -y nodejs
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash  
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  cd /srv
+  cd "$(< repo)" 
+  nvm install
 fi 
+
+## node
+#whichpack=$(node -v)
+#if [ ! "$whichpack" = "v16.*" ]
+#then
+#  curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash - &&\
+#  sudo apt-get install -y nodejs
+#fi 
 
 # Add log
 rm -rf /tmp/Logs
