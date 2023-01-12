@@ -45,14 +45,14 @@ fi
 
 # mongo
 whichpack="$(mongod --version | sed -n 1p)"
-if [ ! "$whichpack" = "db version v3.6.8" ]
+if [ ! "$whichpack" = "db version v3.*" ]
 then
   sudo apt-get -y install mongodb-server
 fi
 
 # git
 whichpack="$(git version)"
-if [ ! "$whichpack" = "git version 2.25.1" ]
+if [ ! "$whichpack" = "git version 2.*" ]
 then
   sudo apt-get install -y  git python gcc g++ make
 fi
@@ -67,7 +67,7 @@ fi
 
 # npm
 whichpack=$(npm version | awk /npm/)
-if [ ! "$whichpack" = "npm: '9.2.0'," ]
+if [ ! "$whichpack" = "npm: '9.*'," ]
 then
   sudo npm install -g npm
 fi
