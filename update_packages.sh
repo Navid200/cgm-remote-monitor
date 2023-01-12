@@ -57,17 +57,8 @@ then
   sudo apt-get install -y  git python gcc g++ make
 fi
 
-# node
-whichpack=$(node -v)
-if [ ! "$whichpack" = "v18.*" ]
-then
-  curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - &&\
-  sudo apt-get install -y nodejs
-fi 
-
-
 # Add log
 rm -rf /tmp/Logs
-echo -e "The packages have been installed     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
+echo -e "The packages have been updated     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
 sudo /bin/cp -f /tmp/Logs /xDrip/Logs
  
