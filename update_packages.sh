@@ -57,6 +57,9 @@ then
   sudo apt-get install -y  git python gcc g++ make
 fi
 
+sudo apt-get install -y nodejs npm
+sudo apt -y autoremove
+
 # Add log
 rm -rf /tmp/Logs
 echo -e "The packages have been updated     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
