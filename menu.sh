@@ -56,6 +56,7 @@ sudo cp -f update_scripts.sh /xDrip/scripts/.
 clear
 sudo /xDrip/scripts/update_scripts.sh
 sudo /xDrip/scripts/update_packages.sh
+sudo /xDrip/scripts/update_postNS_packages.sh
 ;;
 
 7)
