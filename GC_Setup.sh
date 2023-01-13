@@ -16,8 +16,9 @@ Press escape to return to the main menu\n" 19 50 8\
 
  "1" "Install Nightscout phase 1 - 15 minutes"\
  "2" "Install Nightscout phase 2 - 5 minutes"\
- "3" "Update platform"\
- "4" "Bootstrap"\
+ "3" "FreeDNS Setup"\
+ "4" "Update platform"\
+ "5" "Bootstrap"\
 
  3>&1 1>&2 2>&3)
 
@@ -32,6 +33,11 @@ sudo /xDrip/scripts/NS_Install2.sh
 ;;
 
 3)
+clear
+sudo /xDrip/scripts/ConfigureFreedns.sh
+;;
+
+4)
 cd /srv
 cd "$(< repo)"  # Go to the local database
 sudo git reset --hard  # delete any local edits.
@@ -43,7 +49,7 @@ sudo /xDrip/scripts/update_scripts.sh
 sudo /xDrip/scripts/update_packages.sh
 ;;
 
-4)
+5)
 curl https://raw.githubusercontent.com/jamorham/nightscout-vps/vps-1/bootstrap.sh | bash
 ;;
 
