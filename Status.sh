@@ -115,7 +115,7 @@ fi
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
        \Zr Developed by the xDrip team \Zn\n\n\
-                \Zb Status       2023.01.10 \Zn\n\n\
+                \Zb Status \Zn\n\n\
 Zone: $Zone \n\
 RAM: $Ramsize \n\
 Disk type: $disk \n\
@@ -123,13 +123,14 @@ Disk size: $disksz        $DiskUsedPercent used \n\
 Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
+Submission date: 2023.01.12
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
 Mongo: $mongo \n\
 NS proc: $ns \n\
 FreeDNS name and IP: $FD \n\
 Certificate: $cert \
- " 25 50 2\
+ " 27 50 2\
  "1" "Return"\
  "2" "Hostname and password"\
  3>&1 1>&2 2>&3)
