@@ -14,11 +14,13 @@ Use the arrow keys to move the cursor.\n\
 Press Enter to execute the highlighted option.\n\n" 19 50 9\
  "1" "Status"\
  "2" "Logs"\
+ "3" "Google Cloud setup"\
+ "3" "Nightscout setup"\
+ "4" "xDrip setup"
+ "5" "Database"
  "3" "Edit variables"\
  "4" "Backup MongoDB"\
  "5" "Restore MongoDB"\
- "6" "Update platform"\
- "7" "Utilities"\
  "8" "Reboot server (Nightscout)"\
  "9" "Exit to shell (terminal)"\
  3>&1 1>&2 2>&3)
@@ -35,6 +37,17 @@ dialog --colors --title "\Zr Developed by the xDrip team \Zn"   --textbox /xDrip
 ;;
 
 3)
+/xDrip/scripts/GC_Setup.sh
+;;
+
+3)
+/xDrip/scripts/Utilities.sh
+;;
+
+4)
+/xDrip/scripts/xDripSetup.sh
+
+3)
 /xDrip/scripts/varserver.sh
 ;;
 
@@ -44,22 +57,6 @@ dialog --colors --title "\Zr Developed by the xDrip team \Zn"   --textbox /xDrip
 
 5)
 /xDrip/scripts/restoremongo.sh
-;;
-
-6)
-cd /srv
-cd "$(< repo)"  # Go to the local database
-sudo git reset --hard  # delete any local edits.
-sudo git pull  # Update database from remote.
-sudo chmod 755 update_scripts.sh
-sudo cp -f update_scripts.sh /xDrip/scripts/.
-clear
-sudo /xDrip/scripts/update_scripts.sh
-sudo /xDrip/scripts/update_packages.sh
-;;
-
-7)
-/xDrip/scripts/Utilities.sh
 ;;
 
 8)
