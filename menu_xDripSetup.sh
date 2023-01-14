@@ -9,14 +9,18 @@ Choice=$(dialog --colors --nocancel --nook --menu "\
         \Zr Developed by the xDrip team \Zn\n\n\
 Use the arrow keys to move the cursor.\n\
 Press Enter to execute the highlighted option.\n\
-Press escape to return to the main menu\n" 12 50 1\
+Press escape to return to the main menu\n" 13 50 2\
  "1" "QR code to make xDrip master"\
+ "2" "Return"\
  3>&1 1>&2 2>&3)
 
 case $Choice in
 
 1)
 /xDrip/scripts/qrCodeMaster.sh
+;;
+
+2)
 ;;
 
 esac
