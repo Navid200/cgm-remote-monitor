@@ -21,7 +21,7 @@ fi
 baseurl="https://$apisec@$HOSTNAME/api/v1/" 
 
 clear
-echo "Developed by the xDrip team"
+echo "      Developed by the xDrip team"
 echo ""
 echo ""
 echo "You have 2 options for setting up xDrip as your uploader."
