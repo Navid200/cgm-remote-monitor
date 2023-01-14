@@ -6,7 +6,7 @@ echo
 
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
-      \Zr Developed by the xDrip team \Zn\n\n
+        \Zr Developed by the xDrip team \Zn\n\n
 Use the arrow keys to move the cursor.\n\
 Press Enter to execute the highlighted option.\n\
 Press escape to return to the main menu\n" 17 50 7\
