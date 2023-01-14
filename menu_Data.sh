@@ -11,7 +11,6 @@ Choice=$(dialog --colors --nocancel --nook --menu "\
 Use the arrow keys to move the cursor.\n\
 Press Enter to execute the highlighted option.\n\
 Press escape to return to the main menu\n" 16 50 3\
-
  "1" "Copy data from another Nightscout"\
  "2" "Backup MongoDB"\
  "3" "Restore MongoDB"\
