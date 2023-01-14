@@ -45,7 +45,7 @@ fi
 
 # mongo
 whichpack="$(mongod --version | sed -n 1p)"
-if [ ! "$whichpack" = "db version v3.*" ]
+if [ ! "${whichpack%%.*}" = "db version v3" ]
 then
   sudo apt-get -y install mongodb-server
 fi
