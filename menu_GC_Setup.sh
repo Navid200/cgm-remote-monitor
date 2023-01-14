@@ -13,7 +13,6 @@ Choice=$(dialog --colors --nocancel --nook --menu "\
 Use the arrow keys to move the cursor.\n\
 Press Enter to execute the highlighted option.\n\
 Press escape to return to the main menu\n" 19 50 8\
-
  "1" "Install Nightscout phase 1 - 15 minutes"\
  "2" "Install Nightscout phase 2 - 5 minutes"\
  "3" "FreeDNS Setup"\
