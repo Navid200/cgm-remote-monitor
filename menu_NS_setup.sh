@@ -14,6 +14,7 @@ Press escape to return to the main menu\n" 14 50 3\
  "1" "Edit variables using a text editor"\
  "2" "Edit variables using a web browser"\
  "3" "Customize Nightscout"\
+ "4" "Return"\
  3>&1 1>&2 2>&3)
 
 case $Choice in
@@ -29,6 +30,9 @@ case $Choice in
 
 3)
 sudo /xDrip/scripts/update_nightscout.sh
+;;
+
+4)
 ;;
 
 esac
