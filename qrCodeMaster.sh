@@ -25,7 +25,7 @@ echo "Developed by the xDrip team"
 echo ""
 echo "Keep private."
 echo ""
-echo "You have 2 options for setting up xDrip as your uploader.
+echo "You have 2 options for setting up xDrip as your uploader."
 echo ""
 echo "1- In xDrip, Enable Settings -> Cloud Upload -> Nightscout Sync (REST-API) -> Enabled."
 echo "Enter the following on the same page under Base URL."
