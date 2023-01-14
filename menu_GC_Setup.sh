@@ -18,7 +18,6 @@ Press escape to return to the main menu\n" 19 50 8\
  "3" "FreeDNS Setup"\
  "4" "Update platform"\
  "5" "Bootstrap"\
-
  3>&1 1>&2 2>&3)
 
 case $Choice in
