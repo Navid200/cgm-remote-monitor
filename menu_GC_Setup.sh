@@ -42,6 +42,8 @@ sudo cp -f update_scripts.sh /xDrip/scripts/.
 clear
 sudo /xDrip/scripts/update_scripts.sh
 sudo /xDrip/scripts/update_packages.sh
+dialog --colors --msgbox "    \Zr Developed by the xDrip team \Zn\n\n\
+Updated menus will be in effect in a new window." 8 43
 ;;
 
 5)
