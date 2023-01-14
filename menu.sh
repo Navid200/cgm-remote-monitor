@@ -15,14 +15,11 @@ Press Enter to execute the highlighted option.\n\n" 19 50 9\
  "1" "Status"\
  "2" "Logs"\
  "3" "Google Cloud setup"\
- "3" "Nightscout setup"\
- "4" "xDrip setup"
- "5" "Database"
- "3" "Edit variables"\
- "4" "Backup MongoDB"\
- "5" "Restore MongoDB"\
- "8" "Reboot server (Nightscout)"\
- "9" "Exit to shell (terminal)"\
+ "4" "Nightscout setup"\
+ "5" "xDrip setup"
+ "6" "Data"
+ "7" "Reboot server (Nightscout)"\
+ "8" "Exit to shell (terminal)"\
  3>&1 1>&2 2>&3)
 
 case $Choice in
@@ -37,29 +34,22 @@ dialog --colors --title "\Zr Developed by the xDrip team \Zn"   --textbox /xDrip
 ;;
 
 3)
-/xDrip/scripts/GC_Setup.sh
-;;
-
-3)
-/xDrip/scripts/Utilities.sh
+/xDrip/scripts/menu_GC_Setup.sh
 ;;
 
 4)
-/xDrip/scripts/xDripSetup.sh
-
-3)
-/xDrip/scripts/varserver.sh
-;;
-
-4)
-/xDrip/scripts/backupmongo.sh
+/xDrip/scripts/menu_NS_setup.sh
 ;;
 
 5)
-/xDrip/scripts/restoremongo.sh
+/xDrip/scripts/menu_xDripSetup.sh
 ;;
 
-8)
+6)
+/xDrip/scripts/menu_Data.sh
+;;
+
+7)
 dialog --colors --yesno "     \Zr Developed by the xDrip team \Zn\n\n\
 Are you sure you want to reboot the server?\n
 If you do, all unsaved open files will close without saving.\n"  10 50
@@ -72,11 +62,11 @@ sudo reboot
 fi
 ;;
 
-9)
+8)
 cd /tmp
 clear
 dialog --colors --msgbox "        \Zr Developed by the xDrip team \Zn\n\n\
-You will now exit to the shell (terminal).  To return to the menu, enter menu in the terminal." 9 50
+You will now exit to the shell (terminal).  To return to the menu, enter "menu" in the terminal without the quotes." 9 50
 clear
 exit
 ;;
