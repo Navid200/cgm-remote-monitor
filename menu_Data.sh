@@ -9,10 +9,11 @@ Choice=$(dialog --colors --nocancel --nook --menu "\
        \Zr Developed by the xDrip team \Zn\n\n\
 Use the arrow keys to move the cursor.\n\
 Press Enter to execute the highlighted option.\n\
-Press escape to return to the main menu\n" 14 50 3\
+Press escape to return to the main menu\n" 15 50 4\
  "1" "Copy data from another Nightscout"\
  "2" "Backup MongoDB"\
  "3" "Restore MongoDB"\
+ "4" "Return"\
  3>&1 1>&2 2>&3)
 
 case $Choice in
@@ -29,6 +30,9 @@ sudo /xDrip/scripts/clone_nightscout.sh
 
 3)
 /xDrip/scripts/restoremongo.sh
+;;
+
+4)
 ;;
 
 esac
