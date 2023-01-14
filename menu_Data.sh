@@ -6,7 +6,7 @@ echo
 
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
-       \Zr Developed by the xDrip team \Zn\n\n\
+        \Zr Developed by the xDrip team \Zn\n\n\
 Use the arrow keys to move the cursor.\n\
 Press Enter to execute the highlighted option.\n" 14 50 4\
  "1" "Copy data from another Nightscout"\
