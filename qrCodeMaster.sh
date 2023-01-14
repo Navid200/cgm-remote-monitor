@@ -30,8 +30,7 @@ echo "1- In xDrip, Enable Settings -> Cloud Upload -> Nightscout Sync (REST-API)
 echo "Enter the following line (keep private) on the same page under Base URL."
 echo "$baseurl"
 echo ""
-echo "2- Use auto configure in xDrip to scan the following QR code."
-echo "This QR code image contains your hostname and password.  Keep private."
+echo "2- Use auto configure in xDrip to scan the following QR code (keep private)."
 qrencode -s 6 -t UTF8 {"rest":{"endpoint":[\"$baseurl\"]}}
 read -p "Press enter to return to the menu."
   
