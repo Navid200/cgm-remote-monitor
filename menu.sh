@@ -9,7 +9,7 @@ do
 
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
-       \Zr Developed by the xDrip team \Zn\n\n
+        \Zr Developed by the xDrip team \Zn\n\n
 Use the arrow keys to move the cursor.\n\
 Press Enter to execute the highlighted option.\n\n" 18 50 8\
  "1" "Status"\
