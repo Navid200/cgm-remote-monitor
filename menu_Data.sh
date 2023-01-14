@@ -8,8 +8,7 @@ clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
        \Zr Developed by the xDrip team \Zn\n\n\
 Use the arrow keys to move the cursor.\n\
-Press Enter to execute the highlighted option.\n\
-Press escape to return to the main menu\n" 15 50 4\
+Press Enter to execute the highlighted option.\n" 14 50 4\
  "1" "Copy data from another Nightscout"\
  "2" "Backup MongoDB"\
  "3" "Restore MongoDB"\
