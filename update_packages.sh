@@ -52,7 +52,7 @@ fi
 
 # git
 whichpack="$(git version)"
-if [ ! "$whichpack" = "git version 2.*" ]
+if [ ! "${whichpack%%.*}" = "git version 2" ]
 then
   sudo apt-get install -y  git python gcc g++ make
 fi
