@@ -44,7 +44,7 @@ sudo /xDrip/scripts/update_scripts.sh
 sudo /xDrip/scripts/update_packages.sh
 clear
 dialog --colors --msgbox "      \Zr Developed by the xDrip team \Zn\n\n\
-Close this window and open a new one to complete updates." 8 50
+Close this window to complete updates." 8 50
 ;;
 
 5)
