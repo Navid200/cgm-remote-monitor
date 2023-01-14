@@ -9,7 +9,7 @@ Choice=$(dialog --colors --nocancel --nook --menu "\
       \Zr Developed by the xDrip team \Zn\n\n\
 Use the arrow keys to move the cursor.\n\
 Press Enter to execute the highlighted option.\n\
-Press escape to return to the main menu\n" 19 50 8\
+Press escape to return to the main menu\n" 14 50 3\
  "1" "QR code to make xDrip master"\
  3>&1 1>&2 2>&3)
 
