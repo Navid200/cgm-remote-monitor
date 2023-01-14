@@ -9,7 +9,7 @@ Choice=$(dialog --colors --nocancel --nook --menu "\
         \Zr Developed by the xDrip team \Zn\n\n
 Use the arrow keys to move the cursor.\n\
 Press Enter to execute the highlighted option.\n\
-Press escape to return to the main menu\n" 17 50 5\
+Press escape to return to the main menu\n" 16 50 5\
  "1" "Install Nightscout phase 1 - 15 minutes"\
  "2" "Install Nightscout phase 2 - 5 minutes"\
  "3" "FreeDNS Setup"\
