@@ -16,8 +16,8 @@ Press Enter to execute the highlighted option.\n\n" 19 50 9\
  "2" "Logs"\
  "3" "Google Cloud setup"\
  "4" "Nightscout setup"\
- "5" "xDrip setup"
- "6" "Data"
+ "5" "xDrip setup"\
+ "6" "Data"\
  "7" "Reboot server (Nightscout)"\
  "8" "Exit to shell (terminal)"\
  3>&1 1>&2 2>&3)
