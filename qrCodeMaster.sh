@@ -23,7 +23,7 @@ baseurl="https://$apisec@$HOSTNAME/api/v1/"
 clear
 echo "Developed by the xDrip team"
 echo ""
-echo "Either enter the following line in xDrip under Settings -> Cloud Upload -> Nightscout Sync (REST-API) -> Base URL;
+echo "Either enter the following line in xDrip under Settings -> Cloud Upload -> Nightscout Sync (REST-API) -> Base URL;"
 echo "$baseurl"
 echo "or use auto configure in xDrip to scan this QR code to set up xDrip as your uploader."
 echo "This QR code image contains your hostname and password.  Keep it private."
