@@ -104,11 +104,6 @@ alias menu="/xDrip/scripts/menu.sh"
 EOF
 fi
 
-if [ $srv_notempty -eq 1 ] # If we are running bootstrap on an existing installation
-then
-  /xDrip/scripts/update_packages.sh   # Update the packages.
-fi
-
 clear
 dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
 If any item above the line on the status page (shown next) is red, it represents an incorrect parameter that could result in malfunction or cost.  \
