@@ -121,7 +121,7 @@ fi
 
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
-       \Zr Developed by the xDrip team \Zn\n\n\
+        \Zr Developed by the xDrip team \Zn\n\n\
                 \Zb Status \Zn\n\n\
 Zone: $Zone \n\
 RAM: $Ramsize \n\
