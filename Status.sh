@@ -112,6 +112,13 @@ else
 cert="Valid"
 fi
 
+# Verify that the latest added package has been installed
+Missing=""
+if [ "$(which qrencode)" = "" ]
+then
+  Missing="\Zb\Z1Missing packages\Zn"
+fi
+
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
        \Zr Developed by the xDrip team \Zn\n\n\
@@ -124,13 +131,14 @@ Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
 Nightscout on Google Cloud: 2023.01.15\n\
+$Missing
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
 Mongo: $mongo \n\
 NS proc: $ns \n\
 FreeDNS name and IP: $FD \n\
 Certificate: $cert \
- " 27 50 2\
+ " 29 50 2\
  "1" "Return"\
  "2" "Hostname and password"\
  3>&1 1>&2 2>&3)
