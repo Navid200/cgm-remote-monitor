@@ -131,14 +131,14 @@ Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
 Nightscout on Google Cloud: 2023.01.15\n\
-$Missing
+$Missing \n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
 Mongo: $mongo \n\
 NS proc: $ns \n\
 FreeDNS name and IP: $FD \n\
 Certificate: $cert \
- " 29 50 2\
+ " 28 50 2\
  "1" "Return"\
  "2" "Hostname and password"\
  3>&1 1>&2 2>&3)
