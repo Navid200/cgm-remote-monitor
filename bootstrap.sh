@@ -23,7 +23,7 @@ clear
 sudo apt-get update
 sudo apt-get install dialog
 ubversion="$(cat /etc/issue | awk '{print $2}')"
-if [[ ! "$ubversion" = "20.04"* ]] || [ "$(which vi)" = "" ] # If the selected version of ubuntu is not exactly what we want
+if [[ ! "$ubversion" = "20.04"* ]] || [[ "$(which vi)" = "" ]] # If the selected version of ubuntu is not exactly what we want
 then
 clear
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
