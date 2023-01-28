@@ -13,8 +13,9 @@ Press Enter to execute the highlighted option.\n" 16 50 6\
  "2" "Install Nightscout phase 2 - 5 minutes"\
  "3" "FreeDNS Setup"\
  "4" "Update platform"\
- "5" "Bootstrap"\
- "6" "Return"\
+ "5" "Bootstrap the stable release"\
+ "6" "Bootstrap the development release"\
+ "7" "Return"\
  3>&1 1>&2 2>&3)
 
 case $Choice in
@@ -52,6 +53,10 @@ curl https://raw.githubusercontent.com/jamorham/nightscout-vps/vps-1/bootstrap.s
 ;;
 
 6)
+curl https://raw.githubusercontent.com/jamorham/nightscout-vps/vps-dev/bootstrap.sh | bash
+;;
+
+7)
 ;;
 
 esac
