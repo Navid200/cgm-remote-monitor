@@ -14,7 +14,7 @@ Press Enter to execute the highlighted option.\n" 17 50 7\
  "3" "FreeDNS Setup"\
  "4" "Update platform"\
  "5" "Bootstrap the stable release"\
- "6" "Bootstrap the development release"\
+ "6" "Bootstrap the dev. release (advanced)"\
  "7" "Return"\
  3>&1 1>&2 2>&3)
 
