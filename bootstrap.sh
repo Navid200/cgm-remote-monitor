@@ -116,7 +116,7 @@ If any item above the line on the status page (shown next) is red, it represents
 Please take a note, delete the virtual machine, and create a new one.   For more detail, please refer to the guide." 13 50
 else # If this is an existing installation.
   clear
-  dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\nBootstrap is completed.  Press enter to go to the status page." 10 50
+  dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\nBootstrap is completed.  Press enter to go to the status page." 8 50
 fi
 
 # Add log 
