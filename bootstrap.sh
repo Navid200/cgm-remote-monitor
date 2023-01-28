@@ -14,7 +14,7 @@ if [ ! -z "$(ls /srv)" ]
 then
 ExistingSystem=1
 clear
-dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+dialog --colors --msgbox "         \Zr Developed by the xDrip team \Zn\n\n\
 The script you are running, \"bootstrap\", is meant to initiate an installtion.  However, the file system does not seem to be empty.\n\n\
 If you already have an installtion on this machine and proceed by pressing enter, it will be modified.  If that's not your intention, please press escape to abort." 14 50
 if [ $? -eq 255 ]
