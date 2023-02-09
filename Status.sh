@@ -114,10 +114,19 @@ fi
 
 # Verify that the latest added package has been installed
 Missing=""
-if [ "$(which qrencode)" = "" ]
+if [ "$(which qrencode)" = "   " ]
 then
-  Missing="\Zb\Z1Missing packages\Zn"
+  Missing="\Zb\Z1Missing packages   \Zn"
 fi
+
+# Verify that Installation phase 1 has been executed after bootstrap
+Phase1="   "
+cd /srv
+cd "$(< repo)"
+if [ ! -s ./node_modules ]
+then
+  Phase1="\Zb\Z1Phase 1 required   \Zn"
+fi  
 
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
@@ -131,7 +140,7 @@ Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
 Nightscout on Google Cloud: 2023.02.09\n\
-$Missing \n\n\
+$Missing $Phase1 \n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
 Mongo: $mongo \n\
