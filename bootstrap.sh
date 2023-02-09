@@ -50,7 +50,7 @@ sudo -rf ConfigServer
 sudo mkdir scripts
 
 cd /srv
-sudo rm -rf *
+sudo rm -rf * # Delete everything in the /srv directory
 sudo git clone https://github.com/jamorham/nightscout-vps.git  # ✅✅✅✅✅ Main - Uncomment before PR.
 #sudo git clone https://github.com/Navid200/cgm-remote-monitor.git  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
 
