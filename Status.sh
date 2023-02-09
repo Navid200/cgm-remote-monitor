@@ -125,7 +125,7 @@ cd /srv
 cd "$(< repo)"
 if [ ! -s ./node_modules ]
 then
-  Phase1="\Zb\Z1Phase 1 required   \Zn"
+  Phase1="\Zb\Z1Missing node_modules   \Zn"
 fi  
 
 clear
