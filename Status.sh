@@ -116,7 +116,7 @@ fi
 Missing=""
 if [ "$(which qrencode)" = "" ]
 then
-  Missing="\Zb\Z1Missing packages   \Zn"
+  Missing="\Zb\Z1Missing packages  \Zn"
 fi
 
 # Verify that Installation phase 1 has been executed after bootstrap
@@ -125,7 +125,7 @@ cd /srv
 cd "$(< repo)"
 if [ ! -s ./node_modules ]
 then
-  Phase1="\Zb\Z1Missing node_modules   \Zn"
+  Phase1="\Zb\Z1Missing node_modules\Zn"
 fi  
 
 clear
@@ -140,7 +140,7 @@ Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
 Nightscout on Google Cloud: 2023.02.09\n\
-$Missing, $Phase1 \n\n\
+$Missing $Phase1 \n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
 Mongo: $mongo \n\
