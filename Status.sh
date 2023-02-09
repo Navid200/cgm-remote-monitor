@@ -140,7 +140,7 @@ Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
 Nightscout on Google Cloud: 2023.02.09\n\
-$Missing $Phase1 \n\n\
+$Missing, $Phase1 \n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
 Mongo: $mongo \n\
