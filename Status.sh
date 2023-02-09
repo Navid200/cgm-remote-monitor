@@ -114,13 +114,13 @@ fi
 
 # Verify that the latest added package has been installed
 Missing=""
-if [ "$(which qrencode)" = "   " ]
+if [ "$(which qrencode)" = "" ]
 then
   Missing="\Zb\Z1Missing packages   \Zn"
 fi
 
 # Verify that Installation phase 1 has been executed after bootstrap
-Phase1="   "
+Phase1=""
 cd /srv
 cd "$(< repo)"
 if [ ! -s ./node_modules ]
