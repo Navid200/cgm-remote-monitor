@@ -22,8 +22,10 @@ dialog --exit-label "Try again" --msgbox "A file with the same name exists.\n\
 Choose a different filename." 7 37
 clear
 else
-mongodump --gzip --archive=$Filename
+mongodump --gzip --archive=/tmp/database.gz
 exec 3>&-
+tar -cf $Filename /tmp/database.gz /etc/nsconfig
+
 dialog --msgbox "Backup is complete.\n\
 However, it is on the same virtual machine as\n\
 your MongoDB.\n\
