@@ -13,6 +13,12 @@ exit
 fi
 
 echo "$File"
+
+if [ "$(file -b e3rfd | awk '{print $2}')" = "tar" = "tar" ]
+then
+  tar -xf $File -C /tmp/.
+fi
+
 mongorestore --gzip --archive=$File
 fail=$?
 if [ $fail = 1 ]
