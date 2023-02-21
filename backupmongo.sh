@@ -24,7 +24,9 @@ clear
 else
 mongodump --gzip --archive=/tmp/database.gz
 exec 3>&-
-tar -cf $Filename /tmp/database.gz /etc/nsconfig
+cd /tmp
+cp /etc/nsconfig .
+tar -cf $Filename database.gz nsconfig
 
 dialog --msgbox "Backup is complete.\n\
 However, it is on the same virtual machine as\n\
