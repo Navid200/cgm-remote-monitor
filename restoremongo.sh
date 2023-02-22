@@ -28,7 +28,7 @@ then
   fail=$?
   if [ $fail = 1 ]
   then
-    dialog --msgbox "Error\n The backup file may be corrupted.  Please report." 10 50
+    dialog --msgbox "Error\n The database restore failed.  Please report." 10 50
   else
     
   fi
