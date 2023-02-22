@@ -13,10 +13,25 @@ exit
 fi
 
 echo "$File"
-
-if [ "$(file -b e3rfd | awk '{print $2}')" = "tar" = "tar" ]
+if [ "$(file -b "$File" | awk '{print $2}')" = "tar" ]
 then
+  if [ ! "$(tar -tf $File 'database.gz')" = "database.gz" ] || [ ! "$(tar -tf $File 'nsconfig')" = "nsconfig" ]
+  then
+    dialog --msgbox "Error\n The backup file may be corrupt.  Please report." 10 50
+    exit
+  fi
+  rm -f /tmp/nsconfig
+  rm -f /tmp/database.gz
   tar -xf $File -C /tmp/.
+  cd /tmp
+  mongorestore --gzip --archive=database.gz
+  fail=$?
+  if [ $fail = 1 ]
+  then
+    dialog --msgbox "Error\n The backup file may be corrupted.  Please report." 10 50
+  else
+    
+  fi
 fi
 
 mongorestore --gzip --archive=$File
