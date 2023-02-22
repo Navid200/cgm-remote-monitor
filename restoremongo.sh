@@ -45,7 +45,7 @@ then
         dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe database import failed.  Please report." 8 50
         goback=1
       else
-        dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe database import is complete.  Press enter to also restore Nightscout variables from the backup.  Or, press escape not to." 10 50
+        dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe database import is complete.  Press enter to also restore Nightscout variables from the backup.  Or, press escape to leave your variables as they are." 10 50
         key=$?
         if [ $key = 255 ]
         then
@@ -72,7 +72,7 @@ You need to move the cursor over the filename in the right pane and press space 
 Please try again." 11 50
       goback=1
     else
-      dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\Imported the backed up database." 11 50
+      dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nImported the backed up database." 8 50
       exit
     fi
   fi
