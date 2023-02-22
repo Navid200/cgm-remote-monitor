@@ -6,13 +6,6 @@ echo
 
 # Let's install the missing needed packages.
 
-if [ "`id -u`" != "0" ]
-then
-  echo "Script needs root."
-  echo "Cannot continue.."
-  exit 5
-fi
-
 sudo apt-get update
 
 # vis
@@ -73,5 +66,5 @@ then
 fi  
 
 # Add log
-echo -e "The packages have been installed     $(date)\n" >> /xDrip/Logs
+sudo sh -c 'echo -e "The packages have been installed     $(date)\n" >> /xDrip/Logs'
  
