@@ -15,6 +15,7 @@ echo "$File"
 
 if [ "$(file -b "$File")" = "directory" ]
 then
+  clear
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
 You need to move the cursor over the filename in the right pane and press space so that it is shown in the field at the bottom. Then, press enter.\n\
 Please try again." 11 50
