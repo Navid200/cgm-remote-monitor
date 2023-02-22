@@ -41,12 +41,30 @@ then
       fail=$?
       if [ $fail = 1 ]
       then
-        dialog --msgbox "Error\n The database restore failed.  Please report." 10 50
+        dialog --msgbox "Error\n The database restore failed.  Please report." 8 50
         goback=1
       else
         echo "nsconfig restore"
+        goback=1
       fi
     fi  
+  fi
+fi
+
+if [ $goback -eq 0 ]
+then
+  if [ "$(file -b "$File" | awk '{print $1}')" = "gzip" ]
+  then
+    mongorestore --gzip --archive=$File
+    fail=$?
+    if [ $fail -eq 1 ]
+    then
+      clear
+      dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+You need to move the cursor over the filename in the right pane and press space so that it is shown in the field at the bottom. Then, press enter.\n\
+Please try again." 11 50
+      goback=1
+    fi
   fi
 fi
 done
