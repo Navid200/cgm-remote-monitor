@@ -18,8 +18,9 @@ fi
 
 if [ -s $Filename ]
 then
-dialog --exit-label "Try again" --msgbox "A file with the same name exists.\n\
-Choose a different filename." 7 37
+dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\n\
+A file with the same name exists.\n\
+Choose a different filename." 8 50
 clear
 else
 mongodump --gzip --archive=/tmp/database.gz
@@ -28,12 +29,10 @@ cd /tmp
 cp /etc/nsconfig .
 tar -cf ~/$Filename database.gz nsconfig
 
-dialog --msgbox "Backup is complete.\n\
-However, it is on the same virtual machine as\n\
-your MongoDB.\n\
-It's best to download the file to your computer\n\
-for safekeeping.\n\
-See the guide for how to download." 10 51
+dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\n\
+Backup is complete.\n\
+However, it is on the same virtual machine that your database and variables are on.  It's best to download the file to your computer for safekeeping.\n\
+See the guide for how to download." 11 50
 clear
 exit
 fi
