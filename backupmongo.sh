@@ -20,7 +20,7 @@ if [ -s $Filename ]
 then
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\n\
 A file with the same name exists.\n\
-Choose a different filename." 8 50
+Choose a different filename." 9 50
 clear
 else
 mongodump --gzip --archive=/tmp/database.gz
