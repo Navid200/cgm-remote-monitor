@@ -3,7 +3,7 @@
 while :
 do
 goback=0 # Reset the loop
-File=$(dialog --title "Select the backup file to restore" --fselect ~/ 11 50 3>&1 1>&2 2>&3)
+File=$(dialog --title "Select the backup file to restore" --fselect ~/ 10 50 3>&1 1>&2 2>&3)
 key=$?
 
 if [ $key = 255 ] || [ $key = 1 ]
@@ -17,7 +17,7 @@ if [ "$(file -b "$File")" = "directory" ]
 then
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
 You need to move the cursor over the filename in the right pane and press space so that it is shown in the field at the bottom. Then, press enter.\n\
-Please try again." 10 50
+Please try again." 11 50
 goback=1 # Don't execute the remaining part of the loop
 fi
 
