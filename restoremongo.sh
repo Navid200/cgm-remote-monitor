@@ -28,7 +28,7 @@ then
   then
     if [ ! "$(tar -tf $File 'database.gz')" = "database.gz" ] || [ ! "$(tar -tf $File 'nsconfig')" = "nsconfig" ]
     then
-      dialog --msgbox "Error\n The backup file may be corrupt.  Please report." 10 50
+      dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe backup file may be corrupt.  Please report." 10 50
       goback=1 # Don't execute the rest of the loop
     fi
     if [ $goback -eq 0 ]
@@ -39,13 +39,20 @@ then
       cd /tmp
       mongorestore --gzip --archive=database.gz
       fail=$?
+      clear
       if [ $fail = 1 ]
       then
-        dialog --msgbox "Error\n The database restore failed.  Please report." 8 50
+        dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe database import failed.  Please report." 8 50
         goback=1
       else
-        echo "nsconfig restore"
-        goback=1
+        dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe database import is complete.  Press enter to also restore Nightscout variables from the backup.  Or, press escape not to." 10 50
+        key=$?
+        if [ $key = 255 ]
+        then
+          exit
+        fi
+        sudo cp -f nsconfig /etc/nsconfig
+        exit
       fi
     fi  
   fi
@@ -56,14 +63,17 @@ then
   if [ "$(file -b "$File" | awk '{print $1}')" = "gzip" ]
   then
     mongorestore --gzip --archive=$File
+    clear
     fail=$?
     if [ $fail -eq 1 ]
     then
-      clear
       dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
 You need to move the cursor over the filename in the right pane and press space so that it is shown in the field at the bottom. Then, press enter.\n\
 Please try again." 11 50
       goback=1
+    else
+      dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\Imported the backed up database." 11 50
+      exit
     fi
   fi
 fi
