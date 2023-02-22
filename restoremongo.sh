@@ -13,7 +13,7 @@ fi
 
 echo "$File"
 
-if [ file -b "$File" = "directory" ]
+if [ "$(file -b "$File")" = "directory" ]
 then
   dialog --msgbox "Error\n\
 You need to move the cursor over the filename\n\
