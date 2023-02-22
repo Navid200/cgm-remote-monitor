@@ -6,6 +6,13 @@ echo
 
 # Let's install the missing needed packages.
 
+if [ "`id -u`" != "0" ]
+then
+  echo "Script needs root."
+  echo "Cannot continue.."
+  exit 5
+fi
+
 sudo apt-get update
 
 # vis
