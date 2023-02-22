@@ -15,11 +15,9 @@ echo "$File"
 
 if [ "$(file -b "$File")" = "directory" ]
 then
-  dialog --msgbox "Error\n\
-You need to move the cursor over the filename\n\
-in the right pane and press space so that it\n\
-is shown in the field at the bottom.\n\
-Then, move the cursor over OK and press enter." 10 50
+  dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+You need to move the cursor over the filename in the right pane and press space so that it is shown in the field at the bottom. Then, move the cursor over OK and press enter.\n\
+Please try again." 10 50
 goback=1 # Don't execute the remaining part of the loop
 fi
 
