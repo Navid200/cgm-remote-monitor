@@ -3,7 +3,7 @@
 while :
 do
 goback=0 # Reset the loop
-File=$(dialog --title "Select the backup file to restore" --fselect ~/ 10 50 3>&1 1>&2 2>&3)
+File=$(dialog --title "Select the backup file to restore" --fselect ~/ 11 50 3>&1 1>&2 2>&3)
 key=$?
 
 if [ $key = 255 ] || [ $key = 1 ]
