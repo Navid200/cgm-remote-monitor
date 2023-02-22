@@ -58,6 +58,13 @@ then
   sudo apt-get install -y nodejs
 fi 
 
+# file
+whichpack=$(which file)
+if [ "$whichpack" = "" ]
+then
+  sudo apt-get -y install file
+fi  
+
 # Add log
 rm -rf /tmp/Logs
 echo -e "The packages have been installed     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
