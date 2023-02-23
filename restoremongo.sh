@@ -42,10 +42,10 @@ then
         \Zr Developed by the xDrip team \Zn\n\n\
 Use the arrow keys to move the cursor.\n\
 Press Enter to execute the highlighted option.\n" 14 50 3\
-      "1" "Restore MongoDB only"\
-      "2" "Restore variables only"\
-      "3" "Restore MongoDB and variables"\
-      3>&1 1>&2 2>&3)
+ "1" "Restore MongoDB only"\
+ "2" "Restore variables only"\
+ "3" "Restore MongoDB and variables"\
+ 3>&1 1>&2 2>&3)
       
       case $Choice in
       
