@@ -76,7 +76,7 @@ esac
         fi
       fi
       
-      if [ var -eq 1 ]
+      if [ $var -eq 1 ]
       then
         sudo cp -f nsconfig /etc/nsconfig
         dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe variables have been restored from backup.  You need to restart the server for the updated variables to take effect." 10 50
