@@ -94,7 +94,7 @@ then
   if [ "$(file -b "$File" | awk '{print $1}')" = "gzip" ]
   then
     dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-The backup only contains a database.  Press enter to import it." 11 50
+The backup only contains a database.  Press enter to import it." 9 50
     key=$?
     if [ $key = 255 ]
     then
