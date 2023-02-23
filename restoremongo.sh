@@ -73,6 +73,8 @@ esac
         if [ $fail = 1 ]
         then
           dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe database import failed.  Please report." 8 50
+        else
+          dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nDatabase restore is complete.  Press enter to proceed." 8 50
         fi
       fi
       
