@@ -66,5 +66,7 @@ then
 fi  
 
 # Add log
-sudo sh -c 'echo -e "The packages have been installed     $(date)\n" >> /xDrip/Logs'
+rm -rf /tmp/Logs
+echo -e "The packages have been installed     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
+sudo /bin/cp -f /tmp/Logs /xDrip/Logs
  
