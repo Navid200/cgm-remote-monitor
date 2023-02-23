@@ -74,7 +74,7 @@ esac
         then
           dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe database import failed.  Please report." 8 50
         else
-          dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nDatabase restore is complete.  Press enter to proceed." 8 50
+          dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nDatabase has been imported." 8 50
         fi
       fi
       
@@ -104,10 +104,10 @@ The backup only contains the database.  Press enter to restore it." 11 50
     fail=$?
     if [ $fail -eq 1 ]
     then
-      dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe database import failed.  Please report." 11 50
+      dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nDatabase import failed.  Please report." 11 50
       exit
     else
-      dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nImported the backed up database." 8 50
+      dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nDatabase has been imported." 8 50
       exit
     fi
   fi
