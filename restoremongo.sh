@@ -47,24 +47,24 @@ Press Enter to execute the highlighted option.\n" 14 50 3\
  "3" "Restore MongoDB and variables"\
  3>&1 1>&2 2>&3)
       
-      case $Choice in
-      
       db=0
       var=0;
-      1)
-      db=1
-      ;;
+case $Choice in
       
-      2)
-      var=1
-      ;;
+1)
+db=1
+;;
       
-      3)
-      db=1
-      var=1
-      ;;
+2)
+var=1
+;;
       
-      esac
+3)
+db=1
+var=1
+;;
+      
+esac
       
       if [ $db -eq 1 ]
       then
