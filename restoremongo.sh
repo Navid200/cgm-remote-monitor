@@ -71,7 +71,7 @@ exit
       
 esac
       
-      if [ $db -eq 1 ]
+      if [ $db -eq 1 ] # If the user chose to restore MongoDB
       then
         mongorestore --gzip --archive=database.gz
         fail=$?
@@ -85,7 +85,7 @@ esac
           then
             dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nDatabase has been imported.\nThe variables will not be restored.  But, you can view them at /tmp/nsconfig." 9 50
           else # If the user chose to also restore the variables
-            dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nDatabase has been imported." 9 50
+            dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nDatabase has been imported." 8 50
           fi
         fi
       fi
