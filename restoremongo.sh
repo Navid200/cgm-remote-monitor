@@ -13,7 +13,7 @@ fi
 
 echo "$File"
 
-if [ "$(file -b "$File")" = "directory" ]
+if [ "$(file -b "$File")" = "directory" ] # If no file has been selected.
 then
   clear
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
@@ -24,7 +24,7 @@ fi
 
 if [ $goback -eq 0 ]
 then
-  if [ "$(file -b "$File" | awk '{print $2}')" = "tar" ]
+  if [ "$(file -b "$File" | awk '{print $2}')" = "tar" ] # If the backup is a tar file, we know it is a new backup containing both database and variables.
   then
     if [ ! "$(tar -tf $File 'database.gz')" = "database.gz" ] || [ ! "$(tar -tf $File 'nsconfig')" = "nsconfig" ]
     then
@@ -73,14 +73,23 @@ esac
         if [ $fail = 1 ]
         then
           dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe database import failed.  Please report." 8 50
-        else
-          dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nDatabase has been imported." 8 50
+        else # If the database was successfully imported
+          echo -e "Restored MongoDB     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
+          sudo /bin/cp -f /tmp/Logs /xDrip/Logs
+          if [ $var -lt 1 ] # If the user chose not to restore the variables
+          then
+            dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nDatabase has been imported.\nThe variables will not be restored.  But, you can view them at /tmp/nsconfig." 9 50
+          else # If the user chose to also restore the variables
+            dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nDatabase has been imported." 9 50
+          fi
         fi
       fi
       
       if [ $var -eq 1 ]
       then
         sudo cp -f nsconfig /etc/nsconfig
+        echo -e "Restored variables     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
+        sudo /bin/cp -f /tmp/Logs /xDrip/Logs
         clear
         dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe variables have been restored from backup.  You need to restart the server for the updated variables to take effect." 9 50
       fi
@@ -91,7 +100,7 @@ fi
 
 if [ $goback -eq 0 ]
 then
-  if [ "$(file -b "$File" | awk '{print $1}')" = "gzip" ]
+  if [ "$(file -b "$File" | awk '{print $1}')" = "gzip" ] # If the backup file is a gzip file, we will know that it is an old backup only containing the database.
   then
     dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
 The backup only contains a database.  Press enter to import it." 9 50
@@ -109,6 +118,8 @@ The backup only contains a database.  Press enter to import it." 9 50
       exit
     else
       dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nDatabase has been imported." 8 50
+      echo -e "Restored MongoDB     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
+      sudo /bin/cp -f /tmp/Logs /xDrip/Logs
       exit
     fi
   fi
