@@ -68,7 +68,6 @@ fi
 # The last item on the above list of packages must be verified in Status.sh to have been installed.  
 
 # Add log
-rm -rf /tmp/Logs
 echo -e "The packages have been installed     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
 sudo /bin/cp -f /tmp/Logs /xDrip/Logs
  
