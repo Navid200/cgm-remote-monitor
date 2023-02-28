@@ -75,6 +75,7 @@ esac
       then
         mongorestore --gzip --archive=database.gz
         fail=$?
+        clear
         if [ $fail = 1 ]
         then
           dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe database import failed.  Please report." 8 50
