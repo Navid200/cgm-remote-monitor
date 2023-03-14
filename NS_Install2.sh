@@ -111,7 +111,7 @@ else
 fi
 exec 3>&-
 
-if [ "$ns" -lt 12 ]
+if [ ${#ns} -lt 12 ]
 then
   go_back=1
   clear
