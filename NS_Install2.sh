@@ -84,79 +84,112 @@ sleep 10
 done
 EOF
 
-cs=`grep 'API_SECRET=' /etc/nsconfig | head -1 | cut -f2 -d'"'`
+cs2=`grep 'API_SECRET=' /etc/nsconfig | cut -f2 -d'"'`
+cs1=`grep 'API_SECRET=' /etc/nsconfig | cut -f2 -d"'"`
+cs="$cs2"
+if [ "$cs2" = "" ]
+then
+  cs="$cs1"
+fi
 
+got_it=0
+while [ $got_it -lt 1 ]
+do
+go_back=0
 clear
-echo "Current API secret is: $cs"
-echo
-echo "If you would like to change it please enter the new secret now or hit enter to leave the same"
-
-for j in {1..1000}
-do
-read -t 0.001 dummy
-done
-read -p "New secret 12 character minimum length (blank to skip change) : " ns
-
-if [ "$ns" != "" ]
+exec 3>&1
+Value=$(dialog --colors --ok-label "Submit" --form "       \Zr Developed by the xDrip team \Zn\n\n\n\
+Your current API_SECRET is $cs\n\n\
+You can press escape to maintain the existing one.  Or, enter a new one with at least 12 characters excluding the following.\n\n\
+$ \" \\\n " 19 50 0 "API_SECRET:" 1 1 "$cs" 1 14 25 0 2>&1 1>&3)
+response=$?
+if [ $response = 255 ] || [ $response = 1 ] # cancled or escaped
 then
-while [ ${#ns} -lt 12 ] && [ "$ns" != "" ]
-do
-read -p "Needs to be at least 12 chars - try again: " ns
-done
-if [ "$ns" != "" ]
+  ns="$cs"
+else 
+  ns=$(echo "$Value" | sed -n 1p)
+fi
+exec 3>&-
+
+if [ "$ns" -lt 12 ]
 then
-sed -i -e "s/API_SECRET=.*/API_SECRET=\'${ns}\'/g" /etc/nsconfig
-echo
-echo "Secret changed to: ${ns}"
-sleep 3
+  go_back=1
+  clear
+  dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+  API_SECRET should have at least 12 characters.  Please try again."  8 50
 fi
-fi
+clear
 
-cat > /etc/rc.local << "EOF"
-#!/bin/bash
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
-cd /tmp
-swapon /var/SWAP
-service snapd stop
-service mongodb start
-screen -dmS nightscout sudo -u nobody bash /etc/nightscout-start.sh
-service nginx start
-EOF
+done
 
-chmod a+x /etc/rc.local
+echo "$ns"
 
-cat > /etc/systemd/system/rc-local.service << "EOF"
-[Unit]
- Description=/etc/rc.local Compatibility
- ConditionPathExists=/etc/rc.local
-[Service]
- Type=forking
- ExecStart=/etc/rc.local start
- TimeoutSec=0
- StandardOutput=tty
- RemainAfterExit=yes
-[Install]
- WantedBy=multi-user.target
-EOF
+# for j in {1..1000}
+# do
+# read -t 0.001 dummy
+# done
+# read -p "New secret 12 character minimum length (blank to skip change) : " ns
 
-sudo sed -i -e 'sX//Unattended-Upgrade::Automatic-Reboot "false";XUnattended-Upgrade::Automatic-Reboot "true";Xg' /etc/apt/apt.conf.d/50unattended-upgrades 
-sudo systemctl daemon-reload
-sudo systemctl enable rc-local
+# if [ "$ns" != "" ]
+# then
+# while [ ${#ns} -lt 12 ] && [ "$ns" != "" ]
+# do
+# read -p "Needs to be at least 12 chars - try again: " ns
+# done
+# if [ "$ns" != "" ]
+# then
+# sed -i -e "s/API_SECRET=.*/API_SECRET=\'${ns}\'/g" /etc/nsconfig
+# echo
+# echo "Secret changed to: ${ns}"
+# sleep 3
+# fi
+# fi
 
-sudo systemctl start rc-local.service
+# cat > /etc/rc.local << "EOF"
+# #!/bin/bash
+# PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+# cd /tmp
+# swapon /var/SWAP
+# service snapd stop
+# service mongodb start
+# screen -dmS nightscout sudo -u nobody bash /etc/nightscout-start.sh
+# service nginx start
+# EOF
+
+# chmod a+x /etc/rc.local
+
+# cat > /etc/systemd/system/rc-local.service << "EOF"
+# [Unit]
+#  Description=/etc/rc.local Compatibility
+#  ConditionPathExists=/etc/rc.local
+# [Service]
+#  Type=forking
+#  ExecStart=/etc/rc.local start
+#  TimeoutSec=0
+#  StandardOutput=tty
+#  RemainAfterExit=yes
+# [Install]
+#  WantedBy=multi-user.target
+# EOF
+
+# sudo sed -i -e 'sX//Unattended-Upgrade::Automatic-Reboot "false";XUnattended-Upgrade::Automatic-Reboot "true";Xg' /etc/apt/apt.conf.d/50unattended-upgrades 
+# sudo systemctl daemon-reload
+# sudo systemctl enable rc-local
+
+# sudo systemctl start rc-local.service
  
-sudo /xDrip/scripts/ConfigureFreedns.sh
-if [ ! -s /tmp/FreeDNS_Failed ]
-then
-clear
+# sudo /xDrip/scripts/ConfigureFreedns.sh
+# if [ ! -s /tmp/FreeDNS_Failed ]
+# then
+# clear
 
-# Add log
-rm -rf /tmp/Logs
-echo -e "Installation phase 2 completed     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
-sudo /bin/cp -f /tmp/Logs /xDrip/Logs
+# # Add log
+# rm -rf /tmp/Logs
+# echo -e "Installation phase 2 completed     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
+# sudo /bin/cp -f /tmp/Logs /xDrip/Logs
 
-dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
-Press enter to restart the server.  This will result in an expected error message.  Wait 30 seconds before clicking on retry to reconnect or using a browser to access your Nightscout." 10 50
-sudo reboot
-fi
+# dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
+# Press enter to restart the server.  This will result in an expected error message.  Wait 30 seconds before clicking on retry to reconnect or using a browser to access your Nightscout." 10 50
+# sudo reboot
+# fi
  
