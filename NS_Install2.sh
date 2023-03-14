@@ -104,7 +104,7 @@ read -p "Needs to be at least 12 chars - try again: " ns
 done
 if [ "$ns" != "" ]
 then
-sed -i -e "s/API_SECRET=\".*/API_SECRET=\"${ns}\"/g" /etc/nsconfig
+sed -i -e "s/API_SECRET=.*/API_SECRET=\'${ns}\'/g" /etc/nsconfig
 echo
 echo "Secret changed to: ${ns}"
 sleep 3
