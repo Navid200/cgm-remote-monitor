@@ -86,6 +86,7 @@ EOF
 
 cs=`grep 'API_SECRET=' /etc/nsconfig | head -1 | cut -f2 -d'"'`
 
+clear
 echo "Current API secret is: $cs"
 echo
 echo "If you would like to change it please enter the new secret now or hit enter to leave the same"
