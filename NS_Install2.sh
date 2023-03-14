@@ -117,6 +117,8 @@ then
   clear
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
   API_SECRET should have at least 12 characters.  Please try again."  8 50
+else
+  got_it=1 # We have a new APS_SECRET.
 fi
 clear
 
