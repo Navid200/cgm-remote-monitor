@@ -125,6 +125,7 @@ clear
 if [ $go_back -lt 1 ]
 then
   if [ "$("$ns" | grep $)" != "" ]
+  then
     go_back=1
     clear
     dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
