@@ -124,7 +124,7 @@ clear
 
 if [ $go_back -lt 1 ]
 then
-  if [ grep -q "$" <<< "$cs" ]
+  if [[ $ns == *[\$]* ]]
   then
     go_back=1
     clear
