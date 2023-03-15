@@ -124,7 +124,7 @@ clear
 
 if [ $go_back -lt 1 ]
 then
-  if [[ $ns == *[\$]* ]]
+  if [[ $ns == *[\$]* ]] || [[ $cs == *[\"]* ]]
   then
     go_back=1
     clear
