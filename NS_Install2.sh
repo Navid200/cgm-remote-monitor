@@ -140,7 +140,7 @@ echo "cs is $cs"
 
 if [ "$ns" != "$cs" ]
 then
-  sed -i -e "s/API_SECRET=\".*/API_SECRET=\"${ns}\"/g" /etc/nsconfig
+  sed -i -e "s/API_SECRET=\".*/API_SECRET=\'${ns}\'/g" /etc/nsconfig
 fi
 
 # sed -i -e "s/API_SECRET=.*/API_SECRET=\'${ns}\'/g" /etc/nsconfig
