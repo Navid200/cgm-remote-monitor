@@ -137,20 +137,16 @@ done
 
 echo "$ns"
 
-# for j in {1..1000}
-# do
-# read -t 0.001 dummy
-# done
-# read -p "New secret 12 character minimum length (blank to skip change) : " ns
+if [ "$ns" != "$cs" ]
+then
+  if [ "$cs2" = "" ]
+  then
+    sed -i -e "s/API_SECRET=\'.*/API_SECRET=\'${ns}\'/g" /etc/nsconfig
+  else
+    sed -i -e "s/API_SECRET=\".*/API_SECRET=\"${ns}\"/g" /etc/nsconfig
+  fi
+fi
 
-# if [ "$ns" != "" ]
-# then
-# while [ ${#ns} -lt 12 ] && [ "$ns" != "" ]
-# do
-# read -p "Needs to be at least 12 chars - try again: " ns
-# done
-# if [ "$ns" != "" ]
-# then
 # sed -i -e "s/API_SECRET=.*/API_SECRET=\'${ns}\'/g" /etc/nsconfig
 # echo
 # echo "Secret changed to: ${ns}"
