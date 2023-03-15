@@ -143,51 +143,51 @@ then
   sed -i -e "s/API_SECRET=.*/API_SECRET=\'${ns}\'/g" /etc/nsconfig # Replace API_SECRET in nsconfig with the new one using single quotes.
 fi
 
-# cat > /etc/rc.local << "EOF"
-# #!/bin/bash
-# PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
-# cd /tmp
-# swapon /var/SWAP
-# service snapd stop
-# service mongodb start
-# screen -dmS nightscout sudo -u nobody bash /etc/nightscout-start.sh
-# service nginx start
-# EOF
+cat > /etc/rc.local << "EOF"
+#!/bin/bash
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+cd /tmp
+swapon /var/SWAP
+service snapd stop
+service mongodb start
+screen -dmS nightscout sudo -u nobody bash /etc/nightscout-start.sh
+service nginx start
+EOF
 
-# chmod a+x /etc/rc.local
+ chmod a+x /etc/rc.local
 
-# cat > /etc/systemd/system/rc-local.service << "EOF"
-# [Unit]
-#  Description=/etc/rc.local Compatibility
-#  ConditionPathExists=/etc/rc.local
-# [Service]
-#  Type=forking
-#  ExecStart=/etc/rc.local start
-#  TimeoutSec=0
-#  StandardOutput=tty
-#  RemainAfterExit=yes
-# [Install]
-#  WantedBy=multi-user.target
-# EOF
+cat > /etc/systemd/system/rc-local.service << "EOF"
+[Unit]
+ Description=/etc/rc.local Compatibility
+ ConditionPathExists=/etc/rc.local
+[Service]
+ Type=forking
+ ExecStart=/etc/rc.local start
+ TimeoutSec=0
+ StandardOutput=tty
+ RemainAfterExit=yes
+[Install]
+ WantedBy=multi-user.target
+EOF
 
-# sudo sed -i -e 'sX//Unattended-Upgrade::Automatic-Reboot "false";XUnattended-Upgrade::Automatic-Reboot "true";Xg' /etc/apt/apt.conf.d/50unattended-upgrades 
-# sudo systemctl daemon-reload
-# sudo systemctl enable rc-local
+sudo sed -i -e 'sX//Unattended-Upgrade::Automatic-Reboot "false";XUnattended-Upgrade::Automatic-Reboot "true";Xg' /etc/apt/apt.conf.d/50unattended-upgrades 
+sudo systemctl daemon-reload
+sudo systemctl enable rc-local
 
-# sudo systemctl start rc-local.service
+sudo systemctl start rc-local.service
  
-# sudo /xDrip/scripts/ConfigureFreedns.sh
-# if [ ! -s /tmp/FreeDNS_Failed ]
-# then
-# clear
+sudo /xDrip/scripts/ConfigureFreedns.sh
+if [ ! -s /tmp/FreeDNS_Failed ]
+then
+clear
 
-# # Add log
-# rm -rf /tmp/Logs
-# echo -e "Installation phase 2 completed     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
-# sudo /bin/cp -f /tmp/Logs /xDrip/Logs
+# Add log
+rm -rf /tmp/Logs
+echo -e "Installation phase 2 completed     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
+sudo /bin/cp -f /tmp/Logs /xDrip/Logs
 
-# dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
-# Press enter to restart the server.  This will result in an expected error message.  Wait 30 seconds before clicking on retry to reconnect or using a browser to access your Nightscout." 10 50
-# sudo reboot
-# fi
+dialog --colors --msgbox "     \Zr Developed by the xDrip team \Zn\n\n\
+Press enter to restart the server.  This will result in an expected error message.  Wait 30 seconds before clicking on retry to reconnect or using a browser to access your Nightscout." 10 50
+sudo reboot
+fi
  
