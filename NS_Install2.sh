@@ -135,7 +135,8 @@ fi
 
 done
 
-echo "$ns"
+echo "ns is $ns"
+echo "cs is $cs"
 
 if [ "$ns" != "$cs" ]
 then
