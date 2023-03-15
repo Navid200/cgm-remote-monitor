@@ -117,19 +117,19 @@ then
   clear
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
 API_SECRET should have at least 12 characters.  Please try again."  8 50
-else
-  got_it=1 # We have a new APS_SECRET.
 fi
 clear
 
 if [ $go_back -lt 1 ]
 then
-  if [[ $ns == *[\$]* ]]
+  if [[ $ns == *[\$]* ]] || [[ $ns == *[\"]* ]]
   then
     go_back=1
     clear
     dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-API_SECRET should not include $.  Please try again."  8 50
+API_SECRET should not include $ or \\.  Please try again."  8 50
+  else
+    got_it=1
   fi
 fi
 
