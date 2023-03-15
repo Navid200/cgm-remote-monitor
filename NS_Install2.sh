@@ -43,7 +43,7 @@ echo
 echo "Setting up startup service"
 echo
 
-if [ ! -s /etc/nsconfig ] # Only if nsconfig does not exist already
+if [ ! -s /etc/nsconfig ] # Create a new nsconfig file only if one does not exit already.
 then
 
 cat > /etc/nsconfig << EOF
@@ -84,12 +84,12 @@ sleep 10
 done
 EOF
 
-cs2=`grep 'API_SECRET=' /etc/nsconfig | cut -s -f2 -d'"'`
-cs1=`grep 'API_SECRET=' /etc/nsconfig | cut -s -f2 -d\'`
+cs2=`grep 'API_SECRET=' /etc/nsconfig | cut -s -f2 -d'"'` # This is API_SECRET if double quotes are used in nsconfig.
+cs1=`grep 'API_SECRET=' /etc/nsconfig | cut -s -f2 -d\'` # This is API_SECRET if single quotes are used in nsconfig.
 cs="$cs2"
 if [ "$cs2" = "" ]
 then
-  cs="$cs1"
+  cs="$cs1" # This is the current secret (API_SECRET) from nsconfig.
 fi
 
 got_it=0
@@ -111,7 +111,7 @@ else
 fi
 exec 3>&-
 
-if [ ${#ns} -lt 12 ]
+if [ ${#ns} -lt 12 ] # Reject if the submission has less than 12 characters.
 then
   go_back=1
   clear
@@ -122,7 +122,7 @@ clear
 
 if [ $go_back -lt 1 ]
 then
-  if [[ $ns == *[\$]* ]] || [[ $ns == *[\"]* ]] || [[ $ns == *[\\]* ]]
+  if [[ $ns == *[\$]* ]] || [[ $ns == *[\"]* ]] || [[ $ns == *[\\]* ]] # Reject if submission contains unacceptable characters.
   then
     go_back=1
     clear
@@ -135,20 +135,10 @@ fi
 
 done
 
-echo "ns is $ns"
-echo "cs is $cs"
-
-if [ "$ns" != "$cs" ]
+if [ "$ns" != "$cs" ] # Only if the new secret is different than the current secret (API_SECRET)
 then
-  sed -i -e "s/API_SECRET=\".*/API_SECRET=\'${ns}\'/g" /etc/nsconfig
+  sed -i -e "s/API_SECRET=\".*/API_SECRET=\'${ns}\'/g" /etc/nsconfig # Replace API_SECRET in nsconfig with the new one using single quotes.
 fi
-
-# sed -i -e "s/API_SECRET=.*/API_SECRET=\'${ns}\'/g" /etc/nsconfig
-# echo
-# echo "Secret changed to: ${ns}"
-# sleep 3
-# fi
-# fi
 
 # cat > /etc/rc.local << "EOF"
 # #!/bin/bash
