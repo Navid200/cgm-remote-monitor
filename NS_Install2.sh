@@ -130,8 +130,6 @@ then
     clear
     dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
 API_SECRET should not include $.  Please try again."  8 50
-  else
-    got_it=1
   fi
 fi
 
