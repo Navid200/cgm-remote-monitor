@@ -140,7 +140,7 @@ echo "ns is $ns"
 
 if [ "$ns" != "$cs" ] # Only if the new secret is different than the current secret (API_SECRET)
 then
-  sed -i -e "s/API_SECRET=\".*/API_SECRET=\'${ns}\'/g" /etc/nsconfig # Replace API_SECRET in nsconfig with the new one using single quotes.
+  sed -i -e "s/API_SECRET=.*/API_SECRET=\'${ns}\'/g" /etc/nsconfig # Replace API_SECRET in nsconfig with the new one using single quotes.
 fi
 
 # cat > /etc/rc.local << "EOF"
