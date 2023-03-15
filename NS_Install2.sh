@@ -84,8 +84,8 @@ sleep 10
 done
 EOF
 
-cs2=`grep 'API_SECRET=' /etc/nsconfig | cut -f2 -d'"'`
-cs1=$(grep 'API_SECRET=' /etc/nsconfig | cut -f2 -d\')
+cs2=`grep 'API_SECRET=' /etc/nsconfig | cut -s -f2 -d'"'`
+cs1=`grep 'API_SECRET=' /etc/nsconfig | cut -s -f2 -d\'`
 cs="$cs2"
 if [ "$cs2" = "" ]
 then
