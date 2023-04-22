@@ -1,6 +1,6 @@
 #!/bin/bash
 
-freedns=$(wget --spider -S "https://freedns.afraid.org_off/" 2>&1 | awk '/HTTP\// {print $2}') # This will be 200 if FreeDNS is up.
+freedns=$(wget --spider -S "https://freedns.afraid.org/" 2>&1 | awk '/HTTP\// {print $2}') # This will be 200 if FreeDNS is up.
 
 if [ $freedns -eq 200 ]  # Run the following only if FreeDNS is up.
 then
