@@ -130,10 +130,10 @@ then
 fi  
 
 # Verify that Nightscout will start after a reboot even if FreeDNS is down.
-rclocal_1=""
-if  [ ! grep -q "$DIRECTURL &" /etc/rc.local ]
+rclocal_1="\Zb\Z1Startup dependence on FreeDNS\Zn"
+if  [ grep -q "$DIRECTURL &" /etc/rc.local ]
 then
-  rclocal_1="\Zb\Z1Startup dependence on FreeDNS\Zn"
+  rclocal_1=""
 fi
 
 clear
