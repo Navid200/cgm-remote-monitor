@@ -129,7 +129,7 @@ then
   Phase1="\Zb\Z1Missing node_modules\Zn"
 fi  
 
-# Verify that Nightscout will start after a reboot even if FreeDNS is down.
+# Verify that & appears in rc.local after DIRECTURL so that Nightscout can start after a reboot even if FreeDNS is down.
 rclocal_1="\Zb\Z1Startup dependence on FreeDNS\Zn"
 grep '$DIRECTURL &' /etc/rc.local > /tmp/rclocal_1
 if [ -s /tmp/rclocal_1 ]
