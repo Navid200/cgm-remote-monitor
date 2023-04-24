@@ -142,7 +142,7 @@ read -a split <<< $FLine
 hostname=${split[0],,}
 directurl=${split[2]}
 
-#create a file to store FreeDNS details.
+#create a file to store the data for the startup script.
 cat> /etc/free-dns.sh<<EOF
 #!/bin/sh
 export HOSTNAME=$hostname
@@ -151,6 +151,12 @@ EOF
 
 # Start the first update immediately
 wget -O - --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 $directurl
+
+#Add the command to renew the script to the startup url
+if ! grep -q "DIRECTURL" /etc/rc.local; then
+    echo . /etc/free-dns.sh >>  /etc/rc.local
+    echo wget -O /tmp/freedns.txt --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 \$DIRECTURL & >>  /etc/rc.local
+fi
 
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
 Press enter to proceed.  Please be patient as it may take up to 10 minutes to complete." 8 50
