@@ -155,7 +155,7 @@ wget -O - --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 $dire
 #Add the command to renew the script to the startup url
 if ! grep -q "DIRECTURL" /etc/rc.local; then
     echo . /etc/free-dns.sh >>  /etc/rc.local
-    echo wget -O /tmp/freedns.txt --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 \$DIRECTURL & >>  /etc/rc.local
+    echo wget -O /tmp/freedns.txt --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 \$DIRECTURL \& >>  /etc/rc.local
 fi
 
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
