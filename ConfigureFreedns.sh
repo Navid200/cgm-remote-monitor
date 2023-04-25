@@ -156,7 +156,7 @@ wget -O - --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 $dire
 if ! grep -q "DIRECTURL" /etc/rc.local; then
     echo . /etc/free-dns.sh >>  /etc/rc.local
     echo wget -O /tmp/freedns.txt --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 \$DIRECTURL >>  /etc/rc.local
-    echo exit 0 # This should be the last line to ensure the startup will complete. >> /etc/rc.local
+    echo exit 0 \# This should be the last line to ensure the startup will complete. >> /etc/rc.local
 fi
 
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
