@@ -66,7 +66,7 @@ ls > /tmp/repo
 sudo mv -f /tmp/repo .    # The repository name is now in /srv/repo
 cd "$(< repo)"
 #sudo git checkout vps-dev  # ✅✅✅✅✅ Main - Uncomment before PR.
-sudo git checkout FreeDNS_AutoLogin  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
+sudo git checkout FreeDNS_AutoLogin_Test  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
 
 sudo git branch > /tmp/branch
 grep "*" /tmp/branch | awk '{print $2}' > /tmp/brnch
