@@ -118,6 +118,15 @@ then
         else
           FLine=$(</tmp/FullLine)
           got_them=1 # We have the hostname and direct URL
+          rm -rf /xDrip/FreeDNS_ID_Pass
+          cat > /xDrip/FreeDNS_ID_Pass<<EOF
+          This file is generated automatically.  It will be deleted and overwritten.
+          Please don't add anything to this file.
+          
+          User_ID $user
+          Password $pass
+          EOF
+          
         fi # fi 1
 
       fi # fi 2
