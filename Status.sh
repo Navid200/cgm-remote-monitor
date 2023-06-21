@@ -137,6 +137,13 @@ then
   rclocal_1=""
 fi
 
+# Verify that the FreeDNS_ID_Pass file exists.
+freedns_id_pass="\Zb\Z1FreeDNS ID pass\Zn"
+if [ ! -s /xDrip/FreeDNS_ID_Pass ]
+then
+  freedns_id_pass=""
+fi
+
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
         \Zr Developed by the xDrip team \Zn\n\n\
@@ -148,9 +155,9 @@ Disk size: $disksz        $DiskUsedPercent used \n\
 Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
-Nightscout on Google Cloud: 2023.05.09\n\
+Nightscout on Google Cloud: 2023.06.23\n\
 $Missing $Phase1 $rclocal_1 \n\n\
-/$uname/$repo/$branch\n\
+/$uname/$repo/$branch/$freedns_id_pass\n\
 Swap: $swap \n\
 Mongo: $mongo \n\
 NS proc: $ns \n\
