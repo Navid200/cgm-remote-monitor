@@ -138,7 +138,7 @@ then
 fi
 
 # Verify that the FreeDNS_ID_Pass file exists.
-freedns_id_pass="\Zb\Z1FreeDNS ID pass\Zn"
+freedns_id_pass="\Zb\Z1FreeDNS_ID_pass\Zn"
 if [ -s /xDrip/FreeDNS_ID_Pass ]
 then
   freedns_id_pass=""
