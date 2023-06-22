@@ -120,11 +120,11 @@ then
           got_them=1 # We have the hostname and direct URL
           rm -rf /xDrip/FreeDNS_ID_Pass
 cat > /xDrip/FreeDNS_ID_Pass << EOF
-This file is generated automatically.  It will be deleted and overwritten.
-Please do not add anything to this file.
-          
-User_ID=$user
-Password=$pass
+#!/bin/sh
+# This file is generated automatically.  It will be deleted and overwritten.
+# Please do not add anything to this file.
+export User_ID=$user
+export Password=$pass
 EOF
           
         fi # fi 1
