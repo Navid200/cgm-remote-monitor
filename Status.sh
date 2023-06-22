@@ -182,14 +182,14 @@ exit
 
 2)
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-               \Zb\Z1For your eyes only!\Zn\n\n\
+            \Zb\Z1For your eyes only!\Zn\n\n\
 Hostname:  $HOSTNAME\n\
 API_SECRET: $apisec" 10 50
 ;;
 
 3)
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-               \Zb\Z1For your eyes only!\Zn\n\n\
+            \Zb\Z1For your eyes only!\Zn\n\n\
 FreeDNS ID: $freedns_id\n\
 FreeDNS pass: $freedns_pass" 10 50
 ;;
