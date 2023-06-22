@@ -168,7 +168,7 @@ Mongo: $mongo \n\
 NS proc: $ns \n\
 FreeDNS name and IP: $FD \n\
 Certificate: $cert \
- " 30 50 2\
+ " 30 50 3\
  "1" "Return"\
  "2" "Hostname and API_SECRET"\
  "3" "FreeDNS ID & pass"\
