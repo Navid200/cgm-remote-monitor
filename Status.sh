@@ -168,9 +168,10 @@ Mongo: $mongo \n\
 NS proc: $ns \n\
 FreeDNS name and IP: $FD \n\
 Certificate: $cert \
- " 29 50 2\
+ " 30 50 2\
  "1" "Return"\
- "2" "Hostname, API_SECRET and FreeDNS ID and pass"\
+ "2" "Hostname and API_SECRET"\
+ "3" "FreeDNS ID & pass"\
  3>&1 1>&2 2>&3)
  
  case $Choice in
@@ -181,9 +182,14 @@ exit
 
 2)
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-               \Zb\Z1For your eyes only!\Zn\n\
+               \Zb\Z1For your eyes only!\Zn\n\n\
 Hostname:  $HOSTNAME\n\
-API_SECRET: $apisec\n\
+API_SECRET: $apisec" 11 50
+;;
+
+3)
+dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+               \Zb\Z1For your eyes only!\Zn\n\n\
 FreeDNS ID: $freedns_id\n\
 FreeDNS pass: $freedns_pass" 11 50
 ;;
