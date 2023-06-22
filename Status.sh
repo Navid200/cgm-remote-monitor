@@ -139,9 +139,14 @@ fi
 
 # Verify that the FreeDNS_ID_Pass file exists.
 freedns_id_pass="\Zb\Z1FreeDNS_ID_pass\Zn"
+freedns_id=""
+freedns_pass=""
 if [ -s /xDrip/FreeDNS_ID_Pass ]
 then
   freedns_id_pass=""
+  . /xDrip/FreeDNS_ID_Pass
+  freedns_id=$User_ID
+  freedns_pass=$Password
 fi
 
 clear
@@ -165,7 +170,7 @@ FreeDNS name and IP: $FD \n\
 Certificate: $cert \
  " 29 50 2\
  "1" "Return"\
- "2" "Hostname and password"\
+ "2" "Hostname, API_SECRET and FreeDNS ID and pass"\
  3>&1 1>&2 2>&3)
  
  case $Choice in
@@ -176,9 +181,11 @@ exit
 
 2)
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-               \Zb\Z1Keep private.\Zn\n\
-FreeDNS hostname:  $HOSTNAME\n\
-API_SECRET: $apisec" 9 50
+               \Zb\Z1For your eyes only!\Zn\n\
+Hostname:  $HOSTNAME\n\
+API_SECRET: $apisec\n\
+FreeDNS user ID: $freedns_id\n\
+FreeDNS password: $freedns_pass" 9 50
 ;;
 
 esac
