@@ -191,7 +191,9 @@ API_SECRET: $apisec" 10 50
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
               \Zb\Z1Keep private!\Zn\n\n\
 FreeDNS ID: $freedns_id\n\
-FreeDNS pass: $freedns_pass" 10 50
+FreeDNS password: $freedns_pass\n\
+\n\
+If you have updated your FreeDNS password since you last ran \"Install Nightscout phase 2\", the password shown above is not current." 14 50
 ;;
 
 esac
