@@ -125,6 +125,7 @@ cat > /xDrip/FreeDNS_ID_Pass << EOF
 # Please do not add anything to this file.
 export User_ID=$user
 export Password=$pass
+export Arg=$arg
 EOF
           
         fi # fi 1
