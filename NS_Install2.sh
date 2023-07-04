@@ -55,6 +55,8 @@ export PUMP_FIELDS='reservoir battery clock'
 export DEVICESTATUS_ADVANCED='true'
 export THEME='colors'
 export DBSIZE_MAX='20000'
+export freedns_user='your_freedns_user_id'
+export freedns_pass='Your_FreeDNS_Password'
 
 EOF
 
