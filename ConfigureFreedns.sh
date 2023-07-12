@@ -15,7 +15,7 @@ fi
 sudo apt-get install bind9-dnsutils -y
 
 echo
-echo "Move to use free dns instead of noip.com" - tzachi-dar
+echo "Move to use free dns instead of noip.com - tzachi-dar"
 echo
 
 got_them=0
