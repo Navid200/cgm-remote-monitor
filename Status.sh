@@ -160,7 +160,7 @@ Disk size: $disksz        $DiskUsedPercent used \n\
 Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
-Nightscout on Google Cloud: 2023.07.03\n\
+Google Cloud Nightscout: 2023.07.14\n\
 $Missing $Phase1 $rclocal_1 $freedns_id_pass \n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
@@ -170,8 +170,7 @@ FreeDNS name and IP: $FD \n\
 Certificate: $cert \
  " 30 50 3\
  "1" "Return"\
- "2" "Hostname and API_SECRET"\
- "3" "FreeDNS ID & pass"\
+ "2" "Login credentials"\
  3>&1 1>&2 2>&3)
  
  case $Choice in
@@ -184,17 +183,10 @@ exit
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
               \Zb\Z1Keep private!\Zn\n\n\
 Hostname:  $HOSTNAME\n\
-API_SECRET: $apisec" 10 50
+API_SECRET: $apisec\n\n\n\
+FreeDNS\n\
+FreeDNS User ID: $freedns_id\n\
+FreeDNS password: $freedns_pass" 17 50
 ;;
-
-3)
-dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-              \Zb\Z1Keep private!\Zn\n\n\
-FreeDNS ID: $freedns_id\n\
-FreeDNS password: $freedns_pass\n\
-\n\
-If you have updated your FreeDNS password since you last ran \"Install Nightscout phase 2\", the password shown above is not current." 14 50
-;;
-
 esac
  
