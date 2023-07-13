@@ -24,7 +24,7 @@ then
     then
       echo -e "Login to FreeDNS failed autherntication.      $(date)\n" | cat - /xDrip/FreeDNS_AutoLogin_Logs > /tmp/Logs
       cat > /xDrip/FreeDNS_Fail << EOF
-FreeDNS failled autherntication.
+FreeDNS failed authentication.
 EOF
     else
       echo -e "Logged into FreeDNS.      $(date)\n" | cat - /xDrip/FreeDNS_AutoLogin_Logs > /tmp/Logs
