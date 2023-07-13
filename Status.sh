@@ -137,16 +137,19 @@ then
   rclocal_1=""
 fi
 
-# Verify that the FreeDNS_ID_Pass file exists.
-freedns_id_pass="\Zb\Z1FreeDNS_ID_pass\Zn"
+# Mark FreeDNS login issues.
 freedns_id=""
 freedns_pass=""
 if [ -s /xDrip/FreeDNS_ID_Pass ]
 then
-  freedns_id_pass=""
   . /xDrip/FreeDNS_ID_Pass
   freedns_id=$User_ID
   freedns_pass=$Password
+fi
+freedns_id_pass=""
+if [ -s /xDrip/FreeDNS_Fail ]
+then
+  freedns_id_pass="\Zb\Z5_|_\Zn"
 fi
 
 clear
@@ -173,9 +176,9 @@ Certificate: $cert \
  "2" "Login credentials"\
  3>&1 1>&2 2>&3)
  
- case $Choice in
+case $Choice in
  
- 1)
+1)
 exit
 ;;
 
