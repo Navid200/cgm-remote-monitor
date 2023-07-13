@@ -18,18 +18,24 @@ then
     arg2=$(echo -n "$user|$pass" | sha1sum | awk '{print $1;}')
     arg="$arg1$arg2"
     wget -O /tmp/hosts "$arg"
-    # Create a log.
     rm -rf /tmp/Logs
+    rm -rf /xDrip/FreeDNS_Fail
     if [ ! "`grep 'Could not authenticate' /tmp/hosts`" = "" ] # Failed to log in
     then
       echo -e "Login to FreeDNS failed autherntication.      $(date)\n" | cat - /xDrip/FreeDNS_AutoLogin_Logs > /tmp/Logs
+      cat > /xDrip/FreeDNS_Fail << EOF
+FreeDNS failled autherntication.
+EOF
     else
       echo -e "Logged into FreeDNS.      $(date)\n" | cat - /xDrip/FreeDNS_AutoLogin_Logs > /tmp/Logs
     fi
   else
     # Create a log.
-    rm -rf /tmp/Logs
     echo -e "The /xDrip/FreeDNS_ID_Pass file does not exist.      $(date)\n" | cat - /xDrip/FreeDNS_AutoLogin_Logs > /tmp/Logs
+    cat > /xDrip/FreeDNS_Fail << EOF
+FreeDNS_ID_Pass file does not exist.
+EOF
+
   fi
 else
   # Create a log.
