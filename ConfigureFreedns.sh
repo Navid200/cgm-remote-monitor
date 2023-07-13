@@ -121,7 +121,7 @@ then
           rm -rf /xDrip/FreeDNS_ID_Pass
 cat > /xDrip/FreeDNS_ID_Pass << EOF
 #!/bin/sh
-# This file is generated automatically.  It will be deleted and overwritten.
+# This file is generated automatically.  It will be deleted and recreated.
 # Please do not add anything to this file.
 export User_ID=$user
 export Password=$pass
