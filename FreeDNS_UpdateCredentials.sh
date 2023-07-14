@@ -22,6 +22,7 @@ Enter your ID and password to proceed.  Or press escape to cancel." 19 50 0 "Use
   response=$?
   if [ $response = 255 ] || [ $response = 1 ] # cancled or escaped
   then
+    clear
     exit 5
   fi
   exec 3>&-
