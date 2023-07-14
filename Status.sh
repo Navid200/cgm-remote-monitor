@@ -149,7 +149,7 @@ fi
 freedns_id_pass=""
 if [ -s /xDrip/FreeDNS_Fail ]
 then
-  freedns_id_pass="\Zb\Z5_|_\Zn"
+  freedns_id_pass="\Zb\Z5FreeDNS ID and pass\Zn"
 fi
 
 clear
