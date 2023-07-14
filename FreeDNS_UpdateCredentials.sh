@@ -11,6 +11,7 @@ freedns=$(wget --spider -S "https://freedns.afraid.org/" 2>&1 | awk '/HTTP\// {p
 
 if [ $freedns -eq 200 ]  # Run the following only if FreeDNS is up.
 then
+  got_them=0
   while [ $got_them -lt 1 ]
   do
   go_back=0
@@ -35,10 +36,10 @@ Enter your ID and password to proceed.  Or press escape to cancel." 19 50 0 "Use
     dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nFailed to authenticate.  Please try again."  7 50
     go_back=1
   fi
-  if [ $go_back -lt 1 ] # 
+  if [ $go_back -lt 1 ] # Got them
   then
-
-  cat > /xDrip/FreeDNS_ID_Pass << EOF
+    got_them=1
+    cat > /xDrip/FreeDNS_ID_Pass << EOF
 #!/bin/sh
 # This file is generated automatically.  It will be deleted and recreated.
 # Please do not add anything to this file.
@@ -46,9 +47,8 @@ export User_ID=$user
 export Password=$pass
 EOF
 
-fi
-done
-
+  fi
+  done
 else # If FreeDNS is down
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
 It seems the FreeDNS site is down.  Please try again when FreeDNS is back up." 9 50
