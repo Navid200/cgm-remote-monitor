@@ -125,7 +125,6 @@ cat > /xDrip/FreeDNS_ID_Pass << EOF
 # Please do not add anything to this file.
 export User_ID=$user
 export Password=$pass
-export Arg=$arg
 EOF
           
         fi # fi 1
@@ -199,7 +198,6 @@ Please close this window.  Open a new SSH terminal.  Run FreeDNS Setup again to 
 done
 
 #Fix the certificate using the new host name.
-
 
 for i in {1..4}
 do
