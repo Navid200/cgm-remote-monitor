@@ -187,9 +187,8 @@ dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
               \Zb\Z1Keep private!\Zn\n\n\
 Hostname:  $HOSTNAME\n\
 API_SECRET: $apisec\n\n\n\
-FreeDNS\n\
 FreeDNS User ID: $freedns_id\n\
-FreeDNS password: $freedns_pass" 17 50
+FreeDNS password: $freedns_pass" 15 50
 ;;
 esac
  
