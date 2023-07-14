@@ -18,7 +18,6 @@ To proceed, enter your FreeDNS userID and password.  Or press escape to cancel."
   response=$?
   if [ $response = 255 ] || [ $response = 1 ] # cancled or escaped
   then
-    clear
     exit 5
   fi
   exec 3>&-
