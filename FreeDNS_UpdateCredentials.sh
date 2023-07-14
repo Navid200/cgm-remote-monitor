@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo
-echo "Update FreeDNS user ID and password in our records - Navid200"
+echo "Record FreeDNS user ID and password in /xDrip/FreeDNS_ID_Pass - Navid200"
 echo
 
 # If the FreeDNS password has been changed since installation, this script can be used to update it in our setup for auto-login.
@@ -33,6 +33,7 @@ This is only to enter the user ID and password in Google Cloud Nightscout.  If y
 export User_ID=$user
 export Password=$pass
 EOF
+
   fi
 else # If FreeDNS is down
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
@@ -40,4 +41,5 @@ It seems the FreeDNS site is down.  Please try again when FreeDNS is back up." 9
   cat > /tmp/FreeDNS_Failed << EOF
 The FreeDNS site is down.
 EOF
+
 fi
