@@ -11,23 +11,21 @@ freedns=$(wget --spider -S "https://freedns.afraid.org/" 2>&1 | awk '/HTTP\// {p
 
 if [ $freedns -eq 200 ]  # Run the following only if FreeDNS is up.
 then
-echo "Condition 1"
-  if [ ! -s /xDrip/FreeDNS_ID_Pass ] # If the FreeDNS uer-ID and password file does not exist
+  clear
+  exec 3>&1
+  Values=$(dialog --colors --ok-label "Submit" --form "       \Zr Developed by the xDrip team \Zn\n\n\n\
+This is only to enter the user ID and password in Google Cloud Nightscout.  If you want to change your user ID or passowrd, you need to log into FreeDNS to do that.\n\
+To proceed, enter your FreeDNS userID and password.  Or press escape to cancel." 12 50 0 "User ID:" 1 1 "$user" 1 14 25 0 "Password:" 2 1 "$pass" 2 14 25 0 2>&1 1>&3)
+  response=$?
+  if [ $response = 255 ] || [ $response = 1 ] # cancled or escaped
   then
     clear
-    exec 3>&1
-    Values=$(dialog --colors --ok-label "Submit" --form "       \Zr Developed by the xDrip team \Zn\n\n\n\
-This is only to enter the user ID and password in Google Cloud Nightscout.  If you want to change your user ID or passowrd, you need to log into FreeDNS to do that.  Enter your FreeDNS userID and password." 12 50 0 "User ID:" 1 1 "$user" 1 14 25 0 "Password:" 2 1 "$pass" 2 14 25 0 2>&1 1>&3)
-    response=$?
-    if [ $response = 255 ] || [ $response = 1 ] # cancled or escaped
-    then
-      clear
-      exit 5
-    fi
-    exec 3>&-
-    user=$(echo "$Values" | sed -n 1p)
-    pass=$(echo "$Values" | sed -n 2p)
-    cat > /xDrip/FreeDNS_ID_Pass << EOF
+    exit 5
+  fi
+  exec 3>&-
+  user=$(echo "$Values" | sed -n 1p)
+  pass=$(echo "$Values" | sed -n 2p)
+  cat > /xDrip/FreeDNS_ID_Pass << EOF
 #!/bin/sh
 # This file is generated automatically.  It will be deleted and recreated.
 # Please do not add anything to this file.
@@ -35,7 +33,6 @@ export User_ID=$user
 export Password=$pass
 EOF
 
-  fi
 else # If FreeDNS is down
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
 It seems the FreeDNS site is down.  Please try again when FreeDNS is back up." 9 50
