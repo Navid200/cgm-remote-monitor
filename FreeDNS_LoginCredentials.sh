@@ -1,8 +1,11 @@
 #!/bin/bash
 
 echo
-echo "Set up auto login to FreeDNS - Navid200"
+echo "Update FreeDNS user ID and password in our records - Navid200"
 echo
+
+# If the FreeDNS password has been changed since installation, this script can be used to update it in our setup for auto-login.
+# If this system was created before we added auto-login, this script can be used to add user ID and password to our setup for auto login.
 
 freedns=$(wget --spider -S "https://freedns.afraid.org/" 2>&1 | awk '/HTTP\// {print $2}') # This will be 200 if FreeDNS is up.
 
