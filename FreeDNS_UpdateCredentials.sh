@@ -11,6 +11,7 @@ freedns=$(wget --spider -S "https://freedns.afraid.org/" 2>&1 | awk '/HTTP\// {p
 
 if [ $freedns -eq 200 ]  # Run the following only if FreeDNS is up.
 then
+echo "FreeDNS is up"
   exec 3>&1
   Values=$(dialog --colors --ok-label "Submit" --form "       \Zr Developed by the xDrip team \Zn\n\n\n\
 This is only to enter the user ID and password in Google Cloud Nightscout.  If you want to change your user ID or passowrd, you need to log into FreeDNS to do that.\n\
@@ -18,6 +19,7 @@ To proceed, enter your FreeDNS userID and password.  Or press escape to cancel."
   response=$?
   if [ $response = 255 ] || [ $response = 1 ] # cancled or escaped
   then
+  echo "Cancelled"
     exit 5
   fi
   exec 3>&-
@@ -32,6 +34,7 @@ export Password=$pass
 EOF
 
 else # If FreeDNS is down
+echo "FreeDNS is down"
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
 It seems the FreeDNS site is down.  Please try again when FreeDNS is back up." 9 50
   cat > /tmp/FreeDNS_Failed << EOF
