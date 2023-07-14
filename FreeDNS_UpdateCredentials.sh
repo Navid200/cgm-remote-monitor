@@ -11,7 +11,9 @@ freedns=$(wget --spider -S "https://freedns.afraid.org/" 2>&1 | awk '/HTTP\// {p
 
 if [ $freedns -eq 200 ]  # Run the following only if FreeDNS is up.
 then
-echo "FreeDNS is up"
+  while [ $got_them -lt 1 ]
+  do
+  go_back=0
   exec 3>&1
   Values=$(dialog --colors --ok-label "Submit" --form "       \Zr Developed by the xDrip team \Zn\n\n\n\
 This is only to enter the user ID and password in Google Cloud Nightscout.  If you want to change your user ID or password, you will need to log into FreeDNS to do that.\n\n\
@@ -19,12 +21,23 @@ Enter your ID and password to proceed.  Or press escape to cancel." 19 50 0 "Use
   response=$?
   if [ $response = 255 ] || [ $response = 1 ] # cancled or escaped
   then
-  echo "Cancelled"
     exit 5
   fi
   exec 3>&-
   user=$(echo "$Values" | sed -n 1p)
   pass=$(echo "$Values" | sed -n 2p)
+  arg1="https://freedns.afraid.org/api/?action=getdyndns&v=2&sha="
+  arg2=$(echo -n "$user|$pass" | sha1sum | awk '{print $1;}')
+  arg="$arg1$arg2"
+  wget -O /tmp/hosts "$arg"
+  if [ ! "`grep 'Could not authenticate' /tmp/hosts`" = "" ] # Failed to log in
+  then
+    dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nFailed to authenticate.  Please try again."  7 50
+    go_back=1
+  fi
+  if [ $go_back -lt 1 ] # 
+  then
+
   cat > /xDrip/FreeDNS_ID_Pass << EOF
 #!/bin/sh
 # This file is generated automatically.  It will be deleted and recreated.
@@ -33,8 +46,10 @@ export User_ID=$user
 export Password=$pass
 EOF
 
+fi
+done
+
 else # If FreeDNS is down
-echo "FreeDNS is down"
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
 It seems the FreeDNS site is down.  Please try again when FreeDNS is back up." 9 50
   cat > /tmp/FreeDNS_Failed << EOF
