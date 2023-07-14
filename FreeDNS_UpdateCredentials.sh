@@ -14,7 +14,7 @@ then
 echo "FreeDNS is up"
   exec 3>&1
   Values=$(dialog --colors --ok-label "Submit" --form "       \Zr Developed by the xDrip team \Zn\n\n\n\
-This is only to enter the user ID and password in Google Cloud Nightscout.  If you want to change your user ID or passowrd, you need to log into FreeDNS to do that.  To proceed, enter your FreeDNS userID and password.  Or press escape to cancel." 12 50 0 "User ID:" 1 1 "$user" 1 14 25 0 "Password:" 2 1 "$pass" 2 14 25 0 2>&1 1>&3)
+This is only to enter the user ID and password in Google Cloud Nightscout" 12 50 0 "User ID:" 1 1 "$user" 1 14 25 0 "Password:" 2 1 "$pass" 2 14 25 0 2>&1 1>&3)
   response=$?
   if [ $response = 255 ] || [ $response = 1 ] # cancled or escaped
   then
