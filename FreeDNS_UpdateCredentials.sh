@@ -11,6 +11,7 @@ freedns=$(wget --spider -S "https://freedns.afraid.org/" 2>&1 | awk '/HTTP\// {p
 
 if [ $freedns -eq 200 ]  # Run the following only if FreeDNS is up.
 then
+echo "Condition 1"
   if [ ! -s /xDrip/FreeDNS_ID_Pass ] # If the FreeDNS uer-ID and password file does not exist
   then
     clear
