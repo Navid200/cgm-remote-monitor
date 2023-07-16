@@ -53,7 +53,7 @@ curl https://raw.githubusercontent.com/jamorham/nightscout-vps/vps-dev/bootstrap
 ;;
 
 6)
-sudo /xDrip/scripts/FreeDNS_UpdateCredentials.sh
+sudo /xDrip/scripts/update_FreeDNSCredentials.sh
 ;;
 
 7)
