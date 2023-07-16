@@ -15,6 +15,8 @@ if ! grep -q "/xDrip/scripts/FreednsLogin.sh" /etc/rc.local
 then
   cat > /etc/rc.local << "EOF"
 #!/bin/bash
+# This file is generated automatically.  It will be deleted and recreated.
+# Please do not add anything to this file.
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 cd /tmp
 swapon /var/SWAP
