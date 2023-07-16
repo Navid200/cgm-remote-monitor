@@ -17,7 +17,7 @@ then
   go_back=0
   exec 3>&1
   Values=$(dialog --colors --ok-label "Submit" --form "       \Zr Developed by the xDrip team \Zn\n\n\n\
-This is only to enter the user ID and password in Google Cloud Nightscout.  If you want to change your user ID or password, you will need to log into FreeDNS to do that. Then, use this utility to update Google Cloud Nightscout accordingly.\n\n\
+This utility updates your user ID and password in Google Cloud Nightscout.  If you want to change your FreeDNS user ID or password, you will need to use a browser to log into FreeDNS to do that. Then, use this utility to update Google Cloud Nightscout accordingly.\n\n\
 Enter your ID and password to proceed.  Or press escape to cancel." 20 50 0 "User ID:" 1 1 "$user" 1 14 25 0 "Password:" 2 1 "$pass" 2 14 25 0 2>&1 1>&3)
   response=$?
   if [ $response = 255 ] || [ $response = 1 ] # cancled or escaped
