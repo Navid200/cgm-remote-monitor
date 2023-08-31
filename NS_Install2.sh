@@ -99,9 +99,9 @@ go_back=0
 clear
 exec 3>&1
 Value=$(dialog --colors --ok-label "Submit" --form "       \Zr Developed by the xDrip team \Zn\n\n\n\
-Your current API_SECRET:  $cs\n\n\
-You can press escape to keep it unchanged.  Or, enter a new one with at least 12 characters excluding the following.\n\
-$   \"   '   \\   SPACE   @   / " 15 50 0 "API_SECRET:" 1 1 "$secr" 1 14 25 0 2>&1 1>&3)
+API_SECRET:   $cs\n\n\
+You can press escape to keep it.  Or, enter a new one with at least 12 characters excluding the following.\n\
+  $   \"   '   \\   SPACE   @   / " 15 50 0 "API_SECRET:" 1 1 "$secr" 1 14 25 0 2>&1 1>&3)
 response=$?
 if [ $response = 255 ] || [ $response = 1 ] # cancled or escaped
 then
