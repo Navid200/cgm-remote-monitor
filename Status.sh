@@ -156,7 +156,7 @@ fi
 apisec_problem=""
 if [[ "$apisec" == *@* ]] || [[ "$apisec" == * * ]]
 then
-  apisec_problem="\Zb\Z5*\Zn"
+  apisec_problem="\Zb\Z5@\Zn"
 fi
 
 clear
