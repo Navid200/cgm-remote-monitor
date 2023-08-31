@@ -152,6 +152,13 @@ then
   freedns_id_pass="\Zb\Z5FreeDNS ID and pass\Zn"
 fi
 
+# Mark problem characters in API_SECRET
+aipsec_problem=""
+if [ $apisec == *" "* ]
+then
+  apisec_problem="\Zb\Z5@\Zn"
+fi
+
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
         \Zr Developed by the xDrip team \Zn\n\n\
