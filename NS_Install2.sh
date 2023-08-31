@@ -101,7 +101,7 @@ exec 3>&1
 Value=$(dialog --colors --ok-label "Submit" --form "       \Zr Developed by the xDrip team \Zn\n\n\n\
 Your current API_SECRET is $cs\n\n\
 You can press escape to keep it unchanged.  Or, enter a new one with at least 12 characters excluding the following.\n\n\
-$   \"   '   \\   SPACE   \@   \/ \n " 19 50 0 "API_SECRET:" 1 1 "$secr" 1 14 25 0 2>&1 1>&3)
+$   \"   '   \\   SPACE   @   \/ \n " 19 50 0 "API_SECRET:" 1 1 "$secr" 1 14 25 0 2>&1 1>&3)
 response=$?
 if [ $response = 255 ] || [ $response = 1 ] # cancled or escaped
 then
@@ -122,7 +122,7 @@ clear
 
 if [ $go_back -lt 1 ]
 then
-  if [[ $ns == *[\$]* ]] || [[ $ns == *[\"]* ]] || [[ $ns == *[\']* ]] || [[ $ns == *[\\]* ]] || [[ $ns == *[\ ]* ]] || [[ $ns == *[\@]* ]] || [[ $ns == *[\/]* ]] # Reject if submission contains unacceptable characters.
+  if [[ $ns == *[\$]* ]] || [[ $ns == *[\"]* ]] || [[ $ns == *[\']* ]] || [[ $ns == *[\\]* ]] || [[ $ns == *[\ ]* ]] || [[ $ns == *[@]* ]] || [[ $ns == *[\/]* ]] # Reject if submission contains unacceptable characters.
   then
     go_back=1
     clear
