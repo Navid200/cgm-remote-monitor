@@ -122,7 +122,7 @@ clear
 
 if [ $go_back -lt 1 ]
 then
-  if [[ $ns == *[\$]* ]] || [[ $ns == *[\"]* ]] || [[ $ns == *[\']* ]] || [[ $ns == *[\\]* ]] || [[ $ns == *[ ]* ]] || [[ $ns == *[\@]* ]] || [[ $ns == *[\/]* ]] # Reject if submission contains unacceptable characters.
+  if [[ $ns == *[\$]* ]] || [[ $ns == *[\"]* ]] || [[ $ns == *[\']* ]] || [[ $ns == *[\\]* ]] || [[ $ns == *[\ ]* ]] || [[ $ns == *[\@]* ]] || [[ $ns == *[\/]* ]] # Reject if submission contains unacceptable characters.
   then
     go_back=1
     clear
