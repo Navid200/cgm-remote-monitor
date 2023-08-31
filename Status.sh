@@ -153,10 +153,10 @@ then
 fi
 
 # Mark problem characters in API_SECRET
-apisec_problem="@"
-if [[ "$apisec" == *@* ]] 
+apisec_problem=""
+if [[ "$apisec" == *@* ]] || [[ "$apisec" == * * ]]
 then
-  apisec_problem="\Zb\Z5@\Zn"
+  apisec_problem="\Zb\Z5*\Zn"
 fi
 
 clear
