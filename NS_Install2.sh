@@ -127,7 +127,7 @@ then
     go_back=1
     clear
     dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-API_SECRET should not include the following characters. Please try again.\n $, \", \\, ', SPACE, @ or /"  8 50
+API_SECRET should not include the following characters. Please try again.\n $, \", \\, ', SPACE, @ or /"  9 50
   else
     got_it=1
   fi
