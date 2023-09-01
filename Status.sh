@@ -154,7 +154,7 @@ apisec_literal=$(grep 'API_SECRET=' /etc/nsconfig | sed 's/^.*=//')
 apisec_literal="$apisec_literal"
 apisec_literal="${apisec_literal:1: -1}"
 apisec_problem=""
-if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *" "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]] || [[ "$apisec_literal" == *"'"* ]] || [[ "$apisec_literal" == *"\""* ]] || [[ "$apisec_literal" == *"$"* ]] || [[ ${apisec_literal} -lt 12 ]]
+if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *" "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]] || [[ "$apisec_literal" == *"'"* ]] || [[ "$apisec_literal" == *"\""* ]] || [[ "$apisec_literal" == *"$"* ]] || [[ ${#apisec_literal} -lt 12 ]]
 then
   apisec_problem="*" # Visible, but not obtrusive
 fi
@@ -171,7 +171,7 @@ Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
 Google Cloud Nightscout  2023.09.02\n\
-$apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass\n\n\
+$apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass ${#apisec_literal} \n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
 Mongo: $mongo \n\
