@@ -153,9 +153,8 @@ then
 fi
 
 # Mark existence of problem characters in API_SECRET
-# apisec_literal=$(grep 'API_SECRET=' /etc/nsconfig | sed 's/^.*=//')
-apisec_literal=$(grep 'API_SECRET=' /etc/nsconfig | sed 's/^.*=//')
-apisec_literal="$apisec_literal"
+apisec_literal="$(grep 'API_SECRET=' /etc/nsconfig | sed 's/^.*=//')"
+# apisec_literal="$apisec_literal"
 apisec_literal="${apisec_literal:1: -1}"
 apisec_problem=""
 if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *" "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]] || [[ "$apisec_literal" == *"\'"* ]]
@@ -197,7 +196,7 @@ exit
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
               \Zb\Z1Keep private!\Zn\n\n\
 Hostname:  $HOSTNAME\n\
-API_SECRET: $apisec\n\n\
+API_SECRET: $apisec_literal\n\n\
 FreeDNS User ID: $freedns_id\n\
 FreeDNS password: $freedns_pass" 13 50
 ;;
