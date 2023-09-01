@@ -101,9 +101,6 @@ FD="Match"
 fi
 fi
 
-# . /etc/nsconfig
-# apisec=$API_SECRET
-
 curl https://$HOSTNAME > /tmp/$HOSTNAME.txt
 curl_ret=$?
 if (( curl_ret != 0 )); then
@@ -173,7 +170,7 @@ Disk size: $disksz        $DiskUsedPercent used \n\
 Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
-Google Cloud Nightscout  2023.08.31\n\
+Google Cloud Nightscout  2023.09.01\n\
 $apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass\n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
