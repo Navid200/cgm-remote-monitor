@@ -158,9 +158,9 @@ apisec_literal=$(grep 'API_SECRET=' /etc/nsconfig | sed 's/^.*=//')
 apisec_literal="$apisec_literal"
 apisec_literal="${apisec_literal:1: -1}"
 apisec_problem=""
-if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *" "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]]
+if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *" "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]] || [[ "$apisec_literal" == *"'"* ]]
 then
-  apisec_problem="\Zb\Z5*\Zn"
+  apisec_problem="*"
 fi
 
 clear
