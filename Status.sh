@@ -175,7 +175,7 @@ Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
 Google Cloud Nightscout  2023.08.31\n\
-$Missing $Phase1 $rclocal_1 $freedns_id_pass $apisec_literal \n\n\
+$Missing $Phase1 $rclocal_1 $freedns_id_pass $apisec_problem $apisec_literal \n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
 Mongo: $mongo \n\
