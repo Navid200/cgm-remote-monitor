@@ -158,7 +158,7 @@ apisec_literal=$(grep 'API_SECRET=' /etc/nsconfig | sed 's/^.*=//')
 apisec_literal="$apisec_literal"
 apisec_literal="${apisec_literal:1: -1}"
 apisec_problem=""
-if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *"\ "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]]
+if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *" "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]]
 then
   apisec_problem="\Zb\Z5*\Zn"
 fi
@@ -175,7 +175,7 @@ Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
 Google Cloud Nightscout  2023.08.31\n\
-$Missing $Phase1 $rclocal_1 $freedns_id_pass $apisec_problem $apisec_literal \n\n\
+$apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass $apisec_literal \n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
 Mongo: $mongo \n\
