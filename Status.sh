@@ -153,7 +153,7 @@ then
 fi
 
 # Mark problem characters in API_SECRET
-apisec_literal="$(grep 'API_SECRET=' /etc/nsconfig | sed 's/^.*=//')"
+apisec_literal=$(grep 'API_SECRET=' /etc/nsconfig | sed 's/^.*=//')
 apisec_problem=""
 if [[ "$apisec" == *@* ]] || [[ "$apisec" == *\ * ]] || [[ "$apisec" == */* ]] || [[ "$apisec" == *\\* ]]
 then
