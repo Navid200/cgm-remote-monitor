@@ -153,9 +153,10 @@ then
 fi
 
 # Mark existence of problem characters in API_SECRET
-apisec_literal=$(grep 'API_SECRET=' /etc/nsconfig | sed 's/^.*=//')
+apisec_literal=$(grep 'API_SECRET=' /etc/nsconfig)
+apisec_literal=$(echo "$apisec_literal" | awk '{$1=$1};1') # Remove trailing space
+apisec_literal=$(echo "$apisec_literal" | sed 's/^.*=//')
 apisec_literal="$apisec_literal"
-apisec_literal=$(echo "$apisec_literal" | awk '{$1=$1};1')
 apisec_literal="${apisec_literal:1: -1}"
 apisec_problem=""
 if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *" "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]] || [[ "$apisec_literal" == *"'"* ]] || [[ "$apisec_literal" == *"\""* ]] || [[ "$apisec_literal" == *"$"* ]] || [[ ${#apisec_literal} -lt 12 ]]
