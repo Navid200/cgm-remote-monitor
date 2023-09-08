@@ -153,6 +153,7 @@ then
 fi
 
 # Mark existence of problem characters in API_SECRET
+apisec_problem=""
 apisec_literal=$(grep 'API_SECRET=' /etc/nsconfig) # Extract the line containing API_SECRET from the nsconfig file.
 apisec_literal=$(echo "$apisec_literal" | sed 's/^.*=//') # Drop everything up to the equal sign.
 if [[ "$apisec_literal" == *" #"* ]] # Is there a comment?
@@ -160,9 +161,13 @@ then
   apisec_literal=${apisec_literal%%#*} # Remove the comment.
 fi
 apisec_literal=$(echo "$apisec_literal" | awk '{$1=$1};1') # Remove trailing spaces
+first=echo "${apisec_literal:0:1}"
+apisec_literal=$first
+# if [[  ]] # Are the first and last characters identical?
+# then
+# fi
 # apisec_literal="$apisec_literal"
-apisec_literal="${apisec_literal:1: -1}"
-apisec_problem=""
+# apisec_literal="${apisec_literal:1: -1}"
 if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *" "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]] || [[ "$apisec_literal" == *"'"* ]] || [[ "$apisec_literal" == *"\""* ]] || [[ "$apisec_literal" == *"$"* ]] || [[ ${#apisec_literal} -lt 12 ]]
 then
   apisec_problem="*" # Visible, but not obtrusive
