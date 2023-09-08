@@ -166,7 +166,12 @@ first="${apisec_literal:0:1}"
 last="${apisec_literal: -1}"
 if [[ "$first" == "$last" ]] # Are the first and last characters identical?
 then
-apisec_problem="*45"
+  if [[ "$first == "'" ]] || [[ "$first" == "\"" ]]
+  then
+    apisec_problem="45"
+  else
+    apisec_problem="$first"
+  fi
 else
   apisec_problem="$first"
 fi
