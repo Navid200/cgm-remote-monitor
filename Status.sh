@@ -157,8 +157,8 @@ apisec_literal=$(grep 'API_SECRET=' /etc/nsconfig) # Extract the line containing
 apisec_literal=$(echo "$apisec_literal" | sed 's/^.*=//') # Drop everything up to the equal sign.
 if [[ "$apisec_literal" == *" #"* ]] # Is there a comment?
 then
-  apisec_literal=${apisec_literal%#*}
-  #apisec_literal="Includes comment"
+  apisec_literal=${apisec_literal%%#*} # Remove the comment.
+  #apisec_literal="Includes comment" 
 fi
 apisec_literal=$(echo "$apisec_literal" | awk '{$1=$1};1') # Remove trailing spaces
 apisec_literal="$apisec_literal"
