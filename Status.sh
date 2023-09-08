@@ -158,10 +158,9 @@ apisec_literal=$(echo "$apisec_literal" | sed 's/^.*=//') # Drop everything up t
 if [[ "$apisec_literal" == *" #"* ]] # Is there a comment?
 then
   apisec_literal=${apisec_literal%%#*} # Remove the comment.
-  #apisec_literal="Includes comment" 
 fi
 apisec_literal=$(echo "$apisec_literal" | awk '{$1=$1};1') # Remove trailing spaces
-apisec_literal="$apisec_literal"
+# apisec_literal="$apisec_literal"
 apisec_literal="${apisec_literal:1: -1}"
 apisec_problem=""
 if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *" "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]] || [[ "$apisec_literal" == *"'"* ]] || [[ "$apisec_literal" == *"\""* ]] || [[ "$apisec_literal" == *"$"* ]] || [[ ${#apisec_literal} -lt 12 ]]
