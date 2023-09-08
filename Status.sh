@@ -218,7 +218,7 @@ exit
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
               \Zb\Z1Keep private!\Zn\n\n\
 Hostname:  $HOSTNAME\n\
-API_SECRET: $apisec_literal\n\n\
+API_SECRET: $apisec\n\n\
 FreeDNS User ID: $freedns_id\n\
 FreeDNS password: $freedns_pass" 13 50
 ;;
