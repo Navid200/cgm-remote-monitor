@@ -168,7 +168,7 @@ if [[ "$first" == "$last" ]] # Are the first and last characters identical?
 then
   if [[ "$first" == "'" ]] || [[ "$first" == "\"" ]]
   then
-    apisec_problem="45"
+    apisec_literal="${apisec_literal:1: -1}" # Remove the quotation mark pair
   else
     apisec_problem="$first"
   fi
