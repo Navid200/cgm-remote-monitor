@@ -168,14 +168,14 @@ if [[ "$first" == "$last" ]] # Are the first and last characters identical?
 then
 apisec_problem="*45"
 else
-  apisec_problem="*"
+  apisec_problem="$first"
 fi
 # apisec_literal="$apisec_literal"
 # apisec_literal="${apisec_literal:1: -1}"
-if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *" "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]] || [[ "$apisec_literal" == *"'"* ]] || [[ "$apisec_literal" == *"\""* ]] || [[ "$apisec_literal" == *"$"* ]] || [[ ${#apisec_literal} -lt 12 ]]
-then
-  apisec_problem="*" # Visible, but not obtrusive
-fi
+# if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *" "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]] || [[ "$apisec_literal" == *"'"* ]] || [[ "$apisec_literal" == *"\""* ]] || [[ "$apisec_literal" == *"$"* ]] || [[ ${#apisec_literal} -lt 12 ]]
+# then
+#   apisec_problem="*" # Visible, but not obtrusive
+# fi
 
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
