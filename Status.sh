@@ -169,18 +169,16 @@ then
   if [[ "$first" == "'" ]] || [[ "$first" == "\"" ]]
   then
     apisec_literal="${apisec_literal:1: -1}" # Remove the quotation mark pair
+    if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *" "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]] || [[ "$apisec_literal" == *"'"* ]] || [[ "$apisec_literal" == *"\""* ]] || [[ "$apisec_literal" == *"$"* ]] || [[ ${#apisec_literal} -lt 12 ]]
+    then
+      apisec_problem="*" # Visible, but not obtrusive
+    fi
   else
-    apisec_problem="$first"
+    apisec_problem="'" # Mark that the first and last characters are neither ' nor "
   fi
 else
-  apisec_problem="$first"
+  apisec_problem="@" # Mark that the first and last characters (quoations marks) are not identical.
 fi
-# apisec_literal="$apisec_literal"
-# apisec_literal="${apisec_literal:1: -1}"
-# if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *" "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]] || [[ "$apisec_literal" == *"'"* ]] || [[ "$apisec_literal" == *"\""* ]] || [[ "$apisec_literal" == *"$"* ]] || [[ ${#apisec_literal} -lt 12 ]]
-# then
-#   apisec_problem="*" # Visible, but not obtrusive
-# fi
 
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
@@ -194,7 +192,7 @@ Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
 Google Cloud Nightscout  2023.09.02\n\
-$apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass $apisec $apisec_literal \n\n\
+$apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass \n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
 Mongo: $mongo \n\
