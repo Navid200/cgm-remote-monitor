@@ -166,7 +166,7 @@ first="${apisec_literal:0:1}"
 last="${apisec_literal: -1}"
 if [[ "$first" == "$last" ]] # Are the first and last characters identical?
 then
-  if [[ "$first == "'" ]] || [[ "$first" == "\"" ]]
+  if [[ "$first" == "'" ]] || [[ "$first" == "\"" ]]
   then
     apisec_problem="45"
   else
