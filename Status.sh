@@ -178,10 +178,10 @@ then
       fi
     fi
   else
-    apisec_problem="'" # Mark that the first character is neither ' nor "
+    apisec_problem="*" # Mark that the first character is neither ' nor "
   fi
 else
-  apisec_problem="@" # Mark that the first and last characters (should be a pair of quoation marks) are not identical.
+  apisec_problem="*" # Mark that the first and last characters (should be a pair of quoation marks) are not identical.
 fi
 
 clear
