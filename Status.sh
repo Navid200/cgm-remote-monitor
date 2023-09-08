@@ -102,7 +102,7 @@ fi
 fi
 
 . /etc/nsconfig
-apisec=$API_SECRET
+apisec=$API_SECRET # What Nightscout sees as API_SECRET
 
 curl https://$HOSTNAME > /tmp/$HOSTNAME.txt
 curl_ret=$?
@@ -152,7 +152,7 @@ then
   freedns_id_pass="\Zb\Z5FreeDNS ID and pass\Zn"
 fi
 
-# Mark existence of problem characters in API_SECRET
+# Verify API_SECRET
 apisec_problem=""
 apisec_literal=$(grep 'API_SECRET=' /etc/nsconfig) # Extract the line containing API_SECRET from the nsconfig file.
 apisec_literal=$(echo "$apisec_literal" | sed 's/^.*=//') # Drop everything up to the equal sign.
@@ -162,16 +162,20 @@ then
 fi
 apisec_literal=$(echo "$apisec_literal" | awk '{$1=$1};1') # Remove trailing spaces
 apisec_literal="$apisec_literal"
-first="${apisec_literal:0:1}"
-last="${apisec_literal: -1}"
+first="${apisec_literal:0:1}" # The first character, which should be either ' or "
+last="${apisec_literal: -1}" # The last character, which should be either ' or "
 if [[ "$first" == "$last" ]] # Are the first and last characters identical?
 then
-  if [[ "$first" == "'" ]] || [[ "$first" == "\"" ]]
+  if [[ "$first" == "'" ]] || [[ "$first" == "\"" ]] # Is the first character either ' or "
   then
     apisec_literal="${apisec_literal:1: -1}" # Remove the quotation mark pair
-    if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *" "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]] || [[ "$apisec_literal" == *"'"* ]] || [[ "$apisec_literal" == *"\""* ]] || [[ "$apisec_literal" == *"$"* ]] || [[ ${#apisec_literal} -lt 12 ]]
+    if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *" "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]] || [[ "$apisec_literal" == *"'"* ]] || [[ "$apisec_literal" == *"\""* ]] || [[ "$apisec_literal" == *"$"* ]] || [[ ${#apisec_literal} -lt 12 ]] # Is an illegal character present?
     then
-      apisec_problem="*" # Visible, but not obtrusive
+      apisec_problem="*" # Mark the presence of an illegal character.  
+      if [[ "$apisec" != "$apisec_literal"  ]] # Is what Nightscout sees different than what we see?  This should never happen.
+      then
+        apisec_problem="!" # Mark an unexpected condition.
+      fi
     fi
   else
     apisec_problem="'" # Mark that the first and last characters are neither ' nor "
