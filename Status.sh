@@ -152,9 +152,9 @@ then
   freedns_id_pass="\Zb\Z5FreeDNS ID and pass\Zn"
 fi
 
-# Verify API_SECRET as it can be edited after installation
+# Verify API_SECRET since it can be edited after installation
 apisec_problem="" # No flag
-apisec_literal=$(grep 'API_SECRET=' /etc/nsconfig) # Extract the line containing API_SECRET= from the nsconfig file.
+apisec_literal=$(grep 'API_SECRET=' /etc/nsconfig) # Extract the line containing API_SECRET= from the nsconfig file (including the quotation marks).
 apisec_literal=$(echo "$apisec_literal" | sed 's/^.*=//') # Drop everything up to and including the equal sign.
 if [[ "$apisec_literal" == *" #"* ]] # Is there a comment?
 then
