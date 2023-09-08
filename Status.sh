@@ -172,9 +172,9 @@ then
     if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *" "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]] || [[ "$apisec_literal" == *"'"* ]] || [[ "$apisec_literal" == *"\""* ]] || [[ "$apisec_literal" == *"$"* ]] || [[ ${#apisec_literal} -lt 12 ]] # Is an illegal character present?
     then
       apisec_problem="*" # Mark the presence of one of the seven illegal characters.  
-      if [[ "$apisec" != "$apisec_literal"  ]] # Is what Nightscout sees different than what we see?  This should never happen.
+      if [[ "$apisec" != "$apisec_literal"  ]] # Is what Nightscout sees different than what we have extracted?
       then
-        apisec_problem="!" # Mark an unexpected condition.
+        apisec_problem="*" # Mark an unacceptable combination.
       fi
     fi
   else
