@@ -152,13 +152,13 @@ then
   freedns_id_pass="\Zb\Z5FreeDNS ID and pass\Zn"
 fi
 
-# Verify API_SECRET
-apisec_problem=""
-apisec_literal=$(grep 'API_SECRET=' /etc/nsconfig) # Extract the line containing API_SECRET from the nsconfig file.
-apisec_literal=$(echo "$apisec_literal" | sed 's/^.*=//') # Drop everything up to the equal sign.
+# Verify API_SECRET as it can be edited after installation
+apisec_problem="" # No flag
+apisec_literal=$(grep 'API_SECRET=' /etc/nsconfig) # Extract the line containing API_SECRET= from the nsconfig file.
+apisec_literal=$(echo "$apisec_literal" | sed 's/^.*=//') # Drop everything up to and including the equal sign.
 if [[ "$apisec_literal" == *" #"* ]] # Is there a comment?
 then
-  apisec_literal=${apisec_literal%%#*} # Remove the comment.
+  apisec_literal=${apisec_literal%%#*} # Remove the comment and everything after.
 fi
 apisec_literal=$(echo "$apisec_literal" | awk '{$1=$1};1') # Remove trailing spaces
 apisec_literal="$apisec_literal"
@@ -168,7 +168,7 @@ if [[ "$first" == "$last" ]] # Are the first and last characters identical?
 then
   if [[ "$first" == "'" ]] || [[ "$first" == "\"" ]] # Is the first character either ' or "
   then
-    apisec_literal="${apisec_literal:1: -1}" # Remove the quotation mark pair
+    apisec_literal="${apisec_literal:1: -1}" # Remove the first and last characters (quotation mark pair)
     if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *" "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]] || [[ "$apisec_literal" == *"'"* ]] || [[ "$apisec_literal" == *"\""* ]] || [[ "$apisec_literal" == *"$"* ]] || [[ ${#apisec_literal} -lt 12 ]] # Is an illegal character present?
     then
       apisec_problem="*" # Mark the presence of an illegal character.  
@@ -178,7 +178,7 @@ then
       fi
     fi
   else
-    apisec_problem="'" # Mark that the first and last characters are neither ' nor "
+    apisec_problem="'" # Mark that the first character is neither ' nor "
   fi
 else
   apisec_problem="@" # Mark that the first and last characters (quoations marks) are not identical.
@@ -195,7 +195,7 @@ Disk size: $disksz        $DiskUsedPercent used \n\
 Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
-Google Cloud Nightscout  2023.09.02\n\
+Google Cloud Nightscout  2023.09.08\n\
 $apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass \n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
