@@ -171,17 +171,17 @@ then
     apisec_literal="${apisec_literal:1: -1}" # Remove the first and last characters (quotation mark pair)
     if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *" "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]] || [[ "$apisec_literal" == *"'"* ]] || [[ "$apisec_literal" == *"\""* ]] || [[ "$apisec_literal" == *"$"* ]] || [[ ${#apisec_literal} -lt 12 ]] # Is an illegal character present?
     then
-      apisec_problem="*" # Mark the presence of an illegal character.  
+      apisec_problem="$apisec_problem*" # Mark the presence of an illegal character.  
       if [[ "$apisec" != "$apisec_literal"  ]] # Is what Nightscout sees different than what we see?  This should never happen.
       then
-        apisec_problem="!" # Mark an unexpected condition.
+        apisec_problem="$apisec_problem!" # Mark an unexpected condition.
       fi
     fi
   else
-    apisec_problem="'" # Mark that the first character is neither ' nor "
+    apisec_problem="$apisec_problem'" # Mark that the first character is neither ' nor "
   fi
 else
-  apisec_problem="@" # Mark that the first and last characters (quoations marks) are not identical.
+  apisec_problem="$apisec_problem@" # Mark that the first and last characters (quoations marks) are not identical.
 fi
 
 clear
