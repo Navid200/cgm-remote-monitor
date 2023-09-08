@@ -161,6 +161,7 @@ then
   apisec_literal=${apisec_literal%%#*} # Remove the comment.
 fi
 apisec_literal=$(echo "$apisec_literal" | awk '{$1=$1};1') # Remove trailing spaces
+apisec_literal="$apisec_literal"
 first=echo "${apisec_literal:0:1}"
 apisec_literal="$first"
 # if [[  ]] # Are the first and last characters identical?
