@@ -181,7 +181,7 @@ then
     apisec_problem="$apisec_problem'" # Mark that the first character is neither ' nor "
   fi
 else
-  apisec_problem="$apisec_problem@" # Mark that the first and last characters (quoations marks) are not identical.
+  apisec_problem="$apisec_problem@" # Mark that the first and last characters (should be a pair of quoation marks) are not identical.
 fi
 
 clear
