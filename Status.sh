@@ -166,6 +166,7 @@ first="${apisec_literal:0:1}"
 last="${apisec_literal: -1}"
 if [[ "$first == "$last" ]] # Are the first and last characters identical?
 then
+  apisec_literal="match"
 else
   apisec_problem="*"
 fi
