@@ -164,10 +164,11 @@ apisec_literal=$(echo "$apisec_literal" | awk '{$1=$1};1') # Remove trailing spa
 apisec_literal="$apisec_literal"
 first="${apisec_literal:0:1}"
 last="${apisec_literal: -1}"
-apisec_literal="$last"
-# if [[  ]] # Are the first and last characters identical?
-# then
-# fi
+if [[ "$first == "$last" ]] # Are the first and last characters identical?
+then
+else
+  apisec_problem="*"
+fi
 # apisec_literal="$apisec_literal"
 # apisec_literal="${apisec_literal:1: -1}"
 if [[ "$apisec_literal" == *"@"* ]] || [[ "$apisec_literal" == *" "* ]] || [[ "$apisec_literal" == *"/"* ]] || [[ "$apisec_literal" == *"\\"* ]] || [[ "$apisec_literal" == *"'"* ]] || [[ "$apisec_literal" == *"\""* ]] || [[ "$apisec_literal" == *"$"* ]] || [[ ${#apisec_literal} -lt 12 ]]
