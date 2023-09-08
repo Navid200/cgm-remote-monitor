@@ -163,7 +163,8 @@ fi
 apisec_literal=$(echo "$apisec_literal" | awk '{$1=$1};1') # Remove trailing spaces
 apisec_literal="$apisec_literal"
 first="${apisec_literal:0:1}"
-apisec_literal="$first"
+last="${apisec_literal: -1}"
+apisec_literal="$last"
 # if [[  ]] # Are the first and last characters identical?
 # then
 # fi
