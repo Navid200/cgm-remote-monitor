@@ -164,7 +164,7 @@ apisec_literal=$(echo "$apisec_literal" | awk '{$1=$1};1') # Remove trailing spa
 apisec_literal="$apisec_literal"
 first="${apisec_literal:0:1}"
 last="${apisec_literal: -1}"
-if [[ "$first == "$last" ]] # Are the first and last characters identical?
+if [[ "$first" == "$last" ]] # Are the first and last characters identical?
 then
   apisec_literal="match"
 else
