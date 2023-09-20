@@ -5,6 +5,7 @@ clear
 echo "Please be patient (30 seconds)"
 echo "  "
 echo "  "
+sudo rm /tmp/Status_Logs
 echo -e "Echo please be patient      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs2
 sudo /bin/cp -f /tmp/Logs2 /tmp/Status_Logs
 
