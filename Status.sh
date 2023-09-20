@@ -69,9 +69,15 @@ sudo /bin/cp -f /tmp/Logs2 /tmp/Status_Logs
 
 #Firewall
 current=$(wget -q -O - http://checkip.dyndns.org|sed s/[^0-9.]//g)
+echo -e "Firewall wget      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs2
+sudo /bin/cp -f /tmp/Logs2 /tmp/Status_Logs
 nc -zvw10 $current 80 2> /tmp/http
+echo -e "Firewall nc http      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs2
+sudo /bin/cp -f /tmp/Logs2 /tmp/Status_Logs
 grep 'timed out' /tmp/http > /tmp/http2
 nc -zvw10 $current 443 2> /tmp/https
+echo -e "Firewall nc https      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs2
+sudo /bin/cp -f /tmp/Logs2 /tmp/Status_Logs
 grep 'timed out' /tmp/https > /tmp/https2
 http="Open"
 if [ -s /tmp/http2 ] || [ -s /tmp/https2 ]
