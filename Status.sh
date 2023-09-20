@@ -6,7 +6,7 @@ echo "Please be patient (30 seconds)"
 echo "  "
 echo "  "
 echo -e "Echo please be patient      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
-/bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 # Virtual machine zone
 ZoneRaw=$(basename `curl "http://metadata.google.internal/computeMetadata/v1/instance/zone" -H "Metadata-Flavor: Google"`)
@@ -20,7 +20,7 @@ then
 Zone="\Zb\Z1"$ZoneRaw"\Zn" # Set color to red if the zone is not one of the three free ones.
 fi
 echo -e "Zone      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
-/bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 # Ram size - This is used to determine if the machine type is micro or not
 Ram=$(free -m | sed -n 2p | awk '{print $2}')
@@ -31,7 +31,7 @@ then
 Ramsize="\Zb\Z1 $Ram$unit \Zn" # Set color to red if Ram size is greater than 1G
 fi
 echo -e "Ram size      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
-/bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 # Disk type
 disk="\Z1\ZbBalanced\Zn" # Set the color to red.
@@ -40,7 +40,7 @@ then
 disk="Standard" # Clear the color if the disk type is standard.
 fi
 echo -e "Disk type      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
-/bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 #Disk size
 disksz="$(df -h | sed -n 2p | awk '{print $2}')"
@@ -50,12 +50,12 @@ then
 disksz="\Zb\Z1$(df -h | sed -n 2p | awk '{print $2}')\Zn" # Set color to red if disk size is not 29G.
 fi
 echo -e "Disk size      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
-/bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 #Swap file
 swap="$(free -h | sed -n 3p | awk '{print $2}')"
 echo -e "Swap      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
-/bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 #Ubuntu version
 ubuntu="$(lsb_release -a | sed -n 2p | awk '{print $3, $4}')"
@@ -64,7 +64,7 @@ then
 ubuntu="\Zb\Z1$(lsb_release -a | sed -n 2p | awk '{print $3, $4}')\Zn"
 fi
 echo -e "Ubuntu version      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
-/bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 #Firewall
 current=$(wget -q -O - http://checkip.dyndns.org|sed s/[^0-9.]//g)
@@ -78,12 +78,12 @@ then
 http="\Zb\Z1Closed\Zn" # Set color to red if the Firewall is not set.
 fi
 echo -e "Firewall      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
-/bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 mongo="$(mongod --version | sed -n 1p)"
 ns="$(ps -ef | grep SCREEN | grep root | fold --width=40 | sed -n 1p)"
 echo -e "Mongo      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
-/bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 uname="$(< /srv/username)"
 if [ ! "$(< /srv/username)" = "jamorham" ]
@@ -91,7 +91,7 @@ then
 uname="\Zb\Z1$(< /srv/username)\Zn" # Set the color to red if the user name is not jamorham.
 fi
 echo -e "Platform path      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
-/bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 repo="$(< /srv/repo)"
 if [ ! "$(< /srv/repo)" = "nightscout-vps" ]
@@ -99,7 +99,7 @@ then
 repo="\Zb\Z1$(< /srv/repo)\Zn" # Set the color to red if the repository name is not nightscout-vps.
 fi
 echo -e "Verify platform repo      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
-/bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 branch="$(< /srv/brnch)"
 if [ ! "$(< /srv/brnch)" = "vps-1" ] && [ ! "$(< /srv/brnch)" = "vps-dev" ]
@@ -107,7 +107,7 @@ then
 branch="\Zb\Z1$(< /srv/brnch)\Zn" # Set the color to red if the branch name is not either vps-1 or vps-dev.
 fi
 echo -e "Verify platform branch      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
-/bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 HOSTNAME=""
 . /etc/free-dns.sh
@@ -125,11 +125,12 @@ FD="Match"
 fi
 fi
 echo -e "Hostname      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
-/bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 . /etc/nsconfig
 apisec=$API_SECRET # What Nightscout sees as API_SECRET
 echo -e "API_SECRET      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 curl https://$HOSTNAME > /tmp/$HOSTNAME.txt
 curl_ret=$?
@@ -139,7 +140,7 @@ else
 cert="Valid"
 fi
 echo -e "Verify hostname      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
-/bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 # Verify that the latest added package has been installed
 # The utility must be the last added utility to the update_packages.sh file.
@@ -149,7 +150,7 @@ then
   Missing="\Zb\Z1Missing packages  \Zn"
 fi
 echo -e "Packages      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
-/bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 # Verify that Installation phase 1 has been executed after bootstrap
 Phase1=""
@@ -160,7 +161,7 @@ then
   Phase1="\Zb\Z1Missing node_modules\Zn"
 fi  
 echo -e "Verify install phase 1      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
-/bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 # Verify that exit 0 is in rc.local so that Nightscout can start after a reboot even if FreeDNS is down.
 rclocal_1="\Zb\Z1Startup dependence on FreeDNS\Zn"
@@ -170,7 +171,7 @@ then
   rclocal_1=""
 fi
 echo -e "rclocal exit0      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
-/bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 # Mark FreeDNS login issues.
 freedns_id=""
@@ -187,7 +188,7 @@ then
   freedns_id_pass="\Zb\Z5FreeDNS ID and pass\Zn"
 fi
 echo -e "FreeDNS auto login      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
-/bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 # Verify API_SECRET since it can be edited after installation
 apisec_problem="" # No flag
@@ -221,7 +222,7 @@ else
   apisec_problem="*" # Mark that the first and last characters (should be a pair of quoation marks) are not identical.
 fi
 echo -e "Verify API_SECRET      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
-/bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
 
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
@@ -247,7 +248,7 @@ Certificate: $cert \
  "2" "Login credentials"\
  3>&1 1>&2 2>&3)
  echo -e "Show status      $(date)\n" | cat - /tmp/Status_Logs > /tmp/Logs
- /bin/cp -f /tmp/Logs /tmp/Status_Logs
+sudo /bin/cp -f /tmp/Logs /tmp/Status_Logs
  
 case $Choice in
  
