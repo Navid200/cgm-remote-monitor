@@ -115,7 +115,7 @@ fi
 # The utility must be the last added utility to the update_packages.sh file.
 Missing=""
 whichpack=$(node -v)
-if [ ! "${whichpack%%.*}" = "v18" ]
+if [ ! "${whichpack%%.*}" = "v20" ]
 then
   Missing="\Zb\Z1Missing packages  \Zn"
 fi
