@@ -61,10 +61,10 @@ fi
 
 # node
 whichpack=$(node -v)
-if [ ! "${whichpack%%.*}" = "v14" ]
+if [ ! "${whichpack%%.*}" = "v16" ]
 then
-  curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash - &&\
-  sudo apt-get install -y nodejs
+  curl -s https://deb.nodesource.com/setup_16.x | sudo bash
+  sudo apt install nodejs -y
 fi 
 
 # file
