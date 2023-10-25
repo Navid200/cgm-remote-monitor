@@ -198,7 +198,7 @@ Disk size: $disksz        $DiskUsedPercent used \n\
 Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
-Google Cloud Nightscout  2023.10.25\n\
+Google Cloud Nightscout  2023.10.26\n\
 $apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass \n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
