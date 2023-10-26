@@ -12,9 +12,9 @@ then
 fi
 
 # Let's see if Nightscout is running or not.
-ns="$(ps -ef | grep SCREEN | grep root | fold --width=40 | sed -n 1p)"
+nsprocess="$(ps -ef | grep SCREEN | grep root | fold --width=40 | sed -n 1p)"
 clear
-if [ "$ns" = "" ] ################## Nightscout is not running
+if [ "$nsprocess" = "" ] ################## Nightscout is not running
 then
   dialog --colors --msgbox "      \Zr Developed by the xDrip team \Zn\n\n\
 Some required packages will be installed.  It will take about 30 minutes to complete.  This terminal needs to be kept open.  Press enter to proceed.\n\n\
