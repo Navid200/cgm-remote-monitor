@@ -6,27 +6,26 @@ echo
 
 if [ "`id -u`" != "0" ]
 then
-echo "Script needs root - use sudo bash NS_Install.sh"
-echo "Cannot continue.."
-exit 5
+  echo "Script needs root - use sudo bash NS_Install.sh"
+  echo "Cannot continue.."
+  exit 5
 fi
 
 # Let's see if Nightscout is running or not.
-ns=""
 ns="$(ps -ef | grep SCREEN | grep root | fold --width=40 | sed -n 1p)"
 clear
-if [ "$ns" = "" ] # Nightscout is not running
+if [ "$ns" = "" ] ################## Nightscout is not running
 then
   dialog --colors --msgbox "      \Zr Developed by the xDrip team \Zn\n\n\
 Some required packages will be installed.  It will take about 30 minutes to complete.  This terminal needs to be kept open.  Press enter to proceed.\n\n\
 If this is not a good time, you can press escape to cancel." 13 50
-if [ $? = 255 ]
-then
-  clear
-  exit
-fi
+  if [ $? = 255 ]
+  then
+    clear
+    exit
+  fi
 
-else # Nightscout is running
+else ################# Nightscout is running
   dialog --colors --msgbox "      \Zr Developed by the xDrip team \Zn\n\n\
 Some required packages will be installed.  It will take about 30 minutes to complete.\n\nWe will stop Nighscout while this installation is in progress.  After it completes, you will need to restart the server from the main menu to restart Nightscout.\n\nThis terminal needs to be kept open.  Press enter to proceed.\n\n\
 If this is not a good time, you can press escape to cancel." 20 50
