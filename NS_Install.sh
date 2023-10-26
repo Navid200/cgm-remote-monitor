@@ -14,6 +14,7 @@ fi
 # Let's see if Nightscout is running or not.
 ns="$(ps -ef | grep SCREEN | grep root | fold --width=40 | sed -n 1p)"
 clear
+echo "$ns"
 if [ "$ns" = "" ] ################## Nightscout is not running
 then
   dialog --colors --msgbox "      \Zr Developed by the xDrip team \Zn\n\n\
