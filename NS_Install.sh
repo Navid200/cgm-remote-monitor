@@ -54,7 +54,7 @@ sudo git pull  # Update database from remote.
 
 sudo npm install
 # sudo npm run postinstall
-sudo npm run generate-keys
+sudo npm run-script post-generate-keys
 
 for loop in 1 2 3 4 5 6 7 8 9
 do
