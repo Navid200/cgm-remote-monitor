@@ -12,6 +12,7 @@ exit 5
 fi
 
 # Let's see if Nightscout is running or not.
+ns=""
 ns="$(ps -ef | grep SCREEN | grep root | fold --width=40 | sed -n 1p)"
 clear
 if [ "$ns" = "" ] # Nightscout is not running
