@@ -14,7 +14,6 @@ fi
 # Let's see if Nightscout is running or not.
 ns="$(ps -ef | grep SCREEN | grep root | fold --width=40 | sed -n 1p)"
 clear
-echo "$ns"
 if [ "$ns" = "" ] ################## Nightscout is not running
 then
   dialog --colors --msgbox "      \Zr Developed by the xDrip team \Zn\n\n\
@@ -28,7 +27,7 @@ If this is not a good time, you can press escape to cancel." 13 50
 
 else ################# Nightscout is running
   dialog --colors --msgbox "      \Zr Developed by the xDrip team \Zn\n\n\
-$ns Some required packages will be installed.  It will take about 30 minutes to complete.\n\nWe will stop Nighscout while this installation is in progress.  After it completes, you will need to restart the server from the main menu to restart Nightscout.\n\nThis terminal needs to be kept open.  Press enter to proceed.\n\n\
+Some required packages will be installed.  It will take about 30 minutes to complete.\n\nWe will stop Nighscout while this installation is in progress.  After it completes, you will need to restart the server from the main menu to restart Nightscout.\n\nThis terminal needs to be kept open.  Press enter to proceed.\n\n\
 If this is not a good time, you can press escape to cancel." 20 50
   if [ $? = 255 ]
   then
