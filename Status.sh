@@ -206,7 +206,7 @@ Ubuntu patch: $LastReboot \n\
 NS proc: $ns \n\
 FreeDNS name and IP: $FD \n\
 Certificate: $cert \
- " 30 50 3\
+ " 31 50 3\
  "1" "Return"\
  "2" "Login credentials"\
  3>&1 1>&2 2>&3)
