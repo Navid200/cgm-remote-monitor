@@ -184,7 +184,7 @@ else
 fi
 
 # Show the first line of last reboot
-LastReboot=$(last reboot | head -1 | awk '{print $4, " ", $5, $6, $7}')
+LastReboot=$(last reboot | head -1 | awk '{print $4, "", $5, $6, $7}')
 
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
@@ -202,7 +202,7 @@ $apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass \n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
 Mongo: $mongo \n\
-Ubuntu patch: $LastReboot \n\
+Security update: $LastReboot \n\
 NS proc: $ns \n\
 FreeDNS name and IP: $FD \n\
 Certificate: $cert \
