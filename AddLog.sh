@@ -15,6 +15,6 @@ then
 fi
 
 sudo rm -rf /tmp/Logs
-echo -e "$1     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
+echo -e "$1     $(date)\n" | cat - $2 > /tmp/Logs
 sudo /bin/cp -f /tmp/Logs $2
   
