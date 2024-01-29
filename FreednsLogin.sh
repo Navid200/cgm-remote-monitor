@@ -5,6 +5,7 @@ echo "Log into the FreeDNS site. - Navid200"
 echo
 
 # This could also run in the background.  So, it should contain no dialog.
+# All the logs this utility generates are stored in an auto-login dedicated log file separate from the main system logs.
 
 freedns=$(wget --spider -S "https://freedns.afraid.org/" 2>&1 | awk '/HTTP\// {print $2}') # This will be 200 if FreeDNS is up.
 if [ $freedns -eq 200 ]  # Run the following only if FreeDNS is up.
