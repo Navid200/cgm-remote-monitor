@@ -16,24 +16,21 @@ then
 fi
 
 sudo rm -rf /tmp/Logs
-response=$?
-if [ $response = 255 ]
+if [ $? != 0 ]
 then
   echo "Error: Failed to delete temp log file"
   exit 5
 fi
 
 echo -e "$1     $(date)\n" | cat - $2 > /tmp/Logs
-response=$?
-if [ $response = 255 ]
+if [ $? != 0 ]
 then
   echo "Error: Failed to create temp log file"
   exit 5
 fi
 
 sudo /bin/cp -f /tmp/Logs $2
-response=$?
-if [ $response = 255 ]
+if [ $? != 0 ]
 then
   echo "Error: Failed to update logs"
   exit 5
