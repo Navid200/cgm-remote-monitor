@@ -16,7 +16,7 @@ then
 fi
 
 sudo rm -rf /tmp/Logs
-echo -e "$1     $(date)\n" | cat - $2 > /tmp/Logs2
+echo -e "$1     $(date)\n" | cat - $2 > /tmp/Logs
 sudo /bin/cp -f /tmp/Logs $2
 if [ $? != 0 ]
 then
