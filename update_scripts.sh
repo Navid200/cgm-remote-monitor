@@ -21,5 +21,5 @@ sudo cp -r ConfigServer /xDrip/.
 cd ..
 
 # Add log
-/xDrip/scripts/AddLog.sh "The platform has been updated" /xDrip/Logs
+/xDrip/scripts/AddLog.sh "The scripts have been updated" /xDrip/Logs
  
