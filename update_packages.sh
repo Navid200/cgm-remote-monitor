@@ -67,6 +67,9 @@ then
   echo "mongodb-mongosh hold" | sudo dpkg --set-selections
   echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
   echo "mongodb-org-tools hold" | sudo dpkg --set-selections
+  sudo systemctl start mongod
+  sudo systemctl status mongod
+  sudo systemctl enable mongod
 fi
 
 # node
