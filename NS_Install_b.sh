@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Installing system basics"
 sudo apt-get update
 sudo apt-get -y install wget gnupg libcurl4 openssl liblzma5
