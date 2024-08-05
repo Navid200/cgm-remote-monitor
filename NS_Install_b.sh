@@ -1,13 +1,11 @@
-#!/bin/bash
+echo "Installing system basics"
+sudo apt-get update
+sudo apt-get -y install wget gnupg libcurl4 openssl liblzma5
+sudo apt-get -y install dirmngr apt-transport-https lsb-release ca-certificates
+sudo apt-get -y install net-tools
+sudo apt-get -y install build-essential
+# Please don't add any more utilities here.  Please instead, add them to update_packages.sh.
 
-echo
-echo "JamOrHam Nightscout Installer - Designed for Google Compute Minimal Ubuntu 20 micro instance"
-echo
-
-
-# Create mongo user and admin.
-echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", roles:[\"readWrite\"]})\nquit()" | mongosh
-echo -e "use admin\ndb.createUser({ user: \"mongoadmin\" , pwd: \"mongoadmin\", roles: [\"userAdminAnyDatabase\", \"dbAdminAnyDatabase\", \"readWriteAnyDatabase\"]})\nquit()" | mongosh
-
+/xDrip/scripts/update_packages.sh
 
   
