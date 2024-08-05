@@ -12,6 +12,13 @@ You need to complete install Nightscout phase 1 first." 9 50
 exit
 fi
 
+if [ "`id -u`" != "0" ]
+then
+echo "Script needs root - use sudo bash NS_Install2.sh"
+echo "Cannot continue.."
+exit 5
+fi
+
 sudo apt-get install -y nginx python3-certbot-nginx inetutils-ping
 
 if [ "`grep '.well-known' /etc/nginx/sites-enabled/default`" = "" ]
