@@ -35,6 +35,7 @@ print_bold() {
     echo "${red}================================================================================${normal}"
 }
 
+
 # Logger Function
 log() {
   local message="$1"
@@ -55,7 +56,8 @@ log() {
 
 # Send deprecation Warning
 node_deprecation_warning() {
-print_bold \"                            DEPRECATION WARNING                            " "\
+print_bold \
+"                            DEPRECATION WARNING                            " "\
   ${bold}${underline} Node.js 16.x is no longer actively supported!${normal}
 
   ${bold}You will not receive security or critical stability updates${normal} for this version.
@@ -63,26 +65,29 @@ print_bold \"                            DEPRECATION WARNING                    
   You should migrate to a supported version of Node.js as soon as possible.
   Use the installation script that corresponds to the version of Node.js you
   wish to install. e.g.
-
+  
    * ${red}https://deb.nodesource.com/setup_16.x — Node.js 16 \"Gallium\" ${bold}(deprecated)${normal}
    * ${green}https://deb.nodesource.com/setup_18.x — Node.js 18 \"Hydrogen\" (Maintenance)${normal}
    * ${red}https://deb.nodesource.com/setup_19.x — Node.js 19 \"Nineteen\" ${bold}(deprecated)${normal}
    * ${bold}${green}https://deb.nodesource.com/setup_20.x — Node.js 20 LTS \"Iron\" (recommended)${normal}
    * ${green}https://deb.nodesource.com/setup_21.x — Node.js 21 \"Iron\" (current)${normal}
+   
 
 
+  Please see ${bold}https://github.com/nodejs/Release${normal} for details about which
+  version may be appropriate for you.
 
-  Please see ${bold}https://github.com/nodejs/Release${normal} for details about which version may be appropriate for you.
-
-  The ${green}${bold}NodeSource${normal} Node.js distributions repository contains information both about supported versions of Node.js and supported Linux distributions. To learn more about usage, see the repository:
+  The ${green}${bold}NodeSource${normal} Node.js distributions repository contains
+  information both about supported versions of Node.js and supported Linux
+  distributions. To learn more about usage, see the repository:
    ${underline}${bold}https://github.com/nodesource/distributions${normal}
 "
         echo
         echo "Continuing in 10 seconds ..."
         echo
+        sleep 10
 
 }
-
 
 # Error handler function  
 handle_error() {
@@ -164,4 +169,4 @@ check_os
 # Main execution
 node_deprecation_warning
 install_pre_reqs || handle_error $? "Failed installing pre-requisites"
-configure_repo "$NODE_VERSION" || handle_error $? "Failed configuring repository" 
+configure_repo "$NODE_VERSION" || handle_error $? "Failed configuring repository"
