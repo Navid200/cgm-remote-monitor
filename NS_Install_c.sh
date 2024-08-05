@@ -30,7 +30,7 @@ cd "$(< repo)"
 sudo git reset --hard  # delete any local edits.
 sudo git pull  # Update database from remote.
 
-#sudo npm install
+sudo npm install
 sudo npm run postinstall
 sudo npm run-script post-generate-keys
 
