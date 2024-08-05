@@ -21,7 +21,7 @@ Press Enter to execute the highlighted option.\n" 17 50 7\
 case $Choice in
 
 1)
-sudo /xDrip/scripts/NS_Install.sh
+/xDrip/scripts/NS_Install.sh
 ;;
 
 2)
