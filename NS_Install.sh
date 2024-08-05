@@ -52,14 +52,14 @@ cd "$(< repo)"
  git reset --hard  # delete any local edits.
  git pull  # Update database from remote.
 
-npm install
+# npm install
 # sudo npm run postinstall
-npm run-script post-generate-keys
+# npm run-script post-generate-keys
 
-for loop in 1 2 3 4 5 6 7 8 9
-do
-read -t 0.1 dummy
-done
+# for loop in 1 2 3 4 5 6 7 8 9
+# do
+# read -t 0.1 dummy
+# done
 
 # Add log
 /xDrip/scripts/AddLog.sh "Installation phase 1 completed" /xDrip/Logs
