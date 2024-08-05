@@ -32,11 +32,11 @@ fi
 swapon 2>/dev/null /var/SWAP
 
 echo "Installing system basics"
-sudo apt-get update
-sudo apt-get -y install wget gnupg libcurl4 openssl liblzma5
-sudo apt-get -y install dirmngr apt-transport-https lsb-release ca-certificates
-sudo apt-get -y install net-tools
-sudo apt-get -y install build-essential
+ apt-get update
+ apt-get -y install wget gnupg libcurl4 openssl liblzma5
+ apt-get -y install dirmngr apt-transport-https lsb-release ca-certificates
+ apt-get -y install net-tools
+ apt-get -y install build-essential
 # Please don't add any more utilities here.  Please instead, add them to update_packages.sh.
 
 /xDrip/scripts/update_packages.sh
@@ -49,12 +49,12 @@ cd /srv
 
 echo "Installing Nightscout"
 cd "$(< repo)" 
-sudo git reset --hard  # delete any local edits.
-sudo git pull  # Update database from remote.
+ git reset --hard  # delete any local edits.
+ git pull  # Update database from remote.
 
-sudo npm install --ignore-scripts
+npm install
 # sudo npm run postinstall
-sudo npm run-script post-generate-keys
+npm run-script post-generate-keys
 
 for loop in 1 2 3 4 5 6 7 8 9
 do
