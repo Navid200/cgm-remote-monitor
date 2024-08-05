@@ -55,8 +55,7 @@ log() {
 
 # Send deprecation Warning
 node_deprecation_warning() {
-print_bold \
-"                            DEPRECATION WARNING                            " "\
+print_bold \"                            DEPRECATION WARNING                            " "\
   ${bold}${underline} Node.js 16.x is no longer actively supported!${normal}
 
   ${bold}You will not receive security or critical stability updates${normal} for this version.
@@ -73,12 +72,9 @@ print_bold \
 
 
 
-  Please see ${bold}https://github.com/nodejs/Release${normal} for details about which
-  version may be appropriate for you.
+  Please see ${bold}https://github.com/nodejs/Release${normal} for details about which version may be appropriate for you.
 
-  The ${green}${bold}NodeSource${normal} Node.js distributions repository contains
-  information both about supported versions of Node.js and supported Linux
-  distributions. To learn more about usage, see the repository:
+  The ${green}${bold}NodeSource${normal} Node.js distributions repository contains information both about supported versions of Node.js and supported Linux distributions. To learn more about usage, see the repository:
    ${underline}${bold}https://github.com/nodesource/distributions${normal}
 "
         echo
@@ -123,8 +119,7 @@ install_pre_reqs() {
     fi
 
     if ! mkdir -p /usr/share/keyrings; then
-      handle_error "$?" "Makes sure the path /usr/share/keyrings exist or run 'mkdir -p /usr/share/keyrings' wit
-h sudo"
+      handle_error "$?" "Makes sure the path /usr/share/keyrings exist or run 'mkdir -p /usr/share/keyrings' with sudo"
     fi
 
     rm -f /usr/share/keyrings/nodesource.gpg || true
@@ -135,7 +130,6 @@ h sudo"
       handle_error "$?" "Failed to download and import the NodeSource signing key"
     fi
 }
-
 
 # Function to configure the Repo
 configure_repo() {
