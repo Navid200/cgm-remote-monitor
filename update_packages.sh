@@ -84,8 +84,8 @@ then
 # sudo npm install -g npm@latest
 
 cd /tmp
-curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
-sudo bash nodesource_setup.sh
+# curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
+sudo bash /xDrip/scripts/nodesource_setup.sh
 sudo apt install nodejs
 
 fi 
