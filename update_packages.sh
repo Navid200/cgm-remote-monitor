@@ -76,17 +76,8 @@ fi
 whichpack=$(node -v)
 if [ ! "${whichpack%%.*}" = "v16" ]
 then
-#curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash - &&\
-#sudo apt-get install -y nodejs  
-
-# curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-# sudo apt-get install -y nodejs
-# sudo npm install -g npm@latest
-
-# cd /tmp
-# curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
 sudo /xDrip/scripts/nodesource_setup.sh
-sudo apt install nodejs
+sudo apt install -y nodejs
 
 fi 
 
