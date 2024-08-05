@@ -85,7 +85,6 @@ print_bold \
         echo
         echo "Continuing in 10 seconds ..."
         echo
-        sleep 10
 
 }
 
