@@ -22,14 +22,14 @@ exit
 fi
 clear
 
-if [ ! -s /var/SWAP ]
-then
-echo "Creating swap file"
-dd if=/dev/zero of=/var/SWAP bs=1M count=2000
-chmod 600 /var/SWAP
-mkswap /var/SWAP
-fi
-swapon 2>/dev/null /var/SWAP
+#if [ ! -s /var/SWAP ]
+#then
+#echo "Creating swap file"
+#dd if=/dev/zero of=/var/SWAP bs=1M count=2000
+#chmod 600 /var/SWAP
+#mkswap /var/SWAP
+#fi
+#swapon 2>/dev/null /var/SWAP
 
 echo "Installing system basics"
  apt-get update
