@@ -77,7 +77,8 @@ whichpack=$(node -v)
 if [ ! "${whichpack%%.*}" = "v16" ]
 then
 sudo /xDrip/scripts/nodesource_setup.sh
-sudo apt install -y nodejs
+# sudo apt install -y nodejs
+sudo apt-get install nodejs -y
 fi 
 
 # Nightscout needs version 6 of npm.  So, we are going to install that version now effectivwely downgrading it.  
