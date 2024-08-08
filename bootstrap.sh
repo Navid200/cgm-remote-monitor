@@ -90,7 +90,7 @@ sudo chmod 755 *.sh
 sudo cp -f update_scripts.sh /xDrip/scripts
 
 /xDrip/scripts/update_scripts.sh # Update scripts from the current repository
-sudo /xDrip/scripts/update_packages1.sh # Install base packages we need
+/xDrip/scripts/update_packages1.sh # Install base packages we need
 
 # So that the menu comes up as soon as the user logs in (opens a terminal)
 cd /tmp
