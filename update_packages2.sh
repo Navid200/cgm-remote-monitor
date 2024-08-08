@@ -7,10 +7,8 @@ echo
 # Please keep in mind that what you add here is run during a fresh installation as well as during an update.
 # Therefore, you must only install if it is not installed already to avoid wasting time.  
 
-# Reduce the number of snapshots kept from the default 3 to 2 to reduce disk space usage.
-sudo snap set system refresh.retain=2
 
-# Let's upgrade packages if available and install the missing needed packages.
+# Let's continue upgrading packages if available and install the missing needed packages.
 
 # mongo
 whichpack="$(mongod --version | sed -n 1p)"
