@@ -11,6 +11,7 @@ echo
 sudo snap set system refresh.retain=2
 
 # Fixing "Daemon using outdated libraries prompt interruption"
+# https://askubuntu.com/questions/1367139/apt-get-upgrade-auto-restart-services
 cat > /etc/needrestart/conf.d/no-prompt.conf << EOF
 
 $nrconf{restart} = 'a';
