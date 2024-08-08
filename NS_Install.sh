@@ -39,8 +39,6 @@ echo "Installing system basics"
  apt-get -y install build-essential
 # Please don't add any more utilities here.  Please instead, add them to update_packages.sh.
 
-/xDrip/scripts/update_packages.sh
-
 # Create mongo user and admin.
 echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", roles:[\"readWrite\"]})\nquit()" | mongosh
 echo -e "use admin\ndb.createUser({ user: \"mongoadmin\" , pwd: \"mongoadmin\", roles: [\"userAdminAnyDatabase\", \"dbAdminAnyDatabase\", \"readWriteAnyDatabase\"]})\nquit()" | mongosh
