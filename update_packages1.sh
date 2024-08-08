@@ -10,6 +10,13 @@ echo
 # Reduce the number of snapshots kept from the default 3 to 2 to reduce disk space usage.
 sudo snap set system refresh.retain=2
 
+# Fixing "Daemon using outdated libraries prompt interruption"
+cat > /etc/needrestart/conf.d/no-prompt.conf << EOF
+
+$nrconf{restart} = 'a';
+
+EOF
+
 # Let's upgrade packages if available and install the missing needed packages.
 sudo apt-get update
 
