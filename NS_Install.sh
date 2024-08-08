@@ -32,6 +32,7 @@ fi
 swapon 2>/dev/null /var/SWAP  
 
 echo "Installing system basics"
+sudo apt-get update
 apt-get -y install build-essential
  /xDrip/scripts/update_packages2.sh # Let's install Mongo and node
  # apt-get -y install wget gnupg libcurl4 openssl liblzma5
