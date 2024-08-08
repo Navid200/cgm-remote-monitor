@@ -14,11 +14,15 @@ sudo snap set system refresh.retain=2
 # https://askubuntu.com/questions/1367139/apt-get-upgrade-auto-restart-services
 if [ ! -s /etc/needrestart/conf.d ] # Create a new conf.d file only if one does not exit already.
 then
-  cat > /etc/needrestart/conf.d/no-prompt.conf << EOF
+  cd tmp
+  cat > /tmp/no-prompt.conf << EOF
 
 $nrconf{restart} = 'a';
 
 EOF
+  sudo chown root:root no-prompt.conf
+  sudo chmod 755 no-prompt.conf
+  sudo mv -f no-prompt.conf /etc/needrestart/conf.d
 
 fi
 
