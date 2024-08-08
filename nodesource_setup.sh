@@ -166,6 +166,6 @@ NODE_VERSION="16.x"
 check_os
 
 # Main execution
-node_deprecation_warning
+# node_deprecation_warning
 install_pre_reqs || handle_error $? "Failed installing pre-requisites"
 configure_repo "$NODE_VERSION" || handle_error $? "Failed configuring repository"
