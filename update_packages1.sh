@@ -12,7 +12,7 @@ sudo snap set system refresh.retain=2
 
 # Fixing "Daemon using outdated libraries prompt interruption"
 # https://askubuntu.com/questions/1367139/apt-get-upgrade-auto-restart-services
-if [ ! -s /etc/needrestart/conf.d ] # Create a new conf.d file only if one does not exit already.
+if [ ! -s /etc/needrestart/conf.d/no-prompt.conf ] # Create a new conf.d file only if one does not exit already.
 then
   cd /tmp
   
