@@ -15,7 +15,7 @@ sudo snap set system refresh.retain=2
 if [ ! -s /etc/needrestart/conf.d/no-prompt.conf ] # Create a new conf.d file only if one does not exit already.
 then
   cd /tmp
-cat > /tmp/no-prompt.conf << EOF
+cat > /tmp/no-prompt.conf << "EOF"
 $nrconf{restart} = 'a';
 
 EOF
