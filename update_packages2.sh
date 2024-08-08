@@ -13,47 +13,6 @@ sudo snap set system refresh.retain=2
 # Let's upgrade packages if available and install the missing needed packages.
 sudo apt-get update
 
-#Ubuntu upgrade available
-NextUbuntu="$(apt-get -s upgrade | grep 'Inst base' | awk '{print $4}' | sed 's/(//')"
-if [ "$NextUbuntu" = "11ubuntu5.7" ] # Only upgrade if we have tested the next release
-then
-  sudo apt-get -y upgrade
-fi
-
-# vis
-whichpack=$(which vis)
-if [ "$whichpack" = "" ]
-then
-  sudo apt-get -y install vis
-fi
-
-# nano
-whichpack=$(which nano)
-if [ "$whichpack" = "" ]
-then
-  sudo apt-get -y install nano
-fi
-
-# screen
-whichpack=$(which screen)
-if [ "$whichpack" = "" ]
-then
-  sudo apt-get -y install screen
-fi
-
-# jq
-whichpack=$(which jq)
-if [ "$whichpack" = "" ]
-then
-  sudo apt-get -y install jq
-fi
-
-# qrencode
-whichpack=$(which qrencode)
-if [ "$whichpack" = "" ]
-then
-  sudo apt-get -y install qrencode
-fi
 
 # mongo
 whichpack="$(mongod --version | sed -n 1p)"
@@ -87,16 +46,8 @@ fi
 
 # Nightscout needs version 6 of npm.  So, we are going to install that version now effectivwely downgrading it.  
 sudo npm install -g npm@6.14.18
-
-# file
-whichpack=$(which file)
-if [ "$whichpack" = "" ]
-then
-  sudo apt-get -y install file
-fi  
+  
 
 # The last item on the above list of packages must be verified in Status.sh to have been installed.  
 
-# Add log
-/xDrip/scripts/AddLog.sh "The packages have been installed" /xDrip/Logs
   
