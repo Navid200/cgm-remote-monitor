@@ -50,4 +50,6 @@ sudo npm install -g npm@6.14.18
 
 # The last item on the above list of packages must be verified in Status.sh to have been installed.  
 
+# Add log
+/xDrip/scripts/AddLog.sh "The packages have been updated" /xDrip/Logs
   
