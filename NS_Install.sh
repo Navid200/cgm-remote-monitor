@@ -32,7 +32,6 @@ fi
 swapon 2>/dev/null /var/SWAP  
 
 echo "Installing system basics"
- apt-get update
  /xDrip/scripts/update_packages2.sh # Let's install Mongo and node
  # apt-get -y install wget gnupg libcurl4 openssl liblzma5
  # apt-get -y install dirmngr apt-transport-https lsb-release ca-certificates
