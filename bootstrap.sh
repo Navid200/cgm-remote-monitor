@@ -55,7 +55,6 @@ sudo mkdir /xDrip
 fi
 cd /xDrip
 sudo rm -rf scripts
-sudo -rf ConfigServer
 sudo mkdir scripts
 
 cd /srv
