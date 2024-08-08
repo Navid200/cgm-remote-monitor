@@ -19,8 +19,7 @@ cat > /tmp/no-prompt.conf << EOF
 $nrconf{restart} = 'a';
 
 EOF
-  sudo chown root:root no-prompt.conf
-  sudo chmod 755 no-prompt.conf
+#  sudo chown root:root no-prompt.conf
 #  sudo mv -f no-prompt.conf /etc/needrestart/conf.d
 
 fi
