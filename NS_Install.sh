@@ -32,11 +32,11 @@ fi
 swapon 2>/dev/null /var/SWAP  
 
 echo "Installing system basics"
+apt-get -y install build-essential
  /xDrip/scripts/update_packages2.sh # Let's install Mongo and node
  # apt-get -y install wget gnupg libcurl4 openssl liblzma5
  # apt-get -y install dirmngr apt-transport-https lsb-release ca-certificates
  # apt-get -y install net-tools
- apt-get -y install build-essential
 # Please don't add any more utilities here.  Please instead, add them to update_packages.sh.
 
 # Create mongo user and admin.
