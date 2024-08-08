@@ -20,7 +20,7 @@ $nrconf{restart} = 'a';
 
 EOF
 #  sudo chown root:root no-prompt.conf
-#  sudo mv -f no-prompt.conf /etc/needrestart/conf.d
+  sudo mv -f no-prompt.conf /etc/needrestart/conf.d
 
 fi
 
