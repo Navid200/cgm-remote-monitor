@@ -50,6 +50,8 @@ cd "$(< repo)"
 git reset --hard  # delete any local edits.
 git pull  # Update database from remote.
 
+/xDrip/scripts/update_packages2.sh # Let's install Mongo and node
+
 npm install
 # sudo npm run postinstall
 npm run-script post-generate-keys
