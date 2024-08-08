@@ -11,8 +11,6 @@ echo
 sudo snap set system refresh.retain=2
 
 # Let's upgrade packages if available and install the missing needed packages.
-sudo apt-get update
-
 
 # mongo
 whichpack="$(mongod --version | sed -n 1p)"
