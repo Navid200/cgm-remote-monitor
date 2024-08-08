@@ -22,20 +22,21 @@ exit
 fi
 clear
 
-#if [ ! -s /var/SWAP ]
-#then
-#echo "Creating swap file"
-#dd if=/dev/zero of=/var/SWAP bs=1M count=2000
-#chmod 600 /var/SWAP
-#mkswap /var/SWAP
-#fi
-#swapon 2>/dev/null /var/SWAP
+if [ ! -s /var/SWAP ]
+then
+echo "Creating swap file"
+dd if=/dev/zero of=/var/SWAP bs=1M count=2000
+chmod 600 /var/SWAP
+mkswap /var/SWAP
+fi
+swapon 2>/dev/null /var/SWAP  
 
 echo "Installing system basics"
  apt-get update
- apt-get -y install wget gnupg libcurl4 openssl liblzma5
- apt-get -y install dirmngr apt-transport-https lsb-release ca-certificates
- apt-get -y install net-tools
+ /xDrip/scripts/update_packages2.sh # Let's install Mongo and node
+ # apt-get -y install wget gnupg libcurl4 openssl liblzma5
+ # apt-get -y install dirmngr apt-transport-https lsb-release ca-certificates
+ # apt-get -y install net-tools
  apt-get -y install build-essential
 # Please don't add any more utilities here.  Please instead, add them to update_packages.sh.
 
@@ -49,8 +50,6 @@ echo "Installing Nightscout"
 cd "$(< repo)" 
 git reset --hard  # delete any local edits.
 git pull  # Update database from remote.
-
-/xDrip/scripts/update_packages2.sh # Let's install Mongo and node
 
 npm install
 # sudo npm run postinstall
