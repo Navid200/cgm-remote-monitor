@@ -21,14 +21,17 @@ Press Enter to execute the highlighted option.\n" 17 50 7\
 case $Choice in
 
 1)
+clear
 sudo /xDrip/scripts/NS_Install.sh
 ;;
 
 2)
+clear
 sudo /xDrip/scripts/NS_Install2.sh
 ;;
 
 3)
+clear
 cd /srv
 cd "$(< repo)"  # Go to the local database
 sudo git reset --hard  # delete any local edits.
@@ -46,14 +49,17 @@ Close this terminal to complete updates." 7 50
 ;;
 
 4)
+clear
 curl https://raw.githubusercontent.com/jamorham/nightscout-vps/vps-1/bootstrap.sh | bash
 ;;
 
 5)
+clear
 curl https://raw.githubusercontent.com/jamorham/nightscout-vps/vps-dev/bootstrap.sh | bash
 ;;
 
 6)
+clear
 /xDrip/scripts/update_FreeDNSCredentials.sh
 ;;
 
