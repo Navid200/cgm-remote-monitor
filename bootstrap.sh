@@ -45,8 +45,18 @@ The Ubuntu version on the virtual machine is incorrect.  You need to delete the 
   exit
   fi 
 
-#  sudo apt-get install -y  git python gcc g++ make
-  sudo apt-get -y install netcat
+#  sudo apt-get -y install netcat
+clear
+dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+Some base packages will now be installed. It will take about 10 minutes to complete.  This terminal needs to be kept open.  Press enter to proceed.\n\n\
+If this is not a good time, you can press escape now to cancel." 14 50
+if [ $? -eq 255 ]
+then
+clear
+exit
+fi
+
+
 fi
 
 if [ ! -s /xDrip ]
