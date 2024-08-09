@@ -31,7 +31,7 @@ sudo apt-get update
 whichpack=$(which gnupg)
 if [ "$whichpack" = "" ]
 then
-  apt-get -y install gnupg
+  sudo apt-get -y install gnupg
 fi
 
 #Ubuntu upgrade available
