@@ -38,10 +38,9 @@ then
 sudo /xDrip/scripts/nodesource_setup.sh
 # sudo apt install -y nodejs
 sudo apt-get install nodejs -y
-fi 
-
 # Nightscout needs version 6 of npm.  So, we are going to install that version now effectivwely downgrading it.  
 sudo npm install -g npm@6.14.18
+fi
   
 
 # The last item on the above list of packages must be verified in Status.sh to have been installed.  
