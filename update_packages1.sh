@@ -19,19 +19,11 @@ cat > /tmp/no-prompt.conf << "EOF"
 $nrconf{restart} = 'a';
 
 EOF
-#  sudo chown root:root no-prompt.conf
   sudo mv -f no-prompt.conf /etc/needrestart/conf.d
 fi
 
 # Let's upgrade packages if available and install the missing needed packages.
 sudo apt-get update
-
-# net-tools
-#whichpack=$(which net-tools)
-#if [ "$whichpack" = "" ]
-#then
-#  sudo apt-get -y install net-tools
-#fi
 
 #Ubuntu upgrade available
 NextUbuntu="$(apt-get -s upgrade | grep 'Inst base' | awk '{print $4}' | sed 's/(//')"
@@ -46,42 +38,6 @@ if [ "$whichpack" = "" ]
 then
   sudo apt-get -y install vis nano screen jq qrencode file net-tools
 fi
-
-# nano
-#whichpack=$(which nano)
-#if [ "$whichpack" = "" ]
-#then
-#  sudo apt-get -y install nano
-#fi
-
-# screen
-#whichpack=$(which screen)
-#if [ "$whichpack" = "" ]
-#then
-#  sudo apt-get -y install screen
-#fi
-
-# jq
-#whichpack=$(which jq)
-#if [ "$whichpack" = "" ]
-#then
-#  sudo apt-get -y install jq
-#fi
-
-# qrencode
-#whichpack=$(which qrencode)
-#if [ "$whichpack" = "" ]
-#then
-#  sudo apt-get -y install qrencode
-#fi
-
-
-# file
-#whichpack=$(which file)
-#if [ "$whichpack" = "" ]
-#then
-#  sudo apt-get -y install file
-#fi  
 
 # mongo
 whichpack="$(mongod --version | sed -n 1p)"
