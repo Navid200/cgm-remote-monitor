@@ -13,8 +13,8 @@ fi
 
 clear
 dialog --colors --msgbox "      \Zr Developed by the xDrip team \Zn\n\n\
-Some required packages will be installed now.  It will take about 15 minutes to complete.  This terminal needs to be kept open.  Press enter to proceed.\n\n\
-If this is not a good time, you can press escape now to cancel." 13 50
+More packages will be installed now.  It will take about 15 minutes to complete.  This terminal needs to be kept open.  Press enter to proceed.\n\n\
+If this is not a good time, you can press escape to cancel." 13 50
 if [ $? = 255 ]
 then
 clear
