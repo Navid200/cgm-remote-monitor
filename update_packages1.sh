@@ -27,6 +27,13 @@ fi
 # Let's upgrade packages if available and install the missing needed packages.
 sudo apt-get update
 
+# gnupg
+whichpack=$(which gnupg)
+if [ "$whichpack" = "" ]
+then
+  apt-get -y install gnupg
+fi
+
 #Ubuntu upgrade available
 NextUbuntu="$(apt-get -s upgrade | grep 'Inst base' | awk '{print $4}' | sed 's/(//')"
 if [ "$NextUbuntu" = "11ubuntu5.7" ] # Only upgrade if we have tested the next release
