@@ -21,17 +21,16 @@ $nrconf{restart} = 'a';
 EOF
 #  sudo chown root:root no-prompt.conf
   sudo mv -f no-prompt.conf /etc/needrestart/conf.d
-
 fi
 
 # Let's upgrade packages if available and install the missing needed packages.
 sudo apt-get update
 
-# gnupg
-whichpack=$(which gnupg)
+# net-tools
+whichpack=$(which net-tools)
 if [ "$whichpack" = "" ]
 then
-  sudo apt-get -y install gnupg
+  sudo apt-get -y install net-tools
 fi
 
 #Ubuntu upgrade available
