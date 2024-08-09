@@ -55,6 +55,7 @@ then
 clear
 exit
 fi
+clear
 
 
 fi
