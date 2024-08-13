@@ -21,7 +21,7 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/u
 cd /tmp
 swapon /var/SWAP
 service snapd stop
-service mongodb start
+# service mongodb start
 screen -dmS nightscout sudo -u nobody bash /etc/nightscout-start.sh
 service nginx start
 /xDrip/scripts/FreednsLogin.sh
