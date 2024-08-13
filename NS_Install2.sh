@@ -174,6 +174,7 @@ clear
 
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
 Press enter to restart the server.  This will result in an expected error message.  Wait 30 seconds before clicking on retry to reconnect or using a browser to access your Nightscout." 10 50
+clear
 sudo reboot
 fi
  
