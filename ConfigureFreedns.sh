@@ -182,7 +182,8 @@ while : ; do
     fi
     sudo resolvectl flush-caches
     ping -c 1 $hostname
-    sudo resolvectl -4 $hostname
+ #   sudo resolvectl -4 $hostname
+ sudo resolvectl query $hostname
     if [ $cnt -gt 20 ]
     then
       clear
