@@ -18,6 +18,8 @@ Press Enter to execute the highlighted option.\n" 17 50 7\
  "7" "Return"\
  3>&1 1>&2 2>&3)
 
+ clear
+
 case $Choice in
 
 1)
