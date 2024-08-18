@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo
-echo "Install packages only if they are not installed already. - Navid200"
+echo "Install packages. - Navid200"
 echo
 
 # Reduce the number of snapshots kept from the default 3 to 2 to reduce disk space usage.
@@ -17,8 +17,8 @@ then
   sudo apt-get -y upgrade
 fi
 
-# net_tools
-whichpack=$(which net-tools)
+# packages
+whichpack=$(which file)
 if [ "$whichpack" = "" ]
 then
   sudo apt-get -y install vis nano screen jq qrencode file net-tools gnupg liblzma5 apt-transport-https lsb-release ca-certificates build-essential
