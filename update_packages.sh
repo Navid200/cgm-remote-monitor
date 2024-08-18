@@ -17,39 +17,13 @@ then
   sudo apt-get -y upgrade
 fi
 
-# vis
-whichpack=$(which vis)
+# net_tools
+whichpack=$(which net-tools)
 if [ "$whichpack" = "" ]
 then
-  sudo apt-get -y install vis
-fi
-
-# nano
-whichpack=$(which nano)
-if [ "$whichpack" = "" ]
-then
-  sudo apt-get -y install nano
-fi
-
-# screen
-whichpack=$(which screen)
-if [ "$whichpack" = "" ]
-then
-  sudo apt-get -y install screen
-fi
-
-# jq
-whichpack=$(which jq)
-if [ "$whichpack" = "" ]
-then
-  sudo apt-get -y install jq
-fi
-
-# qrencode
-whichpack=$(which qrencode)
-if [ "$whichpack" = "" ]
-then
-  sudo apt-get -y install qrencode
+  sudo apt-get -y install vis nano screen jq qrencode file net-tools
+  sudo apt-get -y install wget gnupg libcurl4 openssl liblzma5
+  sudo apt-get -y install dirmngr apt-transport-https lsb-release ca-certificates
 fi
 
 # mongo
@@ -57,22 +31,18 @@ whichpack="$(mongod --version | sed -n 1p)"
 if [ ! "${whichpack%%.*}" = "db version v3" ]
 then
   sudo apt-get -y install mongodb-server
-fi
-
-# node
-whichpack=$(node -v)
-if [ ! "${whichpack%%.*}" = "v14" ]
-then
-  curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash - &&\
-  sudo apt-get install -y nodejs
-fi 
-
-# file
-whichpack=$(which file)
-if [ "$whichpack" = "" ]
-then
-  sudo apt-get -y install file
 fi  
+
+# node - We install version 16 of node here, which automatically  updates npm to 8.
+whichpack=$(node -v)
+if [ ! "${whichpack%%.*}" = "v16" ]
+then
+sudo /xDrip/scripts/nodesource_setup.sh
+# sudo apt install -y nodejs
+sudo apt-get install nodejs -y
+# Nightscout needs version 6 of npm.  So, we are going to install that version now effectivwely downgrading it.  
+sudo npm install -g npm@6.14.18
+fi
 
 # The last item on the above list of packages must be verified in Status.sh to have been installed.  
 
