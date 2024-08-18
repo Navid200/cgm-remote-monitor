@@ -24,7 +24,6 @@ service snapd stop
 service mongodb start
 screen -dmS nightscout sudo -u nobody bash /etc/nightscout-start.sh
 service nginx start
-# /xDrip/scripts/FreednsLogin.sh ## Commeting this out as auto login does not seem to work and we still need to log in manually.
 . /etc/free-dns.sh
 wget -O /tmp/freedns.txt --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 $DIRECTURL
 exit 0 # This should be the last line to ensure the startup will complete.
