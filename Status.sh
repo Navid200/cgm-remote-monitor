@@ -204,9 +204,9 @@ Google Cloud Nightscout  2024.08.20\n\
 $apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass \n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
+Ubuntu update: $LastReboot \n\
 Node: $node \n\
 Mongo: $mongo \n\
-Ubuntu update: $LastReboot \n\
 NS proc: $ns \n\
 FreeDNS name and IP: $FD \n\
 Certificate: $cert \
