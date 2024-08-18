@@ -112,7 +112,7 @@ cert="Valid"
 fi
 
 # Node
-node="$(node --v)"
+node="$(node -v)"
 
 # Verify that the latest added package has been installed
 # The utility must be the last added utility to the update_packages.sh file.
