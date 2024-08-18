@@ -103,6 +103,7 @@ API_SECRET:   $cs\n\n\
 Press escape to keep it, or enter a new API_SECRET with at least 12 characters excluding the following.\n\
   $   \"   '   \\   SPACE   @   / " 16 50 0 "API_SECRET:" 1 1 "$secr" 1 14 25 0 2>&1 1>&3)
 response=$?
+clear
 if [ $response = 255 ] || [ $response = 1 ] # cancled or escaped
 then
   ns="$cs"
