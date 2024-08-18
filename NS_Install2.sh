@@ -54,7 +54,7 @@ export AUTH_DEFAULT_ROLES='denied'
 export PUMP_FIELDS='reservoir battery clock'
 export DEVICESTATUS_ADVANCED='true'
 export THEME='colors'
-export DBSIZE_MAX='20000'
+export DBSIZE_MAX='15000'
 
 EOF
 
@@ -174,6 +174,7 @@ clear
 
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
 Press enter to restart the server.  This will result in an expected error message.  Wait 30 seconds before clicking on retry to reconnect or using a browser to access your Nightscout." 10 50
+clear
 sudo reboot
 fi
  
