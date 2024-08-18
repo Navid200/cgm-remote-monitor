@@ -21,9 +21,7 @@ fi
 whichpack=$(which net-tools)
 if [ "$whichpack" = "" ]
 then
-  sudo apt-get -y install vis nano screen jq qrencode file net-tools
-  sudo apt-get -y install wget gnupg libcurl4 openssl liblzma5
-  sudo apt-get -y install dirmngr apt-transport-https lsb-release ca-certificates
+  sudo apt-get -y install vis nano screen jq qrencode file net-tools wget gnupg libcurl4 openssl liblzma5 dirmngr apt-transport-https lsb-release ca-certificates build-essential
 fi
 
 # mongo
