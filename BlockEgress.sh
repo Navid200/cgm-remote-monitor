@@ -44,7 +44,7 @@ then
 	rm au.zone
 fi
 
-curl -o au.zone -sSL "https://www.ipdeny.com/ipblocks/data/countries/au.zone"
+sudo curl -o au.zone -sSL "https://www.ipdeny.com/ipblocks/data/countries/au.zone"
 
 if [ $? -eq 0 ]
 then
@@ -72,7 +72,7 @@ then
 	rm cn.zone
 fi
 
-curl -o cn.zone -sSL "https://www.ipdeny.com/ipblocks/data/countries/cn.zone"
+sudo curl -o cn.zone -sSL "https://www.ipdeny.com/ipblocks/data/countries/cn.zone"
 
 if [ $? -eq 0 ]
 then
