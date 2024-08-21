@@ -113,7 +113,7 @@ service netfilter-persistent start
 service netfilter-persistent save
 service netfilter-persistent reload
 
-cat /etc/systemd/system/ipset-persistent.service << "EOF"
+cat > /etc/systemd/system/ipset-persistent.service << "EOF"
 [Unit]
 Description=ipset persistent configuration
 Before=network.target
