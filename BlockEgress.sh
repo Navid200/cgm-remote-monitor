@@ -9,6 +9,13 @@ echo
 # Any outgoing traffic to China and Australia even if less than 1GB will be charged.
 # This utility allows us to block traffic to China and or Australia.
 
-
-
+sudo apt-get update
+sudo apt-get -y install build-essential netfilter-persistent ipset
+echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
+echo iptables-persistent iptables-persistent/autosave_v6 boolean false | sudo debconf-set-selections
+sudo apt-get -y install iptables-persistent
  
+if ! grep -q "net.ipv6.conf.all.disable_ipv6 = 1" /etc/sysctl.conf
+then
+  sudo echo "net.ipv6.conf.all.disable_ipv6 = 1\nnet.ipv6.conf.default.disable_ipv6 = 1\nnet.ipv6.conf.lo.disable_ipv6 = 1" >> /etc/sysctl.conf
+fi
