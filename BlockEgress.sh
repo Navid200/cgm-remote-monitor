@@ -105,15 +105,15 @@ echo "Done"
 
 iptables -I OUTPUT -m set --match-set block-australia src -j DROP && sudo iptables -I OUTPUT -m set --match-set block-china src -j DROP  
 
-sudo iptables-save > /tmp/rules.v4
-sudo chown root /tmp/rules.v4
-sudo mv /tmp/rules.v4 /etc/iptables/rules.v4
+iptables-save > /tmp/rules.v4
+chown root /tmp/rules.v4
+mv /tmp/rules.v4 /etc/iptables/rules.v4
 
-sudo service netfilter-persistent start
-sudo service netfilter-persistent save
-sudo service netfilter-persistent reload
+service netfilter-persistent start
+service netfilter-persistent save
+service netfilter-persistent reload
 
-sudo cat /etc/systemd/system/ipset-persistent.service << EOF
+cat /etc/systemd/system/ipset-persistent.service << "EOF"
 [Unit]
 Description=ipset persistent configuration
 Before=network.target
