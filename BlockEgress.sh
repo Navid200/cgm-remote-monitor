@@ -16,11 +16,11 @@ echo "Cannot continue.."
 exit 5
 fi
 
-sudo apt-get update
-sudo apt-get -y install build-essential netfilter-persistent ipset
+apt-get update
+apt-get -y install build-essential netfilter-persistent ipset
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
 echo iptables-persistent iptables-persistent/autosave_v6 boolean false | sudo debconf-set-selections
-sudo apt-get -y install iptables-persistent
+apt-get -y install iptables-persistent
  
 if ! grep -q "net.ipv6.conf.all.disable_ipv6 = 1" /etc/sysctl.conf
 then
