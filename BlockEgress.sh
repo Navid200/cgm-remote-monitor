@@ -17,14 +17,10 @@ sudo apt-get -y install iptables-persistent
  
 if ! grep -q "net.ipv6.conf.all.disable_ipv6 = 1" /etc/sysctl.conf
 then
-#  rm /tmp/sysctl.conf
- # cp /etc/sysctl.conf /tmp/sysctl.conf
-#  echo "net.ipv6.conf.all.disable_ipv6 = 1\nnet.ipv6.conf.default.disable_ipv6 = 1\nnet.ipv6.conf.lo.disable_ipv6 = 1" >> /tmp/sysctl.conf
   sudo cat << EOT >> /etc/sysctl.conf
 net.ipv6.conf.all.disable_ipv6 = 1
 net.ipv6.conf.default.disable_ipv6 = 1
 net.ipv6.conf.lo.disable_ipv6 = 1
 EOT
 
-#  sudo mv /tmp/sysctl.conf /etc/sysctl.conf
 fi
