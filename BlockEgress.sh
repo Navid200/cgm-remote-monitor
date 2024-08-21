@@ -141,3 +141,7 @@ RequiredBy=netfilter-persistent.service
 RequiredBy=ufw.service
 
 EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable ipset-persistent.service
+sudo systemctl start ipset-persistent.service
