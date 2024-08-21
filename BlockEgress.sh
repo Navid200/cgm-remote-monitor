@@ -15,12 +15,6 @@ echo "Script needs root - use sudo bash BlockEgress.sh"
 echo "Cannot continue.."
 exit 5
 fi
-
-apt-get update
-apt-get -y install build-essential netfilter-persistent ipset
-echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
-echo iptables-persistent iptables-persistent/autosave_v6 boolean false | sudo debconf-set-selections
-apt-get -y install iptables-persistent
  
 if ! grep -q "net.ipv6.conf.all.disable_ipv6 = 1" /etc/sysctl.conf
 then
@@ -67,6 +61,38 @@ do
 done
 
 echo "Done"
+
+#---------------------------
+
+echo "### BLOCKING Canada EGRESS ###"
+echo
+
+ipset -N block-canada hash:net -exist
+ipset -F block-canada
+
+if [ -f "/tmp/ca.zone" ]
+then
+	rm /tmp/ca.zone
+fi
+
+sudo curl -o /tmp/ca.zone -sSL "https://www.ipdeny.com/ipblocks/data/countries/ca.zone"
+
+if [ $? -eq 0 ]
+then
+	echo "Download Finished!"
+fi
+
+echo
+
+echo -n "Adding Networks to ipset ..."
+for net in `cat /tmp/ca.zone`
+do
+	ipset -A block-canada $net
+done
+
+echo "Done"
+
+#---------------------------
 
 echo "### BLOCKING CHINA EGRESS ###"
 echo
