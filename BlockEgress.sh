@@ -129,7 +129,9 @@ ipset save > /etc/iptables/ipset
 
 echo "Done"
 
-iptables -I OUTPUT -m set --match-set block-australia src -j DROP && sudo iptables -I OUTPUT -m set --match-set block-china src -j DROP -I OUTPUT -m set --match-set block-canada src -j DROP  
+iptables -I OUTPUT -m set --match-set block-australia src -j DROP 
+iptables -I OUTPUT -m set --match-set block-china src -j DROP
+iptables -I OUTPUT -m set --match-set block-canada src -j DROP  
 
 iptables-save > /tmp/rules.v4
 chown root /tmp/rules.v4
