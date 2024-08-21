@@ -18,10 +18,13 @@ then
 fi
 
 # packages
-whichpack=$(which file)
+whichpack=$(which iptables)
 if [ "$whichpack" = "" ]
 then
-  sudo apt-get -y install vis nano screen jq qrencode file net-tools gnupg liblzma5 apt-transport-https lsb-release ca-certificates build-essential
+  sudo apt-get -y install vis nano screen jq qrencode file net-tools gnupg liblzma5 apt-transport-https lsb-release ca-certificates build-essential netfilter-persistent ipset
+  echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
+  echo iptables-persistent iptables-persistent/autosave_v6 boolean false | sudo debconf-set-selections
+  sudo apt-get -y install iptables-persistent
 fi
 
 # mongo
