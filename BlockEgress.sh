@@ -108,3 +108,36 @@ iptables -I OUTPUT -m set --match-set block-australia src -j DROP && sudo iptabl
 sudo iptables-save > /tmp/rules.v4
 sudo chown root /tmp/rules.v4
 sudo mv /tmp/rules.v4 /etc/iptables/rules.v4
+
+sudo service netfilter-persistent start
+sudo service netfilter-persistent save
+sudo service netfilter-persistent reload
+
+sudo cat /etc/systemd/system/ipset-persistent.service << EOF
+[Unit]
+Description=ipset persistent configuration
+Before=network.target
+
+# ipset sets should be loaded before iptables
+# Because creating iptables rules with names of non-existent sets is not possible
+Before=netfilter-persistent.service
+Before=ufw.service
+
+ConditionFileNotEmpty=/etc/iptables/ipset
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/sbin/ipset restore -exist -file /etc/iptables/ipset
+# Uncomment to save changed sets on reboot
+# ExecStop=/sbin/ipset save -file /etc/iptables/ipset
+ExecStop=/sbin/ipset flush
+ExecStopPost=/sbin/ipset destroy
+
+[Install]
+WantedBy=multi-user.target
+
+RequiredBy=netfilter-persistent.service
+RequiredBy=ufw.service
+
+EOF
