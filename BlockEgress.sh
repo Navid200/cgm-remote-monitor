@@ -95,3 +95,5 @@ echo
 ipset save > /etc/iptables/ipset
 
 echo "Done"
+
+sudo iptables -I OUTPUT -m set --match-set block-australia src -j DROP && sudo iptables -I OUTPUT -m set --match-set block-china src -j DROP
