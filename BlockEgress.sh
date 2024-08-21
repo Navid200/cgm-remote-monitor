@@ -46,12 +46,12 @@ echo
 ipset -N block-australia hash:net -exist
 ipset -F block-australia
 
-if [ -f "au.zone" ]
+if [ -f "/tmp/au.zone" ]
 then
-	rm au.zone
+	rm /tmp/au.zone
 fi
 
-sudo curl -o au.zone -sSL "https://www.ipdeny.com/ipblocks/data/countries/au.zone"
+sudo curl -o /tmp/au.zone -sSL "https://www.ipdeny.com/ipblocks/data/countries/au.zone"
 
 if [ $? -eq 0 ]
 then
@@ -61,7 +61,7 @@ fi
 echo
 
 echo -n "Adding Networks to ipset ..."
-for net in `cat au.zone`
+for net in `cat /tmp/au.zone`
 do
 	ipset -A block-australia $net
 done
@@ -71,15 +71,15 @@ echo "Done"
 echo "### BLOCKING CHINA EGRESS ###"
 echo
 
-sudo ipset -N block-china hash:net -exist
-sudo ipset -F block-china
+ipset -N block-china hash:net -exist
+ipset -F block-china
 
-if [ -f "cn.zone" ]
+if [ -f "/tmp/cn.zone" ]
 then
-	rm cn.zone
+	rm /tmp/cn.zone
 fi
 
-curl -o cn.zone -sSL "https://www.ipdeny.com/ipblocks/data/countries/cn.zone"
+curl -o /tmp/cn.zone -sSL "https://www.ipdeny.com/ipblocks/data/countries/cn.zone"
 
 if [ $? -eq 0 ]
 then
@@ -89,7 +89,7 @@ fi
 echo
 
 echo -n "Adding Networks to ipset ..."
-for net in `cat cn.zone`
+for net in `cat /tmp/cn.zone`
 do
 	ipset -A block-china $net
 done
