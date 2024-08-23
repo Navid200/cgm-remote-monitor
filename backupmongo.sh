@@ -35,8 +35,7 @@ However, it is on the same virtual machine that your database and variables are 
 cd ~ 
 clear
 echo "The full path to the backup file that was just created is shown below."
-echo "You can copy it and use it to download the file to your computer."
-echo "See the guide for more detail."
+echo "You can copy it and use it to download the file to your computer by clicking on \"DOWNLOAD FILE\" above."
 echo""
 echo""
 readlink -f $Filename
