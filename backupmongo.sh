@@ -41,10 +41,10 @@ echo""
 readlink -f $Filename
 echo""
 echo""
+read -p "Press any key to continue... " -n1 -s 
 exit
 fi
 done
 
-read -p "Press any key to continue... " -n1 -s 
-
 /xDrip/scripts/menu.sh
+ 
