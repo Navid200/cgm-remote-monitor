@@ -29,6 +29,9 @@ cd /tmp
 cp /etc/nsconfig .
 tar -cf ~/$Filename database.gz nsconfig
 
+fi
+done
+
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\n\
 Backup is complete.\n\
 However, it is on the same virtual machine that your database and variables are on.  It's best to download the file to your computer for safekeeping." 13 50
@@ -42,9 +45,6 @@ readlink -f $Filename
 echo""
 echo""
 read -p "Press any key to continue... " -n1 -s 
-exit
-fi
-done
 
 /xDrip/scripts/menu.sh
  
