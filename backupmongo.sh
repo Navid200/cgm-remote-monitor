@@ -35,6 +35,7 @@ However, it is on the same virtual machine that your database and variables are 
 After you press Enter to close this dialog, the full path to the backup file will be shown on screen.  Copy it and use it for downloading the file to your computer.  See the guide for more detail." 18 50
 cd ~ 
 clear
+echo "Full path to the backup file:"
 readlink -f $Filename
 exit
 fi
