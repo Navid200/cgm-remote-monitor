@@ -43,7 +43,7 @@ echo""
 echo""
 read -p "Press any key to continue... " -n1 -s 
  
+exit
 fi
-done
-exit 
+done 
  
