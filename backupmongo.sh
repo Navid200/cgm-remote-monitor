@@ -37,6 +37,8 @@ cd ~
 clear
 echo "Full path to the backup file:"
 readlink -f $Filename
+echo""
+echo""
 exit
 fi
 done
