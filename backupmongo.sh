@@ -33,6 +33,7 @@ dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\n\
 Backup is complete.\n\
 However, it is on the same virtual machine that your database and variables are on.  It's best to download the file to your computer for safekeeping." 13 50
 cd ~ 
+clear
 echo "The full path to the backup file that was just created is shown below."
 echo "You can copy it and use it to download the file to your computer."
 echo "See the guide for more detail."
