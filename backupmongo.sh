@@ -42,7 +42,7 @@ echo ""
 echo ""
 echo ""
 echo ""
-echo "    " $(readlink -f $Filename)
+echo "          " $(readlink -f $Filename) "     "
 # read -p "Press any key to continue... " -n1 -s
 # read -p "Press Enter to continue... "  
 echo ""
