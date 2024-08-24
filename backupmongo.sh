@@ -33,6 +33,7 @@ tar -cf ~/$Filename database.gz nsconfig
 Backup is complete.\n\
 However, it is stored on the virtual machine.  It's best to download it to your computer for safekeeping.\n\nCopy the full path to the backup file shown below, and click on \"DOWNLOAD FILE\" above to download it.\n\nPress any key to exit." 15 50
 cd ~ 
+tput civis
 echo ""
 echo ""
 echo ""
@@ -49,6 +50,7 @@ echo ""
 echo ""
 
 read -p "" -n1 -s
+tput cnorm
  
 exit
 fi
