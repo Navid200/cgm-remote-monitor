@@ -31,7 +31,7 @@ tar -cf ~/$Filename database.gz nsconfig
 
  dialog --colors --infobox "       \Zr Developed by the xDrip team \Zn\n\n\n\
  Backup is complete.\n\
- However, it is saved on the virtual machine.  It's best to download the file to your computer for safekeeping.  The full path to the backup file is shown below.  Copy it and use it by clicking on \"DOWNLOAD FILE\" above to download the backup." 13 50
+ However, it is saved on the virtual machine.  It's best to download the file to your computer for safekeeping.  The full path to the backup file is shown below.  Copy it and use it by clicking on \"DOWNLOAD FILE\" above to download the backup.  Press any key to continue..." 13 50
 cd ~ 
 # clear
 #echo "Backup is complete."
@@ -44,7 +44,9 @@ readlink -f $Filename
 echo""
 echo""
 # read -p "Press any key to continue... " -n1 -s
-read -p "Press Enter to continue... "  
+# read -p "Press Enter to continue... "  
+
+read -p "" -n1 -s
  
 exit
 fi
