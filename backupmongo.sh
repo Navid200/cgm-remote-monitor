@@ -39,6 +39,9 @@ cd ~
 #echo "The full path to the backup file is shown below."
 #echo "Copy it and use it by clicking on \"DOWNLOAD FILE\" above to download the backup."
 echo ""
+echo ""
+echo ""
+echo ""
 readlink -f $Filename
 # read -p "Press any key to continue... " -n1 -s
 # read -p "Press Enter to continue... "  
