@@ -31,7 +31,7 @@ tar -cf ~/$Filename database.gz nsconfig
 
  dialog --colors --infobox "       \Zr Developed by the xDrip team \Zn\n\n\n\
 Backup is complete.\n\
-It's best to download it to your computer for safekeeping.\n\nCopy the full path to the backup file shown below, and click on \"DOWNLOAD FILE\" above to download it.\n\nPress any key to exit." 15 50
+Copy the full path to the backup file shown below, and click on \"DOWNLOAD FILE\" above to download it.\n\nPress any key to exit." 13 50
 cd ~ 
 tput civis
 echo ""
