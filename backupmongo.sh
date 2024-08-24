@@ -47,6 +47,8 @@ readlink -f $Filename
 # read -p "Press Enter to continue... "  
 echo ""
 echo ""
+echo ""
+echo ""
 
 read -p "" -n1 -s
  
