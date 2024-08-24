@@ -41,13 +41,6 @@ echo ""
 readlink -f $Filename
 # read -p "Press any key to continue... " -n1 -s
 # read -p "Press Enter to continue... "  
-echo ""
-echo ""
-echo ""
-echo ""
-echo ""
-echo ""
-echo ""
 
 read -p "" -n1 -s
 tput cnorm
