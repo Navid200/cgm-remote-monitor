@@ -30,8 +30,9 @@ cp /etc/nsconfig .
 tar -cf ~/$Filename database.gz nsconfig
 
  dialog --colors --infobox "       \Zr Developed by the xDrip team \Zn\n\n\n\
-Backup is complete.\n\
-Copy the full path to the backup file shown below, and click on \"DOWNLOAD FILE\" above to download it.\n\nPress any key to exit." 13 50
+Backup is complete.\n\n\
+Copy the full path to the backup file shown below, and click on \"DOWNLOAD FILE\" above to download it.\n\n\
+Press any key to exit." 13 50
 cd ~ 
 tput civis
 echo ""
