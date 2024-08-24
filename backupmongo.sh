@@ -29,7 +29,7 @@ cd /tmp
 cp /etc/nsconfig .
 tar -cf ~/$Filename database.gz nsconfig
 
- dialog --colors --textbox "       \Zr Developed by the xDrip team \Zn\n\n\n\
+ dialog --colors --infobox "       \Zr Developed by the xDrip team \Zn\n\n\n\
  Backup is complete.\n\
  However, it is on the same virtual machine that your database and variables are on.  It's best to download the file to your computer for safekeeping." 13 50
 cd ~ 
