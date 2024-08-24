@@ -33,16 +33,11 @@ tar -cf ~/$Filename database.gz nsconfig
 Backup is complete.\n\
 However, it is stored on the virtual machine.  It's best to download it to your computer for safekeeping.\n\nCopy the full path to the backup file shown below, and click on \"DOWNLOAD FILE\" above to download.\n\nPress any key to exit." 13 50
 cd ~ 
-# clear
-#echo "Backup is complete."
-#echo "However, it is saved on your virtual machine.  It's best to download it to your computer for safekeeping."
-#echo "The full path to the backup file is shown below."
-#echo "Copy it and use it by clicking on \"DOWNLOAD FILE\" above to download the backup."
 echo ""
 echo ""
 echo ""
 echo ""
-echo "          " $(readlink -f $Filename) "     "
+readlink -f $Filename
 # read -p "Press any key to continue... " -n1 -s
 # read -p "Press Enter to continue... "  
 echo ""
