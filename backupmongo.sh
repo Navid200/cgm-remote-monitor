@@ -30,8 +30,8 @@ cp /etc/nsconfig .
 tar -cf ~/$Filename database.gz nsconfig
 
  dialog --colors --infobox "       \Zr Developed by the xDrip team \Zn\n\n\n\
- Backup is complete.\n\
- However, it is saved on the virtual machine.  It's best to download the file to your computer for safekeeping.  The full path to the backup file is shown below.  Copy it and use it by clicking on \"DOWNLOAD FILE\" above to download the backup.\n\nPress any key to continue..." 18 50
+Backup is complete.\n\
+However, it is saved on the virtual machine.  It's best to download the backup to your computer for safekeeping.\n\nThe full path to the backup file is shown below.  Copy it and use it by clicking on \"DOWNLOAD FILE\" above to download the backup.\n\nPress any key to continue..." 18 50
 cd ~ 
 # clear
 #echo "Backup is complete."
