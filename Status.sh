@@ -113,8 +113,7 @@ fi
 
 # Node
 node="$(node -v)"
-nodecore="$(node -v)"
-if [ ! "${nodecore%%.*)" = "v16" ] # If we are using a ny version of node other than 16
+if [ ! "${node%%.*}" = "v16" ] # If node version is any other than v16
 then
 node="\Zb\Z1$(node -v)\Zn" 
 fi
