@@ -182,8 +182,9 @@ while : ; do
     fi
     sudo systemd-resolve --flush-caches
     ping -c 1 $hostname
-    sudo resolvectl query $hostname
-    if [ $cnt -gt 20 ]
+ #   sudo resolvectl query $hostname
+    sudo systemd-resolve -4 $hostname
+    if [ $cnt -gt 50 ]
     then
       clear
       dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
