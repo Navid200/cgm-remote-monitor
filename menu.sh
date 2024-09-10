@@ -59,6 +59,7 @@ if [ $response = 255 ] || [ $response = 1 ]
 then
 clear
 else
+clear
 sudo reboot
 fi
 ;;
