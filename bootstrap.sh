@@ -16,6 +16,7 @@ echo
 
 sudo apt-get update
 sudo apt-get install dialog
+sudo apt-get -y install git
 
 ExistingSystem=0
 if [ ! -z "$(ls /srv)" ]
