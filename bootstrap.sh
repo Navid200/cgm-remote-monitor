@@ -45,8 +45,8 @@ The Ubuntu version on the virtual machine is incorrect.  You need to delete the 
   exit
   fi 
 
-  sudo apt-get install -y  git python gcc g++ make
-  sudo apt-get -y install netcat-traditional
+#  sudo apt-get install -y  git python gcc g++ make
+#  sudo apt-get -y install netcat-traditional
 fi
 
 if [ ! -s /xDrip ]
