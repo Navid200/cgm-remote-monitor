@@ -174,7 +174,7 @@ clear
 /xDrip/scripts/AddLog.sh "Installation phase 2 completed" /xDrip/Logs
 
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-Press enter to restart the server.  You will have to be patient for the system to close all processes and reboot.  It will take up to 30 seconds.  This will result in an expected error message.  Wait 30 seconds before clicking on retry to reconnect or using a browser to access your Nightscout." 10 50
+Press enter to restart the server.  You will have to be patient for the system to close all processes and reboot.  It will take up to 30 seconds.  This will result in an expected error message.  Wait 30 seconds before clicking on retry to reconnect or using a browser to access your Nightscout." 11 50
 clear
 sudo reboot
 fi
