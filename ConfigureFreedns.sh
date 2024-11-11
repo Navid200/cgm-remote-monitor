@@ -31,7 +31,7 @@ response=$?
 # then
 # clear
 # exit 5
-fi
+# fi
 
 exec 3>&-
 user=$(echo "$Values" | sed -n 1p)
