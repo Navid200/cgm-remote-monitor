@@ -61,7 +61,7 @@ clear
 else
 clear
 sudo reboot
-dialog --colors --pause "       \Zr Developed by the xDrip team \Zn\n\n\
+dialog --colors --pause --nook --nocancel "       \Zr Developed by the xDrip team \Zn\n\n\
 Please be patient for the system to reboot in 30 seconds." 0 50 35
 fi
 ;;
