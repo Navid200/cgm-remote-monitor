@@ -64,7 +64,8 @@ then
 http="\Zb\Z1Closed\Zn" # Set color to red if the Firewall is not set.
 fi
 
-mongo="$(mongod --version | sed -n 1p)"
+mongo="$(mongod --version | awk '/db version/ {print $NF}')"
+
 ns="$(ps -ef | grep SCREEN | grep root | fold --width=40 | sed -n 1p)"
 
 uname="$(< /srv/username)"
