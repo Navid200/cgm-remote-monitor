@@ -201,7 +201,7 @@ Choice=$(dialog --colors --nocancel --nook --menu "\
 Zone: $Zone \n\
 RAM: $Ramsize \n\
 Disk type: $disk \n\
-Disk size: $disksz        $DiskUsedPercent used \n\
+Disk size: $disksz      $DiskUsedPercent used \n\
 Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
