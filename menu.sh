@@ -60,8 +60,8 @@ then
 clear
 else
 clear
-dialog --colors --infobox "       \Zr Developed by the xDrip team \Zn\n\n\
-Please be patient for the system to close active processes and reboot.  This will take about 30 seconds." 9 50 
+dialog --colors --pause "       \Zr Developed by the xDrip team \Zn\n\n\
+Please be patient for the system to close active processes and reboot.  This will take about 30 seconds." 9 50 30
 sudo reboot
 fi
 ;;
