@@ -25,13 +25,6 @@ then
 fi
 
 # mongo
-#whichpack="$(mongod --version | sed -n 1p)"
-#if [ ! "${whichpack%%.*}" = "db version v3" ]
-#then
-#  sudo apt-get -y install mongodb-server
-#fi  
-
-# mongo
 whichpack="$(mongod --version | sed -n 1p)"
 if [ ! "${whichpack%%.*}" = "db version v6" ]
 then
@@ -48,7 +41,6 @@ then
  echo "mongodb-org-tools hold" | sudo dpkg --set-selections
 
   sudo systemctl start mongod
-  # sudo systemctl status mongod
   sudo systemctl enable mongod
 fi
 
