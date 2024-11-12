@@ -62,7 +62,7 @@ else
 clear
 sudo reboot
 dialog --colors --pause "       \Zr Developed by the xDrip team \Zn\n\n\
-Please be patient for the system to reboot in 30 seconds." 13 50 35
+Please be patient for the system to reboot in 30 seconds." 0 50 35
 fi
 ;;
 
