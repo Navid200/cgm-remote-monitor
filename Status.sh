@@ -209,7 +209,7 @@ Google Cloud Nightscout  2024.11.11\n\
 $apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass \n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
-Ubuntu update: $LastReboot \n\
+Ubuntu patch: $LastReboot \n\
 Node: $node \n\
 Mongo: $mongo \n\
 NS proc: $ns \n\
