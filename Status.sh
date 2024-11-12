@@ -66,7 +66,7 @@ fi
 
 mongo="$(mongod --version | awk '/db version/ {print $NF}')"
 
-ns="$(ps -ef | grep SCREEN | grep root | fold --width=40 | sed -n 1p)"
+ns="$(ps -ef | grep SCREEN | grep root | fold --width=34 | sed -n 1p)"
 
 uname="$(< /srv/username)"
 if [ ! "$(< /srv/username)" = "jamorham" ]
