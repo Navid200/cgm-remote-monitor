@@ -178,6 +178,6 @@ Press enter to restart the server.  This will result in an expected error messag
 clear
 sudo reboot
 dialog --colors --pause "       \Zr Developed by the xDrip team \Zn\n\n\
-Please be patient for the system reboot to start in 30 seconds." 8 50 35
+Please be patient for the system to reboot in 30 seconds." 8 50 35
 fi
  
