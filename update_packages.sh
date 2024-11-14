@@ -21,7 +21,7 @@ sudo apt-get update
 whichpack=$(which file)
 if [ "$whichpack" = "" ]
 then
-  sudo apt-get -y install vis nano screen jq qrencode file net-tools gnupg liblzma5 apt-transport-https lsb-release ca-certificates build-essential
+  sudo apt-get -y install nano qrencode file apt-transport-https ca-certificates 
 fi
 
 # mongo
