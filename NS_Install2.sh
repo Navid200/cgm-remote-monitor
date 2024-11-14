@@ -26,8 +26,6 @@ echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", r
 echo -e "use admin\ndb.createUser({ user: \"mongoadmin\" , pwd: \"mongoadmin\", roles: [\"userAdminAnyDatabase\", \"dbAdminAnyDatabase\", \"readWriteAnyDatabase\"]})\nquit()" | mongosh
 
 # apt-get install -y nginx python3-certbot-nginx inetutils-ping
-sudo apt-get update
-apt-get install -y nginx
 
 #if [ "`grep '.well-known' /etc/nginx/sites-enabled/default`" = "" ]
 #then
