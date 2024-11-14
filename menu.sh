@@ -62,7 +62,7 @@ else
 clear
 sudo reboot
 dialog --colors --pause "       \Zr Developed by the xDrip team \Zn\n\n\
-Please be patient for the system to reboot in 30 seconds." 11 50 30
+Please be patient for the system to reboot in 30 seconds.  Then, there will be an expected error.  Wait for 30 seconds before attempting to reconnect." 13 50 30
 exit
 fi
 ;;
