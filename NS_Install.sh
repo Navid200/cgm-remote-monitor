@@ -33,6 +33,13 @@ swapon 2>/dev/null /var/SWAP
 
 sudo apt-get update
 
+# packages
+whichpack=$(which file)
+if [ "$whichpack" = "" ]
+then
+  sudo apt-get -y install vis screen jq net-tools gnupg liblzma5 lsb-release build-essential
+fi
+
 # mongo
 whichpack="$(mongod --version | sed -n 1p)"
 if [ ! "${whichpack%%.*}" = "db version v6" ]
