@@ -44,9 +44,6 @@ then
 The Ubuntu version on the virtual machine is incorrect.  You need to delete the virtual machine and create a new one.  Please refer to the guide for the details." 10 50
   exit
   fi 
-
-#  sudo apt-get install -y  git python gcc g++ make
-#  sudo apt-get -y install netcat-traditional
 fi
 
 if [ ! -s /xDrip ]
