@@ -34,10 +34,6 @@ swapon 2>/dev/null /var/SWAP
 # Please don't add any utility installs here.  Please instead, add them to update_packages.sh.
 /xDrip/scripts/update_packages_init.sh
 
-# Create mongo user and admin.
-echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", roles:[\"readWrite\"]})\nquit()" | mongosh
-echo -e "use admin\ndb.createUser({ user: \"mongoadmin\" , pwd: \"mongoadmin\", roles: [\"userAdminAnyDatabase\", \"dbAdminAnyDatabase\", \"readWriteAnyDatabase\"]})\nquit()" | mongosh
-
 cd /srv
 
 echo "Installing Nightscout"
