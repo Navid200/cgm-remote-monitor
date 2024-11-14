@@ -16,6 +16,7 @@ echo
 
 sudo apt-get update
 sudo apt-get install dialog
+sudo apt -y install git
 
 ExistingSystem=0
 if [ ! -z "$(ls /srv)" ]
@@ -36,7 +37,7 @@ clear
 ubversion="$(cat /etc/issue | awk '{print $2}')"
 if [ "$ExistingSystem" = "0" ]  # Only if this is not an existing installation
 then
-  if [[ ! "$ubversion" = "20.04"* ]] || [[ ! "$(which vi)" = "" ]] # If the selected version of ubuntu is not what we want or if the main version has been installed instead of minimal
+  if [[ ! "$ubversion" = "24.04"* ]] || [[ ! "$(which vi)" = "" ]] # If the selected version of ubuntu is not what we want or if the main version has been installed instead of minimal
   then
   clear
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
@@ -44,8 +45,8 @@ The Ubuntu version on the virtual machine is incorrect.  You need to delete the 
   exit
   fi 
 
-  sudo apt-get install -y  git python gcc g++ make
-  sudo apt-get -y install netcat
+#  sudo apt-get install -y  git python gcc g++ make
+#  sudo apt-get -y install netcat-traditional
 fi
 
 if [ ! -s /xDrip ]
@@ -65,7 +66,7 @@ sudo git clone https://github.com/Navid200/cgm-remote-monitor.git  # ⛔⛔⛔�
 ls > /tmp/repo
 sudo mv -f /tmp/repo .    # The repository name is now in /srv/repo
 cd "$(< repo)"
-#sudo git checkout vps-dev  # ✅✅✅✅✅ Main - Uncomment before PR.
+#sudo git checkout vps-1  # ✅✅✅✅✅ Main - Uncomment before PR.
 sudo git checkout ub24_InstallSpeed_Test  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
 
 sudo git branch > /tmp/branch
@@ -127,5 +128,5 @@ fi
 # Bring up the status page
 /xDrip/scripts/Status.sh
 clear
-/xDrip/scripts/menu.sh < /dev/tty
+/xDrip/scripts/menu.sh
   
