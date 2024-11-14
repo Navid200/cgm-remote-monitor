@@ -11,7 +11,7 @@ sudo apt-get update
 whichpack=$(which file)
 if [ "$whichpack" = "" ]
 then
-  sudo apt-get -y install vis jq net-tools gnupg liblzma5 lsb-release build-essential
+  sudo apt-get -y install liblzma5 
 fi
 
 # node - We install version 16 of node here, which automatically  updates npm to 8.
