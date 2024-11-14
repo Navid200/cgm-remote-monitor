@@ -22,7 +22,7 @@ whichpack=$(which file)
 if [ "$whichpack" = "" ]
 then
 #  sudo apt-get -y install screen nano qrencode file apt-transport-https ca-certificates 
-  sudo apt-get -y install screen nano qrencode file inetutils-ping
+  sudo apt-get -y install screen nano qrencode file inetutils-ping certbot
 fi
 
 # mongo
