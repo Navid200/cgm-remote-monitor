@@ -47,7 +47,7 @@ swap="$(free -h | sed -n 3p | awk '{print $2}')"
 
 #Ubuntu version
 ubuntu="$(lsb_release -a | sed -n 2p | awk '{print $3, $4}')"
-if [ ! "$ubuntu" = "20.04.6 LTS" ]
+if [ ! "$ubuntu" = "24.04.1 LTS" ]
 then
 ubuntu="\Zb\Z1$(lsb_release -a | sed -n 2p | awk '{print $3, $4}')\Zn"
 fi
@@ -64,8 +64,9 @@ then
 http="\Zb\Z1Closed\Zn" # Set color to red if the Firewall is not set.
 fi
 
-mongo="$(mongod --version | sed -n 1p)"
-ns="$(ps -ef | grep SCREEN | grep root | fold --width=40 | sed -n 1p)"
+mongo="$(mongod --version | awk '/db version/ {print $NF}')"
+
+ns="$(ps -ef | grep SCREEN | grep root | awk '{print $2, "  ", $5}')"
 
 uname="$(< /srv/username)"
 if [ ! "$(< /srv/username)" = "jamorham" ]
@@ -200,15 +201,15 @@ Choice=$(dialog --colors --nocancel --nook --menu "\
 Zone: $Zone \n\
 RAM: $Ramsize \n\
 Disk type: $disk \n\
-Disk size: $disksz        $DiskUsedPercent used \n\
+Disk size: $disksz    $DiskUsedPercent used \n\
 Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
-Google Cloud Nightscout  2024.08.28\n\
+Google Cloud Nightscout  2024.11.13\n\
 $apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass \n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
-Ubuntu update: $LastReboot \n\
+Ubuntu patch: $LastReboot \n\
 Node: $node \n\
 Mongo: $mongo \n\
 NS proc: $ns \n\
