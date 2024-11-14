@@ -21,6 +21,10 @@ fi
 
 /xDrip/scripts/update_packages.sh
 
+# Create mongo user and admin.
+echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", roles:[\"readWrite\"]})\nquit()" | mongosh
+echo -e "use admin\ndb.createUser({ user: \"mongoadmin\" , pwd: \"mongoadmin\", roles: [\"userAdminAnyDatabase\", \"dbAdminAnyDatabase\", \"readWriteAnyDatabase\"]})\nquit()" | mongosh
+
 apt-get install -y nginx python3-certbot-nginx inetutils-ping
 
 if [ "`grep '.well-known' /etc/nginx/sites-enabled/default`" = "" ]
