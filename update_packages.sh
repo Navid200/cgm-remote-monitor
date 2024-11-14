@@ -31,6 +31,7 @@ echo "$whichpack"
 if [ ! "$whichpack" = "db version v6.0.16" ]
 then
 echo "mismatch"
+exit 5
 
  curl -fsSL https://www.mongodb.org/static/pgp/server-6.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg --dearmor
  echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
@@ -47,6 +48,8 @@ echo "mismatch"
   sudo systemctl start mongod
   sudo systemctl enable mongod
 fi
+echo "match"
+exit 5
 
 # The last item on the above list of packages must be verified in Status.sh to have been installed.  
 
