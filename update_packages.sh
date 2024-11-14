@@ -47,5 +47,5 @@ fi
 # The last item on the above list of packages must be verified in Status.sh to have been installed.  
 
 # Add log
-/xDrip/scripts/AddLog.sh "The packages have been installed" /xDrip/Logs
+/xDrip/scripts/AddLog.sh "Additional packages have been installed" /xDrip/Logs
   
