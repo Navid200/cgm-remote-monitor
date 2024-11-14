@@ -26,20 +26,21 @@ echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", r
 echo -e "use admin\ndb.createUser({ user: \"mongoadmin\" , pwd: \"mongoadmin\", roles: [\"userAdminAnyDatabase\", \"dbAdminAnyDatabase\", \"readWriteAnyDatabase\"]})\nquit()" | mongosh
 
 # apt-get install -y nginx python3-certbot-nginx inetutils-ping
+sudo apt-get update
 apt-get install -y nginx
 
-if [ "`grep '.well-known' /etc/nginx/sites-enabled/default`" = "" ]
-then
-rm -f /tmp/nginx.conf
-grep -v '^#' /etc/nginx/sites-enabled/default >/tmp/nginx.conf
+#if [ "`grep '.well-known' /etc/nginx/sites-enabled/default`" = "" ]
+#then
+#rm -f /tmp/nginx.conf
+#grep -v '^#' /etc/nginx/sites-enabled/default >/tmp/nginx.conf
 
-cat /tmp/nginx.conf | sed -z -e 'sZlocation / {[^}]*}Zlocation /.well-known {\n        try_files $uri $uri/ =404;\n}\n\nlocation / {\nproxy_pass  http://127.0.0.1:1337/;\nproxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\nproxy_set_header X-Forwarded-Proto https;\nproxy_http_version 1.1;\nproxy_set_header Upgrade $http_upgrade;\nproxy_set_header Connection "upgrade";\n}Zg' >/etc/nginx/sites-enabled/default
+#cat /tmp/nginx.conf | sed -z -e 'sZlocation / {[^}]*}Zlocation /.well-known {\n        try_files $uri $uri/ =404;\n}\n\nlocation / {\nproxy_pass  http://127.0.0.1:1337/;\nproxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\nproxy_set_header X-Forwarded-Proto https;\nproxy_http_version 1.1;\nproxy_set_header Upgrade $http_upgrade;\nproxy_set_header Connection "upgrade";\n}Zg' >/etc/nginx/sites-enabled/default
 
-service nginx stop
+#service nginx stop
 
-else
-echo "Nginx config already patched"
-fi
+#else
+#echo "Nginx config already patched"
+#fi
 
 sudo service nginx start
 
@@ -183,7 +184,7 @@ clear
 clear
 sudo reboot
 dialog --colors --pause "       \Zr Developed by the xDrip team \Zn\n\n\
-Please be patient for the system to reboot in 30 seconds.  It will result in an expected error message.  Wait 30 seconds before clicking on retry to reconnect or using a browser to access your Nightscout." 14 50 30
+Please be patient for the system to reboot in 30 seconds.  It will then result in an expected error message.  Wait 30 seconds before clicking on retry to reconnect or using a browser to access your Nightscout." 14 50 30
 exit
 fi
  
