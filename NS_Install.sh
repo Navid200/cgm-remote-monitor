@@ -31,6 +31,8 @@ mkswap /var/SWAP
 fi
 swapon 2>/dev/null /var/SWAP
 
+sudo apt-get update
+
 # mongo
 whichpack="$(mongod --version | sed -n 1p)"
 if [ ! "${whichpack%%.*}" = "db version v6" ]
@@ -63,8 +65,6 @@ sudo npm install -g npm@6.14.18
 fi
 
 # Please don't add any utility installs here.  Please instead, add them to update_packages.sh.
-
-sudo apt-get update
 
 # Create mongo user and admin.
 echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", roles:[\"readWrite\"]})\nquit()" | mongosh
