@@ -31,20 +31,20 @@ mkswap /var/SWAP
 fi
 swapon 2>/dev/null /var/SWAP
 
-sudo apt update
+apt update
 if ! dpkg -s build-essential &>/dev/null
 then
-  sudo apt install build-essential
+  apt install build-essential
 fi
 
 # node - We install version 16 of node here, which automatically  updates npm to 8.
 whichpack=$(node -v)
 if [ ! "${whichpack%%.*}" = "v16" ]
 then
-  sudo /xDrip/scripts/nodesource_setup.sh
-  sudo apt-get install nodejs -y
+  /xDrip/scripts/nodesource_setup.sh
+  apt-get install nodejs -y
   # Nightscout needs version 6 of npm.  So, we are going to install that version now effectivwely downgrading it.  
-  sudo npm install -g npm@6.14.18
+  npm install -g npm@6.14.18
 fi
 # Please don't add any utility installs here.  Please instead, add them to update_packages.sh.
 
@@ -52,12 +52,12 @@ cd /srv
 
 echo "Installing Nightscout"
 cd "$(< repo)" 
-sudo git reset --hard  # delete any local edits.
-sudo git pull  # Update database from remote.
+git reset --hard  # delete any local edits.
+git pull  # Update database from remote.
 
-sudo npm install
+npm install
 # sudo npm run postinstall
-sudo npm run-script post-generate-keys
+npm run-script post-generate-keys
 
 for loop in 1 2 3 4 5 6 7 8 9
 do
