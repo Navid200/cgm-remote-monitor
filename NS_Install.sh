@@ -31,9 +31,9 @@ mkswap /var/SWAP
 fi
 swapon 2>/dev/null /var/SWAP
 
-# Please don't add any utility installs here.  Please instead, add them to update_packages.sh.
-
 sudo apt-get update
+sudo apt-get -y build-essential
+# Please don't add any utility installs here.  Please instead, add them to update_packages.sh.
 
 cd /srv
 
