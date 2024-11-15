@@ -62,7 +62,7 @@ ls > /tmp/repo
 sudo mv -f /tmp/repo .    # The repository name is now in /srv/repo
 cd "$(< repo)"
 #sudo git checkout vps-1  # ✅✅✅✅✅ Main - Uncomment before PR.
-sudo git checkout ub24_Test2_Test  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
+sudo git checkout ub24_Test2  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
 
 sudo git branch > /tmp/branch
 grep "*" /tmp/branch | awk '{print $2}' > /tmp/brnch
