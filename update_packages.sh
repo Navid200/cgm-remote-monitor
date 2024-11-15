@@ -46,25 +46,7 @@ then
   # Create mongo user and admin.
   echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", roles:[\"readWrite\"]})\nquit()" | mongosh
   echo -e "use admin\ndb.createUser({ user: \"mongoadmin\" , pwd: \"mongoadmin\", roles: [\"userAdminAnyDatabase\", \"dbAdminAnyDatabase\", \"readWriteAnyDatabase\"]})\nquit()" | mongosh
-fi
-
-
-whichpack="$(mongod --version | sed -n 1p)"
-if [ ! "${whichpack%%.*}" = "db version v3" ]
-then
-  
 fi  
-
-# node - We install version 16 of node here, which automatically  updates npm to 8.
-whichpack=$(node -v)
-if [ ! "${whichpack%%.*}" = "v16" ]
-then
-sudo /xDrip/scripts/nodesource_setup.sh
-# sudo apt install -y nodejs
-sudo apt-get install nodejs -y
-# Nightscout needs version 6 of npm.  So, we are going to install that version now effectivwely downgrading it.  
-sudo npm install -g npm@6.14.18
-fi
 
 # The last item on the above list of packages must be verified in Status.sh to have been installed.  
 
