@@ -38,14 +38,10 @@ if [ "$ExistingSystem" = "0" ]  # Only if this is not an existing installation
 then
   if [[ ! "$ubversion" = "24.04"* ]] || [[ ! "$(which vi)" = "" ]] # If the selected version of ubuntu is not what we want or if the main version has been installed instead of minimal
   then
-  clear
-  dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-The Ubuntu version on the virtual machine is incorrect.  You need to delete the virtual machine and create a new one.  Please refer to the guide for the details." 10 50
+    clear
+    dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe Ubuntu version on the virtual machine is incorrect.  You need to delete the virtual machine and create a new one.  Please refer to the guide for the details." 10 50
   exit
   fi 
-
-  sudo apt-get install -y  git python gcc g++ make
-  sudo apt-get -y install netcat
 fi
 
 if [ ! -s /xDrip ]
