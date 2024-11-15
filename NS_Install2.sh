@@ -21,8 +21,6 @@ fi
 
 /xDrip/scripts/update_packages.sh
 
-sudo apt-get install -y nginx python3-certbot-nginx inetutils-ping
-
 if [ "`grep '.well-known' /etc/nginx/sites-enabled/default`" = "" ]
 then
 sudo rm -f /tmp/nginx.conf
