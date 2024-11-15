@@ -21,7 +21,7 @@ sudo apt-get update
 whichpack=$(which file)
 if [ "$whichpack" = "" ]
 then
-  sudo apt-get -y install vis nano screen jq qrencode file net-tools gnupg liblzma5 apt-transport-https lsb-release ca-certificates nginx python3-certbot-nginx inetutils-ping
+  sudo apt-get -y install vis nano screen jq qrencode file net-tools liblzma5 apt-transport-https lsb-release ca-certificates nginx python3-certbot-nginx inetutils-ping
 fi  
 
 # The last item on the above list of packages must be verified in Status.sh to have been installed.  
