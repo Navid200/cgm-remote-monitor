@@ -32,6 +32,7 @@ fi
 swapon 2>/dev/null /var/SWAP 
 
 apt-get update 
+apt-get -y install gnupg
 
 # mongo
 whichpack="$(mongod --version | sed -n 1p)"
