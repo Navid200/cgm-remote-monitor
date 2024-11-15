@@ -15,7 +15,7 @@ echo
 # One must always run Install Nightscout phase 1 after running bootstrap.
 
 sudo apt-get update
-sudo apt-get install dialog
+sudo apt-get -y install dialog git
 
 ExistingSystem=0
 if [ ! -z "$(ls /srv)" ]
