@@ -21,7 +21,7 @@ sudo apt-get update
 whichpack=$(which file)
 if [ "$whichpack" = "" ]
 then
-  sudo apt-get -y install screen nano qrencode file inetutils-ping nginx python3-certbot-nginx inetutils-ping ca-certificates apt-transport-https lsb-release gnupg
+  sudo apt-get install -y screen nano qrencode file inetutils-ping nginx python3-certbot-nginx inetutils-ping ca-certificates apt-transport-https lsb-release gnupg
 fi
 
 # mongo
