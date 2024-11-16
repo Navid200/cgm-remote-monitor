@@ -111,8 +111,7 @@ if [ "$ExistingSystem" = "0" ]  # If this is a new installation.
 then
   clear
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-If any item above the line on the status page (shown next) is red, it represents an incorrect parameter that could result in malfunction or cost.  \
-Please take a note, delete the virtual machine, and create a new one.   For more detail, please refer to the guide." 13 50
+If any item above the line on the status page (shown next) appears in red, it indicates an incorrect parameter that could lead to a malfunction or additional costs.  Delete the virtual machine and create a new one that meets all the required conditions. For more details, please refer to the guide." 13 50
 else # If this is an existing installation.
   clear
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nBootstrap is complete.  Press enter to go to the status page." 8 50
