@@ -141,9 +141,9 @@ then
   sed -i -e "s/API_SECRET=.*/API_SECRET=\'${ns}\'/g" /etc/nsconfig # Replace API_SECRET in nsconfig with the new one using single quotes.
 fi
 
-/xDrip/scripts/StartUpSetup.sh
+# /xDrip/scripts/StartUpSetup.sh
 
- chmod a+x /etc/rc.local
+# chmod a+x /etc/rc.local
 
 cat > /etc/systemd/system/rc-local.service << "EOF"
 [Unit]
