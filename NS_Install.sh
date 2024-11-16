@@ -32,10 +32,6 @@ fi
 swapon 2>/dev/null /var/SWAP
 
 apt-get update
-if dpkg -s build-essential &>/dev/null
-then
-  apt-get -y build-essential
-fi
 
 # node - We install version 16 of node here, which automatically  updates npm to 8.
 whichpack=$(node -v)
