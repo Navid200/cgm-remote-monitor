@@ -176,7 +176,7 @@ clear
 clear
 sudo reboot
 dialog --colors --pause "       \Zr Developed by the xDrip team \Zn\n\n\
-Please be patient for the system to reboot in 30 seconds.  It will then result in an expected error message.  Wait 30 seconds before clicking on retry to reconnect or using a browser to access your Nightscout." 14 50 30
+Please wait for the system to reboot, which will take approximately 30 seconds. After rebooting, an expected error message will appear. Allow an additional 30 seconds before clicking 'Retry' to reconnect or accessing your Nightscout through a browser." 15 50 30
 exit
 fi
  
