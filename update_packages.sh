@@ -21,7 +21,8 @@ sudo apt-get update
 whichpack=$(which file)
 if [ "$whichpack" = "" ]
 then
- sudo apt-get -y install nginx python3-certbot-nginx inetutils-ping ca-certificates apt-transport-https lsb-release gnupg vis nano screen jq qrencode file
+# sudo apt-get -y install nginx python3-certbot-nginx inetutils-ping ca-certificates apt-transport-https lsb-release gnupg vis nano screen jq qrencode file
+ sudo apt-get -y install nginx python3-certbot-nginx inetutils-ping ca-certificates apt-transport-https gnupg vis nano screen jq qrencode file
 fi
 
 # mongo
