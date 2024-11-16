@@ -34,7 +34,7 @@ else
 echo "Nginx config already patched"
 fi
 
-sudo service nginx start
+service nginx start
 
 systemctl daemon-reload
 systemctl start mongod
