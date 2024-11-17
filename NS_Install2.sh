@@ -37,7 +37,7 @@ fi
 sudo service nginx start
 
 sudo systemctl daemon-reload
-sudo systemctl start mongodb
+sudo systemctl start mongod
 
 echo
 echo "Setting up startup service"
