@@ -40,6 +40,7 @@ sudo cp -f update_scripts.sh /xDrip/scripts/. # Update the "update scripts" scri
 clear
 /xDrip/scripts/update_scripts.sh
 /xDrip/scripts/update_packages.sh
+/xDrip/scripts/update_packages2.sh
 /xDrip/scripts/StartUpSetup.sh
 clear
 dialog --colors --msgbox "        \Zr Developed by the xDrip team \Zn\n\n\
