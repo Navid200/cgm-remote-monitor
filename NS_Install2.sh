@@ -21,29 +21,7 @@ fi
 
 sudo apt-get update
 
-# mongo
-whichpack="$(mongod --version | sed -n 1p)"
-if [ ! "${whichpack%%.*}" = "db version v6" ]
-then
- curl -fsSL https://www.mongodb.org/static/pgp/server-6.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg --dearmor
- echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
- sudo apt-get update
- sudo apt-get install -y mongodb-org=6.0.16 mongodb-org-database=6.0.16 mongodb-org-server=6.0.16 mongodb-org-mongos=6.0.16 mongodb-org-tools=6.0.16
-
- echo "mongodb-org hold" | sudo dpkg --set-selections
- echo "mongodb-org-database hold" | sudo dpkg --set-selections
- echo "mongodb-org-server hold" | sudo dpkg --set-selections
- echo "mongodb-mongosh hold" | sudo dpkg --set-selections
- echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
- echo "mongodb-org-tools hold" | sudo dpkg --set-selections
-
-  sudo systemctl start mongod
-  sudo systemctl enable mongod
-fi
-# Create mongo user and admin.
-echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", roles:[\"readWrite\"]})\nquit()" | mongosh
-echo -e "use admin\ndb.createUser({ user: \"mongoadmin\" , pwd: \"mongoadmin\", roles: [\"userAdminAnyDatabase\", \"dbAdminAnyDatabase\", \"readWriteAnyDatabase\"]})\nquit()" | mongosh
-
+sudo /xDrip/scripts/update_packages2.sh
 
 sudo apt-get install -y nginx python3-certbot-nginx inetutils-ping
 
