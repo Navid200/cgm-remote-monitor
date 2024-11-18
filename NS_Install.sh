@@ -58,6 +58,6 @@ done
 clear
 reboot
 dialog --colors --pause "       \Zr Developed by the xDrip team \Zn\n\n\
-Please wait for the system to reboot, which will take approximately 30 seconds. After rebooting, an expected error message will appear. Allow an additional 30 seconds before clicking 'Retry' to reconnect or accessing your Nightscout through a browser." 15 50 30
+Please wait for the system to reboot, which will take approximately 25 seconds. After rebooting, an expected error message will appear. Allow an additional 30 seconds before clicking 'Retry' to reconnect or accessing your Nightscout through a browser." 15 50 30
 exit
   
