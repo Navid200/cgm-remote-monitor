@@ -64,8 +64,9 @@ then
 http="\Zb\Z1Closed\Zn" # Set color to red if the Firewall is not set.
 fi
 
-mongo="$(mongod --version | sed -n 1p)"
-ns="$(ps -ef | grep SCREEN | grep root | fold --width=40 | sed -n 1p)"
+mongo="$(mongod --version | awk '/db version/ {print $NF}')"
+
+ns="$(ps -ef | grep SCREEN | grep root | awk '{print $2, "  ", $5}')"
 
 uname="$(< /srv/username)"
 if [ ! "$(< /srv/username)" = "jamorham" ]
@@ -204,7 +205,7 @@ Disk size: $disksz        $DiskUsedPercent used \n\
 Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
-Google Cloud Nightscout  2024.08.28\n\
+Google Cloud Nightscout  2024.11.18\n\
 $apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass \n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
