@@ -19,29 +19,29 @@ echo "Cannot continue.."
 exit 5
 fi
 
-sudo apt-get update
+apt-get update
 
-sudo /xDrip/scripts/update_packages2.sh
+/xDrip/scripts/update_packages2.sh
 
-sudo apt-get install -y nginx python3-certbot-nginx inetutils-ping
+apt-get install -y nginx python3-certbot-nginx inetutils-ping
 
 if [ "`grep '.well-known' /etc/nginx/sites-enabled/default`" = "" ]
 then
-sudo rm -f /tmp/nginx.conf
-sudo grep -v '^#' /etc/nginx/sites-enabled/default >/tmp/nginx.conf
+rm -f /tmp/nginx.conf
+grep -v '^#' /etc/nginx/sites-enabled/default >/tmp/nginx.conf
 
 cat /tmp/nginx.conf | sed -z -e 'sZlocation / {[^}]*}Zlocation /.well-known {\n        try_files $uri $uri/ =404;\n}\n\nlocation / {\nproxy_pass  http://127.0.0.1:1337/;\nproxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\nproxy_set_header X-Forwarded-Proto https;\nproxy_http_version 1.1;\nproxy_set_header Upgrade $http_upgrade;\nproxy_set_header Connection "upgrade";\n}Zg' >/etc/nginx/sites-enabled/default
 
-sudo service nginx stop
+service nginx stop
 
 else
 echo "Nginx config already patched"
 fi
 
-sudo service nginx start
+service nginx start
 
-sudo systemctl daemon-reload
-sudo systemctl start mongod
+systemctl daemon-reload
+systemctl start mongod
 
 echo
 echo "Setting up startup service"
@@ -163,13 +163,13 @@ cat > /etc/systemd/system/rc-local.service << "EOF"
  WantedBy=multi-user.target
 EOF
 
-sudo sed -i -e 'sX//Unattended-Upgrade::Automatic-Reboot "false";XUnattended-Upgrade::Automatic-Reboot "true";Xg' /etc/apt/apt.conf.d/50unattended-upgrades 
-sudo systemctl daemon-reload
-sudo systemctl enable rc-local
+sed -i -e 'sX//Unattended-Upgrade::Automatic-Reboot "false";XUnattended-Upgrade::Automatic-Reboot "true";Xg' /etc/apt/apt.conf.d/50unattended-upgrades 
+systemctl daemon-reload
+systemctl enable rc-local
 
-sudo systemctl start rc-local.service
+systemctl start rc-local.service
  
-sudo /xDrip/scripts/ConfigureFreedns.sh
+/xDrip/scripts/ConfigureFreedns.sh
 if [ ! -s /tmp/FreeDNS_Failed ]
 then
 clear
@@ -178,7 +178,7 @@ clear
 /xDrip/scripts/AddLog.sh "Installation phase 2 completed" /xDrip/Logs
 
 clear
-sudo reboot
+reboot
 dialog --colors --pause "       \Zr Developed by the xDrip team \Zn\n\n\
 Please wait for the system to reboot, which will take approximately 30 seconds. After rebooting, an expected error message will appear. Allow an additional 30 seconds before clicking 'Retry' to reconnect or accessing your Nightscout through a browser." 15 50 30
 exit
