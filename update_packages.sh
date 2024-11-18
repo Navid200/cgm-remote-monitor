@@ -21,7 +21,7 @@ sudo apt-get update
 whichpack=$(which file)
 if [ "$whichpack" = "" ]
 then
-  sudo apt-get -y install vis nano screen jq qrencode file net-tools gnupg liblzma5 apt-transport-https lsb-release ca-certificates build-essential
+  sudo apt-get -y install vis screen jq net-tools liblzma5 apt-transport-https lsb-release ca-certificates build-essential
 fi 
 
 # node - We install version 16 of node here, which automatically  updates npm to 8.
