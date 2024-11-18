@@ -21,7 +21,7 @@ sudo apt-get update
 whichpack=$(which file)
 if [ "$whichpack" = "" ]
 then
-  sudo apt-get -y install vis screen jq net-tools liblzma5 apt-transport-https lsb-release ca-certificates build-essential gnupg
+  sudo apt-get -y install vis jq net-tools apt-transport-https lsb-release ca-certificates build-essential gnupg
 fi 
 
 # node - We install version 16 of node here, which automatically  updates npm to 8.
