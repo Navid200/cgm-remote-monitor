@@ -1,6 +1,6 @@
 #!/bin/bash
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
-# curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/BackupMenuImprovement_Test/bootstrap.sh | bash
+# curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/ub24_Test4/bootstrap.sh | bash
 
 echo 
 echo "Bootstrapping the installation files - JamOrHam - Navid200"
@@ -36,16 +36,15 @@ clear
 ubversion="$(cat /etc/issue | awk '{print $2}')"
 if [ "$ExistingSystem" = "0" ]  # Only if this is not an existing installation
 then
-  if [[ ! "$ubversion" = "20.04"* ]] || [[ ! "$(which vi)" = "" ]] # If the selected version of ubuntu is not what we want or if the main version has been installed instead of minimal
+  if [[ ! "$ubversion" = "24.04"* ]] || [[ ! "$(which vi)" = "" ]] # If the selected version of ubuntu is not what we want or if the main version has been installed instead of minimal
   then
   clear
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-The Ubuntu version on the virtual machine is incorrect.  You need to delete the virtual machine and create a new one.  Please refer to the guide for the details." 10 50
+This bootstrap is not meant for the Ubuntu version on the virtual machine.  Please refer to the guide or ask for help." 10 50
   exit
   fi 
 
-  sudo apt-get install -y  git python gcc g++ make
-  sudo apt-get -y install netcat
+  sudo apt-get install -y  git 
 fi
 
 if [ ! -s /xDrip ]
@@ -59,14 +58,14 @@ sudo mkdir scripts
 
 cd /srv
 sudo rm -rf *
-sudo git clone https://github.com/jamorham/nightscout-vps.git  # ✅✅✅✅✅ Main - Uncomment before PR.
-#sudo git clone https://github.com/Navid200/cgm-remote-monitor.git  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
+#sudo git clone https://github.com/jamorham/nightscout-vps.git  # ✅✅✅✅✅ Main - Uncomment before PR.
+sudo git clone https://github.com/Navid200/cgm-remote-monitor.git  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
 
 ls > /tmp/repo
 sudo mv -f /tmp/repo .    # The repository name is now in /srv/repo
 cd "$(< repo)"
-sudo git checkout vps-1  # ✅✅✅✅✅ Main - Uncomment before PR.
-#sudo git checkout BackupMenuImprovement_Test  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
+#sudo git checkout vps-1  # ✅✅✅✅✅ Main - Uncomment before PR.
+sudo git checkout ub24_Test4  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
 
 sudo git branch > /tmp/branch
 grep "*" /tmp/branch | awk '{print $2}' > /tmp/brnch
@@ -127,5 +126,5 @@ fi
 # Bring up the status page
 /xDrip/scripts/Status.sh
 clear
-/xDrip/scripts/menu.sh < /dev/tty
+/xDrip/scripts/menu.sh
   
