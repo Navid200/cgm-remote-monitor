@@ -34,22 +34,18 @@ swapon 2>/dev/null /var/SWAP
 # Please don't add any utility installs here.  Please instead, add them to update_packages.sh.
 /xDrip/scripts/update_packages.sh
 
-sudo apt-get update
-
-# Create mongo user and admin.
-echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", roles:[\"readWrite\"]})\nquit()" | mongo
-echo -e "use admin\ndb.createUser({ user: \"mongoadmin\" , pwd: \"mongoadmin\", roles: [\"userAdminAnyDatabase\", \"dbAdminAnyDatabase\", \"readWriteAnyDatabase\"]})\nquit()" | mongo
+apt-get update
 
 cd /srv
 
 echo "Installing Nightscout"
 cd "$(< repo)" 
-sudo git reset --hard  # delete any local edits.
-sudo git pull  # Update database from remote.
+git reset --hard  # delete any local edits.
+git pull  # Update database from remote.
 
-sudo npm install
+npm install
 # sudo npm run postinstall
-sudo npm run-script post-generate-keys
+npm run-script post-generate-keys
 
 for loop in 1 2 3 4 5 6 7 8 9
 do
@@ -58,4 +54,10 @@ done
 
 # Add log
 /xDrip/scripts/AddLog.sh "Installation phase 1 completed" /xDrip/Logs
+
+clear
+reboot
+dialog --colors --pause "       \Zr Developed by the xDrip team \Zn\n\n\
+Please wait for the system to reboot, which will take approximately 25 seconds. After rebooting, an expected error message will appear. Allow an additional 30 seconds before clicking 'Retry' to reconnect or accessing your Nightscout through a browser." 15 50 25
+exit
   
