@@ -21,7 +21,7 @@ fi
 whichpack=$(which file)
 if [ "$whichpack" = "" ]
 then
-  sudo apt-get -y install vis nano screen jq qrencode file net-tools gnupg liblzma5 apt-transport-https lsb-release ca-certificates build-essential
+  sudo apt-get -y install vis screen jq net-tools apt-transport-https lsb-release ca-certificates
 fi
 
 # mongo
