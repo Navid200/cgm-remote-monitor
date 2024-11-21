@@ -11,7 +11,7 @@ sudo apt-get update
 whichpack=$(which file)
 if [ "$whichpack" = "" ]
 then
-  sudo apt-get -y install screen nano qrencode file gnupg
+  sudo apt-get -y install screen nano qrencode file
 fi 
 
 # mongo
