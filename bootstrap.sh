@@ -15,7 +15,11 @@ echo
 # One must always run Install Nightscout phase 1 after running bootstrap.
 
 sudo apt-get update
-sudo apt-get install dialog
+whichpack=$(which dialog)
+if [ "$whichpack" = "" ]
+then
+  sudo apt-get -y install dialog git
+fi
 
 ExistingSystem=0
 if [ ! -z "$(ls /srv)" ]
@@ -27,8 +31,8 @@ The script you are running, \"bootstrap\", is meant to initiate an installtion. 
 If you already have an installtion on this machine and proceed by pressing enter, it will be modified.  If that's not your intention, please press escape to abort." 14 50
 if [ $? -eq 255 ]
 then
-clear
-exit
+  clear
+  exit
 fi
 fi
 clear
@@ -43,13 +47,11 @@ then
 This bootstrap is not meant for the Ubuntu version on the virtual machine.  Please refer to the guide or ask for help." 10 50
   exit
   fi 
-
-  sudo apt-get install -y  git 
 fi
 
 if [ ! -s /xDrip ]
 then
-sudo mkdir /xDrip
+  sudo mkdir /xDrip
 fi
 cd /xDrip
 sudo rm -rf scripts
@@ -81,7 +83,7 @@ sudo mv -f /tmp/username ../. # The username is now in /srv/username
 
 if [ ! -s update_scripts.sh ]
 then
-echo "UNABLE TO DOWNLOAD update_scripts SCRIPT! - cannot continue - please try again!"
+  echo "UNABLE TO DOWNLOAD update_scripts SCRIPT! - cannot continue - please try again!"
 exit 5
 fi
 
