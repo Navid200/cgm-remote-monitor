@@ -18,10 +18,10 @@ then
 fi
 
 # packages
-whichpack=$(which gpg)
+whichpack=$(which jq)
 if [ "$whichpack" = "" ]
 then
-  sudo apt-get -y install vis screen jq net-tools apt-transport-https lsb-release ca-certificates gnupg
+  sudo apt-get -y install vis jq net-tools apt-transport-https lsb-release ca-certificates
 fi  
 
 # node - We install version 16 of node here, which automatically  updates npm to 8.
