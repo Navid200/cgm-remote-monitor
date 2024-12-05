@@ -180,9 +180,9 @@ while : ; do
          echo "ccc" $cnt
         wget -O - --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 $directurl
     fi
-    sudo systemd-resolve --flush-caches
+    sudo resolvectl flush-caches
     ping -c 1 $hostname
-    sudo systemd-resolve -4 $hostname
+    sudo resolvectl query $hostname
     if [ $cnt -gt 20 ]
     then
       clear
