@@ -11,7 +11,7 @@ sudo apt-get update
 whichpack=$(which file)
 if [ "$whichpack" = "" ]
 then
-  sudo apt-get -y install screen nano qrencode file vis lsb-release 
+  sudo apt-get -y install screen nano qrencode file vis lsb-release apt-transport-https 
 fi 
 
 # The last item on the above list of packages must be verified in Status.sh to have been installed.  
