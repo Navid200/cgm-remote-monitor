@@ -28,7 +28,7 @@ sudo /xDrip/scripts/NS_Install2.sh
 ;;
 
 3)
-dialog --colors --yesno "       \Zr Developed by the xDrip team \Zn\n\n\
+dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
 This will update your server and Nightscout to the latest available versions.  Press Enter to proceed or ESC to cancel."  9 50
 response=$?
 if [ $response = 255 ] || [ $response = 1 ]
