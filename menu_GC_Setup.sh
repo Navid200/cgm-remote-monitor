@@ -29,7 +29,7 @@ sudo /xDrip/scripts/NS_Install2.sh
 
 3)
 dialog --colors --yesno "       \Zr Developed by the xDrip team \Zn\n\n\
-This will update your server and Nighsctout to the latest available updates.  Press enter to proceed or ESC to cancel."  9 50
+This will update your server and Nighsctout to the latest available updates.  Press Enter to proceed or ESC to cancel."  9 50
 response=$?
 if [ $response = 255 ] || [ $response = 1 ]
 then
