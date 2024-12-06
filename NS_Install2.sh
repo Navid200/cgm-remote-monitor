@@ -104,7 +104,7 @@ clear
 exec 3>&1
 Value=$(dialog --colors --ok-label "Submit" --form "       \Zr Developed by the xDrip team \Zn\n\n\n\
 API_SECRET:   $cs\n\n\
-Press escape to keep it, or enter a new API_SECRET with at least 12 characters excluding the following.\n\
+Press ESC to keep it, or enter a new API_SECRET with at least 12 characters, excluding the following characters.\n\
   $   \"   '   \\   SPACE   @   / " 16 50 0 "API_SECRET:" 1 1 "$secr" 1 14 25 0 2>&1 1>&3)
 response=$?
 clear
@@ -121,7 +121,7 @@ then
   go_back=1
   clear
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-API_SECRET should have at least 12 characters.  Please try again."  8 50
+API_SECRET must be at least 12 characters long. Please try again."  8 50
 fi
 clear
 
@@ -132,7 +132,7 @@ then
     go_back=1
     clear
     dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-API_SECRET should not include the following characters. Please try again.\n $  \"  \\  '  SPACE  @  /"  9 50
+API_SECRET should not contain the following characters. Please try again.\n $  \"  \\  '  SPACE  @  /"  9 50
   else
     got_it=1
   fi
