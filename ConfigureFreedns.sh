@@ -25,7 +25,7 @@ go_back=0
 clear
 exec 3>&1
 Values=$(dialog --colors --ok-label "Submit" --form "       \Zr Developed by the xDrip team \Zn\n\n\n\
-Enter your FreeDNS userID and password." 12 50 0 "User ID:" 1 1 "$user" 1 14 25 0 "Password:" 2 1 "$pass" 2 14 25 0 2>&1 1>&3)
+Enter your FreeDNS user ID and password to establish a hostname, or press ESC if you already have a working hostname to keep it unchanged." 14 50 0 "User ID:" 1 1 "$user" 1 14 25 0 "Password:" 2 1 "$pass" 2 14 25 0 2>&1 1>&3)
 response=$?
 if [ $response = 255 ] || [ $response = 1 ] # cancled or escaped
 then
