@@ -35,6 +35,7 @@ if [ $response = 255 ] || [ $response = 1 ]
 then
   clear
 else
+  clear
   cd /srv
   cd "$(< repo)"  # Go to the local database
   sudo git reset --hard  # delete any local edits.
