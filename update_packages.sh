@@ -21,7 +21,7 @@ sudo apt-get update
 whichpack=$(which gpg)
 if [ "$whichpack" = "" ]
 then
-  sudo apt-get -y install vis jq net-tools apt-transport-https lsb-release ca-certificates gnupg
+  sudo apt-get -y install jq net-tools apt-transport-https ca-certificates gnupg
 fi 
 
 # node - We install version 16 of node here, which automatically  updates npm to 8.
