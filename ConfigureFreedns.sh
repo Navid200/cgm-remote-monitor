@@ -82,7 +82,7 @@ then
   then
     clear
     exec 3>&1
-    subvalue=$(dialog --colors --ok-label "Submit" --form "       \Zr Developed by the xDrip team \Zn\n\n\nYou have more than one subdomain. Please enter the subdomain you wish to use. \nIt should follow the format: mine.strangled.net"  12 50 0 "Subdomain:" 1 1 "$subd" 1 14 25 0 2>&1 1>&3)
+    subvalue=$(dialog --colors --ok-label "Submit" --form "       \Zr Developed by the xDrip team \Zn\n\n\nYou have more than one subdomain. Please enter the subdomain you wish to use. \nIt should follow the format: mine.strangled.net"  13 50 0 "Subdomain:" 1 1 "$subd" 1 14 25 0 2>&1 1>&3)
     response2=$?
     if [ $response2 = 255 ] || [ $response2 = 1 ] # canceled or escaped
     then
