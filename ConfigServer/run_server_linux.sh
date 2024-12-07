@@ -17,17 +17,12 @@ function kill_existing_server() {
 
 kill_existing_server
 
-
 export SECRET_KEY=$(uuidgen)
 export ENV_DEBUG=False
 export ENV_TOKEN=$(uuidgen)
 export NS_CONFIG_FILE=/etc/nsconfig
 export SCRIPT_DIR=$( dirname -- "$0"; )
 export APP_JSON_FILE=$SCRIPT_DIR/app.json
-
-
-sudo apt-get -y install python3-pip >> /tmp/variables_log 2>&1
-apt -y install python3-django python3-django-extensions python3-werkzeug >> /tmp/variables_log 2>&1
 
 if test -f "/etc/free-dns.sh"; then
 . /etc/free-dns.sh
