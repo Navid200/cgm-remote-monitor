@@ -66,7 +66,7 @@ then
   wget -O /tmp/hosts "$arg"
 if [ ! "`grep 'Could not authenticate' /tmp/hosts`" = "" ] # Failed to log in
 then
-  dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nFailed to authenticate.  Try again."  7 50
+  dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nFailed to authenticate.  Please try again."  7 50
   go_back=1
 fi
 
