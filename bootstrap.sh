@@ -30,6 +30,18 @@ This bootstrap is intended for Ubuntu 24.  You are running it on a different ver
 fi
 
 clear
+dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+The script you are running, \"bootstrap\", is designed to initiate an installation. However, the file system does not appear to be empty.\n\n\  
+If an installation already exists on this machine, pressing Enter will modify it.  If this is not your intention, please press ESC to abort." 14 50
+if [ $? -eq 255 ] 
+then
+clear
+exit
+fi
+fi
+clear
+
+clear
 dialog --colors --ok-label "       \Zr Developed by the xDrip team \Zn\n\n\
 The script you are running, \"bootstrap\", is designed to initiate an installation. However, the file system does not appear to be empty.\n\n\  
 This software and its associated online instructions are provided “as is,” without any warranties, express or implied. By using this software, you accept full responsibility and assume all risks associated with its use.\n\n\
@@ -41,18 +53,6 @@ then
 clear
 exit
 fi
-
-clear
-dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-The script you are running, \"bootstrap\", is designed to initiate an installation. However, the file system does not appear to be empty.\n\n\  
-If an installation already exists on this machine, pressing Enter will modify it.  If this is not your intention, please press ESC to abort." 14 50
-if [ $? -eq 255 ] 
-then
-clear
-exit
-fi
-fi
-clear
 
 ubversion="$(cat /etc/issue | awk '{print $2}')"
 if [ "$ExistingSystem" = "0" ]  # Only if this is not an existing installation
