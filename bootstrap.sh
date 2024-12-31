@@ -1,6 +1,6 @@
 #!/bin/bash
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
-# curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/ub24_Test7/bootstrap.sh | bash
+# curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/ub24_Test8/bootstrap.sh | bash
 
 echo 
 echo "Bootstrapping the installation files - JamOrHam - Navid200"
@@ -28,11 +28,25 @@ then
 This bootstrap is intended for Ubuntu 24.  You are running it on a different version of Ubuntu.  If you intend to update your setup, there is a different recommended approach.  Please contact us for more information at https://github.com/NightscoutFoundation/xDrip/discussions." 15 50
   exit
 fi
+
+clear
+dialog --colors --ok-label "       \Zr Developed by the xDrip team \Zn\n\n\
+The script you are running, \"bootstrap\", is designed to initiate an installation. However, the file system does not appear to be empty.\n\n\  
+This software and its associated online instructions are provided “as is,” without any warranties, express or implied. By using this software, you accept full responsibility and assume all risks associated with its use.\n\n\
+The developers and contributors shall not be held liable for any damages, losses, or other consequences arising from the use of this software or its documentation.\n\n\
+Before using this software, consult a qualified healthcare professional to determine its suitability for your specific needs.\n\n\
+I understand and agree." 24 50
+if [ $? -eq 255 ] || [ $? = 1 ]
+then
+clear
+exit
+fi
+
 clear
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
 The script you are running, \"bootstrap\", is designed to initiate an installation. However, the file system does not appear to be empty.\n\n\  
 If an installation already exists on this machine, pressing Enter will modify it.  If this is not your intention, please press ESC to abort." 14 50
-if [ $? -eq 255 ]
+if [ $? -eq 255 ] 
 then
 clear
 exit
@@ -72,7 +86,7 @@ ls > /tmp/repo
 sudo mv -f /tmp/repo .    # The repository name is now in /srv/repo
 cd "$(< repo)"
 #sudo git checkout vps-1  # ✅✅✅✅✅ Main - Uncomment before PR.
-sudo git checkout ub24_Test7  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
+sudo git checkout ub24_Test8  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
 
 sudo git branch > /tmp/branch
 grep "*" /tmp/branch | awk '{print $2}' > /tmp/brnch
