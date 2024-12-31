@@ -42,7 +42,7 @@ fi
 clear
 
 clear
-dialog --colors --ok-label "       \Zr Developed by the xDrip team \Zn\n\n\
+dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
 The script you are running, \"bootstrap\", is designed to initiate an installation. However, the file system does not appear to be empty.\n\n\  
 This software and its associated online instructions are provided “as is,” without any warranties, express or implied. By using this software, you accept full responsibility and assume all risks associated with its use.\n\n\
 The developers and contributors shall not be held liable for any damages, losses, or other consequences arising from the use of this software or its documentation.\n\n\
