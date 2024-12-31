@@ -17,10 +17,8 @@ echo
 sudo apt-get update
 sudo apt-get install dialog
 
-ExistingSystem=0
-if [ ! -z "$(ls /srv)" ]
-then
-ExistingSystem=1
+ubversion="$(cat /etc/issue | awk '{print $2}')"
+
 if  [ ! "$ubversion" = "24."* ]
 then
   clear
@@ -28,6 +26,12 @@ then
 This bootstrap is intended for Ubuntu 24.  You are running it on a different version of Ubuntu.  If you intend to update your setup, there is a different recommended approach.  Please contact us for more information at https://github.com/NightscoutFoundation/xDrip/discussions." 15 50
   exit
 fi
+
+ExistingSystem=0
+if [ ! -z "$(ls /srv)" ]
+then
+ExistingSystem=1
+
 clear
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
 The script you are running, \"bootstrap\", is designed to initiate an installation. However, the file system does not appear to be empty.\n\n\  
@@ -50,7 +54,6 @@ clear
 exit
 fi
 
-ubversion="$(cat /etc/issue | awk '{print $2}')"
 if [ "$ExistingSystem" = "0" ]  # Only if this is not an existing installation
 then
   if [[ ! "$ubversion" = "24.04"* ]] || [[ ! "$(which vi)" = "" ]] # If the selected version of ubuntu is not what we want or if the main version has been installed instead of minimal
