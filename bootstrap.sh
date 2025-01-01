@@ -54,9 +54,9 @@ clear
 exit
 fi
 
-if [ "$ExistingSystem" = "0" ]  # Only if this is not an existing installation
+if [[ "$ExistingSystem" == "0" ]]  # Only if this is not an existing installation
 then
-  if [[ ! "$ubversion" = "24.04"* ]] || [[ ! "$(which vi)" = "" ]] # If the selected version of ubuntu is not what we want or if the main version has been installed instead of minimal
+  if [[ ! "$ubversion" == "24.04"* ]] || [[ ! "$(which vi)" = "" ]] # If the selected version of ubuntu is not what we want or if the main version has been installed instead of minimal
   then
     clear
     dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
