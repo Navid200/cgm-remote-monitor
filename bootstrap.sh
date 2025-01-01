@@ -34,7 +34,7 @@ ExistingSystem=1
 
 clear
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-The script you are running, \"bootstrap\", is designed to initiate an installation. However, the file system does not appear to be empty.\n\n\  
+The script you are running, \"bootstrap\", is designed to initiate an installation. However, the file system does not appear to be empty.\n\n  
 If an installation already exists on this machine, pressing Enter will modify it.  If this is not your intention, please press ESC to abort." 14 50
 if [ $? -eq 255 ]
 then
