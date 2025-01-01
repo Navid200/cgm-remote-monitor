@@ -48,7 +48,7 @@ This software and its associated online instructions are provided “as is,” w
 The developers and contributors shall not be held liable for any damages, losses, or other consequences arising from the use of this software or its documentation.\n\n\
 Before using this software, consult a qualified healthcare professional to determine its suitability for your specific needs.\n\n\
 I understand and agree." 24 62
-if [ $? -eq 255 ] || [ $? = 1 ]
+if [ $? -eq 255 ] || [ $? -eq 1 ]
 then
 clear
 exit
