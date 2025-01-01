@@ -17,9 +17,9 @@ echo
 sudo apt-get update
 sudo apt-get install dialog
 
-ubversion="$(cat /etc/issue | awk '{print $2}')"
+ubversion="$echo {(cat /etc/issue | awk '{print $2}')%%.*}"
 
-if  [ ! "$ubversion" = "24."* ]
+if  [[ ! "$ubversion" = "24."* ]]
 then
   clear
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
