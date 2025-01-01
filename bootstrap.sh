@@ -56,17 +56,18 @@ This software and its associated online instructions are provided “as is,” w
 The developers and contributors shall not be held liable for any damages, losses, or other consequences arising from the use of this software or its documentation.\n\n\
 Before using this software, consult a qualified healthcare professional to determine its suitability for your specific needs.\n\n\
 I understand and agree." 24 62
-if [ $? -eq 255 ] || [ $? -eq 1 ]
+response=$?
+if [ $response = 255 ] || [ $response = 1 ]
 then
-clear
-exit
+  clear
+  exit
 fi
 
   sudo apt-get install -y  git 
 
 if [ ! -s /xDrip ]
 then
-sudo mkdir /xDrip
+  sudo mkdir /xDrip
 fi
 cd /xDrip
 sudo rm -rf scripts
@@ -98,7 +99,7 @@ sudo mv -f /tmp/username ../. # The username is now in /srv/username
 
 if [ ! -s update_scripts.sh ]
 then
-echo "UNABLE TO DOWNLOAD update_scripts SCRIPT! - cannot continue - please try again!"
+  echo "UNABLE TO DOWNLOAD update_scripts SCRIPT! - cannot continue - please try again!"
 exit 5
 fi
 
