@@ -47,7 +47,7 @@ dialog --colors --yesno "       \Zr Developed by the xDrip team \Zn\n\n\
 This software and its associated online instructions are provided “as is,” without any warranties, express or implied. By using this software, you accept full responsibility and assume all risks associated with its use.\n\n\
 The developers and contributors shall not be held liable for any damages, losses, or other consequences arising from the use of this software or its documentation.\n\n\
 Before using this software, consult a qualified healthcare professional to determine its suitability for your specific needs.\n\n\
-I understand and agree." 23 50
+I understand and agree." 22 50
 if [ $? -eq 255 ] || [ $? = 1 ]
 then
 clear
