@@ -1,6 +1,6 @@
 #!/bin/bash
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
-# curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/ub24_Test9/bootstrap.sh | bash
+# curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/ub22_Test10/bootstrap.sh | bash
 
 echo 
 echo "Bootstrapping the installation files - JamOrHam - Navid200"
@@ -19,11 +19,11 @@ sudo apt-get install dialog
 
 ubversion="$(cat /etc/issue | awk '{print $2}')"
 
-if  [[ ! "$ubversion" == "24."* ]]
+if  [[ ! "$ubversion" == "22."* ]]
 then
   clear
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-This bootstrap is intended for Ubuntu 24.  You are running it on a different version of Ubuntu.  If you intend to update your setup, there is a different recommended approach.  Please contact us for more information at https://github.com/NightscoutFoundation/xDrip/discussions." 15 50
+This bootstrap is intended for Ubuntu 22.  You are running it on a different version of Ubuntu.  If you intend to update your setup, there is a different recommended approach.  Please contact us for more information at https://github.com/NightscoutFoundation/xDrip/discussions." 15 50
   exit
 fi
 
@@ -43,7 +43,7 @@ exit
 fi
 fi
 
-if [[ ! "$ubversion" == "24.04"* ]] || [[ ! "$(which vi)" == "" ]] # If the selected version of ubuntu is not what we want or if the main version has been installed instead of minimal
+if [[ ! "$ubversion" == "22.04"* ]] || [[ ! "$(which vi)" == "" ]] # If the selected version of ubuntu is not what we want or if the main version has been installed instead of minimal
 then
   clear
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
@@ -76,14 +76,14 @@ sudo mkdir scripts
 
 cd /srv
 sudo rm -rf *
-sudo git clone https://github.com/jamorham/nightscout-vps.git  # ✅✅✅✅✅ Main - Uncomment before PR.
-#sudo git clone https://github.com/Navid200/cgm-remote-monitor.git  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
+#sudo git clone https://github.com/jamorham/nightscout-vps.git  # ✅✅✅✅✅ Main - Uncomment before PR.
+sudo git clone https://github.com/Navid200/cgm-remote-monitor.git  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
 
 ls > /tmp/repo
 sudo mv -f /tmp/repo .    # The repository name is now in /srv/repo
 cd "$(< repo)"
-sudo git checkout vps-2  # ✅✅✅✅✅ Main - Uncomment before PR.
-#sudo git checkout ub24_Test9  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
+#sudo git checkout vps-2  # ✅✅✅✅✅ Main - Uncomment before PR.
+sudo git checkout ub22_Test10  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
 
 sudo git branch > /tmp/branch
 grep "*" /tmp/branch | awk '{print $2}' > /tmp/brnch
