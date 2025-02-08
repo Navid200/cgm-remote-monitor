@@ -50,11 +50,14 @@ then
   echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
   echo "mongodb-org-tools hold" | sudo dpkg --set-selections
 
+  /xDrip/scripts/AddLog.sh "Starting mongod" /xDrip/Logs
   sudo systemctl start mongod
+  sleep 5
   sudo systemctl enable mongod
 
   # Create mongo user and admin.
   echo -e "use Nightscout\ndb.createUser({user: \"username\", pwd: \"password\", roles:[\"readWrite\"]})\nquit()" | mongosh
+  sleep 5
   echo -e "use admin\ndb.createUser({ user: \"mongoadmin\" , pwd: \"mongoadmin\", roles: [\"userAdminAnyDatabase\", \"dbAdminAnyDatabase\", \"readWriteAnyDatabase\"]})\nquit()" | mongosh
 
 fi
