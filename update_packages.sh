@@ -53,9 +53,6 @@ sudo apt-get install nodejs -y
 sudo npm install -g npm@6.14.18
 fi
 
-sudo systemctl start mongod
-sudo systemctl enable mongod
-
 # Add log
 /xDrip/scripts/AddLog.sh "The packages have been installed" /xDrip/Logs
 
