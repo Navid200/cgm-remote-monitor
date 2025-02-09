@@ -41,6 +41,9 @@ then
   echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
   echo "mongodb-org-tools hold" | sudo dpkg --set-selections
 
+  systemctl start mongod
+  systemctl enable mongod
+
 fi
 
 # node - We install version 16 of node here, which automatically  updates npm to 8.
