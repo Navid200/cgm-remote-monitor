@@ -42,6 +42,7 @@ service nginx start
 
 systemctl daemon-reload
 systemctl start mongod
+systemctl enable mongod
 
 echo
 echo "Setting up startup service"
