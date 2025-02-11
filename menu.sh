@@ -19,7 +19,8 @@ Press Enter to execute the highlighted option.\n\n" 18 50 8\
  "5" "xDrip setup"\
  "6" "Data"\
  "7" "Reboot server (Nightscout)"\
- "8" "Exit to shell (terminal)"\
+ "8" "Support"\
+ "9" "Exit to shell (terminal)"\
  3>&1 1>&2 2>&3)
 
  clear
@@ -64,6 +65,19 @@ fi
 ;;
 
 8)
+clear
+dialog --colors --infobox "                      \Zr Developed by the xDrip team \Zn\n\n\n\
+Copy the hyperlink below without using CTRL+C and paste it into your web browser.\n\n\
+FAQ: \Z1 https://navid200.github.io/xDrip/docs/Nightscout/GCNS/FAQ.html \Zn\n\n\
+Troubleshooting:  \Z1 https://navid200.github.io/xDrip/docs/Nightscout/GCNS/Troubleshooting.html \Zn\n\n\
+Contact us: \Z1 https://github.com/NightscoutFoundation/xDrip/discussions \Zn\n\n\n\
+Press any key to return to the main menu." 17 80
+tput civis
+read -p "" -n1 -s
+tput cnorm
+;;
+
+9)
 cd /tmp
 clear
 dialog --colors --msgbox "        \Zr Developed by the xDrip team \Zn\n\n\
