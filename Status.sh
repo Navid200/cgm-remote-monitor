@@ -233,6 +233,9 @@ Hostname:  $HOSTNAME\n\
 API_SECRET: $apisec\n\n\
 FreeDNS User ID: $freedns_id\n\
 FreeDNS password: $freedns_pass" 13 50
+tput civis
+read -p "" -n1 -s
+tput cnorm
 ;;
 esac
 
