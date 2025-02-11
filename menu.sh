@@ -67,7 +67,7 @@ fi
 8)
 clear
 dialog --colors --infobox "                      \Zr Developed by the xDrip team \Zn\n\n\n\
-Press any key to return to the main menu." 17 80
+Press any key to return to the main menu." 8 50
 
 #Copy the hyperlink below without using CTRL+C and paste it into your web browser.\n\n\
 
