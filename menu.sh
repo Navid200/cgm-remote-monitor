@@ -8,7 +8,7 @@ while :
 do
 
 clear
-Choice=$(dialog --colors --nocancel --nook --menu "\
+Choice=$(dialog --colors --nocancel --help-button --item-help --menu "\
         \Zr Developed by the xDrip team \Zn\n\n
 Use the arrow keys to move the cursor.\n\
 Press Enter to execute the highlighted option.\n\n" 19 50 9\
