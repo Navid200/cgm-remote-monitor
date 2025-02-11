@@ -66,12 +66,11 @@ fi
 
 8)
 clear
-dialog --colors --infobox "       \Zr Developed by the xDrip team \Zn\n\n" 6 50
+dialog --colors --infobox "       \Zr Developed by the xDrip team \Zn\n\n" 3 50
 
 #Copy the hyperlink below without using CTRL+C and paste it into your web browser.\n\n\
 
 tput civis
-printf '          Developed by the xDrip team\n\n'
 printf '                 Support\n\n\n'
 printf '>  \e]8;;https://navid200.github.io/xDrip/docs/Nightscout/GCNS/Tips.html\e\\Tips\e]8;;\e\\\n'
 echo ""
