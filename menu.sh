@@ -69,7 +69,7 @@ clear
 dialog --colors --infobox "       \Zr Developed by the xDrip team \Zn\n\n\
                  Support\n\n\n\
 Click on links above to access corresponding support pages.\n\n\
-Press any key to return to the main menu." 14 50
+Press any key to return to the main menu." 12 50
 
 #Copy the hyperlink below without using CTRL+C and paste it into your web browser.\n\n\
 
