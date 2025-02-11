@@ -74,14 +74,15 @@ Press any key to return to the main menu." 12 50
 #Copy the hyperlink below without using CTRL+C and paste it into your web browser.\n\n\
 
 tput civis
+printf '                                                                                  '
 printf '>  \e]8;;https://navid200.github.io/xDrip/docs/Nightscout/GCNS/Tips.html\e\\Tips   \e]8;;\e\\\n'
-echo ""
+printf '                                                                                  '
 printf '>  \e]8;;https://navid200.github.io/xDrip/docs/Nightscout/GCNS/FAQ.html\e\\FAQ   \e]8;;\e\\\n'
-echo ""
+printf '                                                                                  '
 printf '>  \e]8;;https://navid200.github.io/xDrip/docs/Nightscout/GCNS/Troubleshooting.html\e\\Troubleshooting   \e]8;;\e\\\n'
-echo ""
+printf '                                                                                  '
 printf '>  \e]8;;https://github.com/NightscoutFoundation/xDrip/discussions\e\\Contact us   \e]8;;\e\\\n\n\n'
-echo ""
+printf '                                                                                  '
 read -p "" -n1 -s
 tput cnorm
 
