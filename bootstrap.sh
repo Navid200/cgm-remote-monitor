@@ -47,7 +47,7 @@ if [[ ! "$ubversion" == "24.04"* ]] || [[ ! "$(which tbl)" == "" ]] # If the sel
 then
   clear
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-The Ubuntu install option is incorrect. Please refer to the guide for detailed instructions." 9 50  
+The Ubuntu installation option is incorrect. Please refer to the guide for detailed instructions." 9 50  
   exit
 fi 
 
