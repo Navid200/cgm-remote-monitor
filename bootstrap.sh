@@ -47,7 +47,7 @@ if [[ ! "$ubversion" == "24.04"* ]] || [[ ! "$(which vi)" == "" ]] # If the sele
 then
   clear
   dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-The Ubuntu version on the virtual machine is incorrect. You will need to delete the virtual machine and create a new one. Please refer to the guide for detailed instructions." 10 50  
+The Ubuntu install option is incorrect. Please refer to the guide for detailed instructions." 9 50  
   exit
 fi 
 
