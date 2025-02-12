@@ -31,7 +31,7 @@ Press Enter to execute the highlighted option.\n\n" 18 50 8\
    tput civis
    printf '\e[1;44m%-6s\e[m' 
    printf '\n'
-   printf ' ' 'dd\n'
+   printf '\e[1;44m%-6s\e[m' 'dd \n'
    printf '     Developed by the xDrip team        \n'
    printf '                                        \n'
    printf ' Click on the links below to access     \n the corresponding support pages.       \n'
