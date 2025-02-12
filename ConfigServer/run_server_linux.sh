@@ -39,6 +39,29 @@ CERT_LOCATION="/etc/letsencrypt/live/"$HOSTNAME
 
 echo
 echo PLEASE CONNECT TO https://$HOSTNAME:3389/variables?token=$ENV_TOKEN
+ tput civis
+   printf '\e[1;44m%-6s\e[m' 
+   printf '\n'
+   printf '\e[1;44m%-6s\e[m' " "
+   printf '                                     \n'
+   printf '\e[1;44m%-6s\e[m' " "
+   printf '     Developed by the xDrip team     \n'
+   printf '\e[1;44m%-6s\e[m' " "
+   printf '                                     \n'
+   printf '\e[1;44m%-6s\e[m' " "
+   printf ' Click on the links below to access  \n'
+   printf '\e[1;44m%-6s\e[m' " "
+   printf ' the corresponding support pages.    \n'
+   printf '\e[1;44m%-6s\e[m' " "
+   printf '                                     \n'
+   printf '\e[1;44m%-6s\e[m' " "
+   printf '                                     \n'
+   printf '\e[1;44m%-6s\e[m' " "
+   printf '   \e]8;;https://github.com/NightscoutFoundation/xDrip/discussions\e\\ Contact us \e]8;;\e\\                      \n'
+   printf '\e[1;44m%-6s\e[m' " "
+   printf '                                     \n'
+   read -p "" -n1 -s
+   tput cnorm
 echo "The server will run for 15 minutes, and after that will stop (if not used). Press ctrl C to stop it before that."
 echo
 
