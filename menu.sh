@@ -29,15 +29,15 @@ Press Enter to execute the highlighted option.\n\n" 18 50 8\
    dialog --colors --infobox "Press any key to return to the main menu." 4 50
 
    tput civis
-   printf '       Developed by the xDrip team                      \n'
+   printf '       Developed by the xDrip team                 \n\n'
    printf ' Click on the links below to access          \n the corresponding support pages.   \n'
-   printf '                                                                \n'
+   printf '                                                      \n'
    printf '>  \e]8;;https://navid200.github.io/xDrip/docs/Nightscout/GCNS/Tips.html\e\\  Tips              \e]8;;\e\\                    \n'
-   printf '                                                                \n'
+   printf '                                                      \n'
    printf '>  \e]8;;https://navid200.github.io/xDrip/docs/Nightscout/GCNS/FAQ.html\e\\  FAQ               \e]8;;\e\\                    \n'
-   printf '                                                                 \n'
+   printf '                                                       \n'
    printf '>  \e]8;;https://navid200.github.io/xDrip/docs/Nightscout/GCNS/Troubleshooting.html\e\\  Troubleshooting   \e]8;;\e\\          \n'
-   printf '                                                                 \n'
+   printf '                                                       \n'
    printf '>  \e]8;;https://github.com/NightscoutFoundation/xDrip/discussions\e\\  Contact us        \e]8;;\e\\                         \n'
    printf '                                                        \n'
    read -p "" -n1 -s
