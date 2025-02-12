@@ -37,8 +37,12 @@ export KILL_AFTER_IDLE_TIME=900
 
 CERT_LOCATION="/etc/letsencrypt/live/"$HOSTNAME
 
+printfVar = "https://$HOSTNAME:3389/variables?token=$ENV_TOKEN"
+echo "$printfVar"
+
 echo
 echo PLEASE CONNECT TO https://$HOSTNAME:3389/variables?token=$ENV_TOKEN
+
  tput civis
    printf '\e[1;44m%-6s\e[m' 
    printf '\n'
