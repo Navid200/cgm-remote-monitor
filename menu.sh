@@ -26,7 +26,7 @@ Press Enter to execute the highlighted option.\n\n" 18 50 8\
  if [ $response = 2 ] # Help
  then
    clear
-   dialog --colors --no-shadow --infobox "Press any key to return to the main menu." 3 48
+   dialog --colors --no-shadow --infobox "Press any key to return to the main menu." 3 46
 
    tput civis
    printf '\e[1;44m%-6s\e[m' 
