@@ -23,6 +23,10 @@ Press Enter to execute the highlighted option.\n\n" 19 50 9\
  "9" "Exit to shell (terminal)"\
  3>&1 1>&2 2>&3)
 
+ response=$?
+ echo "$response"
+ sleep 2
+
  clear
 
 case $Choice in
