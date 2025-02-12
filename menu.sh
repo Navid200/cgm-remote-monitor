@@ -24,8 +24,27 @@ Press Enter to execute the highlighted option.\n\n" 19 50 9\
  3>&1 1>&2 2>&3)
 
  response=$?
- echo "$response"
- sleep 2
+ if [ $response = 2 ] # Help
+ then
+   clear
+   dialog --colors --infobox "       \Zr Developed by the xDrip team \Zn\n\n\
+                 SUPPORT\n\n\
+   Click on links above to access corresponding support pages.\n\n\n\
+   Press any key to return to the main menu." 12 50
+
+   tput civis
+   printf '                       \n'
+   printf '>  \e]8;;https://navid200.github.io/xDrip/docs/Nightscout/GCNS/Tips.html\e\\  Tips              \e]8;;\e\\\n'
+   printf '                       \n'
+   printf '>  \e]8;;https://navid200.github.io/xDrip/docs/Nightscout/GCNS/FAQ.html\e\\  FAQ               \e]8;;\e\\\n'
+   printf '                       \n'
+   printf '>  \e]8;;https://navid200.github.io/xDrip/docs/Nightscout/GCNS/Troubleshooting.html\e\\  Troubleshooting   \e]8;;\e\\\n'
+   printf '                       \n'
+   printf '>  \e]8;;https://github.com/NightscoutFoundation/xDrip/discussions\e\\  Contact us        \e]8;;\e\\\n'
+   printf '                       \n'
+   read -p "" -n1 -s
+   tput cnorm
+ fi
 
  clear
 
