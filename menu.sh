@@ -29,6 +29,9 @@ Press Enter to execute the highlighted option.\n\n" 18 50 8\
    dialog --colors --no-shadow --infobox "Press any key to return to the main menu." 3 48
 
    tput civis
+   blue=$(tput setaf 4)
+   normal=$(tput sgr0)
+   printf '${blue} Blue \n'
    printf '     Developed by the xDrip team        \n'
    printf '                                        \n'
    printf ' Click on the links below to access     \n the corresponding support pages.       \n'
