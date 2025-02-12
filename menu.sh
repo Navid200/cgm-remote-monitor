@@ -29,8 +29,8 @@ Press Enter to execute the highlighted option.\n\n" 18 50 8\
    dialog --colors --infobox "Press any key to return to the main menu." 5 50
 
    tput civis
-   Printf 'Developed by the xDrip team \n'
-   printf 'Click on the links below to access the corresponding support pages.\n'
+   printf '                    Developed by the xDrip team \n'
+   printf '  Click on the links below to access the corresponding support pages.\n'
    printf '                       \n'
    printf '>  \e]8;;https://navid200.github.io/xDrip/docs/Nightscout/GCNS/Tips.html\e\\  Tips              \e]8;;\e\\\n'
    printf '                       \n'
