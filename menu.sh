@@ -42,6 +42,8 @@ Press Enter to execute the highlighted option.\n\n" 18 50 8\
    printf '\e[1;44m%-6s\e[m' " "
    printf '                                        \n'
    printf '\e[1;44m%-6s\e[m' " "
+   printf '                                        \n'
+   printf '\e[1;44m%-6s\e[m' " "
    printf '   \e]8;;https://navid200.github.io/xDrip/docs/Nightscout/GCNS/Tips.html\e\\  Tips   \e]8;;\e\\                            \n'
    printf '\e[1;44m%-6s\e[m' " "
    printf '                                        \n'
