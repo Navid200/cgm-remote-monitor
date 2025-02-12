@@ -27,9 +27,8 @@ Press Enter to execute the highlighted option.\n\n" 18 50 8\
  then
    clear
    dialog --colors --infobox "       \Zr Developed by the xDrip team \Zn\n\n\
-                 SUPPORT\n\n\
    Click on links above to access corresponding support pages.\n\n\n\
-   Press any key to return to the main menu." 12 50
+   Press any key to return to the main menu." 10 50
 
    tput civis
    printf '                       \n'
