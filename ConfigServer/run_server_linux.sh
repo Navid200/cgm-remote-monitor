@@ -37,7 +37,7 @@ export KILL_AFTER_IDLE_TIME=900
 
 CERT_LOCATION="/etc/letsencrypt/live/"$HOSTNAME
 
-printfVar = "https://$HOSTNAME:3389/variables?token=$ENV_TOKEN"
+export printfVar = "https://$HOSTNAME:3389/variables?token=$ENV_TOKEN"
 echo "$printfVar"
 
 echo
