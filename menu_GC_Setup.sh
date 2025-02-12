@@ -48,7 +48,7 @@ else
   /xDrip/scripts/StartUpSetup.sh
   clear
   dialog --colors --msgbox "        \Zr Developed by the xDrip team \Zn\n\n\
-Close this terminal to complete updates." 7 50
+Close this SSH window to complete updates." 7 50
 fi
 ;;
 
