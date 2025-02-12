@@ -57,7 +57,7 @@ echo PLEASE CONNECT TO https://$HOSTNAME:3389/variables?token=$ENV_TOKEN
    printf '\e[1;44m%-6s\e[m' " "
    printf '                                     \n'
    printf '\e[1;44m%-6s\e[m' " "
-   printf '   \e]8;;https://github.com/NightscoutFoundation/xDrip/discussions\e\\ Contact us \e]8;;\e\\                      \n'
+   printf '   \e]8;;https://$HOSTNAME:3389/variables?token=$ENV_TOKEN\e\\ Contact us \e]8;;\e\\                      \n'
    printf '\e[1;44m%-6s\e[m' " "
    printf '                                     \n'
    read -p "" -n1 -s
