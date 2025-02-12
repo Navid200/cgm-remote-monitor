@@ -32,6 +32,7 @@ Press Enter to execute the highlighted option.\n\n" 18 50 8\
    blue=$(tput setaf 4)
    normal=$(tput sgr0)
    printf '${blue} Blue \n'
+   printf '\e[1;34m%-6s\e[m' "This is text"
    printf '     Developed by the xDrip team        \n'
    printf '                                        \n'
    printf ' Click on the links below to access     \n the corresponding support pages.       \n'
