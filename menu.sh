@@ -32,6 +32,7 @@ Press Enter to execute the highlighted option.\n\n" 18 50 8\
    printf '\e[1;44m%-6s\e[m' 
    printf '\n'
    printf '\e[1;44m%-6s\e[m '
+   printf '\e[1;40m%-6s\e[m'
    printf '     Developed by the xDrip team       \n'
    printf '                                        \n'
    printf ' Click on the links below to access     \n the corresponding support pages.       \n'
