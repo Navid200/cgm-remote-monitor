@@ -67,6 +67,8 @@ clear
 #   printf '                                     \n'
 #   printf '\e[1;44m%-6s\e[m' " "
 # printf 'Click on the following link to open a web page for editing variables.\n'
+printf '\e[1;44m%-6s\e[m' 
+printf '\n'
 printf '\e[1;44m%-6s\e[m' " "
 printf '                                                                   \n'
 printf '\e[1;44m%-6s\e[m' " "
