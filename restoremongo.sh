@@ -39,10 +39,10 @@ then
       tar -xf $File -C /tmp/.
       cd /tmp
       clear
-      Choice=$(dialog --colors --nocancel --nook --menu "\
+      Choice=$(dialog --colors --nocancel --nook --menu '\
         \Zr Developed by the xDrip team \Zn\n\n\
 Click OK or press Enter to select the highlighted option.\n\n\
-Restoring variables will overwriteecho -e "\e[1mbold\e[0m"API_SECRET." 16 50 4\
+Restoring variables will overwriteecho -e "\e[1mbold\e[0m"API_SECRET.' 16 50 4\
  "1" "Restore MongoDB only"\
  "2" "Restore variables only"\
  "3" "Restore MongoDB and variables"\
