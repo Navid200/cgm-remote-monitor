@@ -43,6 +43,7 @@ echo
 # echo PLEASE CONNECT TO https://$HOSTNAME:3389/variables?token=$ENV_TOKEN
 
 echo PLEASE CONNECT TO "$printfVar"
+echo env_token is: "$ENV_TOKEN"
 
 # export printfVar="https://$HOSTNAME:3389/variables?token=$ENV_TOKEN"
 # echo "$printfVar"
