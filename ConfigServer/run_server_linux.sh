@@ -24,6 +24,8 @@ export NS_CONFIG_FILE=/etc/nsconfig
 export SCRIPT_DIR=$( dirname -- "$0"; )
 export APP_JSON_FILE=$SCRIPT_DIR/app.json
 
+export printfVar="https://$HOSTNAME:3389/variables?token=$ENV_TOKEN"
+
 if test -f "/etc/free-dns.sh"; then
 . /etc/free-dns.sh
 else
@@ -38,7 +40,9 @@ export KILL_AFTER_IDLE_TIME=900
 CERT_LOCATION="/etc/letsencrypt/live/"$HOSTNAME
 
 echo
-echo PLEASE CONNECT TO https://$HOSTNAME:3389/variables?token=$ENV_TOKEN
+# echo PLEASE CONNECT TO https://$HOSTNAME:3389/variables?token=$ENV_TOKEN
+
+echo PLEASE CONNECT TO "$printfVar"
 
 # export printfVar="https://$HOSTNAME:3389/variables?token=$ENV_TOKEN"
 # echo "$printfVar"
