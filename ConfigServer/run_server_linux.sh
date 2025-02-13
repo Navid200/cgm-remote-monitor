@@ -48,7 +48,7 @@ CERT_LOCATION="/etc/letsencrypt/live/"$HOSTNAME
 clear
    dialog --colors --no-shadow --infobox "Press ENTER to return to the main menu." 3 46
 
-tput civis
+# tput civis
 
 printf '\e[1;44m%-6s\e[m' 
 printf '\n'
@@ -74,8 +74,8 @@ printf '\e[1;44m%-6s\e[m' " "
 printf '                                                                   \n'
 
 
-read -p "" -n1 -s
-tput cnorm
+# read -p "" -n1 -s
+# tput cnorm
 # echo "The server will run for 15 minutes, and after that will stop (if not used). Press ctrl C to stop it before that."
 # echo
 
