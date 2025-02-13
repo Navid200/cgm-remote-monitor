@@ -1,4 +1,4 @@
-#!/bin/bash
+ho #!/bin/bash
 if [ "`id -u`" != "0" ]
 then
 echo "Script needs root - pleass run sudo ./run_server_linux.sh"
