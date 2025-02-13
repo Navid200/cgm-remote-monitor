@@ -48,33 +48,16 @@ CERT_LOCATION="/etc/letsencrypt/live/"$HOSTNAME
 clear
    dialog --colors --no-shadow --infobox "Press ENTER to return to the main menu." 3 46
 
-# tput civis
-#   printf '\e[1;44m%-6s\e[m' 
-#   printf '\n'
-#   printf '\e[1;44m%-6s\e[m' " "
-#   printf '                                     \n'
-#   printf '\e[1;44m%-6s\e[m' " "
-#   printf '     Developed by the xDrip team     \n'
-#   printf '\e[1;44m%-6s\e[m' " "
-#   printf '                                     \n'
-#   printf '\e[1;44m%-6s\e[m' " "
-#   printf ' Click on the links below to access  \n'
-#   printf '\e[1;44m%-6s\e[m' " "
-#   printf ' the corresponding support pages.    \n'
-#   printf '\e[1;44m%-6s\e[m' " "
-#   printf '                                     \n'
-#   printf '\e[1;44m%-6s\e[m' " "
-#   printf '                                     \n'
-#   printf '\e[1;44m%-6s\e[m' " "
-# printf 'Click on the following link to open a web page for editing variables.\n'
+tput civis
+
 printf '\e[1;44m%-6s\e[m' 
 printf '\n'
 printf '\e[1;44m%-6s\e[m' " "
 printf '                                                                   \n'
 printf '\e[1;44m%-6s\e[m' " "
-printf '                                                                   \n'
-printf '\e[1;44m%-6s\e[m' " "
 printf '                    Developed by the xDrip team                    \n'
+printf '\e[1;44m%-6s\e[m' " "
+printf '                                                                   \n'
 printf '\e[1;44m%-6s\e[m' " "
 printf '                                                                   \n'
 printf '\e[1;44m%-6s\e[m' " "
@@ -90,12 +73,9 @@ printf '  Press Ctrl + C to stop it earlier.                               \n'
 printf '\e[1;44m%-6s\e[m' " "
 printf '                                                                   \n'
 
- #  printf 'Press any key to return to the main menu.\n'
-   
-#   printf '\e[1;44m%-6s\e[m' " "
-#   printf '                                     \n'
-#   read -p "" -n1 -s
-#   tput cnorm
+
+read -p "" -n1 -s
+tput cnorm
 # echo "The server will run for 15 minutes, and after that will stop (if not used). Press ctrl C to stop it before that."
 # echo
 
