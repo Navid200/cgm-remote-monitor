@@ -33,13 +33,13 @@ Click OK or press Enter to select the highlighted option.\n\n" 18 50 8\
    printf '\e[1;44m%-6s\e[m' " "
    printf '                                                    \n'
    printf '\e[1;44m%-6s\e[m' " "
-   printf '          Developed by the xDrip team               \n'
+   printf '           Developed by the xDrip team              \n'
    printf '\e[1;44m%-6s\e[m' " "
    printf '                                                    \n'
    printf '\e[1;44m%-6s\e[m' " "
-   printf ' Click the links below to access the corresponding \n'
+   printf ' Click the links below to access the corresponding  \n'
    printf '\e[1;44m%-6s\e[m' " "
-   printf ' support pages.                          \n'
+   printf ' support pages.                                     \n'
    printf '\e[1;44m%-6s\e[m' " "
    printf '                                                    \n'
    printf '\e[1;44m%-6s\e[m' " "
