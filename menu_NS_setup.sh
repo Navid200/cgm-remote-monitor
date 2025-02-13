@@ -26,7 +26,7 @@ case $Choice in
 ;;
 
 2)
-/xDrip/ConfigServer/run_server_linux.sh
+sudo /xDrip/ConfigServer/run_server_linux.sh
 #/xDrip/scripts/varserver.sh
 
 ;;
