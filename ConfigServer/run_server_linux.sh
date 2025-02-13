@@ -39,9 +39,6 @@ export KILL_AFTER_IDLE_TIME=900
 
 CERT_LOCATION="/etc/letsencrypt/live/"$HOSTNAME
 
-clear
-   dialog --colors --no-shadow --infobox "Press any key to return to the main menu." 3 46
-
 # echo PLEASE CONNECT TO https://$HOSTNAME:3389/variables?token=$ENV_TOKEN
 
 # echo "PLEASE CONNECT TO $printfVar"
