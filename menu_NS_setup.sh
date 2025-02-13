@@ -8,8 +8,7 @@ clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
         \Zr Developed by the xDrip team \Zn\
   \n\n
-Use the arrow keys to move the cursor.\n\
-Press Enter to execute the highlighted option.\n" 14 50 4\
+Click OK or press Enter to execute the highlighted option.\n" 13 50 4\
  "1" "Edit variables using a text editor"\
  "2" "Edit variables using a web browser"\
  "3" "Customize Nightscout"\
