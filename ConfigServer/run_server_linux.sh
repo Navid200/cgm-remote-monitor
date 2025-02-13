@@ -80,12 +80,15 @@ printf '                    Developed by the xDrip team                    \n'
 printf '\e[1;44m%-6s\e[m' " "
 printf '                                                                   \n'
 printf '\e[1;44m%-6s\e[m' " "
-   printf 'Click on this \e]8;;%s\e\\link\e]8;;\e\\ to open a web page for editing variables.\n' "$printfVar"
+   printf '  Click on this \e]8;;%s\e\\link\e]8;;\e\\ to open a web page for editing variables.     \n' "$printfVar"
    printf '\e[1;44m%-6s\e[m' " "
    printf '                                                                   \n'
    printf '\e[1;44m%-6s\e[m' " "
    printf '                                                                   \n'
-   printf 'The server will run for 15 minutes and then stop if not used. Press Ctrl + C to stop it earlier.\n\n\n\n'
+   printf '\e[1;44m%-6s\e[m' " "
+   printf '  The server will run for 15 minutes and then stop if not used.     \n'
+   printf '\e[1;44m%-6s\e[m' " "
+   printf 'Press Ctrl + C to stop it earlier.\n'
  #  printf 'Press any key to return to the main menu.\n'
    
 #   printf '\e[1;44m%-6s\e[m' " "
