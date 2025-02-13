@@ -30,7 +30,7 @@ else
 export HOSTNAME=$(ls /etc/letsencrypt/live | grep -v README)
 fi
 
-# export printfVar="https://$HOSTNAME:3389/variables?token=$ENV_TOKEN"
+export printfVar="https://$HOSTNAME:3389/variables?token=$ENV_TOKEN"
 
 python3 $SCRIPT_DIR/manage.py migrate  >> /tmp/variables_log 2>&1
 
@@ -42,9 +42,9 @@ CERT_LOCATION="/etc/letsencrypt/live/"$HOSTNAME
 
  echo PLEASE CONNECT TO https://$HOSTNAME:3389/variables?token=$ENV_TOKEN
 
-# echo "PLEASE CONNECT TO $printfVar"
-# echo "env_token is: $ENV_TOKEN"
-# echo "hostname: $HOSTNAME"
+ echo "PLEASE CONNECT TO $printfVar"
+ echo "env_token is: $ENV_TOKEN"
+ echo "hostname: $HOSTNAME"
 
 # export printfVar="https://$HOSTNAME:3389/variables?token=$ENV_TOKEN"
 # echo "$printfVar"
