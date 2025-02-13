@@ -74,8 +74,6 @@ printf '                                                                   \n'
 printf '\e[1;44m%-6s\e[m' " "
 printf '                                                                   \n'
 printf '\e[1;44m%-6s\e[m' " "
-printf '                                                                   \n'
-printf '\e[1;44m%-6s\e[m' " "
 printf '                    Developed by the xDrip team                    \n'
 printf '\e[1;44m%-6s\e[m' " "
 printf '                                                                   \n'
