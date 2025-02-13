@@ -46,10 +46,10 @@ CERT_LOCATION="/etc/letsencrypt/live/"$HOSTNAME
  echo "env_token is: $ENV_TOKEN"
  echo "hostname: $HOSTNAME"
 
- tput civis
-   printf '\e[1;44m%-6s\e[m' 
-   printf '\n'
-   printf '\e[1;44m%-6s\e[m' " "
+# tput civis
+#   printf '\e[1;44m%-6s\e[m' 
+#   printf '\n'
+#   printf '\e[1;44m%-6s\e[m' " "
 #   printf '                                     \n'
 #   printf '\e[1;44m%-6s\e[m' " "
 #   printf '     Developed by the xDrip team     \n'
@@ -64,11 +64,11 @@ CERT_LOCATION="/etc/letsencrypt/live/"$HOSTNAME
 #   printf '\e[1;44m%-6s\e[m' " "
 #   printf '                                     \n'
 #   printf '\e[1;44m%-6s\e[m' " "
-   printf '   \e]8;;%s\e\\ Link \e]8;;\e\\                      \n' "$printfVar"
+#   printf '   \e]8;;%s\e\\ Link \e]8;;\e\\                      \n' "$printfVar"
 #   printf '\e[1;44m%-6s\e[m' " "
 #   printf '                                     \n'
-   read -p "" -n1 -s
-   tput cnorm
+#   read -p "" -n1 -s
+#   tput cnorm
 echo "The server will run for 15 minutes, and after that will stop (if not used). Press ctrl C to stop it before that."
 echo
 
