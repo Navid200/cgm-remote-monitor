@@ -72,9 +72,7 @@ printf '\n'
 printf '\e[1;44m%-6s\e[m' " "
 printf '                                                                   \n'
 printf '\e[1;44m%-6s\e[m' " "
-printf '\e[1;44m%-6s\e[m' 
 printf '                                                                   \n'
-printf '\n'
 printf '\e[1;44m%-6s\e[m' " "
 printf '                                                                   \n'
 printf '\e[1;44m%-6s\e[m' " "
