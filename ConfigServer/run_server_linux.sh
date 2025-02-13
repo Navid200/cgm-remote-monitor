@@ -24,13 +24,13 @@ export NS_CONFIG_FILE=/etc/nsconfig
 export SCRIPT_DIR=$( dirname -- "$0"; )
 export APP_JSON_FILE=$SCRIPT_DIR/app.json
 
-export printfVar="https://$HOSTNAME:3389/variables?token=$ENV_TOKEN"
-
 if test -f "/etc/free-dns.sh"; then
 . /etc/free-dns.sh
 else
 export HOSTNAME=$(ls /etc/letsencrypt/live | grep -v README)
 fi
+
+export printfVar="https://$HOSTNAME:3389/variables?token=$ENV_TOKEN"
 
 python3 $SCRIPT_DIR/manage.py migrate  >> /tmp/variables_log 2>&1
 
@@ -44,6 +44,7 @@ echo
 
 echo PLEASE CONNECT TO "$printfVar"
 echo env_token is: "$ENV_TOKEN"
+echo hostname: "$HOSTNAME"
 
 # export printfVar="https://$HOSTNAME:3389/variables?token=$ENV_TOKEN"
 # echo "$printfVar"
