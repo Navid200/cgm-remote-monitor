@@ -41,8 +41,8 @@ then
       clear
       Choice=$(dialog --colors --nocancel --nook --menu "\
         \Zr Developed by the xDrip team \Zn\n\n\
-Use the arrow keys to move the cursor.\n\
-Press Enter to execute the highlighted option.\n" 14 50 4\
+Click OK or press Enter to select the highlighted option.\n\n\
+Restoring variables will overwrite `API_SECRET`." 15 50 4\
  "1" "Restore MongoDB only"\
  "2" "Restore variables only"\
  "3" "Restore MongoDB and variables"\
