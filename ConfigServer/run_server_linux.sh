@@ -46,7 +46,7 @@ CERT_LOCATION="/etc/letsencrypt/live/"$HOSTNAME
 # echo "hostname: $HOSTNAME"
 
 clear
-   dialog --colors --no-shadow --infobox "Press any key to return to the main menu." 3 46
+   dialog --colors --no-shadow --infobox "Press ENTER to return to the main menu." 3 46
 
 # tput civis
 #   printf '\e[1;44m%-6s\e[m' 
@@ -67,11 +67,13 @@ clear
 #   printf '                                     \n'
 #   printf '\e[1;44m%-6s\e[m' " "
 # printf 'Click on the following link to open a web page for editing variables.\n'
+printf '\e[1;44m%-6s\e[m' 
+printf '                                     \n'
 printf '\n'
    printf 'Click on this \e]8;;%s\e\\link\e]8;;\e\\ to open a web page for editing variables.\n' "$printfVar"
    printf '\n'
    printf 'The server will run for 15 minutes and then stop if not used. Press Ctrl + C to stop it earlier.\n\n\n\n'
-   printf 'Press any key to return to the main menu.\n'
+ #  printf 'Press any key to return to the main menu.\n'
    
 #   printf '\e[1;44m%-6s\e[m' " "
 #   printf '                                     \n'
