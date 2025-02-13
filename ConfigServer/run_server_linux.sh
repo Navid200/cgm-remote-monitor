@@ -64,18 +64,23 @@ CERT_LOCATION="/etc/letsencrypt/live/"$HOSTNAME
 #   printf '\e[1;44m%-6s\e[m' " "
 #   printf '                                     \n'
 #   printf '\e[1;44m%-6s\e[m' " "
+printf 'Click on the following link to open a web page for editing variables.\n'
    printf '   \e]8;;%s\e\\ Link \e]8;;\e\\                      \n' "$printfVar"
+   printf '\n'
+   printf 'Press any key to return to the main menu.'
+   printf 'The server will run for 15 minutes and then stop if not used. Press Ctrl + C to stop it earlier.'
+   
 #   printf '\e[1;44m%-6s\e[m' " "
 #   printf '                                     \n'
 #   read -p "" -n1 -s
 #   tput cnorm
-echo "The server will run for 15 minutes, and after that will stop (if not used). Press ctrl C to stop it before that."
-echo
+# echo "The server will run for 15 minutes, and after that will stop (if not used). Press ctrl C to stop it before that."
+# echo
 
 #python3 manage.py runserver 0.0.0.0:3389  >> /tmp/variables_log 2>&1
 python3 $SCRIPT_DIR/manage.py runserver_plus 0.0.0.0:3389 --cert-file $CERT_LOCATION/cert.pem --key-file $CERT_LOCATION/privkey.pem  >> /tmp/variables_log 2>&1 &
 
-echo press any key to return to the menu. The server will continue to run for 15 minutes until stoped.
+# echo press any key to return to the menu. The server will continue to run for 15 minutes until stoped.
 read
 
  
