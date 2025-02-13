@@ -45,6 +45,9 @@ CERT_LOCATION="/etc/letsencrypt/live/"$HOSTNAME
 # echo "env_token is: $ENV_TOKEN"
 # echo "hostname: $HOSTNAME"
 
+clear
+   dialog --colors --no-shadow --infobox "Press any key to return to the main menu." 3 46
+
 # tput civis
 #   printf '\e[1;44m%-6s\e[m' 
 #   printf '\n'
