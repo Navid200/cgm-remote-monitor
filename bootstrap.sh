@@ -6,6 +6,9 @@ echo
 echo "Bootstrapping the installation files - JamOrHam - Navid200"
 echo
 
+# List of packages installed here:
+# dialog    git
+
 # We run bootstrap as the first step of a fresh install.  But, we also run bootstrap on a complete system in order to switch repositories, or branches.
 # Running bootstrap on a complete system is destructive.  It deletes the contents of the /srv directory, some of which are written by Install Nightscout phase 1.
 # What makes this extremely dangerous is that running bootstrap on a working system does not result in a catastrophic failure!  The system remains operational
@@ -14,8 +17,8 @@ echo
 # Regardless, we need to remember this destructive nature of bootstrap.
 # One must always run Install Nightscout phase 1 after running bootstrap.
 
-sudo apt-get update
-sudo apt-get install dialog
+sudo apt-get -o DPkg::Lock::Timeout=30 update
+sudo apt-get -o DPkg::Lock::Timeout=30 install dialog
 
 ubversion="$(cat /etc/issue | awk '{print $2}')"
 
@@ -63,7 +66,7 @@ then
   exit
 fi
 
-  sudo apt-get install -y  git 
+  sudo apt-get -o DPkg::Lock::Timeout=30 install -y  git 
 
 if [ ! -s /xDrip ]
 then
