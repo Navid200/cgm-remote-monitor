@@ -4,6 +4,9 @@ echo
 echo "JamOrHam Nightscout Installer - Designed for Google Compute Minimal Ubuntu 20 micro instance"
 echo
 
+# List of packages installed here:
+# Nightscout
+
 if [ "`id -u`" != "0" ]
 then
 echo "Script needs root - use sudo bash NS_Install.sh"
@@ -33,8 +36,6 @@ swapon 2>/dev/null /var/SWAP
 
 # Please don't add any utility installs here.  Please instead, add them to update_packages.sh.
 /xDrip/scripts/update_packages.sh
-
-apt-get update
 
 # Create mongo user and admin.
 wait  # Wait for all background processes to complete
