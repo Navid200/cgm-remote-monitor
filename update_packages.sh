@@ -11,20 +11,20 @@ echo
 sudo snap set system refresh.retain=2
 
 # Let's upgrade packages if available and install the missing needed packages.
-sudo apt-get -o DPkg::Lock::Timeout=30 update
+sudo apt-get -o dpkg::lock::Timeout=120 update
 
 #Ubuntu upgrade available
 NextUbuntu="$(apt-get -s upgrade | grep 'Inst base' | awk '{print $4}' | sed 's/(//')"
 if [ "$NextUbuntu" = "13ubuntu10.2" ] # Only upgrade if we have tested the next release (24.04.2)
 then
-  sudo apt-get -o DPkg::Lock::Timeout=30 -y upgrade
+  sudo apt-get -o dpkg::lock::Timeout=120 -y upgrade
 fi
 
 # packages
 whichpack=$(which gpg)
 if [ "$whichpack" = "" ]
 then
-  sudo apt-get -o DPkg::Lock::Timeout=30 -y install jq net-tools gnupg
+  sudo apt-get -o dpkg::lock::Timeout=120 -y install jq net-tools gnupg
   # The last item on the above list of packages must be verified in Status.sh to have been installed.
 fi 
 
@@ -53,7 +53,7 @@ whichpack=$(node -v)
 if [ ! "${whichpack%%.*}" = "v16" ]
 then
 sudo /xDrip/scripts/nodesource_setup.sh
-sudo apt-get -o DPkg::Lock::Timeout=30 install nodejs -y
+sudo apt-get -o dpkg::lock::Timeout=120 install nodejs -y
 # Nightscout needs version 6 of npm.  So, we are going to install that version now effectivwely downgrading it.  
 sudo npm install -g npm@6.14.18
 fi
