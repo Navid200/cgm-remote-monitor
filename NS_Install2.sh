@@ -4,6 +4,9 @@ echo
 echo "Finalizing Nightscout installation"
 echo
 
+# List of packages installed here:
+# nginx    python3-certbot-nginx    inetutils-ping
+
 if [ "$(node -v)" = "" ] # If Node.js is not installed
 then
 clear
@@ -19,11 +22,11 @@ echo "Cannot continue.."
 exit 5
 fi
 
-apt-get update
 
 /xDrip/scripts/update_packages2.sh
 
-apt-get install -y nginx python3-certbot-nginx inetutils-ping
+apt-get -o DPkg::Lock::Timeout=30 update
+apt-get -o DPkg::Lock::Timeout=30 install -y nginx python3-certbot-nginx inetutils-ping
 
 if [ "`grep '.well-known' /etc/nginx/sites-enabled/default`" = "" ]
 then
