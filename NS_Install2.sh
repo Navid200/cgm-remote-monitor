@@ -25,8 +25,8 @@ fi
 
 /xDrip/scripts/update_packages2.sh
 
-apt-get -o DPkg::Lock::Timeout=30 update
-apt-get -o DPkg::Lock::Timeout=30 install -y nginx python3-certbot-nginx inetutils-ping
+apt-get -o dpkg::lock::Timeout=120 update
+apt-get -o dpkg::lock::Timeout=120 install -y nginx python3-certbot-nginx inetutils-ping
 
 if [ "`grep '.well-known' /etc/nginx/sites-enabled/default`" = "" ]
 then
