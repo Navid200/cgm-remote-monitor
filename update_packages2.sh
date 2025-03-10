@@ -9,14 +9,13 @@ echo
 
 # Let's upgrade packages if available and install the missing needed packages.
 /xDrip/scripts/wait_4_completion.sh
-apt-get -o dpkg::lock::Timeout=120 update
+apt-get update
 
 # packages
 whichpack=$(which file)
 if [ "$whichpack" = "" ]
 then
-  apt-get -o dpkg::lock::Timeout=120 -y install screen nano qrencode file vis lsb-release apt-transport-https ca-certificates bind9-dnsutils 
-  apt-get -o dpkg::lock::Timeout=120 -y install python3-pip
+  apt-get -y install screen nano qrencode file vis lsb-release apt-transport-https ca-certificates bind9-dnsutils python3-pip
   apt -y install python3-django python3-django-extensions python3-werkzeug python3-qrcode
 fi 
 
