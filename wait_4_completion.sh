@@ -1,8 +1,6 @@
 #!/bin/bash
 
-echo
-echo "Waiting for background processes to complete"
-echo
+# Waiting for background processes to complete
 
 ####### Keep this file synchronized with the marked contents of the bootstrap ###
 ####################### Wait for updates to complete
