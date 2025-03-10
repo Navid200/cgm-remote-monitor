@@ -92,7 +92,9 @@ sudo mkdir scripts
 
 cd /srv
 sudo rm -rf *
-echo "Please be patient."
+echo
+echo "     Please be patient."
+echo
 #sudo git clone https://github.com/jamorham/nightscout-vps.git  # ✅✅✅✅✅ Main - Uncomment before PR.
 sudo git clone https://github.com/Navid200/cgm-remote-monitor.git  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
 
