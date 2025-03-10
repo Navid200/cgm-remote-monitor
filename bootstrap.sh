@@ -25,7 +25,7 @@ if [ "$running_apt" = "" ]
 then
   apt_present=0
 else
-  echo " $count  Waiting for installations to complete"
+  echo " $count  Waiting for background processes to complete"
   sleep 10
   count=$((count+10))
 fi
