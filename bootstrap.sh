@@ -29,8 +29,8 @@ then
   apt_present=0
 else
   echo " $count  Waiting for installations to complete"
-  sleep 15
-  count=$((count+15))
+  sleep 10
+  count=$((count+10))
 fi
 done
 #############################
