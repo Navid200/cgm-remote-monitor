@@ -35,6 +35,7 @@ fi
 done
 #######################################################################
 
+echo "Installing a few packages"
 sudo apt-get update
 sudo apt-get install -y dialog git
 
@@ -96,6 +97,7 @@ sudo mkdir scripts
 
 cd /srv
 sudo rm -rf *
+echo "Creating a local copy of the repository"
 #sudo git clone https://github.com/jamorham/nightscout-vps.git  # ✅✅✅✅✅ Main - Uncomment before PR.
 sudo git clone https://github.com/Navid200/cgm-remote-monitor.git  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
 
