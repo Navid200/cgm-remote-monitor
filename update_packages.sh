@@ -28,6 +28,7 @@ then
   # The last item on the above list of packages must be verified in Status.sh to have been installed.
 fi 
 
+wait
 # mongo
 whichpack="$(mongod --version | sed -n 1p)"
 if [ ! "${whichpack%%.*}" = "db version v8" ]
@@ -49,6 +50,7 @@ then
 
 fi
 
+wait
 # node - We install version 16 of node here, which automatically  updates npm to 8.
 whichpack=$(node -v)
 if [ ! "${whichpack%%.*}" = "v16" ]
