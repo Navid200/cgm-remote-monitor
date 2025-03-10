@@ -49,7 +49,8 @@ cd "$(< repo)"
 git reset --hard  # delete any local edits.
 git pull  # Update database from remote.
 
-apt-get -o dpkg::lock::Timeout=120 update
+/xDrip/scripts/wait_4_completion.sh
+apt-get update
 npm install
 # sudo npm run postinstall
 npm run-script post-generate-keys
