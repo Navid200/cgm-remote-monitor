@@ -49,6 +49,7 @@ cd "$(< repo)"
 git reset --hard  # delete any local edits.
 git pull  # Update database from remote.
 
+apt-get -o dpkg::lock::Timeout=120 update
 npm install
 # sudo npm run postinstall
 npm run-script post-generate-keys
