@@ -113,7 +113,7 @@ install_pre_reqs() {
     log "Installing pre-requisites" "info"
 
     # Run 'apt-get update'
-    if ! apt-get -o dpkg::lock::Timeout=120 update -y; then
+    if ! apt-get update -y; then
         handle_error "$?" "Failed to run 'apt-get update'"
     fi
 
@@ -152,7 +152,7 @@ configure_repo() {
     echo "Pin-Priority: 600" | tee -a /etc/apt/preferences.d/nodejs > /dev/null
 
     # Run 'apt-get update'
-    if ! apt-get -o dpkg::lock::Timeout=120 update -y; then
+    if ! apt-get update -y; then
         handle_error "$?" "Failed to run 'apt-get update'"
     else
         log "Repository configured successfully. To install Node.js, run: apt-get install nodejs -y" "success"
