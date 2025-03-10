@@ -18,21 +18,20 @@ echo
 # One must always run Install Nightscout phase 1 after running bootstrap.
 
 ####################### Wait for updates to complete
+############# Keep this marked content synchronized with the contents of the wait_4_completion.sh file
 count=0
 apt_present=1
 while [ $apt_present -gt 0 ]
 do
-
 running_apt=$(ps aux | grep '[a]pt') 
 if [ "$running_apt" = "" ]
 then
   apt_present=0
 else
-  echo " $count  Waiting for installation to complete"
+  echo " $count  Waiting for installations to complete"
   sleep 15
   count=$((count+15))
 fi
-
 done
 #############################
 
