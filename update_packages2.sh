@@ -9,14 +9,14 @@ echo
 
 # Let's upgrade packages if available and install the missing needed packages.
 /xDrip/scripts/wait_4_completion.sh
-apt-get update
+sudo apt-get update
 
 # packages
 whichpack=$(which file)
 if [ "$whichpack" = "" ]
 then
-  apt-get -y install screen nano qrencode file vis lsb-release apt-transport-https ca-certificates bind9-dnsutils python3-pip
-  apt -y install python3-django python3-django-extensions python3-werkzeug python3-qrcode
+  sudo apt-get -y install screen nano qrencode file vis lsb-release apt-transport-https ca-certificates bind9-dnsutils python3-pip
+  sudo apt -y install python3-django python3-django-extensions python3-werkzeug python3-qrcode
 fi 
 
 # The last item on the above list of packages must be verified in Status.sh to have been installed.  
