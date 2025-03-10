@@ -35,8 +35,8 @@ fi
 done
 #######################################################################
 
-sudo apt-get -o dpkg::lock::Timeout=120 update
-sudo apt-get install dialog git
+sudo apt-get update
+sudo apt-get install -y dialog git
 
 ubversion="$(cat /etc/issue | awk '{print $2}')"
 
