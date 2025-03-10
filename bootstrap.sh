@@ -97,7 +97,8 @@ sudo mkdir scripts
 
 cd /srv
 sudo rm -rf *
-echo "Creating a local copy of the repository\nPlease be patient."
+echo "Creating a local copy of the repository"
+echo "Please be patient."
 #sudo git clone https://github.com/jamorham/nightscout-vps.git  # ✅✅✅✅✅ Main - Uncomment before PR.
 sudo git clone https://github.com/Navid200/cgm-remote-monitor.git  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
 
