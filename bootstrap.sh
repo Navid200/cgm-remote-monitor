@@ -36,7 +36,7 @@ done
 #######################################################################
 
 sudo apt-get -o dpkg::lock::Timeout=120 update
-sudo apt-get install dialog
+sudo apt-get install dialog git
 
 ubversion="$(cat /etc/issue | awk '{print $2}')"
 
@@ -84,7 +84,6 @@ then
   exit
 fi
 
-  sudo apt-get -o dpkg::lock::Timeout=120 install -y  git 
 
 if [ ! -s /xDrip ]
 then
