@@ -17,8 +17,8 @@ echo
 # Regardless, we need to remember this destructive nature of bootstrap.
 # One must always run Install Nightscout phase 1 after running bootstrap.
 
-sudo apt-get -o dpkg::lock::Timeout=120 update
-sudo apt-get -o dpkg::lock::Timeout=120 install dialog
+sudo apt-get -o dpkg::lock::Timeout=120 -o apt::lock::Timeout=120 update
+sudo apt-get install dialog
 
 ubversion="$(cat /etc/issue | awk '{print $2}')"
 
@@ -66,7 +66,7 @@ then
   exit
 fi
 
-  sudo apt-get -o dpkg::lock::Timeout=120 install -y  git 
+  sudo apt-get -o dpkg::lock::Timeout=120 -o apt::lock::Timeout=120 install -y  git 
 
 if [ ! -s /xDrip ]
 then
