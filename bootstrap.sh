@@ -30,7 +30,7 @@ then
 else
   echo " $count  Waiting for installation to complete"
   sleep 15
-  count=$count+15
+  count=$((count+15))
 fi
 
 done
