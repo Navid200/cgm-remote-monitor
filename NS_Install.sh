@@ -34,6 +34,7 @@ swapon 2>/dev/null /var/SWAP
 # Please don't add any utility installs here.  Please instead, add them to update_packages.sh.
 /xDrip/scripts/update_packages.sh
 
+/xDrip/scripts/wait_4_completion.sh
 apt-get update
 
 # Create mongo user and admin.
