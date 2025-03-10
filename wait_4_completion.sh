@@ -1,8 +1,11 @@
 #!/bin/bash
 
 echo
-echo "Verifying installation completion"
+echo "Waiting for installations to complete"
 echo
+
+####### Keep this file synchronized with the marked contents of the bootstrap ###
+####################### Wait for updates to complete
 
 count=0
 apt_present=1
@@ -18,4 +21,5 @@ else
   count=$((count+10))
 fi
 done
+######################################################################
  
