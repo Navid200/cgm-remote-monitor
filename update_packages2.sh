@@ -14,7 +14,7 @@ sudo apt-get -o dpkg::lock::Timeout=120 update
 whichpack=$(which file)
 if [ "$whichpack" = "" ]
 then
-  sudo apt-get -o dpkg::lock::Timeout=120 -y install screen nano qrencode file vis lsb-release apt-transport-https ca-certificates 
+  sudo apt-get -o dpkg::lock::Timeout=120 -y install screen nano qrencode file vis lsb-release apt-transport-https ca-certificates bind9-dnsutils 
   sudo apt-get -o dpkg::lock::Timeout=120 -y install python3-pip
   sudo apt -y install python3-django python3-django-extensions python3-werkzeug python3-qrcode
 fi 
