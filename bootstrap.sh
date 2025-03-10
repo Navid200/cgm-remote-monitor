@@ -17,7 +17,24 @@ echo
 # Regardless, we need to remember this destructive nature of bootstrap.
 # One must always run Install Nightscout phase 1 after running bootstrap.
 
-/xDrip/scripts/wait_4_completion.sh ## Wait until there are no apt or apt-get processes running
+
+count=0
+apt_present=1
+while [ $apt_present -gt 0 ]
+do
+
+running_apt=$(ps aux | grep '[a]pt') 
+if [ "$running_apt" = "" ]
+then
+  apr_present=0
+else
+  echo " $count  Waiting for installation to complete"
+  sleep 10
+  count = count + 10
+fi
+
+done
+
 sudo apt-get -o dpkg::lock::Timeout=120 update
 sudo apt-get install dialog
 
