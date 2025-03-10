@@ -85,7 +85,6 @@ then
   exit
 fi
 
-  /xDrip/scripts/wait_4_completion.sh
   sudo apt-get -o dpkg::lock::Timeout=120 install -y  git 
 
 if [ ! -s /xDrip ]
