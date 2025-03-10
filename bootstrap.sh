@@ -17,8 +17,8 @@ echo
 # Regardless, we need to remember this destructive nature of bootstrap.
 # One must always run Install Nightscout phase 1 after running bootstrap.
 
+####### Keep this marked content synchronized with the contents of the wait_4_completion.sh file ###
 ####################### Wait for updates to complete
-############# Keep this marked content synchronized with the contents of the wait_4_completion.sh file
 count=0
 apt_present=1
 while [ $apt_present -gt 0 ]
@@ -33,7 +33,7 @@ else
   count=$((count+10))
 fi
 done
-#############################
+#######################################################################
 
 sudo apt-get -o dpkg::lock::Timeout=120 update
 sudo apt-get install dialog
