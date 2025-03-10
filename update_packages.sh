@@ -11,32 +11,31 @@ echo
 sudo snap set system refresh.retain=2
 
 # Let's upgrade packages if available and install the missing needed packages.
-sudo apt-get -o dpkg::lock::Timeout=120 update
+sudo apt-get -o dpkg::lock::Timeout=120 -o apt::lock::Timeout=120 update
 
 #Ubuntu upgrade available
 NextUbuntu="$(apt-get -s upgrade | grep 'Inst base' | awk '{print $4}' | sed 's/(//')"
 if [ "$NextUbuntu" = "13ubuntu10.2" ] # Only upgrade if we have tested the next release (24.04.2)
 then
-  sudo apt-get -o dpkg::lock::Timeout=120 -y upgrade
+  sudo apt-get -o dpkg::lock::Timeout=120 -o apt::lock::Timeout=120 -y upgrade
 fi
 
 # packages
 whichpack=$(which gpg)
 if [ "$whichpack" = "" ]
 then
-  sudo apt-get -o dpkg::lock::Timeout=120 -y install jq net-tools gnupg
+  sudo apt-get -o dpkg::lock::Timeout=120 -o apt::lock::Timeout=120 -y install jq net-tools gnupg
   # The last item on the above list of packages must be verified in Status.sh to have been installed.
 fi 
 
-wait
 # mongo
 whichpack="$(mongod --version | sed -n 1p)"
 if [ ! "${whichpack%%.*}" = "db version v8" ]
 then
   curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-8.0.gpg --dearmor
   echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list   
-  sudo apt-get -o dpkg::lock::Timeout=120 update
-  sudo apt-get -o dpkg::lock::Timeout=120 install -y mongodb-org=8.0.0 mongodb-org-database=8.0.0 mongodb-org-server=8.0.0 mongodb-mongosh mongodb-org-mongos=8.0.0 mongodb-org-tools=8.0.0
+  sudo apt-get -o dpkg::lock::Timeout=120 -o apt::lock::Timeout=120 update
+  sudo apt-get install -y mongodb-org=8.0.0 mongodb-org-database=8.0.0 mongodb-org-server=8.0.0 mongodb-mongosh mongodb-org-mongos=8.0.0 mongodb-org-tools=8.0.0
 
   echo "mongodb-org hold" | sudo dpkg --set-selections
   echo "mongodb-org-database hold" | sudo dpkg --set-selections
@@ -50,13 +49,12 @@ then
 
 fi
 
-wait
 # node - We install version 16 of node here, which automatically  updates npm to 8.
 whichpack=$(node -v)
 if [ ! "${whichpack%%.*}" = "v16" ]
 then
 sudo /xDrip/scripts/nodesource_setup.sh
-sudo apt-get -o dpkg::lock::Timeout=120 install nodejs -y
+sudo apt-get -o dpkg::lock::Timeout=120 -o apt::lock::Timeout=120 install nodejs -y
 # Nightscout needs version 6 of npm.  So, we are going to install that version now effectivwely downgrading it.  
 sudo npm install -g npm@6.14.18
 fi
