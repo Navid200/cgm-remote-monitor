@@ -45,6 +45,7 @@ then
   echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
   echo "mongodb-org-tools hold" | sudo dpkg --set-selections
 
+  /xDrip/scripts/wait_4_completion.sh
   systemctl start mongod
   systemctl enable mongod
 
