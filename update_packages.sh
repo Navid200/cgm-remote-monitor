@@ -51,16 +51,14 @@ then
 
 fi
 
-# node - We install version 16 of node here, which automatically  updates npm to 8.
 whichpack=$(node -v)
-if [ ! "${whichpack%%.*}" = "v16" ]
+if [ ! "${whichpack%%.*}" = "v22" ]
 then
-/xDrip/scripts/wait_4_completion.sh
-sudo /xDrip/scripts/nodesource_setup.sh
-/xDrip/scripts/wait_4_completion.sh
-sudo apt-get install nodejs -y
-# Nightscout needs version 6 of npm.  So, we are going to install that version now effectivwely downgrading it.  
-sudo npm install -g npm@6.14.18
+  /xDrip/scripts/wait_4_completion.sh
+  curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+  /xDrip/scripts/wait_4_completion.sh
+  sudo apt-get install nodejs -y
+
 fi
 
 # Add log
