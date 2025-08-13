@@ -205,8 +205,7 @@ Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
 This setup is no longer being updated.  
-Upgrading to Ubuntu 24 will give you the latest version of Nightscout along with all updates made to this setup since December 2024.  
-To upgrade to Ubuntu 24, please refer to the guide or contact us.  
+Please refer to the guide or contact us to upgrade to the latest release on Ubuntu 24.  
 ------------------------------------------ \n\
 Google Cloud Nightscout  2025.08.12\n\
 $apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass \n\n\
@@ -218,7 +217,7 @@ Mongo: $mongo \n\
 NS proc: $ns \n\
 FreeDNS name and IP: $FD \n\
 Certificate: $cert \
- " 32 50 3\
+ " 35 50 3\
  "1" "Return"\
  "2" "Login credentials"\
  3>&1 1>&2 2>&3)
