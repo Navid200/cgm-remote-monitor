@@ -204,7 +204,11 @@ Disk size: $disksz        $DiskUsedPercent used \n\
 Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
-Google Cloud Nightscout  2024.12.19\n\
+This setup is no longer being updated.  
+Upgrading to Ubuntu 24 will give you the latest version of Nightscout along with all updates made to this setup since December 2024.  
+To upgrade to Ubuntu 24, please refer to the guide or contact us.  
+------------------------------------------ \n\
+Google Cloud Nightscout  2025.08.12\n\
 $apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass \n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
