@@ -204,6 +204,9 @@ Disk size: $disksz        $DiskUsedPercent used \n\
 Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
+This setup is no longer being updated.  
+Please refer to the guide or contact us to upgrade to the latest release on Ubuntu 24.  
+------------------------------------------ \n\
 Google Cloud Nightscout  2024.12.19\n\
 $apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass \n\n\
 /$uname/$repo/$branch\n\
@@ -214,7 +217,7 @@ Mongo: $mongo \n\
 NS proc: $ns \n\
 FreeDNS name and IP: $FD \n\
 Certificate: $cert \
- " 32 50 3\
+ " 36 50 3\
  "1" "Return"\
  "2" "Login credentials"\
  3>&1 1>&2 2>&3)
