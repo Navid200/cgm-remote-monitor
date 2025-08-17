@@ -204,8 +204,8 @@ Disk size: $disksz        $DiskUsedPercent used \n\
 Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
-This setup is no longer being updated.  
-Please refer to the guide or contact us to upgrade to the latest release on Ubuntu 24.  
+Ubuntu 20 is no longer supported. \n\
+Follow the guide or contact us to upgrade to Ubuntu 24 and receive the latest updates. \n\
 ------------------------------------------ \n\
 Google Cloud Nightscout  2024.12.19\n\
 $apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass \n\n\
