@@ -163,6 +163,11 @@ fi
 # Bring up the status page
 /xDrip/scripts/Status.sh
 clear
+
+# Reset stdin/out to the terminal to avoid dialog conflicts
+exec </dev/tty >/dev/tty 2>&1
+
+# Now bring up the menu
 exec /xDrip/scripts/menu.sh
 
   
