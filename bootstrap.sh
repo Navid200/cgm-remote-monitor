@@ -163,6 +163,6 @@ fi
 # Bring up the status page
 /xDrip/scripts/Status.sh
 clear
-/xDrip/scripts/menu.sh
+exec /xDrip/scripts/menu.sh
 
   
