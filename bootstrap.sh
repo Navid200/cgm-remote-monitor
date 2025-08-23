@@ -162,12 +162,21 @@ fi
 
 # Bring up the status page
 /xDrip/scripts/Status.sh
+
+# Clear screen before showing the menu
 clear
 
-# Reset stdin/out to the terminal to avoid dialog conflicts
-exec </dev/tty >/dev/tty 2>&1
+# Launch the main menu
+if /xDrip/scripts/menu.sh; then
+    # Menu exited normally
+    echo "Menu exited, returning to shell."
+else
+    # If menu fails for some reason
+    /xDrip/scripts/AddLog.sh "ERROR: menu.sh failed to start" /xDrip/Logs
+    echo "Failed to launch menu. Returning to shell."
+fi
 
-# Now bring up the menu
-exec /xDrip/scripts/menu.sh
+# End of bootstrap
+exit 0
 
   
