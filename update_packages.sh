@@ -77,7 +77,7 @@ Node 16 install has failed.\n\
 Please run Phase 1 again.\n\n\
 Press any key to return to the main menu." 9 50
     read -p "" -n1 -s
-    exec /xDrip/menu.sh
+    exec /xDrip/scripts/menu.sh
   fi
 }
 
