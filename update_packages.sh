@@ -66,6 +66,7 @@ install_node16() {
   if is_node16 "$candidate"; then
     echo "Confirmed: Node candidate is $candidate, proceeding with install."
     sudo apt-get install -y nodejs
+    # Nightscout needs version 6 of npm.  So, we are going to install that version now effectivwely downgrading it.
     sudo npm install -g npm@6.14.18
     /xDrip/scripts/AddLog.sh "The packages have been installed" /xDrip/Logs
   else
