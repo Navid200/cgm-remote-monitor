@@ -33,6 +33,10 @@ swapon 2>/dev/null /var/SWAP
 
 # Please don't add any utility installs here.  Please instead, add them to update_packages.sh.
 /xDrip/scripts/update_packages.sh
+status=$?
+if [ $status -ne 0 ]; then
+  exit $status   # stop Phase 1 immediately
+fi
 
 # Create mongo user and admin.
 /xDrip/scripts/wait_4_completion.sh
