@@ -43,6 +43,10 @@ else
   sudo cp -f update_scripts.sh /xDrip/scripts/. # Update the "update scripts" script. 
   /xDrip/scripts/update_scripts.sh
   /xDrip/scripts/update_packages.sh
+  status=$?
+  if [ $status -ne 0 ]; then
+    exit $status   # stop update immediately
+  fi
   /xDrip/scripts/update_packages2.sh
   /xDrip/scripts/StartUpSetup.sh
   clear
