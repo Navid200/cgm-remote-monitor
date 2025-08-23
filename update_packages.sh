@@ -85,7 +85,7 @@ whichpack=$(node -v)
 
 if [ -z "$whichpack" ] || [ "${whichpack%%.*}" != "v16" ]; then
   /xDrip/scripts/wait_4_completion.sh
-  sudo /xDrip/scripts/nodesource_setup.sh
+//  sudo /xDrip/scripts/nodesource_setup.sh
   /xDrip/scripts/wait_4_completion.sh
   install_node16
 fi
