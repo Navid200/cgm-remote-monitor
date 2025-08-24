@@ -162,21 +162,6 @@ fi
 
 # Bring up the status page
 /xDrip/scripts/Status.sh
-
-# Clear screen before showing the menu
 clear
-
-# Launch the main menu
-if /xDrip/scripts/menu.sh; then
-    # Menu exited normally
-    echo "Menu exited, returning to shell."
-else
-    # If menu fails for some reason
-    /xDrip/scripts/AddLog.sh "ERROR: menu.sh failed to start" /xDrip/Logs
-    echo "Failed to launch menu. Returning to shell."
-fi
-
-# End of bootstrap
-exit 0
-
+/xDrip/scripts/menu.sh
   
