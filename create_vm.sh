@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-# curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/VmInstallCloudShell_Test/create_vm.sh | bash -i
+# curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/VmInstallCloudShell_Test/create_vm.sh | bash
 
 if [[ "$CLOUD_SHELL" != true ]]; then
   echo "You can only run this script in Cloud Shell."
