@@ -1,5 +1,6 @@
 #!/bin/bash
 # Create a Nightscout VM with a random free-tier region
+# curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/VmInstallCloudShell_Test/create_vm.sh | bash
 # Checks if an instance already exists before proceeding
 
 existing_vms=$(gcloud compute instances list --format="value(name)")
