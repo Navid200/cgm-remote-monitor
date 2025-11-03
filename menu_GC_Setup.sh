@@ -8,7 +8,7 @@ clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
         \Zr Developed by the xDrip team \Zn\n\n
 Click OK or press Enter to select the highlighted option.\n" 14 50 7\
- "1" "Install Nightscout phase 1 - 16 minutes"\
+ "1" "Install Nightscout phase 1 - 25 minutes"\
  "2" "Install Nightscout phase 2 - 10 minutes"\
  "3" "Update"\
  "4" "Return"\
@@ -43,6 +43,10 @@ else
   sudo cp -f update_scripts.sh /xDrip/scripts/. # Update the "update scripts" script. 
   /xDrip/scripts/update_scripts.sh
   /xDrip/scripts/update_packages.sh
+  status=$?
+  if [ $status -ne 0 ]; then
+    exit $status   # stop update immediately
+  fi
   /xDrip/scripts/update_packages2.sh
   /xDrip/scripts/StartUpSetup.sh
   clear
