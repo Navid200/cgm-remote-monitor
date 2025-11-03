@@ -75,7 +75,7 @@ The Ubuntu installation option is incorrect. Please refer to the guide for detai
 fi 
 
 clear
-dialog --colors --yesno --defaultno "              \Zr Google Cloud Nightscout \Zn\n\n\
+dialog --colors --defaultno --yesno "              \Zr Google Cloud Nightscout \Zn\n\n\
 This software and its associated online instructions are provided “as is,” without any warranties, express or implied. By using this software, you accept full responsibility and assume all risks associated with its use.\n\n\
 The developers and contributors shall not be held liable for any damages, losses, or other consequences arising from the use of this software or its documentation.\n\n\
 Before using this software, consult a qualified healthcare professional to determine its suitability for your specific needs.\n\n\
