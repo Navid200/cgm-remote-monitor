@@ -1,6 +1,6 @@
 #!/bin/bash
 # Create a Nightscout VM with a random free-tier region
-# curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/VmInstallCloudShell_Test/create_vm.sh | bash
+# curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/VmInstallCloudShell_Test/create_vm.sh | bash -i
 # Checks if an instance already exists before proceeding
 
 if [[ "$CLOUD_SHELL" != true ]]; then
