@@ -1,6 +1,12 @@
 #!/bin/bash
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
-# curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/NeverInstallNode18/bootstrap.sh | bash
+# curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/VmInstallCloudShell_Test/bootstrap.sh | bash
+
+if [[ "$CLOUD_SHELL" = true ]]; then
+  echo "You cannot run this script in Cloud Shell."
+  echo "Terminating"
+  exit 0
+fi
 
 echo 
 echo "Bootstrapping the installation files - JamOrHam - Navid200"
@@ -69,11 +75,11 @@ The Ubuntu installation option is incorrect. Please refer to the guide for detai
 fi 
 
 clear
-dialog --colors --yesno "              \Zr Google Cloud Nightscout \Zn\n\n\n\
+dialog --colors --defaultno --yesno "              \Zr Google Cloud Nightscout \Zn\n\n\
 This software and its associated online instructions are provided “as is,” without any warranties, express or implied. By using this software, you accept full responsibility and assume all risks associated with its use.\n\n\
 The developers and contributors shall not be held liable for any damages, losses, or other consequences arising from the use of this software or its documentation.\n\n\
 Before using this software, consult a qualified healthcare professional to determine its suitability for your specific needs.\n\n\
-I understand and agree." 24 62
+I understand and agree." 21 62
 response=$?
 if [ $response = 255 ] || [ $response = 1 ]
 then
@@ -103,7 +109,7 @@ ls > /tmp/repo
 sudo mv -f /tmp/repo .    # The repository name is now in /srv/repo
 cd "$(< repo)"
 sudo git checkout vps-dev  # ✅✅✅✅✅ Main - Uncomment before PR.
-#sudo git checkout Nightscout15_03_Test  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
+#sudo git checkout VmInstallCloudShell_Test  # ⛔⛔⛔⛔⛔ For test - Comment out before PR.
 
 sudo git branch > /tmp/branch
 grep "*" /tmp/branch | awk '{print $2}' > /tmp/brnch
@@ -164,5 +170,5 @@ fi
 /xDrip/scripts/Status.sh
 clear
 /xDrip/scripts/menu.sh
-
+  
   
