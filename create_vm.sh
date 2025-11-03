@@ -3,6 +3,12 @@
 # curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/VmInstallCloudShell_Test/create_vm.sh | bash
 # Checks if an instance already exists before proceeding
 
+if [[ "$CLOUD_SHELL" != true ]]; then
+  echo "You can only run this script in Cloud Shell."
+  echo "Terminating"
+  exit 0
+fi
+
 existing_vms=$(gcloud compute instances list --format="value(name)")
 
 if [[ -n "$existing_vms" ]]; then
