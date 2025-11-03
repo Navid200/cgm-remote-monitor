@@ -4,13 +4,14 @@ set -e
 
 if [[ "$CLOUD_SHELL" != true ]]; then
   echo "You can only run this script in Cloud Shell."
-  echo "Terminating"
+  echo "Terminating."
   exit 0
 fi
 
 echo
 echo "🌩️  Google Cloud Nightscout VM Installer"
 echo "----------------------------------------"
+echo "✅ Environment: Cloud Shell confirmed"
 echo
 
 # --- Check for existing VMs ---
@@ -20,7 +21,6 @@ if [[ -n "$existing_vms" ]]; then
   echo "⚠️  Existing virtual machines found:"
   echo "$existing_vms"
   echo
-  # Read directly from terminal even when piped
   read -p "Do you still want to create a new VM? (y/N): " confirm < /dev/tty
   confirm=$(echo "$confirm" | tr '[:upper:]' '[:lower:]')
   if [[ "$confirm" != "y" && "$confirm" != "yes" ]]; then
@@ -30,20 +30,35 @@ if [[ -n "$existing_vms" ]]; then
 fi
 
 # --- Choose VM name ---
-default_vm_name="nightscout-vm"
+default_vm_name="gcns-vm"
 read -p "Enter a name for your new VM [${default_vm_name}]: " vm_name < /dev/tty
 vm_name=${vm_name:-$default_vm_name}
 
+# --- Choose region and zone ---
 regions=("us-west1" "us-central1" "us-east1")
 region=${regions[$RANDOM % ${#regions[@]}]}
 zone=$(gcloud compute zones list --filter="region:($region)" --format="value(name)" | shuf -n 1)
 
-echo "Selected region: $region"
 echo
+echo "Selected region: $region"
+echo "Selected zone: $zone"
+echo
+echo "The following configuration will be used:"
+echo "  VM name: $vm_name"
+echo "  Region:  $region"
+echo "  Zone:    $zone"
+echo
+read -p "Continue and create the VM? (Y/n): " proceed < /dev/tty
+proceed=$(echo "$proceed" | tr '[:upper:]' '[:lower:]')
+if [[ "$proceed" == "n" || "$proceed" == "no" ]]; then
+  echo "Cancelled. No VM created."
+  exit 0
+fi
 
+# --- Create the VM ---
 echo
 echo "🚀 Creating VM '${vm_name}' in zone '${zone}'..."
-gcloud compute instances create gcns-2025-10-30 \
+if ! gcloud compute instances create "$vm_name" \
   --machine-type=e2-micro \
   --zone="$zone" \
   --image-project=ubuntu-os-cloud \
@@ -55,6 +70,18 @@ gcloud compute instances create gcns-2025-10-30 \
   --no-shielded-secure-boot \
   --maintenance-policy=MIGRATE \
   --provisioning-model=STANDARD \
-  --no-enable-display-device
-  
-  
+  --no-enable-display-device; then
+    echo
+    echo "❌ VM creation failed. Please check your Google Cloud quotas or permissions."
+    exit 1
+fi
+
+# --- Done ---
+echo
+echo "🎉 VM '${vm_name}' was created successfully in zone '${zone}'."
+echo
+echo "You can view and manage it in the Google Cloud Console:"
+echo "  Menu > Compute Engine > VM instances"
+echo
+
+ 
