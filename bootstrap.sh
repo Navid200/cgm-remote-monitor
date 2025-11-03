@@ -2,6 +2,12 @@
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 # curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/VmInstallCloudShell_Test/bootstrap.sh | bash
 
+if [[ "$CLOUD_SHELL" = true ]]; then
+  echo "You cannot run this script in Cloud Shell."
+  echo "Terminating"
+  exit 0
+fi
+
 echo 
 echo "Bootstrapping the installation files - JamOrHam - Navid200"
 echo
