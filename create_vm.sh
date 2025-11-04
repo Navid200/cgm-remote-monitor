@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-# curl https://raw.githubusercontent.com/jamorham/nightscout-vps/vps-dev/create_vm.sh | bash
+# curl https://raw.githubusercontent.com/jamorham/nightscout-vps/vps-2/create_vm.sh | bash
 
 if [[ "$CLOUD_SHELL" != true ]]; then
   echo "You can only run this script in Cloud Shell."
