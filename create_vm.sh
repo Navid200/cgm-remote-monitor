@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-# curl https://raw.githubusercontent.com/jamorham/nightscout-vps/vps-dev/create_vm.sh | bash
+# curl https://raw.githubusercontent.com/jamorham/nightscout-vps/vps-2/create_vm.sh | bash
 
 if [[ "$CLOUD_SHELL" != true ]]; then
   echo "You can only run this script in Cloud Shell."
@@ -55,8 +55,35 @@ if [[ "$proceed" == "n" || "$proceed" == "no" ]]; then
   exit 0
 fi
 
-# --- Create the VM ---
+# --- Ensure firewall rules for HTTP and HTTPS exist ---
 echo
+echo "Checking firewall rules..."
+for rule in default-allow-http default-allow-https; do
+  if ! gcloud compute firewall-rules describe "$rule" --quiet >/dev/null 2>&1; then
+    if [[ "$rule" == "default-allow-http" ]]; then
+      echo "Creating firewall rule for HTTP (tcp:80)..."
+      gcloud compute firewall-rules create default-allow-http \
+        --allow tcp:80 \
+        --target-tags=http-server \
+        --description="Allow HTTP traffic" \
+        --direction=INGRESS \
+        --priority=1000 \
+        --network=default
+    else
+      echo "Creating firewall rule for HTTPS (tcp:443)..."
+      gcloud compute firewall-rules create default-allow-https \
+        --allow tcp:443 \
+        --target-tags=https-server \
+        --description="Allow HTTPS traffic" \
+        --direction=INGRESS \
+        --priority=1000 \
+        --network=default
+    fi
+  fi
+done
+echo
+
+# --- Create the VM ---
 echo "🚀 Creating VM '${vm_name}' in zone '${zone}'..."
 if ! gcloud compute instances create "$vm_name" \
   --machine-type=e2-micro \
