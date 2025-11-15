@@ -198,7 +198,7 @@ LastReboot=$(last reboot | head -1 | awk '{print $4, "", $5, $6, $7}')
 while true; do
   rows=$(tput lines)
   cols=$(tput cols)
-  if (( rows > 37 || cols > 72 )); then
+  if (( rows > 37 && cols > 72 )); then
     break
   fi
   clear
