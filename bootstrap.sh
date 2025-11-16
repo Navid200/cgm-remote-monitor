@@ -142,8 +142,6 @@ export COLORTERM=truecolor
 sleep 1
 /xDrip/scripts/menu.sh
 EOF
-
-EOF
 sudo chown root:root start_menu.sh
 sudo chmod 755 start_menu.sh
 sudo mv -f start_menu.sh /etc/profile.d
