@@ -135,11 +135,13 @@ sudo cp -f update_scripts.sh /xDrip/scripts
 /xDrip/scripts/update_scripts.sh
 
 # So that the menu comes up as soon as the user logs in (opens a terminal)
-cd /tmp
 cat > /tmp/start_menu.sh << EOF
 #!/bin/sh
+export TERM=xterm-256color
+export COLORTERM=truecolor
 sleep 1
 /xDrip/scripts/menu.sh
+EOF
 
 EOF
 sudo chown root:root start_menu.sh
