@@ -171,6 +171,6 @@ fi
 # Bring up the status page
 /xDrip/scripts/Status.sh
 clear
-/xDrip/scripts/menu.sh
+bash -l -c "/xDrip/scripts/menu.sh"
   
   
