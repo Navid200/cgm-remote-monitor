@@ -141,6 +141,7 @@ export TERM=xterm-256color
 export COLORTERM=truecolor
 sleep 1
 /xDrip/scripts/menu.sh
+
 EOF
 sudo chown root:root start_menu.sh
 sudo chmod 755 start_menu.sh
