@@ -15,7 +15,7 @@ then
   while [ $got_them -lt 1 ]
   do
   exec 3>&1
-  Values=$(dialog --colors --ok-label "Submit" --form "       \Zr Developed by the xDrip team \Zn\n\n\n\
+  Values=$(dialog --colors --ok-label "Submit" --form "         \Zr Google Cloud Nightscout \Zn\n\n\n\
 This utility lets you update your FreeDNS user ID and password in Google Cloud Nightscout.\n\
 It cannot update your user ID or password on the FreeDNS site.  To do that, you will need to use a browser and log into FreeDNS. Then, use this utility to update Google Cloud Nightscout accordingly.\n\n\
 Enter your ID and password to proceed.  Or press escape to cancel." 22 50 0 "User ID:" 1 1 "$user" 1 14 25 0 "Password:" 2 1 "$pass" 2 14 25 0 2>&1 1>&3)
@@ -34,7 +34,7 @@ Enter your ID and password to proceed.  Or press escape to cancel." 22 50 0 "Use
   wget -O /tmp/hosts "$arg"
   if [ ! "`grep 'Could not authenticate' /tmp/hosts`" = "" ] # Failed to log in
   then
-    dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nFailed to authenticate.  Please try again."  7 50
+    dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\nFailed to authenticate.  Please try again."  7 50
   else
     got_them=1
     cat > /xDrip/FreeDNS_ID_Pass << EOF
@@ -53,10 +53,11 @@ EOF
   /xDrip/scripts/AddLog.sh "FreeDNS user ID and password have been recorded as reminders" /xDrip/Logs
   
 else # If FreeDNS is down
-  dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+  dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
 It seems the FreeDNS site is down.  Please try again when FreeDNS is back up." 9 50
   cat > /tmp/FreeDNS_Failed << EOF
 The FreeDNS site is down.
 EOF
 
 fi
+  
