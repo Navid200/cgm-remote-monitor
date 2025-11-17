@@ -5,8 +5,7 @@ echo "Bringing up the utilities menu" - Navid200
 echo
 
 clear
-Choice=$(dialog --colors --nocancel --nook --menu "\
-        \Zr Google Cloud Nightscout \Zn\n\n\
+Choice=$(dialog --colors --nocancel --nook --menu "          \Zr Google Cloud Nightscout \Zn\n\n\
 Click OK or press Enter to select the highlighted option.\n" 12 50 2\
  "1" "QR code to make xDrip master"\
  "2" "Return"\
