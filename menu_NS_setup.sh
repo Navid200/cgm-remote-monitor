@@ -6,7 +6,7 @@ echo
 
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
-        \Zr Developed by the xDrip team \Zn\
+        \Zr Google Cloud Nightscout \Zn\
   \n\n
 Click OK or press Enter to select the highlighted option.\n" 14 50 4\
  "1" "Edit variables using a text editor"\
