@@ -3,7 +3,7 @@
 if [ "$(node -v)" = "" ] # If Node.js is not installed
 then
 clear
-dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\n\
 Nightscout phase 1 installation must be completed before you can restore a database." 9 50
 exit
 fi
@@ -24,7 +24,7 @@ echo "$File"
 if [ "$(file -b "$File")" = "directory" ] # If no file has been selected.
 then
   clear
-  dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+  dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\n\
 Select the file in the right pane and press Space to display it in the field at the bottom. Then, click OK or press Enter.\n\
 Please try again." 11 50
 goback=1 # Don't execute the remaining part of the loop
@@ -37,7 +37,7 @@ then
     if [ ! "$(tar -tf $File 'database.gz')" = "database.gz" ] || [ ! "$(tar -tf $File 'nsconfig')" = "nsconfig" ]
     then
       clear
-      dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe backup file may be corrupt.  Please report this issue." 10 50
+      dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\nThe backup file may be corrupt.  Please report this issue." 10 50
       goback=1 # Don't execute the rest of the loop
     fi
     if [ $goback -eq 0 ]
@@ -48,7 +48,7 @@ then
       cd /tmp
       clear
       Choice=$(dialog --colors --nocancel --nook --menu "\
-        \Zr Developed by the xDrip team \Zn\n\n\
+        \Zr Google Cloud Nightscout \Zn\n\n\
 Click OK or press Enter to select the highlighted option.\n\n\
 Restoring variables will overwrite API_SECRET." 16 50 4\
  "1" "Restore MongoDB only"\
@@ -87,15 +87,15 @@ esac
         clear
         if [ $fail = 1 ]
         then
-          dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe database import failed.  Please report the issue." 8 50
+          dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\nThe database import failed.  Please report the issue." 8 50
         else # If the database was successfully imported
           echo -e "Restored MongoDB     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
           sudo /bin/cp -f /tmp/Logs /xDrip/Logs
           if [ $var -lt 1 ] # If the user chose not to restore the variables
           then
-            dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nDatabase has been imported.\nThe variables will not be restored, but you can view them at /tmp/nsconfig." 9 50
+            dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\nDatabase has been imported.\nThe variables will not be restored, but you can view them at /tmp/nsconfig." 9 50
           else # If the user chose to also restore the variables
-            dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe database has been successfully imported." 8 50
+            dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\nThe database has been successfully imported." 8 50
           fi
         fi
       fi
@@ -106,7 +106,7 @@ esac
         echo -e "Restored variables     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
         sudo /bin/cp -f /tmp/Logs /xDrip/Logs
         clear
-        dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe variables have been restored from backup.  You need to restart the server for the updated variables to take effect." 9 50
+        dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\nThe variables have been restored from backup.  You need to restart the server for the updated variables to take effect." 9 50
       fi
       exit
     fi  
@@ -118,7 +118,7 @@ then
   if [ "$(file -b "$File" | awk '{print $1}')" = "gzip" ] # If the backup file is a gzip file, we will know that it is an old backup only containing the database.
   then
     clear
-    dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+    dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\n\
 The backup only contains a database.  Press Enter to import it." 9 50
     key=$?
     if [ $key = 255 ]
@@ -130,10 +130,10 @@ The backup only contains a database.  Press Enter to import it." 9 50
     fail=$?
     if [ $fail -eq 1 ]
     then
-      dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe database import failed. Please report the issue." 11 50
+      dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\nThe database import failed. Please report the issue." 11 50
       exit
     else
-      dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nThe database has been successfully imported." 8 50
+      dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\nThe database has been successfully imported." 8 50
       echo -e "Restored MongoDB     $(date)\n" | cat - /xDrip/Logs > /tmp/Logs
       sudo /bin/cp -f /tmp/Logs /xDrip/Logs
       exit
