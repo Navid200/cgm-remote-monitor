@@ -13,7 +13,7 @@ apisec=$API_SECRET
 if [ "$(node -v)" = "" ] || [ "$HOSTNAME" = "" ] || [ "$apisec" = "" ] # If Node.js is not installed or there is no hostname or password
 then
 clear
-dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\n\
 You need to complete the Nightscout installation and have both a hostname and API_SECRET in order to display the QR code for setting up xDrip as an uploader." 10 50
 exit
 fi
