@@ -6,7 +6,7 @@ echo
 
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
-        \Zr Developed by the xDrip team \Zn\n\n
+        \Zr Google Cloud Nightscout \Zn\n\n
 Click OK or press Enter to select the highlighted option.\n" 14 50 7\
  "1" "Install Nightscout phase 1 - 25 minutes"\
  "2" "Install Nightscout phase 2 - 10 minutes"\
