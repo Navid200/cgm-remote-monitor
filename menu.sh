@@ -8,8 +8,7 @@ while :
 do
 
 clear
-Choice=$(dialog --colors --nocancel --help-button --menu "\
-        \Zr Google Cloud Nightscout \Zn\n\n
+Choice=$(dialog --colors --nocancel --help-button --menu "          \Zr Google Cloud Nightscout \Zn\n\n
 Click OK or press Enter to select the highlighted option.\n\n" 18 50 8\
  "1" "Status (may take up to 2 minutes.)"\
  "2" "Logs"\
@@ -33,7 +32,7 @@ Click OK or press Enter to select the highlighted option.\n\n" 18 50 8\
    printf '\e[1;44m%-6s\e[m' " "
    printf '                                                    \n'
    printf '\e[1;44m%-6s\e[m' " "
-   printf '           Developed by the xDrip team              \n'
+   printf '             Google Cloud Nightscout              \n'
    printf '\e[1;44m%-6s\e[m' " "
    printf '                                                    \n'
    printf '\e[1;44m%-6s\e[m' " "
@@ -73,7 +72,7 @@ case $Choice in
 ;;
 
 2)
-dialog --colors --title "\Zr Google Cloud Nightscout \Zn"   --textbox /xDrip/Logs 26 74 
+dialog --colors --title " \Zr Google Cloud Nightscout \Zn"   --textbox /xDrip/Logs 26 74 
 ;;
 
 3)
@@ -93,7 +92,7 @@ dialog --colors --title "\Zr Google Cloud Nightscout \Zn"   --textbox /xDrip/Log
 ;;
 
 7)
-dialog --colors --yesno "       \Zr Google Cloud Nightscout \Zn\n\n\
+dialog --colors --yesno "         \Zr Google Cloud Nightscout \Zn\n\n\
 Are you sure you want to reboot the server?\n
 If you do, all unsaved open files will close without saving.\n"  9 50
 response=$?
@@ -108,7 +107,7 @@ fi
 8)
 cd /tmp
 clear
-dialog --colors --msgbox "        \Zr Google Cloud Nightscout \Zn\n\n\
+dialog --colors --msgbox "          \Zr Google Cloud Nightscout \Zn\n\n\
 You will now exit to the shell (terminal).  To return to the menu, enter \"menu\" in the terminal without the quotes." 9 50
 clear
 exit
