@@ -9,7 +9,7 @@ a=$(node -v)
 if [ "$a" = ""  ]
 then
 clear
-dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\n\
+dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
 You need to complete installation phase 1 first." 9 50
 exit
 fi
