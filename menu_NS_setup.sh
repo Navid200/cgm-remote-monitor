@@ -5,8 +5,7 @@ echo "Bringing up the Nightscout setup menu" - Navid200
 echo
 
 clear
-Choice=$(dialog --colors --nocancel --nook --menu "\
-        \Zr Google Cloud Nightscout \Zn\
+Choice=$(dialog --colors --nocancel --nook --menu "          \Zr Google Cloud Nightscout \Zn\
   \n\n
 Click OK or press Enter to select the highlighted option.\n" 14 50 4\
  "1" "Edit variables using a text editor"\
