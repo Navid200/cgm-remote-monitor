@@ -73,7 +73,7 @@ install_node16() {
     echo "ERROR: Node candidate is $candidate, not v16. Aborting."
     /xDrip/scripts/AddLog.sh "The packages except Node have been installed" /xDrip/Logs
     clear
-    dialog --colors --infobox "       \Zr Developed by the xDrip team \Zn\n\n\n\
+    dialog --colors --infobox "       \Zr Google Cloud Nightscout \Zn\n\n\n\
 Node 16 install has failed.\n\
 Please run Phase 1 again.\n\n\
 Press any key to return to the main menu." 9 50
