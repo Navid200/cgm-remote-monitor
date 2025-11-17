@@ -7,8 +7,8 @@ echo
 if [ "$(node -v)" = "" ] # If Node.js is not installed
 then
 clear
-dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-You need to complete install Nightscout phase 1 first." 9 50
+dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
+Nightscout Phase 1 installation must be completed before you can run Phase 2." 9 50
 exit
 fi
 
@@ -98,7 +98,7 @@ do
 go_back=0
 clear
 exec 3>&1
-Value=$(dialog --colors --ok-label "Submit" --form "       \Zr Developed by the xDrip team \Zn\n\n\n\
+Value=$(dialog --colors --ok-label "Submit" --form "         \Zr Google Cloud Nightscout \Zn\n\n\n\
 API_SECRET:   $cs\n\n\
 Press ESC to keep it, or enter a new API_SECRET with at least 12 characters, excluding the following characters.\n\
   $   \"   '   \\   SPACE   @   / % " 16 50 0 "API_SECRET:" 1 1 "$secr" 1 14 25 0 2>&1 1>&3)
@@ -116,7 +116,7 @@ if [ ${#ns} -lt 12 ] # Reject if the submission has less than 12 characters.
 then
   go_back=1
   clear
-  dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+  dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
 API_SECRET must be at least 12 characters long. Please try again."  8 50
 fi
 clear
@@ -127,7 +127,7 @@ then
   then
     go_back=1
     clear
-    dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+    dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
 API_SECRET should not contain the following characters. Please try again.\n $  \"  \\  '  SPACE  @  / %"  9 50
   else
     got_it=1
