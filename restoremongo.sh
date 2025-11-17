@@ -1,5 +1,13 @@
 #!/bin/bash
 
+if [ "$(node -v)" = "" ] # If Node.js is not installed
+then
+clear
+dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+Nightscout phase 1 needs to be installed before you can restore a database." 9 50
+exit
+fi
+
 while :
 do
 goback=0 # Reset the loop
