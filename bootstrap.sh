@@ -138,8 +138,6 @@ sudo cp -f update_scripts.sh /xDrip/scripts
 cd /tmp
 cat > /tmp/start_menu.sh << EOF
 #!/bin/sh
-export TERM=xterm-256color
-export COLORTERM=truecolor
 sleep 1
 /xDrip/scripts/menu.sh
 
