@@ -12,7 +12,7 @@ exit 5
 fi
 
 clear
-dialog --colors --msgbox "      \Zr Developed by the xDrip team \Zn\n\n\
+dialog --colors --msgbox "      \Zr Google Cloud Nightscout \Zn\n\n\
 The required packages will now be installed.  This process will take approximately 16 minutes to complete.  Please keep this terminal open during the installation.  Press Enter to proceed.\n\n\
 If this is not a convenient time, press ESC to cancel." 14 50
 if [ $? = 255 ]
