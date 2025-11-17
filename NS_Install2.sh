@@ -8,7 +8,7 @@ if [ "$(node -v)" = "" ] # If Node.js is not installed
 then
 clear
 dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
-You need to complete install Nightscout phase 1 first." 9 50
+Nightscout Phase 1 installation must be completed before you can run Phase 2." 9 50
 exit
 fi
 
