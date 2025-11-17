@@ -194,9 +194,23 @@ fi
 # Show the first line of last reboot
 LastReboot=$(last reboot | head -1 | awk '{print $4, "", $5, $6, $7}')
 
+# Check window size
+while true; do
+  rows=$(tput lines)
+  cols=$(tput cols)
+  if (( rows > 37 && cols > 72 )); then
+    break
+  fi
+  clear
+  dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
+Terminal window is too small to display the status page.\n\n\
+Current size : ${cols} x ${rows} \n\
+Minimum size : 73 x 38 \n\n\
+Please enlarge your terminal window, then press ENTER to retry." 15 50
+done
+
 clear
-Choice=$(dialog --colors --nocancel --nook --menu "\
-        \Zr Developed by the xDrip team \Zn\n\n\
+Choice=$(dialog --colors --nocancel --nook --menu "          \Zr Google Cloud Nightscout \Zn\n\n\
                 \Zb Status \Zn\n\n\
 Zone: $Zone \n\
 RAM: $Ramsize \n\
@@ -205,7 +219,7 @@ Disk size: $disksz        $DiskUsedPercent used \n\
 Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
-Google Cloud Nightscout  2025.11.03\n\
+Google Cloud Nightscout  2025.11.18\n\
 $apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass \n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
@@ -227,7 +241,7 @@ exit
 ;;
 
 2)
-dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
               \Zb\Z1Keep private!\Zn\n\n\
 Hostname:  $HOSTNAME\n\
 API_SECRET: $apisec\n\n\
