@@ -202,7 +202,7 @@ while true; do
     break
   fi
   clear
-  dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+  dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\n\
 Terminal window is too small to display the status page.\n\n\
 Current size : ${cols} x ${rows} \n\
 Minimum size : 73 x 38 \n\n\
@@ -211,7 +211,7 @@ done
 
 clear
 Choice=$(dialog --colors --nocancel --nook --menu "\
-        \Zr Developed by the xDrip team \Zn\n\n\
+        \Zr Google Cloud Nightscout \Zn\n\n\
                 \Zb Status \Zn\n\n\
 Zone: $Zone \n\
 RAM: $Ramsize \n\
@@ -242,7 +242,7 @@ exit
 ;;
 
 2)
-dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\n\
               \Zb\Z1Keep private!\Zn\n\n\
 Hostname:  $HOSTNAME\n\
 API_SECRET: $apisec\n\n\
