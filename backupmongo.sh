@@ -7,7 +7,7 @@ echo
 while :
 do
 exec 3>&1
-Filename=$(dialog --colors --ok-label "Submit" --form "       \Zr Google Cloud Nightscout \Zn\n\n\
+Filename=$(dialog --colors --ok-label "Submit" --form "         \Zr Google Cloud Nightscout \Zn\n\n\
 Enter a name for the backup file and submit." 9 50 0 "file name" 1 1 "$filename" 1 14 25 0 2>&1 1>&3)
  response=$?
 if [ $response = 255 ] || [ $response = 1 ]
@@ -18,7 +18,7 @@ fi
 
 if [ -s $Filename ]
 then
-dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\n\n\
+dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\n\
 A file with the same name exists.\n\
 Choose a different filename." 9 50
 clear
@@ -29,7 +29,7 @@ cd /tmp
 cp /etc/nsconfig .
 tar -cf ~/$Filename database.gz nsconfig
 
- dialog --colors --infobox "       \Zr Google Cloud Nightscout \Zn\n\n\n\
+ dialog --colors --infobox "         \Zr Google Cloud Nightscout \Zn\n\n\n\
 Backup is complete.\n\n\
 Copy the full path to the backup file shown below, and click \"DOWNLOAD FILE\" above to download it.\n\n\
 Press any key to return to the main menu." 13 50
