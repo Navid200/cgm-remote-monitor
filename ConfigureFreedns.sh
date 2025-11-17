@@ -22,7 +22,7 @@ do
 go_back=0
 clear
 exec 3>&1
-Values=$(dialog --colors --ok-label "Submit" --form "       \Zr Developed by the xDrip team \Zn\n\n\n\
+Values=$(dialog --colors --ok-label "Submit" --form "         \Zr Google Cloud Nightscout \Zn\n\n\n\
 Enter your FreeDNS user ID and password to establish a hostname, or press ESC if you already have a working hostname to keep it unchanged." 14 50 0 "User ID:" 1 1 "$user" 1 14 25 0 "Password:" 2 1 "$pass" 2 14 25 0 2>&1 1>&3)
 response=$?
 if [ $response = 255 ] || [ $response = 1 ] # cancled or escaped
@@ -37,7 +37,7 @@ pass=$(echo "$Values" | sed -n 2p)
 
 if [[ "$user" =~ [A-Z] ]]
 then
-dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
 Your FreeDNS user ID does not include uppercase letters. Although FreeDNS does not notify you, it automatically converts all uppercase letters in your user ID to lowercase.\n\n\
 To verify your user ID, log in to FreeDNS and check the main menu. Your approved user ID is displayed at the top of the right pane.\n\n\
 Please try again." 16 50
@@ -50,7 +50,7 @@ if [ "$user" = "" ] || [ "$pass" = "" ] #  At least one parameter is blank.
 then
   go_back=1
   clear
-  dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+  dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
 You need to enter both your user ID and password. Please try again."  8 50
 fi
 clear
@@ -64,7 +64,7 @@ then
   wget -O /tmp/hosts "$arg"
 if [ ! "`grep 'Could not authenticate' /tmp/hosts`" = "" ] # Failed to log in
 then
-  dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nFailed to authenticate.  Please try again."  7 50
+  dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\nFailed to authenticate.  Please try again."  7 50
   go_back=1
 fi
 
@@ -73,14 +73,14 @@ then
   Lines=$(awk 'END{print NR}' /tmp/hosts)
   if [ $Lines -eq 0 ] # No hostnames # if 5
   then
-    dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nNo subdomains were found. Please ensure you have at least one in your FreeDNS account and try again."  8 50
+    dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\nNo subdomains were found. Please ensure you have at least one in your FreeDNS account and try again."  8 50
     go_back=1
 
   elif [ $Lines -gt 1 ] # More than one hostname
   then
     clear
     exec 3>&1
-    subvalue=$(dialog --colors --ok-label "Submit" --form "       \Zr Developed by the xDrip team \Zn\n\n\nYou have more than one subdomain. Please enter the subdomain you wish to use. \nIt should follow the format: mine.strangled.net"  13 50 0 "Subdomain:" 1 1 "$subd" 1 14 25 0 2>&1 1>&3)
+    subvalue=$(dialog --colors --ok-label "Submit" --form "         \Zr Google Cloud Nightscout \Zn\n\n\nYou have more than one subdomain. Please enter the subdomain you wish to use. \nIt should follow the format: mine.strangled.net"  13 50 0 "Subdomain:" 1 1 "$subd" 1 14 25 0 2>&1 1>&3)
     response2=$?
     if [ $response2 = 255 ] || [ $response2 = 1 ] # canceled or escaped
     then
@@ -95,7 +95,7 @@ then
       then
         go_back=1
         clear
-        dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nYou need to enter a subdomain. Please try again."  7 50
+        dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\nYou need to enter a subdomain. Please try again."  7 50
       fi
 
       if [ $go_back -lt 1 ] # if 3
@@ -104,7 +104,7 @@ then
         if [ ! -s /tmp/FullLine ] # Not found
         then
           go_back=1
-          dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\nThe subdomain you entered does not match any of the ones we found. Please try again." 9 50
+          dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\nThe subdomain you entered does not match any of the ones we found. Please try again." 9 50
         fi
         if [ $go_back -lt 1 ]  # if 2
         then
@@ -112,7 +112,7 @@ then
         if [ $Lines2 -gt 1 ] # More than one found  if 1
         then
           go_back=1
-          dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\nThe value you entered matches more than one of your subdomains. Please try again and enter a unique value." 10 50
+          dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\nThe value you entered matches more than one of your subdomains. Please try again and enter a unique value." 10 50
         else
           FLine=$(</tmp/FullLine)
           got_them=1 # We have the hostname and direct URL
@@ -161,7 +161,7 @@ EOF
 # Start the first update immediately
 wget -O - --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 $directurl
 
-dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
 Press Enter to proceed. Please be patient, as this may take up to 10 minutes to complete." 8 50
 clear
 # wait for the ip to be updated. This might take up to 10 minutes.
@@ -184,7 +184,7 @@ while : ; do
     if [ $cnt -gt 20 ]
     then
       clear
-      dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+      dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
 Please close this window and open a new SSH terminal. Then, run Installation Phase 2 again to complete the configuration." 9 50
       exit
     fi
@@ -215,10 +215,10 @@ cat > /tmp/FreeDNS_Failed << EOF
 Internal error.  Must run FreeDNS again.
 EOF
 
-dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\nInternal error. Press Enter to exit, then run \"Install Phase 2\" again." 8 50
+dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\nInternal error. Press Enter to exit, then run \"Install Phase 2\" again." 8 50
 
 else  # If FreeDNS is down
-dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
 It seems the FreeDNS site is currently down. Please try again once FreeDNS is back up." 9 50
 cat > /tmp/FreeDNS_Failed << EOF
 The FreeDNS site is down.
