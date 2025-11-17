@@ -72,7 +72,7 @@ case $Choice in
 ;;
 
 2)
-dialog --colors --title " \Zr Google Cloud Nightscout \Zn"   --textbox /xDrip/Logs 26 74 
+dialog --colors --title "  \Zr Google Cloud Nightscout \Zn"   --textbox /xDrip/Logs 26 74 
 ;;
 
 3)
