@@ -27,7 +27,7 @@ sudo /xDrip/scripts/NS_Install2.sh
 ;;
 
 3)
-dialog --colors --msgbox "       \Zr Developed by the xDrip team \Zn\n\n\
+dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\n\
 This will update your server and Nightscout to the latest available versions.  Press Enter to proceed or ESC to cancel."  9 50
 response=$?
 if [ $response = 255 ] || [ $response = 1 ]
@@ -50,7 +50,7 @@ else
   /xDrip/scripts/update_packages2.sh
   /xDrip/scripts/StartUpSetup.sh
   clear
-  dialog --colors --msgbox "        \Zr Developed by the xDrip team \Zn\n\n\
+  dialog --colors --msgbox "        \Zr Google Cloud Nightscout \Zn\n\n\
 Close this SSH window to complete updates." 7 50
 fi
 ;;
