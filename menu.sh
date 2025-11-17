@@ -9,7 +9,7 @@ do
 
 clear
 Choice=$(dialog --colors --nocancel --help-button --menu "\
-        \Zr Developed by the xDrip team \Zn\n\n
+        \Zr Google Cloud Nightscout \Zn\n\n
 Click OK or press Enter to select the highlighted option.\n\n" 18 50 8\
  "1" "Status (may take up to 2 minutes.)"\
  "2" "Logs"\
@@ -73,7 +73,7 @@ case $Choice in
 ;;
 
 2)
-dialog --colors --title "\Zr Developed by the xDrip team \Zn"   --textbox /xDrip/Logs 26 74 
+dialog --colors --title "\Zr Google Cloud Nightscout \Zn"   --textbox /xDrip/Logs 26 74 
 ;;
 
 3)
@@ -108,7 +108,7 @@ fi
 8)
 cd /tmp
 clear
-dialog --colors --msgbox "        \Zr Developed by the xDrip team \Zn\n\n\
+dialog --colors --msgbox "        \Zr Google Cloud Nightscout \Zn\n\n\
 You will now exit to the shell (terminal).  To return to the menu, enter \"menu\" in the terminal without the quotes." 9 50
 clear
 exit
