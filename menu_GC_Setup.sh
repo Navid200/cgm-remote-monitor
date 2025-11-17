@@ -5,8 +5,7 @@ echo "Bringing up the Google Cloud menu" - Navid200
 echo
 
 clear
-Choice=$(dialog --colors --nocancel --nook --menu "\
-        \Zr Google Cloud Nightscout \Zn\n\n
+Choice=$(dialog --colors --nocancel --nook --menu "          \Zr Google Cloud Nightscout \Zn\n\n
 Click OK or press Enter to select the highlighted option.\n" 14 50 7\
  "1" "Install Nightscout phase 1 - 25 minutes"\
  "2" "Install Nightscout phase 2 - 10 minutes"\
@@ -27,7 +26,7 @@ sudo /xDrip/scripts/NS_Install2.sh
 ;;
 
 3)
-dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\n\
+dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
 This will update your server and Nightscout to the latest available versions.  Press Enter to proceed or ESC to cancel."  9 50
 response=$?
 if [ $response = 255 ] || [ $response = 1 ]
@@ -50,7 +49,7 @@ else
   /xDrip/scripts/update_packages2.sh
   /xDrip/scripts/StartUpSetup.sh
   clear
-  dialog --colors --msgbox "        \Zr Google Cloud Nightscout \Zn\n\n\
+  dialog --colors --msgbox "          \Zr Google Cloud Nightscout \Zn\n\n\
 Close this SSH window to complete updates." 7 50
 fi
 ;;
