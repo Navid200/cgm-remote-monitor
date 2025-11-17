@@ -45,7 +45,7 @@ ubversion="$(cat /etc/issue | awk '{print $2}')"
 if  [[ ! "$ubversion" == "24."* ]]
 then
   clear
-  dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\n\
+  dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
 This bootstrap is intended for Ubuntu 24.  You are running it on a different version of Ubuntu.  If you intend to update your setup, there is a different recommended approach.  Please contact us for more information at https://github.com/NightscoutFoundation/xDrip/discussions." 15 50
   exit
 fi
@@ -56,7 +56,7 @@ then
 ExistingSystem=1
 
 clear
-dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\n\
+dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
 The script you are running, \"bootstrap\", is designed to initiate an installation. However, the file system does not appear to be empty.\n\n  
 If an installation already exists on this machine, pressing Enter will modify it.  If this is not your intention, please press ESC to abort." 14 50
 if [ $? -eq 255 ]
@@ -69,7 +69,7 @@ fi
 if [[ ! "$ubversion" == "24.04"* ]] || [[ ! "$(which tbl)" == "" ]] # If the selected version of ubuntu is not what we want or if the main version has been installed instead of minimal
 then
   clear
-  dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\n\
+  dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
 The Ubuntu installation option is incorrect. Please refer to the guide for detailed instructions." 9 50  
   exit
 fi 
@@ -156,11 +156,11 @@ fi
 if [ "$ExistingSystem" = "0" ]  # If this is a new installation.
 then
   clear
-  dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\n\
+  dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
 If any item above the line on the status page (shown next) is red, it indicates an incorrect parameter that could lead to malfunction or additional costs.  Please take note of the issue, delete the virtual machine, and create a new one. For more details, refer to the guide." 13 50
 else # If this is an existing installation.
   clear
-  dialog --colors --msgbox "       \Zr Google Cloud Nightscout \Zn\n\nBootstrap is complete.  Press Enter to proceed to the status page." 8 50
+  dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\nBootstrap is complete.  Press Enter to proceed to the status page." 8 50
 fi
 
 # Add log 
