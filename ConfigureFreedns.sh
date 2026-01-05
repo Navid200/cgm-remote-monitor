@@ -73,7 +73,7 @@ then
   Lines=$(awk 'END{print NR}' /tmp/hosts)
   if [ $Lines -eq 0 ] # No hostnames # if 5
   then
-    dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\nNo subdomains were found. Please ensure you have at least one in your FreeDNS account and try again."  8 50
+    dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\nNo subdomains were found. Please ensure you have at least one in your FreeDNS account and try again."  9 50
     go_back=1
 
   elif [ $Lines -gt 1 ] # More than one hostname
