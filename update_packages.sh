@@ -27,29 +27,33 @@ then
   # The last item on the above list of packages must be verified in Status.sh to have been installed.
 fi 
 
+
 # mongo
-whichpack="$(mongod --version | sed -n 1p)"
-if [ ! "${whichpack%%.*}" = "db version v8" ]
+mongover="$(mongod --version 2>/dev/null | sed -n 's/^db version v//p' | head -n1)"
+
+if [ -z "$mongover" ] || dpkg --compare-versions "$mongover" lt "8.0.17"
 then
   /xDrip/scripts/wait_4_completion.sh
+
   curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-8.0.gpg --dearmor
-  echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list   
+
+  echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
   /xDrip/scripts/wait_4_completion.sh
   sudo apt-get update
-  sudo apt-get install -y mongodb-org=8.0.0 mongodb-org-database=8.0.0 mongodb-org-server=8.0.0 mongodb-mongosh mongodb-org-mongos=8.0.0 mongodb-org-tools=8.0.0
 
-  echo "mongodb-org hold" | sudo dpkg --set-selections
-  echo "mongodb-org-database hold" | sudo dpkg --set-selections
-  echo "mongodb-org-server hold" | sudo dpkg --set-selections
-  echo "mongodb-mongosh hold" | sudo dpkg --set-selections
-  echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
-  echo "mongodb-org-tools hold" | sudo dpkg --set-selections
+  # allow upgrade if packages were previously held
+  sudo apt-mark unhold mongodb-org mongodb-org-database mongodb-org-server mongodb-mongosh mongodb-org-mongos mongodb-org-tools || true
+
+  sudo apt-get install -y mongodb-org=8.0.17 mongodb-org-database=8.0.17 mongodb-org-server=8.0.17 mongodb-mongosh mongodb-org-mongos=8.0.17 mongodb-org-tools=8.0.17
+
+  # re-hold to prevent unintended upgrades
+  sudo apt-mark hold mongodb-org mongodb-org-database mongodb-org-server mongodb-mongosh mongodb-org-mongos mongodb-org-tools
 
   /xDrip/scripts/wait_4_completion.sh
-  systemctl start mongod
   systemctl enable mongod
-
+  systemctl start mongod
 fi
+
 
 # node - We install version 16 of node here, which automatically  updates npm to 8.
 check_node_candidate() {
