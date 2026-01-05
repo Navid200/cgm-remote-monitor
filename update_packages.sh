@@ -35,7 +35,10 @@ if [ -z "$mongover" ] || dpkg --compare-versions "$mongover" lt "8.0.17"
 then
   /xDrip/scripts/wait_4_completion.sh
 
-  curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-8.0.gpg --dearmor
+  if [ ! -f /usr/share/keyrings/mongodb-server-8.0.gpg ]; then
+    curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/mongodb-server-8.0.gpg
+  fi
+
 
   echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
   /xDrip/scripts/wait_4_completion.sh
