@@ -53,8 +53,8 @@ then
   sudo apt-mark hold mongodb-org mongodb-org-database mongodb-org-server mongodb-mongosh mongodb-org-mongos mongodb-org-tools
 
   /xDrip/scripts/wait_4_completion.sh
-  systemctl enable mongod
-  systemctl start mongod
+  sudo systemctl enable mongod
+  sudo systemctl start mongod
 fi
 
 
