@@ -57,7 +57,7 @@ git pull  # Update database from remote.
 /xDrip/scripts/wait_4_completion.sh
 apt-get update
 npm install
-# sudo npm run postinstall
+npm run postinstall
 npm run-script post-generate-keys
 
 for loop in 1 2 3 4 5 6 7 8 9
