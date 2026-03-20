@@ -55,7 +55,7 @@ git reset --hard  # delete any local edits.
 git pull  # Update database from remote.
 
 /xDrip/scripts/wait_4_completion.sh
-apt-get update
+apt-get update || apt-get update
 
 if ! npm install || [ "$(ls -A node_modules | grep -v '^\.cache$' | wc -l)" -eq 0 ]
 then
