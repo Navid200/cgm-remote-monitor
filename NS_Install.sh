@@ -6,9 +6,9 @@ echo
 
 if [ "`id -u`" != "0" ]
 then
-echo "Script needs root - use sudo bash NS_Install.sh"
-echo "Cannot continue.."
-exit 5
+  echo "Script needs root - use sudo bash NS_Install.sh"
+  echo "Cannot continue.."
+  exit 5
 fi
 
 clear
@@ -17,17 +17,17 @@ The required packages will now be installed.  This process will take approximate
 If this is not a convenient time, press ESC to cancel." 14 50
 if [ $? = 255 ]
 then
-clear
-exit
+  clear
+  exit
 fi
 clear
 
 if [ ! -s /var/SWAP ]
 then
-echo "Creating swap file"
-dd if=/dev/zero of=/var/SWAP bs=1M count=2000
-chmod 600 /var/SWAP
-mkswap /var/SWAP
+  echo "Creating swap file"
+  dd if=/dev/zero of=/var/SWAP bs=1M count=2000
+  chmod 600 /var/SWAP
+  mkswap /var/SWAP
 fi
 swapon 2>/dev/null /var/SWAP
 
@@ -56,7 +56,15 @@ git pull  # Update database from remote.
 
 /xDrip/scripts/wait_4_completion.sh
 apt-get update
-npm install
+
+if ! npm install || [ "$(ls -A node_modules | grep -v '^\.cache$' | wc -l)" -eq 0 ]
+then
+  dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
+Phase 1 incomplete\n\n\
+Nightscout install failed. Please run Phase 1 again." 14 50
+  exit 1
+fi
+
 # sudo npm run postinstall
 npm run-script post-generate-keys
 
