@@ -131,10 +131,10 @@ fi
 Phase1=""
 cd /srv
 cd "$(< repo)"
-if [ ! -s ./node_modules ]
+if [ "$(ls -A node_modules | grep -v '^\.cache$' | wc -l)" -eq 0 ]
 then
   Phase1="\Zb\Z1Missing node_modules\Zn"
-fi  
+fi
 
 # Verify that exit 0 is in rc.local so that Nightscout can start after a reboot even if FreeDNS is down.
 rclocal_1="\Zb\Z1Startup dependence on FreeDNS\Zn"
