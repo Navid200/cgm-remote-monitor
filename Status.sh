@@ -128,7 +128,7 @@ then
 fi
 
 # Verify that Installation phase 1 has been executed after bootstrap
-# Bootstrap clears the /srv directory.  It then recreates the Node_modules directory after creating a local clone of the repository.
+# Bootstrap clears the /srv directory.  It then creates a local clone of the repository, which recreates the node_modules directory.
 # But, this directory will only contain a .cache directory until phase is run.  That's how we verify if phase 1 has been executed after or not.
 Phase1=""
 cd /srv
