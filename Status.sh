@@ -128,13 +128,15 @@ then
 fi
 
 # Verify that Installation phase 1 has been executed after bootstrap
+# Bootstrap clears the /srv directory.  It then creates a local clone of the repository, which recreates the node_modules directory.
+# But, this directory will only contain a .cache directory until phase is run.  That's how we verify if phase 1 has been executed after or not.
 Phase1=""
 cd /srv
 cd "$(< repo)"
-if [ ! -s ./node_modules ]
+if [ "$(ls -A node_modules | grep -v '^\.cache$' | wc -l)" -eq 0 ]
 then
   Phase1="\Zb\Z1Missing node_modules\Zn"
-fi  
+fi 
 
 # Verify that exit 0 is in rc.local so that Nightscout can start after a reboot even if FreeDNS is down.
 rclocal_1="\Zb\Z1Startup dependence on FreeDNS\Zn"
@@ -219,7 +221,7 @@ Disk size: $disksz        $DiskUsedPercent used \n\
 Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
-Google Cloud Nightscout  2026.03.21\n\
+Google Cloud Nightscout  2026.03.22\n\
 $apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass \n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
