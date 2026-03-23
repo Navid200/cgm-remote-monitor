@@ -13,6 +13,7 @@ fi
 
 
 cd /srv 
+cd "$(< repo)" 
 
 /xDrip/scripts/wait_4_completion.sh
 apt-get update || apt-get update
