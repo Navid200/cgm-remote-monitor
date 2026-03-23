@@ -57,25 +57,5 @@ git pull  # Update database from remote.
 /xDrip/scripts/wait_4_completion.sh
 apt-get update || apt-get update
 
-if ! npm install || [ "$(ls -A node_modules | grep -v '^\.cache$' | wc -l)" -eq 0 ]
-then
-  dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
-Phase 1 incomplete\n\n\
-Nightscout install failed. Please run Phase 1 again." 11 50
-  exit 1
-fi
-
-# sudo npm run postinstall
-npm run-script post-generate-keys
-
-for loop in 1 2 3 4 5 6 7 8 9
-do
-read -t 0.1 dummy
-done
-
-# Add log
-/xDrip/scripts/AddLog.sh "Installation phase 1 completed" /xDrip/Logs
-
-/xDrip/scripts/reboot.sh 
 
   
