@@ -25,6 +25,7 @@ do
 
   echo "Starting run $run" >> "$LOG_FILE"
 
+  npm cache clean --force >> "$LOG_FILE" 2>&1
   # Install
   npm install >> "$LOG_FILE" 2>&1
 
