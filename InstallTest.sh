@@ -18,7 +18,7 @@ cd "$(< repo)"
 /xDrip/scripts/wait_4_completion.sh
 apt-get update || apt-get update
 
-npm install 
+npm install >> LOG_FILE 2>&1
 
 
   
