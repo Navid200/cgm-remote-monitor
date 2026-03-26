@@ -40,11 +40,9 @@ fi
 
 # Create mongo user and admin.
 /xDrip/scripts/wait_4_completion.sh
-
-wait  # Wait for background processes to complete
 mongosh Nightscout --eval 'db.createUser({user: "username", pwd: "password", roles:["readWrite"]})'
 
-wait  # Wait for background processes to complete
+/xDrip/scripts/wait_4_completion.sh
 mongosh admin --eval 'db.createUser({user: "mongoadmin", pwd: "mongoadmin", roles:["userAdminAnyDatabase", "dbAdminAnyDatabase", "readWriteAnyDatabase"]})'
 
 cd /srv 
@@ -57,7 +55,18 @@ git pull  # Update database from remote.
 /xDrip/scripts/wait_4_completion.sh
 apt-get update || apt-get update
 
-if ! npm install || [ "$(ls -A node_modules | grep -v '^\.cache$' | wc -l)" -eq 0 ]
+LOG_DIR="/xDrip/phase1Logs"
+mkdir -p "$LOG_DIR"
+
+mv "$LOG_DIR/phase1_npm_3.log" "$LOG_DIR/phase1_npm_4.log" 2>/dev/null
+mv "$LOG_DIR/phase1_npm_2.log" "$LOG_DIR/phase1_npm_3.log" 2>/dev/null
+mv "$LOG_DIR/phase1_npm_1.log" "$LOG_DIR/phase1_npm_2.log" 2>/dev/null
+mv "$LOG_DIR/phase1_npm.log"   "$LOG_DIR/phase1_npm_1.log" 2>/dev/null
+
+LOG_FILE="$LOG_DIR/phase1_npm.log"
+
+/xDrip/scripts/wait_4_completion.sh
+if ! npm install > "$LOG_FILE" 2>&1 || [ "$(ls -A node_modules | grep -v '^\.cache$' | wc -l)" -eq 0 ]
 then
   dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
 Phase 1 incomplete\n\n\
@@ -65,7 +74,10 @@ Nightscout install failed. Please run Phase 1 again." 11 50
   exit 1
 fi
 
+# /xDrip/scripts/wait_4_completion.sh
 # sudo npm run postinstall
+
+/xDrip/scripts/wait_4_completion.sh
 npm run-script post-generate-keys
 
 for loop in 1 2 3 4 5 6 7 8 9
