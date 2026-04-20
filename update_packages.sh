@@ -31,23 +31,27 @@ fi
 # mongo
 mongover="$(mongod --version 2>/dev/null | sed -n 's/^db version v//p' | head -n1)"
 
-if [ -z "$mongover" ] || dpkg --compare-versions "$mongover" lt "8.0.17"
+# Check for version 7.0.14 (a stable 7.0 release)
+if [ -z "$mongover" ] || dpkg --compare-versions "$mongover" lt "7.0.14"
 then
   /xDrip/scripts/wait_4_completion.sh
 
-  if [ ! -f /usr/share/keyrings/mongodb-server-8.0.gpg ]; then
-    curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/mongodb-server-8.0.gpg
+  # Use the 7.0 GPG key
+  if [ ! -f /usr/share/keyrings/mongodb-server-7.0.gpg ]; then
+    curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/mongodb-server-7.0.gpg
   fi
 
-
-  echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
+  # Use the jammy repository for version 7.0 (noble does not have a native 7.0 repo)
+  echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+  
   /xDrip/scripts/wait_4_completion.sh
   sudo apt-get update
 
-  # allow upgrade if packages were previously held
+  # allow upgrade/downgrade if packages were previously held
   sudo apt-mark unhold mongodb-org mongodb-org-database mongodb-org-server mongodb-mongosh mongodb-org-mongos mongodb-org-tools || true
 
-  sudo apt-get install -y mongodb-org=8.0.17 mongodb-org-database=8.0.17 mongodb-org-server=8.0.17 mongodb-mongosh mongodb-org-mongos=8.0.17 mongodb-org-tools=8.0.17
+  # Install specific 7.0.14 versions
+  sudo apt-get install -y mongodb-org=7.0.14 mongodb-org-database=7.0.14 mongodb-org-server=7.0.14 mongodb-mongosh mongodb-org-mongos=7.0.14 mongodb-org-tools=7.0.14
 
   # re-hold to prevent unintended upgrades
   sudo apt-mark hold mongodb-org mongodb-org-database mongodb-org-server mongodb-mongosh mongodb-org-mongos mongodb-org-tools
@@ -56,6 +60,7 @@ then
   sudo systemctl enable mongod
   sudo systemctl start mongod
 fi
+
 
 
 # node - Install Node 22.22.0
