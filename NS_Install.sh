@@ -60,7 +60,6 @@ run_installation() {
     mv "$LOG_DIR/phase1_npm.log"   "$LOG_DIR/phase1_npm_1.log" 2>/dev/null
     LOG_FILE="$LOG_DIR/phase1_npm.log"
 
-    echo "Running NPM Install (This takes ~20 minutes)..."
     /xDrip/scripts/wait_4_completion.sh
     
     if ! npm install 2>&1 | tee "$LOG_FILE" || [ "$(ls -A node_modules | grep -v '^\.cache$' | wc -l)" -eq 0 ]
