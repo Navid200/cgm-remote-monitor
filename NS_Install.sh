@@ -82,8 +82,8 @@ run_installation() {
 # EXECUTION with progressbox frame
 run_installation 2>&1 | dialog --colors \
     --progressbox "                         \Zr Google Cloud Nightscout \Zn\n\n\
- Do not close this window while the installation is in progress.  The system will reboot automatically once the process has completed.\n\
-  " 30 80
+Do not close this window while the installation is in progress.  The system will reboot automatically once the process has completed.\n\
+ " 30 80
 
 # Check if the installation function failed
 if [ ${PIPESTATUS[0]} -ne 0 ]; then
