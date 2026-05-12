@@ -82,7 +82,8 @@ run_installation() {
 
 # EXECUTION with progressbox frame
 run_installation 2>&1 | dialog --colors \
-    --progressbox "         \Zr Google Cloud Nightscout \Zn\n\n\
+    --progressbox "                         \Zr Google Cloud Nightscout \Zn\n\n\
+    \Zb                Installation in progress \Zn\n\n\
  IMPORTANT: Please do not close this window.\n\
  The installation is in progress. The system will automatically\n\
  reboot once the process is complete." 30 80
