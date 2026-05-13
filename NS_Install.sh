@@ -14,7 +14,7 @@ fi
 clear
 # Initial Msgbox
 dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
-The required packages will now be installed. This process will take approximately 25 minutes. Please keep this terminal open. The system will reboot automatically when finished.\n\n\
+The required packages as well as Nightscout will now be installed. This process will take approximately 25 minutes. Please keep this terminal open. The system will reboot automatically when finished.\n\n\
 Press Enter to proceed, or ESC to cancel." 14 50
 
 clear
@@ -73,16 +73,15 @@ run_installation() {
     npm run-script post-generate-keys
 
     /xDrip/scripts/AddLog.sh "Installation phase 1 completed" /xDrip/Logs
-    
-    echo ""
-    echo "PROCESS COMPLETE. THE SYSTEM WILL REBOOT IN A MOMENT..."
-    sleep 3
 }
 
 # EXECUTION with progressbox frame
 run_installation 2>&1 | dialog --colors \
     --progressbox "                         \Zr Google Cloud Nightscout \Zn\n\n\
-Do not close this window while the installation is in progress.  The system will reboot automatically once the process has completed.\n\
+ Do not close this window while the installation is in progress.\n\
+ The system will reboot automatically once the process has completed.\n\n\
+ An expected error message will appear after reboot.\n\
+ Wait 45 seconds before attempting to reconnect.\n\
  " 30 80
 
 # Check if the installation function failed
