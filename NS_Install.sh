@@ -76,7 +76,7 @@ run_installation() {
 }
 
 # EXECUTION with progressbox frame
-run_installation 2>&1 | dialog --colors \
+run_installation 2>&1 | fold -s -w 75 | dialog --colors \
     --progressbox "                         \Zr Google Cloud Nightscout \Zn\n\n\
  Do not close this window while Phase 1 of the installation is in progress.\n\
  The system will reboot automatically once the process has completed.\n\n\
