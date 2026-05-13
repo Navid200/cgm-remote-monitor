@@ -78,7 +78,7 @@ run_installation() {
 # EXECUTION with progressbox frame
 run_installation 2>&1 | dialog --colors \
     --progressbox "                         \Zr Google Cloud Nightscout \Zn\n\n\
- Do not close this window while the installation is in progress.\n\
+ Do not close this window while Phase 1 of the installation is in progress.\n\
  The system will reboot automatically once the process has completed.\n\n\
  An expected error message will appear after reboot.\n\
  Wait 45 seconds before attempting to reconnect.\n\
