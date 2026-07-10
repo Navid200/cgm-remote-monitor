@@ -64,7 +64,12 @@ then
 http="\Zb\Z1Closed\Zn" # Set color to red if the Firewall is not set.
 fi
 
+#Mongo server
 mongo="$(mongod --version | awk '/db version/ {print $NF}')"
+
+#Mongo driver
+mongodrv="$(jq -r .version /srv/$(cat /srv/repo)/node_modules/mongodb/package.json 2>/dev/null)"
+if [ -z "$mongodrv" ]; then mongodrv="???"; fi
 
 ns="$(ps -ef | grep SCREEN | grep root | awk '{print $2, "  ", $5}')"
 
@@ -221,13 +226,13 @@ Disk size: $disksz        $DiskUsedPercent used \n\
 Ubuntu: $ubuntu \n\
 HTTP & HTTPS:  $http \n\
 ------------------------------------------ \n\
-Google Cloud Nightscout  2026.05.23\n\
+Google Cloud Nightscout  2026.07.10\n\
 $apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass \n\n\
 /$uname/$repo/$branch\n\
 Swap: $swap \n\
 Ubuntu update: $LastReboot \n\
 Node: $node \n\
-Mongo: $mongo \n\
+Mongo Srv/Drv: $mongo    $mongodrv \n\
 NS proc: $ns \n\
 FreeDNS name and IP: $FD \n\
 Certificate: $cert \
