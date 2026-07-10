@@ -232,7 +232,7 @@ $apisec_problem $Missing $Phase1 $rclocal_1 $freedns_id_pass \n\n\
 Swap: $swap \n\
 Ubuntu update: $LastReboot \n\
 Node: $node \n\
-Mongo Srv/Drv: $mongo    $mongodrv \n\
+Mongo Srv/Drv: $mongo  /  $mongodrv \n\
 NS proc: $ns \n\
 FreeDNS name and IP: $FD \n\
 Certificate: $cert \
