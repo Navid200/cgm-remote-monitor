@@ -89,8 +89,8 @@ else
 fi
 
 # Get the Mongo driver version
-DRIVER_JSON="$ACTIVE_DIR/node_modules/mongodb/package.json"
-mongodrv=$(jq -r .version "$DRIVER_JSON" 2>/dev/null)
+MONGO_DRIVER_JSON="$ACTIVE_DIR/node_modules/mongodb/package.json"
+mongodrv=$(jq -r .version "$MONGO_DRIVER_JSON" 2>/dev/null)
 
 ns="$(ps -ef | grep SCREEN | grep root | awk '{print $2, "  ", $5}')"
 
