@@ -55,7 +55,7 @@ base_version=$(echo "$ubuntu_raw" | grep -oE '^[0-9]+\.[0-9]+')
 if [ ! "$(which tbl)" = "" ]; then
     # Caught a full/non-minimal environment forced onto the machine -> Red (\Z1)
     ubuntu="\Zb\Z1${ubuntu_raw} (NOT MINIMAL)\Zn"
-elif [ ! "$ubuntu_raw" = "24.04.5 LTS" ]; then
+elif [ ! "$ubuntu_raw" = "24.04.4 LTS" ]; then
     if [ "$base_version" = "24.04" ]; then
         # Same major release base, but a newer minor subversion (e.g. 24.04.6) -> Orange (\Z3)
         ubuntu="\Zb\Z3${ubuntu_raw}\Zn"
