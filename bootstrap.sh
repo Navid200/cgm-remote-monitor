@@ -75,14 +75,6 @@ sudo apt-get install -y dialog git
 
 ubversion="$(cat /etc/issue | awk '{print $2}')"
 
-if  [[ ! "$ubversion" == "24."* ]]
-then
-  clear
-  dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
-This bootstrap is intended for Ubuntu 24.  You are running it on a different version of Ubuntu.  If you intend to update your setup, there is a different recommended approach.  Please contact us for more information at https://github.com/NightscoutFoundation/xDrip/discussions." 15 50
-  exit
-fi
-
 ExistingSystem=0
 if [ ! -z "$(ls /srv)" ]
 then
@@ -98,14 +90,6 @@ clear
 exit
 fi
 fi
-
-if [[ ! "$ubversion" == "24.04"* ]] || [[ ! "$(which tbl)" == "" ]] # If the selected version of ubuntu is not what we want or if the main version has been installed instead of minimal
-then
-  clear
-  dialog --colors --msgbox "         \Zr Google Cloud Nightscout \Zn\n\n\
-The Ubuntu installation option is incorrect. Please refer to the guide for detailed instructions." 9 50  
-  exit
-fi 
 
 clear
 dialog --colors --defaultno --yesno "              \Zr Google Cloud Nightscout \Zn\n\n\
