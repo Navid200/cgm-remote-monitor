@@ -1,6 +1,6 @@
 #!/bin/bash
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
-# curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/MongoDriverVersionCheck_Test/bootstrap.sh | bash -s -- Navid200/cgm-remote-monitor MongoDriverVersionCheck_Test
+# curl https://raw.githubusercontent.com/Navid200/cgm-remote-monitor/UbuntuStatusPage_Test/bootstrap.sh | bash -s -- Navid200/cgm-remote-monitor UbuntuStatusPage_Test
 
 if [[ "$CLOUD_SHELL" = true ]]; then
   echo "You cannot run this script in Cloud Shell."
