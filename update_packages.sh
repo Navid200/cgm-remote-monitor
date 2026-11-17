@@ -54,8 +54,8 @@ then
 fi
 
 
-# node - Install Node 22.22.0
-NODE_VERSION="22.22.0"
+# node - Install Node 24.22.3
+NODE_VERSION="24.22.3"
 NODE_URL="https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz"
 NODE_INSTALL_DIR="/usr/local/node-$NODE_VERSION"
 
